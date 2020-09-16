@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.app{
+  margin: 0 5vw 0 5vw;
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .list{
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      li{
+          margin: 0 0 0 5px;
+      }
+  }
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+}
