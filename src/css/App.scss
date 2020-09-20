@@ -3,58 +3,72 @@
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, p{
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   color: whitesmoke;
 }
 
 .app {
   // height: 100vh;
   // width: auto;
-  margin: 1em;
+}
+
+.landing {
+  background-color: #9570c5;
+  height: 100%;
+  width: auto;
+  padding: .75rem;
+
+  .landing-info{
+    margin: 2vh 0 20vh 0;
+  }
+
+  .latest-projects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    margin-top: 1vh;
+
+    .arrow {
+      width: 100%;
+      height: auto;
+      max-width: 1.75em;
+      transform: rotate(90deg);
+      filter: invert(1);
+    }
+  }
 }
 
 .nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
 
   .list {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     li {
-      margin: 0 0 0 5px;
+      margin-left: 9vw;
     }
   }
 }
 
-.footer {
-  padding: 1em;
+.socials {
+  display: flex;
+  flex-direction: row;
 
-  .footer-text{
-    color: black;
-  }
-}
-
-.info{
-  background-color: blue; 
-  padding: 1em;
-
-  .infoList{
-    list-style-type: none;
-
-    .socials{
-      display: flex;
-      flex-direction: row;
-
-      .icon{
-        width: 100%;
-        height: auto;
-        max-width: 1.75em;
-        margin: 0 5px 0 0;
-        filter: invert(1);
-      }
-    }
+  .icon {
+    width: 100%;
+    height: auto;
+    max-width: 1.5em;
+    margin: 0 5px 0 0;
+    filter: invert(1);
   }
 }

@@ -5,9 +5,7 @@ import '../css/App.scss'
 const Nav = () => {
     return (
         <div className='nav'>
-                <h1>Matthew Chan</h1>
-                <ul class='list'>
-                    <li><p>About</p></li>
+                <ul className='list'>
                     <li><p>Projects</p></li>
                     <li><p>Contact</p></li>
                 </ul>
