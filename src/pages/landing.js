@@ -62,7 +62,7 @@ export class landing extends PureComponent {
         </div>
         <p>{landings.subText}</p>
         <div className="latest-projects">
-          <p>Latest Projects</p>
+          <p><strong>Latest Projects</strong></p>
           <img className="arrow" src={arrow} />
         </div>
       </div>
