@@ -21,9 +21,9 @@ p {
   background-color: #9570c5;
   height: 100%;
   width: auto;
-  padding: .75rem;
+  padding: 0.75rem;
 
-  .landing-info{
+  .landing-info {
     margin: 2vh 0 20vh 0;
   }
 
@@ -37,7 +37,7 @@ p {
     .arrow {
       width: 100%;
       height: auto;
-      max-width: 1.75em;
+      max-width: 1.25em;
       transform: rotate(90deg);
       filter: invert(1);
     }
@@ -71,4 +71,49 @@ p {
     margin: 0 5px 0 0;
     filter: invert(1);
   }
+}
+
+.project {
+  .project-cover {
+    height: auto;
+    width: 100vw;
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+
+    .project-link{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .arrow {
+        width: 100%;
+        height: auto;
+        max-width: 1.25em;
+      }
+    }
+
+    .project-info-text {
+      color: black;
+    }
+
+    .project-view{
+      display: flex;
+      flex-direction: column;
+      .icon {
+        width: 100%;
+        height: auto;
+        max-width: 1.5em;
+        margin: 0 5px 0 0;
+        filter: grayscale(1);
+      }
+    }
+  }
+
+
 }

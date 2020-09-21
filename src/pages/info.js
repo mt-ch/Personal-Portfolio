@@ -66,17 +66,6 @@ export class info extends PureComponent {
             <li>
               <p>{info.phoneNumber}</p>
             </li>
-            <li className='socials'>
-              <a href={info.github}>
-                <img className='icon' src={github}/>
-              </a>
-              <a href={info.linkedin}>
-                <img className='icon' src={linkedin}/>
-              </a>
-              <a href={info.resume}>
-                <img className='icon' src={breifcase}/>
-              </a>
-            </li>
           </ul>
         ))}
       </div>
@@ -86,15 +75,3 @@ export class info extends PureComponent {
 
 export default info;
 
-{
-  /* <div className='info'>
-    <h5>Information</h5>
-
-    <h1>Matthew Chan</h1>
-    <h2>Web Developer<br/>Designer</h2>
-
-    <p>github</p>
-    <p>resume</p>
-    <p>linkedin</p>
-</div> */
-}

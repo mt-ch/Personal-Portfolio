@@ -35,7 +35,6 @@ export class landing extends PureComponent {
       })
         .then(checkStatus)
         .then(parseJSON);
-      console.log(landings);
       this.setState({ landings });
     } catch (error) {
       this.setState({ error });
