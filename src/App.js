@@ -8,12 +8,15 @@ import Info from './pages/info'
 import Footer from './components/footer';
 import Landing from './pages/landing';
 import Projects from './pages/projects';
+import Abstract from './components/abstract';
 
 function App() {
   return (
     <div className="app">
       <Landing/>
+      {/* <Abstract/> */}
       <Projects/>
+      <Footer/>
     </div>
   );
 }

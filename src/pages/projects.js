@@ -59,11 +59,12 @@ export class projects extends PureComponent {
             <div className="project-info">
               <div className="project-text">
                 <div className="project-link">
-                  <h4 className="project-info-text">{project.projectName}</h4>
+                  <p className="project-info-text"><strong>{project.projectName}</strong></p>
                   <img className="arrow" src={arrow} />
                 </div>
                 <p className="project-info-text">{project.Roles}</p>
                 <p className="project-info-text">{project.Technologies}</p>
+                <p className="project-info-text description">{project.description}</p>
               </div>
 
               <div className="project-view">

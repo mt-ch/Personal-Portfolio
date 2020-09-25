@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Kanit:bold,regular");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:bold,regular");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: whitesmoke;
+  font-family: 'Open Sans';
+}
+
+p {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+h1 {
+  font-family: 'Kanit';
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 6vw, 6rem);
+  line-height: 1;
+  letter-spacing: .15rem;
+  color: #9570c500;
+  -webkit-text-stroke: 2px whitesmoke;
+}
+
+.latest-projects-text {
+  font-family: 'Kanit';
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .05rem;
+}
+
+.app {
+  background-color: black;
+}
+
+.landing {
+  background-color: #9570c5;
+  height: 100%;
+  width: auto;
+  padding: 0.75rem;
+}
+
+.landing .landing-info {
+  margin: 2vh 0 5px 0;
+}
+
+.landing .sub-text {
+  position: relative;
+  margin-top: 30vh;
+}
+
+.landing .latest-projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-top: 1vh;
+}
+
+.landing .latest-projects .arrow {
+  width: 100%;
+  height: auto;
+  max-width: 1.25em;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.nav .list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.nav .list li {
+  margin-left: 9vw;
+}
+
+.socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 1vh;
+}
+
+.socials .icon {
+  width: 100%;
+  height: auto;
+  max-width: clamp(1.25em, 3vw, 3.25em);
+  margin-right: clamp(2px, 2vw, 15px);
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.project .project-cover {
+  height: 200px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.project .project-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.75rem;
+}
+
+.project .project-info .project-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.project .project-info .project-link .arrow {
+  width: 100%;
+  height: auto;
+  max-width: 1.25em;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.project .project-info .description {
+  display: none;
+}
+
+.project .project-info .project-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.project .project-info .project-view .icon {
+  width: 100%;
+  height: auto;
+  max-width: 1.5em;
+  margin: 0 5px 0 0;
+  -webkit-filter: invert(1) grayscale(1);
+          filter: invert(1) grayscale(1);
+}
+
+.footer {
+  padding: 1em;
+}
+
+@media (min-width: 450px) {
+  .project {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 3em;
+  }
+  .project .project-view {
+    display: none !important;
+  }
+  .project .project-cover {
+    position: absolute;
+    right: 6vw;
+    height: 200px;
+    width: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    opacity: 0.25;
+  }
+  .project .description {
+    display: block !important;
+    max-width: 50vw;
+  }
+}
+/*# sourceMappingURL=App.css.map */
