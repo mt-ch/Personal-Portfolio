@@ -32,7 +32,6 @@ h1{
   -webkit-text-stroke: 2px whitesmoke;
 }
 
-
 .latest-projects-text{
   font-family: 'Kanit';
   font-weight: bold;
@@ -50,7 +49,7 @@ h1{
   background-color: #9570c5;
   height: 100%;
   width: auto;
-  padding: 0.75rem;
+  padding: 0rem;
 
   .landing-info {
     margin: 2vh 0 5px 0;
@@ -97,7 +96,7 @@ h1{
 .socials {
   display: flex;
   flex-direction: row;
-  margin-top: 1vh;
+  margin-top: 0vh;
 
   .icon {
     width: 100%;
@@ -190,4 +189,50 @@ h1{
       max-width: 50vw;
     }
   }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap");
+
+body {
+  font-family: "Abril Fatface", cursive;
+  margin: 0;
+  overflow: hidden;
+}
+
+#stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mainNav {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+.mainNav__list {
+  list-style: none;
+  text-align: center;
+  padding-left: 0;
+  margin: 0;
+}
+
+.mainNav__el:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.mainNav__link {
+  display: inline-block;
+  font-size: 170px;
+  text-decoration: none;
+  opacity: 0;
+  line-height: 0.8;
 }

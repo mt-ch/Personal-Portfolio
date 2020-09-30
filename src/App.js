@@ -9,12 +9,14 @@ import Footer from './components/footer';
 import Landing from './pages/landing';
 import Projects from './pages/projects';
 import Abstract from './components/abstract';
+import Shapes from './components/shapes';
 
 function App() {
   return (
     <div className="app">
-      <Landing/>
-      {/* <Abstract/> */}
+      {/* <Landing/> */}
+      {/* <Abstract className='abstract'/> */}
+      <Shapes/>
       <Projects/>
       <Footer/>
     </div>

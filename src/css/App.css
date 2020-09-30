@@ -45,7 +45,7 @@ h1 {
   background-color: #9570c5;
   height: 100%;
   width: auto;
-  padding: 0.75rem;
+  padding: 0rem;
 }
 
 .landing .landing-info {
@@ -123,7 +123,7 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 1vh;
+  margin-top: 0vh;
 }
 
 .socials .icon {
