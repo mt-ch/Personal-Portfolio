@@ -14,9 +14,10 @@ import Shapes from './components/shapes';
 function App() {
   return (
     <div className="app">
-      {/* <Landing/> */}
+    <Nav/>
+      <Landing/>
       {/* <Abstract className='abstract'/> */}
-      <Shapes/>
+      {/* <Shapes/> */}
       <Projects/>
       <Footer/>
     </div>
