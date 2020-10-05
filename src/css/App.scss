@@ -1,6 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Kanit:bold,regular');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:bold,regular');
+@import url("https://fonts.googleapis.com/css?family=Kanit:bold,regular");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:bold,regular");
 
 * {
   margin: 0;
@@ -14,29 +14,36 @@ h4,
 h5,
 p {
   color: whitesmoke;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
 }
 
-p{
+p {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
-h1{
-  font-family: 'Kanit';
+h1 {
+  font-family: "Kanit";
   font-weight: bold;
   text-transform: uppercase;
   font-size: clamp(2rem, 6vw, 6rem);
   line-height: 1;
-  letter-spacing: .15rem;
+  letter-spacing: 0.15rem;
   color: #9570c500;
   -webkit-text-stroke: 2px whitesmoke;
 }
 
-.latest-projects-text{
-  font-family: 'Kanit';
+h2 {
+  font-family: "Kanit";
+  font-size: clamp(2rem, 6vw, 6rem);
+  line-height: 0;
+  letter-spacing: 0.15rem;
+}
+
+.latest-projects-text {
+  font-family: "Kanit";
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: .05rem;
+  letter-spacing: 0.05rem;
 }
 
 .app {
@@ -55,10 +62,10 @@ h1{
     margin: 2vh 0 5px 0;
   }
 
-  .sub-text{
+  .sub-text {
     position: relative;
     margin-top: 30vh;
-  } 
+  }
 
   .latest-projects {
     display: flex;
@@ -83,11 +90,30 @@ h1{
   align-items: center;
   justify-content: space-between;
 
-  background: red;
-  border-bottom: 1px solid black;
-  padding: .25em 1em .25em 1em;
+  background: whitesmoke;
+  border-bottom: 1.5px solid black;
+  padding: 0.5em 1em 0.5em 1em;
 
-  .nav-list {
+  .nav-text {
+    color: black;
+  }
+
+  .title-link{
+    text-decoration: none;
+
+    .title-text {
+      color: green;
+    }
+  }
+
+  .title-link:hover{
+    .title-text {
+      color: black;
+      transition: color 1s;
+    }
+  }
+
+  .nav-desktop {
     list-style-type: none;
     display: none;
     flex-direction: row;
@@ -112,13 +138,10 @@ h1{
 }
 
 .project {
-  
   .project-cover {
-
     height: 200px;
     width: 100%;
     object-fit: cover;
-
   }
 
   .project-info {
@@ -128,7 +151,7 @@ h1{
     justify-content: space-between;
     padding: 0.75rem;
 
-    .project-link{
+    .project-link {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -144,11 +167,11 @@ h1{
     .project-info-text {
     }
 
-    .description{
+    .description {
       display: none;
     }
 
-    .project-view{
+    .project-view {
       display: flex;
       flex-direction: column;
       .icon {
@@ -156,30 +179,30 @@ h1{
         height: auto;
         max-width: 1.5em;
         margin: 0 5px 0 0;
-        filter: invert(1) grayscale(1);     
+        filter: invert(1) grayscale(1);
       }
     }
   }
 }
 
-.footer{
+.footer {
   padding: 1em;
-  .footer-text{
+  .footer-text {
   }
 }
 
 // Desktop
 @media (min-width: 450px) {
-  .project{
+  .project {
     display: flex;
     flex-direction: row;
     padding: 3em;
 
-    .project-view{
-      display: none!important;
+    .project-view {
+      display: none !important;
     }
 
-    .project-cover{
+    .project-cover {
       position: absolute;
       right: 6vw;
       height: 200px;
@@ -188,19 +211,18 @@ h1{
       opacity: 0.25;
     }
 
-    .description{
-      display: block!important;
+    .description {
+      display: block !important;
       max-width: 50vw;
     }
   }
 
-  .nav{
-    .nav-title{
-      display: none!important;
-
+  .nav {
+    .nav-title {
+      display: none !important;
     }
-    .nav-list{
-      display: flex!important;
+    .nav-desktop {
+      display: flex !important;
     }
   }
 }

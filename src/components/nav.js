@@ -6,9 +6,17 @@ import "../css/App.scss";
 const Nav = () => {
   return (
     <div className="nav">
-      <h2><strong>mc</strong></h2>
-      <p className='nav-title'>Navigation</p>
-      <ul className="nav-list">
+      <a className='title-link' href="/">
+        <h2 className="title-text">
+          <strong>mc</strong>
+        </h2>
+      </a>
+      <div className="nav-mobile">
+        <p className="nav-title nav-text">
+          <strong>Navigation</strong>
+        </p>
+      </div>
+      <ul className="nav-desktop nav-text">
         <li>
           <p>Projects</p>
         </li>
@@ -18,10 +26,10 @@ const Nav = () => {
         <li>
           <p>Contact</p>
         </li>
+        <li>
+          <SocialButtons />
+        </li>
       </ul>
-      <div style={{ display: "none" }}>
-        <SocialButtons />
-      </div>
     </div>
   );
 };
