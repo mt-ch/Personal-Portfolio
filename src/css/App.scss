@@ -2,9 +2,19 @@
 @import url("https://fonts.googleapis.com/css?family=Kanit:bold,regular");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:bold,regular");
 
+// font-family: "SuisseIntl",helvetica,arial,sans-serif;
+
 * {
   margin: 0;
   padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
 }
 
 h1,
@@ -14,11 +24,13 @@ h4,
 h5,
 p {
   color: whitesmoke;
-  font-family: "Open Sans";
+  // font-family: "Open Sans";
+font-family: "SuisseIntl",helvetica,arial,sans-serif;
+
 }
 
 p {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  // font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 h1 {
@@ -34,9 +46,9 @@ h1 {
 
 h2 {
   font-family: "Kanit";
-  font-size: clamp(2rem, 6vw, 6rem);
+  // font-size: clamp(2rem, 6vw, 6rem);
   line-height: 0;
-  letter-spacing: 0.15rem;
+  // letter-spacing: 0.15rem;
 }
 
 .latest-projects-text {
@@ -91,8 +103,8 @@ h2 {
   justify-content: space-between;
 
   background: whitesmoke;
-  border-bottom: 1.5px solid black;
-  padding: 0.5em 1em 0.5em 1em;
+  border-bottom: 1px solid black;
+  // padding: 0em .5em .5em .25em;
 
   .nav-text {
     color: black;
@@ -103,6 +115,7 @@ h2 {
 
     .title-text {
       color: green;
+      // font-size: 3rem;
     }
   }
 
@@ -117,8 +130,9 @@ h2 {
     list-style-type: none;
     display: none;
     flex-direction: row;
+    align-items: end;
     li {
-      margin-left: 9vw;
+      // margin-left: 9vw;
     }
   }
 }
@@ -126,14 +140,12 @@ h2 {
 .socials {
   display: flex;
   flex-direction: row;
-  margin-top: 0vh;
 
   .icon {
     width: 100%;
     height: auto;
-    max-width: clamp(1.25em, 3vw, 3.25em);
-    margin-right: clamp(2px, 2vw, 15px);
-    filter: invert(1);
+    max-width: 2.5em;
+    margin-right: 10px;
   }
 }
 
@@ -272,3 +284,34 @@ body {
   opacity: 0;
   line-height: 0.8;
 }
+
+
+.nav-overlay{
+  position: fixed;
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border-right: 1px solid black;
+  z-index: 100;
+
+  .nav-overlay-text{
+    color: black;
+    text-decoration: none;
+    font-size: 2.5rem;
+    line-height: 5rem;
+  }
+
+  .nav-overlay-socials{
+    margin-top: 10px; 
+  }
+
+  .nav-overlay-button:hover{
+    .nav-overlay-text{
+      color: #9570c5;
+      transition: color .5s;
+    }
+  }
+} 

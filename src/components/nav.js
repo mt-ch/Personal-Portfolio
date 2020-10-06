@@ -1,35 +1,32 @@
 import React from "react";
 
 import SocialButtons from "./socialButtons";
+import NavOverlay from "./navOverlay";
 import "../css/App.scss";
 
 const Nav = () => {
   return (
-    <div className="nav">
-      <a className='title-link' href="/">
-        <h2 className="title-text">
-          <strong>mc</strong>
-        </h2>
-      </a>
-      <div className="nav-mobile">
-        <p className="nav-title nav-text">
-          <strong>Navigation</strong>
-        </p>
+    <div>
+      <div className="nav">
+        <a className="title-link" href="/">
+          <h2 className="title-text">mc</h2>
+        </a>
+        <div className="nav-mobile">
+          <p className="nav-title nav-text">Navigation</p>
+        </div>
+        <ul className="nav-desktop">
+          <li>
+            <p className="nav-text">Projects</p>
+          </li>
+          <li>
+            <p className="nav-text">About</p>
+          </li>
+          <li>
+            <p className="nav-text">Contact</p>
+          </li>
+        </ul>
       </div>
-      <ul className="nav-desktop nav-text">
-        <li>
-          <p>Projects</p>
-        </li>
-        <li>
-          <p>About</p>
-        </li>
-        <li>
-          <p>Contact</p>
-        </li>
-        <li>
-          <SocialButtons />
-        </li>
-      </ul>
+      <NavOverlay />
     </div>
   );
 };
