@@ -7,7 +7,7 @@ export const StyledTopNav = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: whitesmoke;
+  background: ${({ theme }) => theme.background};
   border-bottom: 1px solid black;
   padding: 1.5em 1em 1.5em 1em;
 

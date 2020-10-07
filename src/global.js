@@ -12,10 +12,18 @@ html, body {
   }
 
   body {
-    background: ${({ theme }) => theme.primaryDark};
+    background: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.primaryLight};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     height: 100vh;
     text-rendering: optimizeLegibility;
+  }
+  a{
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  li{
+    list-style-type: none;
   }
 `;

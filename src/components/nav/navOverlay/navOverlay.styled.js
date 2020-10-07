@@ -8,7 +8,7 @@ export const StyledNavOverlay = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: ${({ theme }) => theme.background};
   border-right: 1px solid black;
   z-index: 100;
   transform: ${({ active }) =>
