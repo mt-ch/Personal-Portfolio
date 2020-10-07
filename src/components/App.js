@@ -5,7 +5,7 @@ import { theme } from "./theme";
 import "./css/App.scss";
 
 //components
-import Nav from "./components/nav";
+import Nav from "./components/nav/nav";
 import Home from "./pages/home";
 import Info from "./pages/info";
 import Footer from "./components/footer";
@@ -29,3 +29,4 @@ function App() {
 }
 
 export default App;
+

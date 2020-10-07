@@ -1,32 +1,19 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import NavOverlay from "./navOverlay/navOverlay";
+import TopNav from "./topNav/topNav";
+import { useOnClickOutside } from "./hooks";
 
-import SocialButtons from "./socialButtons";
-import NavOverlay from "./navOverlay";
 import "../css/App.scss";
 
+// Main top nav
 const Nav = () => {
+  const [active, setActive] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setActive(false));
   return (
-    <div>
-      <div className="nav">
-        <a className="title-link" href="/">
-          <h2 className="title-text">mc</h2>
-        </a>
-        <div className="nav-mobile">
-          <p className="nav-title nav-text">Navigation</p>
-        </div>
-        <ul className="nav-desktop">
-          <li>
-            <p className="nav-text">Projects</p>
-          </li>
-          <li>
-            <p className="nav-text">About</p>
-          </li>
-          <li>
-            <p className="nav-text">Contact</p>
-          </li>
-        </ul>
-      </div>
-      <NavOverlay />
+    <div ref={node} style={{ position: "sticky", top: 0, zIndex: 10 }}>
+      <TopNav active={active} setActive={setActive} />
+      <NavOverlay active={active} setActive={setActive} />
     </div>
   );
 };

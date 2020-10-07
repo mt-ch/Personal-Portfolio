@@ -1,10 +1,12 @@
 import React from "react";
-import SocialButtons from "./socialButtons";
+import { bool } from 'prop-types';
+import SocialButtons from "../socialButtons";
+import {StyledNavOverlay} from './navOverlay.styled';
 
-const NavOverlay = () => {
+const NavOverlay = ({active}) => {
   return (
       //iterate nav items
-    <nav className="nav-overlay">
+    <StyledNavOverlay className="nav-overlay" active={active}>
       <ul>
         <li>
           <a className="nav-overlay-button" href="">
@@ -25,8 +27,12 @@ const NavOverlay = () => {
           <SocialButtons />
         </li>
       </ul>
-    </nav>
+    </StyledNavOverlay>
   );
 };
+
+NavOverlay.propTypes = {
+  active: bool.isRequired,
+}
 
 export default NavOverlay;
