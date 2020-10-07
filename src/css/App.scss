@@ -5,50 +5,6 @@
   letter-spacing: 0.05rem;
 }
 
-.landing {
-  background-color: #9570c5;
-  height: 100%;
-  width: auto;
-  padding: 1rem;
-
-  .landing-info {
-    margin: 2vh 0 5px 0;
-  }
-
-  .sub-text {
-    position: relative;
-    margin-top: 30vh;
-  }
-
-  .latest-projects {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    margin-top: 1vh;
-
-    .arrow {
-      width: 100%;
-      height: auto;
-      max-width: 1.25em;
-      transform: rotate(90deg);
-      filter: invert(1);
-    }
-  }
-}
-
-.socials {
-  display: flex;
-  flex-direction: row;
-
-  .icon {
-    width: 100%;
-    height: auto;
-    max-width: 2.5em;
-    margin-right: 10px;
-  }
-}
-
 .project {
   .project-cover {
     height: 200px;
@@ -99,8 +55,6 @@
 
 .footer {
   padding: 1em;
-  .footer-text {
-  }
 }
 
 // Desktop

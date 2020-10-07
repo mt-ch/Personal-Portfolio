@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledNavOverlay = styled.nav`
 
   position: absolute;
-  width: 80%;
+  width: 50vw;
   height: 100vh;
   display: flex;
   justify-content: center;
