@@ -6,28 +6,30 @@ import { StyledNavOverlay } from "./navOverlay.styled";
 const NavOverlay = ({ active }) => {
   return (
     //iterate nav items
-    <StyledNavOverlay className="nav-overlay" active={active}>
-      <ul>
-        <li>
-          <a className="nav-overlay-button" href="">
-            <p className="nav-overlay-text">Projects</p>
-          </a>
-        </li>
-        <li>
-          <a className="nav-overlay-button" href="">
-            <p className="nav-overlay-text">About</p>
-          </a>
-        </li>
-        <li>
-          <a className="nav-overlay-button" href="">
-            <p className="nav-overlay-text">Contact</p>
-          </a>
-        </li>
-        <li className="nav-overlay-socials">
-          <SocialButtons />
-        </li>
-      </ul>
-    </StyledNavOverlay>
+    <div className="nav-overlay">
+      <StyledNavOverlay active={active}>
+        <ul>
+          <li>
+            <a className="nav-overlay-button" href="">
+              <p className="nav-overlay-text">Projects</p>
+            </a>
+          </li>
+          <li>
+            <a className="nav-overlay-button" href="">
+              <p className="nav-overlay-text">About</p>
+            </a>
+          </li>
+          <li>
+            <a className="nav-overlay-button" href="">
+              <p className="nav-overlay-text">Contact</p>
+            </a>
+          </li>
+          <li className="nav-overlay-socials">
+            <SocialButtons />
+          </li>
+        </ul>
+      </StyledNavOverlay>
+    </div>
   );
 };
 

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledNavOverlay = styled.nav`
-position: absolute;
+
+  position: absolute;
   width: 80%;
   height: 100vh;
   display: flex;

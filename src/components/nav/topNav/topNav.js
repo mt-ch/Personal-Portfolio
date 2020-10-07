@@ -6,12 +6,24 @@ import { bool, func } from "prop-types";
 const TopNav = ({ active, setActive }) => {
   // Set state
   const [nav, setNav] = useState("Navigation");
+  const mediaQuery = window.matchMedia('(min-width: 576px');
+
+  function handleWindowResize(e) {
+    // Check if the media query is true
+    if (e.matches) {
+      setActive(false)
+    }
+    else return
+  }
+
+  mediaQuery.addListener(handleWindowResize)
+  handleWindowResize(mediaQuery)  
 
   useEffect(() => {
     // Change state of navigation text
     if (active) {
       setNav("Close");
-    } else {
+    } else if(!active) {
       setNav("Navigation");
     }
   });
@@ -26,13 +38,19 @@ const TopNav = ({ active, setActive }) => {
       </a>
       <ul className="nav-desktop">
         <li>
-          <p>Projects</p>
+          <a href="">
+            <p>Projects</p>
+          </a>
         </li>
         <li>
-          <p>About</p>
+          <a href="">
+            <p>About</p>
+          </a>
         </li>
         <li>
-          <p>Contact</p>
+          <a href="">
+            <p>Contact</p>
+          </a>
         </li>
       </ul>
     </StyledTopNav>

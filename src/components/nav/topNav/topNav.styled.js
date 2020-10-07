@@ -41,6 +41,10 @@ export const StyledTopNav = styled.nav`
     display: none;
     flex-direction: row;
     align-items: end;
+
+    li{
+      margin-left: 15px;
+    }
   }
 
   .nav-title:hover{
