@@ -1,6 +1,6 @@
 import React, { useRef, useState, Suspense } from "react";
 import { extend, Canvas, useFrame, useThree } from "react-three-fiber";
-import fonts from "../assets/fonts/fonts";
+import fonts from "../../assets/fonts/fonts";
 import lerp from "lerp";
 import Text from "./Text";
 import * as THREE from "three";

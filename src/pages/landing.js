@@ -1,9 +1,7 @@
 import React, { PureComponent } from "react";
 
 import SocialButtons from "../components/socialButtons";
-import Nav from "../components/nav";
 import arrow from "../assets/icons/arrow.png";
-import Absract from '../components/abstract';
 
 export class landing extends PureComponent {
   state = {

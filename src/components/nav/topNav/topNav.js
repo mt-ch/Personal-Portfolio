@@ -2,25 +2,26 @@ import React, { useState, useEffect } from "react";
 import { StyledTopNav } from "./topNav.styled";
 import { bool, func } from "prop-types";
 
+// Top navigation
 const TopNav = ({ active, setActive }) => {
+  // Set state
   const [nav, setNav] = useState("Navigation");
 
   useEffect(() => {
-    if(active){
-      setNav('Close')
-    }
-    else{
-      setNav('Navigation')
+    // Change state of navigation text
+    if (active) {
+      setNav("Close");
+    } else {
+      setNav("Navigation");
     }
   });
-  // onClick={() => setActive(!active)}
 
   return (
     <StyledTopNav>
       <a className="title-link" href="/">
         <p className="title-text">mc</p>
       </a>
-      <a className="nav-mobile" onClick={() => setActive(!active)} >
+      <a className="nav-mobile" onClick={() => setActive(!active)}>
         <p className="nav-title nav-text">{nav}</p>
       </a>
       <ul className="nav-desktop">
@@ -38,6 +39,7 @@ const TopNav = ({ active, setActive }) => {
   );
 };
 
+// Validation of changing state
 TopNav.propTypes = {
   active: bool.isRequired,
   setActive: func.isRequired

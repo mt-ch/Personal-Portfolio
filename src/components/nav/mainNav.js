@@ -3,10 +3,10 @@ import NavOverlay from "./navOverlay/navOverlay";
 import TopNav from "./topNav/topNav";
 import { useOnClickOutside } from "./hooks";
 
-import "../css/App.scss";
+import "../../css/App.scss";
 
-// Main top nav
-const Nav = () => {
+// Main nav
+const MainNav = () => {
   const [active, setActive] = useState(false);
   const node = useRef();
   useOnClickOutside(node, () => setActive(false));
@@ -18,4 +18,5 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default MainNav;
+

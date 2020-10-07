@@ -1,6 +1,6 @@
-// hooks.js
 import { useEffect } from 'react';
 
+// Hook to close navigation when mouse click outside container
 export const useOnClickOutside = (ref, handler) => {
   useEffect(() => {
     const listener = event => {
