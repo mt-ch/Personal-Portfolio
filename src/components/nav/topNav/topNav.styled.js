@@ -17,6 +17,7 @@ export const StyledTopNav = styled.nav`
     margin: 0;
     line-height: 0;
     font-size: 1.35rem;
+    transition: all 1s;
   }
 
   .title-link {
@@ -40,6 +41,11 @@ export const StyledTopNav = styled.nav`
     display: none;
     flex-direction: row;
     align-items: end;
+  }
+
+  .nav-title:hover{
+    font-size: 1.4rem;
+    transition: font-size 1s ease-out;
   }
 
   @media (min-width: ${({ theme }) => theme.mobile}) {

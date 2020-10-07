@@ -22,7 +22,7 @@ const TopNav = ({ active, setActive }) => {
         <p className="title-text">mc</p>
       </a>
       <a className="nav-mobile" onClick={() => setActive(!active)}>
-        <p className="nav-title nav-text">{nav}</p>
+        <p className="nav-title">{nav}</p>
       </a>
       <ul className="nav-desktop">
         <li>

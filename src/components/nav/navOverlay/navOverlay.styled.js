@@ -19,6 +19,7 @@ position: absolute;
     text-decoration: none;
     font-size: 2.5rem;
     line-height: 3rem;
+    transition: all 1s;
   }
 
   .nav-overlay-socials{
@@ -28,7 +29,8 @@ position: absolute;
   .nav-overlay-button:hover{
     .nav-overlay-text{
       color: #9570c5;
-      transition: color .5s;
+      font-size: 2.55rem;
+      transition: font-size 1s, color .75s;
     }
   }
 `;
