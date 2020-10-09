@@ -1,9 +1,13 @@
 import React, { PureComponent } from "react";
 import { StyledProject } from "./projects.styled";
+import Project from '../../components/project/project';
+
+
 
 export class projects extends PureComponent {
   state = {
     projects: [],
+    openProject: false,
     error: null
   };
 
@@ -38,8 +42,12 @@ export class projects extends PureComponent {
     }
   };
 
+  openProject() {
+    return this.setState({ openProject: true })
+  }
+
   render() {
-    const { error, projects } = this.state;
+    const { error, projects, openProject } = this.state;
 
     // Print errors if any
     if (error) {
@@ -47,43 +55,13 @@ export class projects extends PureComponent {
     }
 
     return (
-      // <div>
-      //   {this.state.projects.map(project => (
-      //     <div className="project" key={project.id}>
-      //       <img
-      //         className="project-cover"
-      //         src="http://localhost:1337/uploads/large_pink_Flower_76cea52f86.jpg"
-      //       />
-      //       <div className="project-info">
-      //         <div className="project-text">
-      //           <div className="project-link">
-      //             <p className="project-info-text"><strong>{project.projectName}</strong></p>
-      //             <img className="arrow" src={arrow} />
-      //           </div>
-      //           <p className="project-info-text">{project.Roles}</p>
-      //           <p className="project-info-text">{project.Technologies}</p>
-      //           <p className="project-info-text description">{project.description}</p>
-      //         </div>
-
-      //         <div className="project-view">
-      //           <a href="">
-      //             <img className="icon" src={github} />
-      //           </a>
-      //           <a href="">
-      //             <img className="icon" src={website} />
-      //           </a>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   ))}
-      // </div>
       <StyledProject>
         {this.state.projects.map(project => (
           <div className="project" key={project.id}>
             <img src="http://localhost:1337/uploads/large_pink_Flower_76cea52f86.jpg" />
             <div className="project-info">
               <div className="project-text">
-                <a href="">
+                <a onClick={this.openProject(true)}>
                   <p>
                     <strong>{project.projectName}</strong>
                   </p>
@@ -93,17 +71,10 @@ export class projects extends PureComponent {
                 </a>
                 <p>{project.Roles}</p>
                 <p>{project.Technologies}</p>
-                <p className='project-description'>{project.description}</p>
+                <p className="project-description">{project.description}</p>
               </div>
             </div>
-            {/* <div className="project-view">
-              <a href="">
-                <img className="icon" src={github} />
-              </a>
-              <a href="">
-                <img className="icon" src={website} />
-              </a>
-            </div> */}
+            {/* <Project project={project} openProject={openProject}/> */}
           </div>
         ))}
       </StyledProject>
@@ -112,3 +83,6 @@ export class projects extends PureComponent {
 }
 
 export default projects;
+
+
+// onClick={() => setProjectOpen(!projectOpen)}

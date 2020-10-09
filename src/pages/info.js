@@ -51,14 +51,14 @@ export class info extends PureComponent {
 
     return (
       <div className="info">
-        <h4>Information</h4>
+        <p>Information</p>
         {this.state.infos.map(info => (
           <ul className="infoList" key={info.id}>
             <li>
-              <h1>{info.name}</h1>
+              <p>{info.name}</p>
             </li>
             <li>
-              <h2>{info.jobTitle}</h2>
+              <p>{info.jobTitle}</p>
             </li>
             <li>
               <p>{info.email}</p>

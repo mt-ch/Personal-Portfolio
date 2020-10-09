@@ -46,7 +46,9 @@ async function getSocialLinks() {
       .then(checkStatus)
       .then(parseJSON);
       return socials
-  } catch (error) {}
+  } catch (error) {
+    return console.error(error);
+  }
 }
 
 const socialButtons = () => {

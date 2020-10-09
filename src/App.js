@@ -22,9 +22,11 @@ function App() {
       <FontStyles/>
       <div>
         <MainNav />
+        <Info/>
         <Landing />
         <Projects />
         <Footer />
+        
       </div>
     </ThemeProvider>
   );
