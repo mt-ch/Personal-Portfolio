@@ -1,9 +1,5 @@
 import React, { PureComponent } from "react";
-
-import SocialButtons from "../components/socialButtons";
-import RightArrow from "../assets/icons/right-arrow.svg";
-
-import { StyledLanding } from "./landing.styles";
+import { StyledLanding } from "./landing.styled";
 
 export class landing extends PureComponent {
   state = {
@@ -54,19 +50,6 @@ export class landing extends PureComponent {
       );
     }
     return (
-      // <div className="landing">
-      //   <div className="landing-info">
-      //     {/* <h1>{landings.header1}</h1>
-      //     <h1>{landings.header2}</h1> */}
-      //   </div>
-      //   <div className='sub-text'>
-      //   <p>{landings.subText}</p>
-      //     <div className="latest-projects">
-      //       <p className='latest-projects-text'><strong>PROJECTS</strong></p>
-      //       <img className="arrow" src={arrow} />
-      //     </div>
-      //   </div>
-      // </div>
       <StyledLanding>
         <div className="shapes" />
         <div className="sub-text">

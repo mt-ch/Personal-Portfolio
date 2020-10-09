@@ -12,8 +12,8 @@ import Footer from "./components/footer";
 // Pages
 import Home from "./pages/home";
 import Info from "./pages/info";
-import Landing from "./pages/landing";
-import Projects from "./pages/projects";
+import Landing from "./pages/landing/landing";
+import Projects from "./pages/projects/projects";
 
 function App() {
   return (
