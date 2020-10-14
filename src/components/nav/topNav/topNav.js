@@ -3,10 +3,19 @@ import { StyledTopNav } from "./topNav.styled";
 import { bool, func } from "prop-types";
 
 // Top navigation
-const TopNav = ({ active, setActive }) => {
+const TopNav = ({ active, setActive, openInfo, setOpenInfo }) => {
   // Set state
   const [nav, setNav] = useState("Navigation");
   const mediaQuery = window.matchMedia('(min-width: 576px');
+  const openNav = () => setActive(!active);
+  const closeInfo = () => setOpenInfo(!openInfo);
+
+  async function handleNav(){
+    openNav()
+    if(openInfo){
+      closeInfo()      
+    }
+  }
 
   function handleWindowResize(e) {
     // Check if the media query is true
@@ -33,7 +42,7 @@ const TopNav = ({ active, setActive }) => {
       <a className="title-link" href="/">
         <p className="title-text">mc</p>
       </a>
-      <a className="nav-mobile" onClick={() => setActive(!active)}>
+      <a className="nav-mobile" onClick={handleNav}>
         <p className="nav-title">{nav}</p>
       </a>
       <ul className="nav-desktop">

@@ -9,6 +9,7 @@ export const StyledNavOverlay = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.background};
   border-right: 1px solid black;
+  border-bottom: 1px solid black;
   z-index: 100;
   transform: ${({ active }) =>
     active ? "translateX(0)" : "translateX(-100%)"};

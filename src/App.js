@@ -22,8 +22,8 @@ function App() {
       <GlobalStyles />
       <FontStyles/>
       <div>
-        <MainNav />
-        <Info openInfo={openInfo}/>
+        <MainNav openInfo={openInfo} setOpenInfo={setOpenInfo}/>
+        <Info openInfo={openInfo} setOpenInfo={setOpenInfo}/>
         <Landing />
         <Projects />
         <Footer />

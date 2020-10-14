@@ -1,9 +1,17 @@
-import React from "react";
-import { bool } from "prop-types";
+import React, { useEffect } from "react";
+import { bool, func } from "prop-types";
 import SocialButtons from "../../socialButtons";
 import { StyledNavOverlay } from "./navOverlay.styled";
 
-const NavOverlay = ({ active }) => {
+const NavOverlay = ({ active, setActive, openInfo, setOpenInfo }) => {
+  useEffect(() => {
+    // Change state of navigation text
+    if (openInfo) {
+      setActive(false);
+    } else if(!openInfo) {
+      return
+    }
+  });
   return (
     //iterate nav items
     <div className="nav-overlay">
@@ -15,7 +23,7 @@ const NavOverlay = ({ active }) => {
             </a>
           </li>
           <li>
-            <a className="nav-overlay-button" href="">
+            <a className="nav-overlay-button" onClick={() => setOpenInfo(!openInfo)}>
               <p className="nav-overlay-text">About</p>
             </a>
           </li>
@@ -34,7 +42,9 @@ const NavOverlay = ({ active }) => {
 };
 
 NavOverlay.propTypes = {
-  active: bool.isRequired
+  active: bool.isRequired,
+  openInfo: bool.isRequired,
+  setOpenInfo: func.isRequired
 };
 
 export default NavOverlay;
