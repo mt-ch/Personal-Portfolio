@@ -6,6 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: scroll;
+    overflow-x: hidden;
   }
   *, *::after, *::before {
     box-sizing: border-box;

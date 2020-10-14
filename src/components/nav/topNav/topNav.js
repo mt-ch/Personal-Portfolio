@@ -53,7 +53,7 @@ const TopNav = ({ active, setActive, openInfo, setOpenInfo }) => {
         </li>
         <li>
           <a href="">
-            <p>About</p>
+            <p>Info</p>
           </a>
         </li>
         <li>

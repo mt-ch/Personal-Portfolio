@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./global";
-import { FontStyles } from "./fonts";
-import { theme } from "./theme";
+import { GlobalStyles } from "./globals/global";
+import { FontStyles } from "./globals/fonts";
+import { theme } from "./globals/theme";
 import "./css/App.scss";
 
 // Components

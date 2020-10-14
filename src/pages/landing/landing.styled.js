@@ -27,6 +27,7 @@ export const StyledLanding = styled.div`
 
       svg {
         fill: green;
+        flex-shrink: 0;
         transition: all 1s;
       }
     }

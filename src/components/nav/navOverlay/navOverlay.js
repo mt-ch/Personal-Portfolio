@@ -19,12 +19,12 @@ const NavOverlay = ({ active, setActive, openInfo, setOpenInfo }) => {
         <ul>
           <li>
             <a className="nav-overlay-button" href="">
-              <p className="nav-overlay-text">Projects</p>
+              <p className="nav-overlay-text">Work</p>
             </a>
           </li>
           <li>
             <a className="nav-overlay-button" onClick={() => setOpenInfo(!openInfo)}>
-              <p className="nav-overlay-text">About</p>
+              <p className="nav-overlay-text">Info</p>
             </a>
           </li>
           <li>

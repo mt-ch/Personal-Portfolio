@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const StyledProject = styled.div`
-    border-bottom: solid black 1px;
-
   img {
     height: 250px;
     width: 100%;
@@ -10,29 +8,34 @@ export const StyledProject = styled.div`
   }
 
   p {
-      font-size: 2rem;
-      margin: 0;
-      line-height: 1;
-      white-space: pre-wrap;
-    }
+    /* font-size: 1.5rem;
+    margin: 0;
+    line-height: 1;
+    white-space: pre-wrap; */
+  }
 
   .project-info {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     padding: 1em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
+border-bottom: solid black 1px;
+
 
     a {
       display: flex;
-      flex-direction: row;
       align-items: center;
-      margin-bottom: 20px;
+      justify-content: space-between;
+      /* margin-bottom: 20px; */
+      svg{
+        flex-shrink: 0;
+      }
     }
 
-    .project-description{
-        display: none;
+    .project-description {
+      display: none;
     }
   }
 `;
