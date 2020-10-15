@@ -8,28 +8,20 @@ export const StyledProject = styled.div`
   }
 
   p {
-    /* font-size: 1.5rem;
+    font-size: 2.25rem;
     margin: 0;
-    line-height: 1;
-    white-space: pre-wrap; */
   }
 
   .project-info {
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; */
     padding: 1em;
-    /* margin-bottom: 1em; */
-border-bottom: solid black 1px;
-
+    border-bottom: solid black 1px;
 
     a {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      /* margin-bottom: 20px; */
-      svg{
+      margin-bottom: 10px;
+      svg {
         flex-shrink: 0;
       }
     }
@@ -39,17 +31,3 @@ border-bottom: solid black 1px;
     }
   }
 `;
-
-//       .project-view {
-//         display: flex;
-//         flex-direction: column;
-//         .icon {
-//           width: 100%;
-//           height: auto;
-//           max-width: 1.5em;
-//           margin: 0 5px 0 0;
-//           filter: invert(1) grayscale(1);
-//         }
-//       }
-//     }
-//   }

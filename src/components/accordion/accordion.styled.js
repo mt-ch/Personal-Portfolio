@@ -1,0 +1,74 @@
+import styled from "styled-components";
+
+export const StyledAccordion = styled.div`
+  p {
+    font-size: 2.25rem;
+    margin: 0;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  .accordion-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Main project button */
+  .accordion {
+    background-color: white;
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.4s ease;
+  }
+
+  /* Hover change color */
+  .accordion:hover,
+  .active {
+    background-color: #e0e0e0;
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .accordion-icon {
+    margin-left: auto;
+    transition: transform 0.4s ease;
+  }
+
+  /* rotate arrow when project is active */
+  .rotate {
+    transform: rotate(90deg);
+  }
+
+  /* Style project content */
+  .accordion-content {
+    background-color: white;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+    transition: max-height 0.4s ease;
+
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: center;
+      margin-top: 20px;
+
+      a {
+        display: flex;
+        align-items: center;
+
+        .project-link-text {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+`;
