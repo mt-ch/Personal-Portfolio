@@ -3,16 +3,14 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globals/global";
 import { FontStyles } from "./globals/fonts";
 import { theme } from "./globals/theme";
-import "./css/App.scss";
 
 // Components
 import MainNav from "./components/nav/mainNav";
 import Footer from "./components/footer";
 
 // Pages
-import Home from "./pages/home";
 import Info from "./pages/info/info";
-import Landing from "./pages/landing/landing";
+import Landing from "./components/landing/landing";
 import Projects from "./pages/projects/projects";
 
 function App() {

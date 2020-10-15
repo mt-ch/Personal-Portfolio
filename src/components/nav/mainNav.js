@@ -3,8 +3,6 @@ import NavOverlay from "./navOverlay/navOverlay";
 import TopNav from "./topNav/topNav";
 import { useOnClickOutside } from "./hooks";
 
-import "../../css/App.scss";
-
 // Main nav
 const MainNav = ({openInfo, setOpenInfo}) => {
   const [active, setActive] = useState(false);
