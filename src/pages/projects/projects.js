@@ -8,15 +8,16 @@ import Accordion from "../../components/accordion/accordion";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    GetProjects(setProjects);
+    GetProjects()
+    .then(data => setProjects(data))
   }, []);
   return (
     <StyledProject>
       {projects.map(project => (
         <Accordion
-          title={project.projectName}
-          roles={project.Roles}
-          technologies={project.Technologies}
+          title={project.name}
+          roles={project.roles}
+          technologies={project.technologies}
           description={project.description}
         />
       ))}
