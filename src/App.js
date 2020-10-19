@@ -6,12 +6,13 @@ import { theme } from "./globals/theme";
 
 // Components
 import MainNav from "./components/nav/mainNav";
-import Footer from "./components/footer";
+import Footer from "./components/footer/footer";
 
 // Pages
 import Info from "./pages/info/info";
 import Landing from "./components/landing/landing";
 import Projects from "./pages/projects/projects";
+import Home from './pages/home/home';
 
 function App() {
   const [openInfo, setOpenInfo] = useState(false)
@@ -20,11 +21,13 @@ function App() {
       <GlobalStyles />
       <FontStyles/>
       <div>
-        <MainNav openInfo={openInfo} setOpenInfo={setOpenInfo}/>
-        <Info openInfo={openInfo} setOpenInfo={setOpenInfo}/>
+        {/* <MainNav/> */}
+        {/* <Info openInfo={openInfo} setOpenInfo={setOpenInfo}/>
         <Landing />
-        <Projects />
+        <Projects /> */}
+        <Home/>
         <Footer />
+
       </div>
     </ThemeProvider>
   );

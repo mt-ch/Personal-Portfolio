@@ -27,6 +27,12 @@ html, body {
   
   ul {
     padding: 0;
+    margin: 0;
     list-style-type: none;
+  }
+
+  p{
+    margin: 0;
+    padding: 0;
   }
 `;

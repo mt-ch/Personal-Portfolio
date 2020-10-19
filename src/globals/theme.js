@@ -6,4 +6,5 @@ export const theme = {
     lightText: '#fff',
     darkText: '#000',
     mobile: '576px',
+    primaryFontSize: '2.25rem',
   }
