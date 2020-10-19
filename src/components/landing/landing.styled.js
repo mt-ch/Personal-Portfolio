@@ -11,7 +11,7 @@ export const StyledLanding = styled.div`
 
     p {
       font-size: 2.25rem;
-      font-weight: 500;
+      margin: 0;
       line-height: 1.3;
     }
 
@@ -19,6 +19,7 @@ export const StyledLanding = styled.div`
       display: flex;
       justify-content: start;
       align-items: center;
+      margin-top: 20px;
 
       p {
         color: green;
