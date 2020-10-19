@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import { StyledAccordion } from "./accordion.styled";
-import Arrow from '../../assets/icons/arrow';
-import Website from '../../assets/icons/website';
-import Github from '../../assets/icons/github';
+import Arrow from "../../assets/icons/arrow";
+import Website from "../../assets/icons/website";
+import Github from "../../assets/icons/github";
 
 const Accordion = props => {
   const [setActive, setActiveState] = useState("");
@@ -29,12 +29,18 @@ const Accordion = props => {
   return (
     <StyledAccordion>
       <div className="accordion-section">
+        <img src={"http://localhost:1337" + props.coverPhoto} />
         <a className={`accordion ${setActive}`} onClick={toggleAccordion}>
           <div className="accordion-header">
             <p>
               <strong>{props.title}</strong>
             </p>
-            <Arrow className={`${setRotate}`} width={'37'} height={'37'} fill={'black'}/>
+            <Arrow
+              className={`${setRotate}`}
+              width={"37"}
+              height={"37"}
+              fill={"black"}
+            />
           </div>
           <p>{props.roles}</p>
           <p>{props.technologies}</p>
@@ -48,13 +54,13 @@ const Accordion = props => {
           <div style={{ padding: "1em" }}>
             <p>{props.description}</p>
             <div className="project-links">
-              <a>
+              <a href={props.website}>
                 <p className="project-link-text">View</p>
-                <Website width={'35'} height={'35'} fill={'black'}/>
+                <Website width={"35"} height={"35"} fill={"black"} />
               </a>
-              <a>
+              <a href={props.github}>
                 <p className="project-link-text">GitHub</p>
-                <Github width={'35'} height={'35'} fill={'black'}/>
+                <Github width={"35"} height={"35"} fill={"black"} />
               </a>
             </div>
           </div>

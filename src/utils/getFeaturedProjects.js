@@ -10,12 +10,13 @@ function CreateProjectData(
   return { name, roles, technologies, description, coverPhoto, git, website };
 }
 
-async function GetProjects() {
+async function GetFeaturedProjects() {
   let projectData = [];
 
-  const url = "http://localhost:1337/projects";
+  const url = "http://localhost:1337/featured-projects";
   const response = await fetch(url);
   const data = await response.json();
+  const { projects } = data;
   for (const {
     projectName: name,
     Roles: roles,
@@ -28,7 +29,7 @@ async function GetProjects() {
         medium: { url: coverPhoto }
       }
     }
-  } of data) {
+  } of projects) {
     projectData.push(
       CreateProjectData(name, roles, technologies, desc, coverPhoto, git, web)
     );
@@ -37,4 +38,4 @@ async function GetProjects() {
   return projectData;
 }
 
-export default GetProjects;
+export default GetFeaturedProjects;

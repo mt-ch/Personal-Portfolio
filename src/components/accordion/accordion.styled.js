@@ -13,6 +13,11 @@ export const StyledAccordion = styled.div`
   .accordion-section {
     display: flex;
     flex-direction: column;
+    img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   /* Main project button */
@@ -28,7 +33,7 @@ export const StyledAccordion = styled.div`
   /* Hover change color */
   .accordion:hover,
   .active {
-    background-color: #e0e0e0;
+    background-color: #f2f2f2;
   }
 
   .accordion-header {

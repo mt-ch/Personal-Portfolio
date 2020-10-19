@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-
-import GetProjects from "../../utils/getProjects";
-
+import { StyledFeatured } from "./featuredWork.styled";
+import GetFeaturedProjects from "../../utils/getFeaturedProjects";
 import Accordion from "../../components/accordion/accordion";
 
-const Projects = () => {
+const FeaturedWork = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    GetProjects()
-    .then(data => setProjects(data))
+    GetFeaturedProjects().then(data => setProjects(data));
   }, []);
   return (
-    <div>
+    <StyledFeatured>
+      <p className='featured-title'><strong>Featured Work</strong></p>
       {projects.map(project => (
         <Accordion
           title={project.name}
@@ -23,8 +22,8 @@ const Projects = () => {
           coverPhoto={project.coverPhoto}
         />
       ))}
-    </div>
+    </StyledFeatured>
   );
 };
 
-export default Projects;
+export default FeaturedWork;
