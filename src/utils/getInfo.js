@@ -13,7 +13,7 @@ async function GetInfo(setInfo) {
   };
 
   try {
-    const infos = await fetch("http://localhost:1337/infos", {
+    const infos = await fetch("http://localhost:1337/info", {
       method: "GET",
       headers: headers
     })

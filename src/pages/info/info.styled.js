@@ -1,30 +1,35 @@
 import styled from "styled-components";
 
 export const StyledInfo = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 100vw;
   height: auto;
-  padding: 1em;
+
   background-color: white;
   z-index: 99;
-  border-bottom: 1px solid black;
-  transform: ${({ openInfo }) =>
-    openInfo ? "translateX(0)" : "translateX(100%)"};
-  transition: transform 0.75s ease-in-out;
 
-  .info-header {
+  .shapes {
+    height: 30vh;
+    background-color: green;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    border-bottom: solid black 1px;
 
-    svg {
-      width: 25px;
-      height: 25px;
+    .info-title {
+      color: white;
+      font-weight: bold;
+      font-size: 5rem;
     }
   }
 
+  .info-list {
+    padding: 0em 1em 1em 1em;
+    border-bottom: solid black 1px;
+  }
+
   p {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
     padding: 0;
     margin: 0;
   }
