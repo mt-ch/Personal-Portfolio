@@ -1,9 +1,9 @@
 import React, { useState, PureComponent } from "react";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globals/global";
 import { FontStyles } from "./globals/fonts";
 import { theme } from "./globals/theme";
-import styled from "styled-components";
 
 // Components
 import MainNav from "./components/nav/mainNav";
@@ -37,13 +37,19 @@ const App = () => {
   //   ); // render null when app is not ready
   // }
   return (
+    <Router>
     <ThemeProvider theme={theme}>
         <GlobalStyles />
         <FontStyles />
           <MainNav/>
-          <Projects/>
+            <Switch>
+              <Route path='/' exact component={Home}/> 
+              <Route path='/projects'  component={Projects}/> 
+              <Route path='/info'  component={Info}/> 
+            </Switch>
           <Footer />
       </ThemeProvider>
+      </Router>
   )
 }
 
