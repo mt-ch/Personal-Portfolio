@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledAccordion = styled.div`
+
   p {
     font-size: 2.25rem;
     margin: 0;
@@ -22,11 +23,16 @@ export const StyledAccordion = styled.div`
 
   /* Main project button */
   .accordion {
+    height: 100%;
+    width: 100%;
+    min-height: 210px;
+    min-width: 200px;
     background-color: white;
     cursor: pointer;
     padding: 1em;
     display: flex;
     flex-direction: column;
+    justify-content: start;
     transition: background-color 0.4s ease;
   }
 
@@ -76,4 +82,12 @@ export const StyledAccordion = styled.div`
       }
     }
   }
+
+  /* @media (min-width: ${({ theme }) => theme.mobile}) {
+    .project-id{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  } */
+    
 `;

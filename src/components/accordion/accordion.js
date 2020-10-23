@@ -27,7 +27,7 @@ const Accordion = props => {
   }
 
   return (
-    <StyledAccordion>
+    <StyledAccordion className="project-id">
       <div className="accordion-section">
         <img src={"http://localhost:1337" + props.coverPhoto} />
         <a className={`accordion ${setActive}`} onClick={toggleAccordion}>
@@ -53,6 +53,9 @@ const Accordion = props => {
         >
           <div style={{ padding: "1em" }}>
             <p>{props.description}</p>
+            {props.photoAlbum.map(photo => (
+              <img src={"http://localhost:1337" + photo.url} />
+            ))}
             <div className="project-links">
               <a href={props.website}>
                 <p className="project-link-text">View</p>

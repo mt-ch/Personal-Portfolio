@@ -10,7 +10,6 @@ const FeaturedWork = () => {
   }, []);
   return (
     <StyledFeatured>
-      <p className='featured-title'><strong>Featured Work</strong></p>
       {projects.map(project => (
         <Accordion
           title={project.name}
@@ -20,6 +19,7 @@ const FeaturedWork = () => {
           github={project.git}
           website={project.website}
           coverPhoto={project.coverPhoto}
+          photoAlbum={project.photos}
         />
       ))}
     </StyledFeatured>

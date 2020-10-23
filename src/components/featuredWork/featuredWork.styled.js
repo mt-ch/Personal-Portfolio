@@ -6,8 +6,8 @@ export const StyledFeatured = styled.div`
     margin: 0;
   }
 
-  .featured-title{
-    padding: .5em;
-    text-align: end;
+  @media (min-width: ${({ theme }) => theme.mobile}) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 3fr));
   }
 `;

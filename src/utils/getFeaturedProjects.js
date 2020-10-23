@@ -4,10 +4,11 @@ function CreateProjectData(
   technologies,
   description,
   coverPhoto,
+  photos,
   git,
   website
 ) {
-  return { name, roles, technologies, description, coverPhoto, git, website };
+  return { name, roles, technologies, description, coverPhoto, photos, git, website };
 }
 
 async function GetFeaturedProjects() {
@@ -28,10 +29,11 @@ async function GetFeaturedProjects() {
       formats: {
         medium: { url: coverPhoto }
       }
-    }
+    },
+    projectPhotos: photos
   } of projects) {
     projectData.push(
-      CreateProjectData(name, roles, technologies, desc, coverPhoto, git, web)
+      CreateProjectData(name, roles, technologies, desc, coverPhoto, photos, git, web)
     );
   }
 
