@@ -20,19 +20,29 @@ const Footer = () => {
           </Link>
         </li>
       </ul> */}
-      <p className='footer-text'>Let's get in touch!</p>
+      <p className="footer-text">Let's get in touch!</p>
 
-      <p className='footer-email'>me@matt.chan</p>
+      <a>
+        <p className="footer-email">me@matt.chan</p>
+      </a>
 
       <div className="footer-social">
         <div className="footer-social-div">
-          <p className='footer-social-text'>Socials</p>
+          <p className="footer-social-text">Socials</p>
           <Arrow height={"20"} width={"20"} fill={"hsla(0,0%,100%,.2)"} />
         </div>
-        <p className='footer-social-text'>Github · LinkedIn</p>
+        <div className="footer-social-links">
+          <a>
+            <p className="footer-social-github">Github</p>
+          </a>
+          <p className="footer-social-spacer"> · </p>
+          <a>
+            <p className="footer-social-linkedin">LinkedIn</p>
+          </a>
+        </div>
       </div>
 
-      <p className='footer-cr'>© 2020 Matthew Chan</p>
+      <p className="footer-cr">© 2020 Matthew Chan</p>
     </StyledFooter>
   );
 };

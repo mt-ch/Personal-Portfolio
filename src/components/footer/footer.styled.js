@@ -1,20 +1,8 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.div`
-  /* border-top: black solid 1px; */
-
-  /* ul {
-    margin-bottom: 1em;
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      width: 100px;
-    }
-  } */
-
   background-color: #212121;
-  /* padding: 1em; */
+
   .footer-text{
     padding: 3.5rem 2rem 0rem 2rem;
     font-size: 4rem;
@@ -25,7 +13,12 @@ export const StyledFooter = styled.div`
   .footer-email{
     padding: 4rem 2rem 4rem 2rem;
     font-size: 3rem;
-    text-decoration: underline;
+    transition: all 0.5s ease;
+  }
+
+  .footer-email:hover{
+    color: hsla(0, 0%, 100%, 0.7);
+    transition: all 0.5s ease;
   }
 
   .footer-social {
@@ -45,6 +38,36 @@ export const StyledFooter = styled.div`
     }
   }
 
+  .footer-social-links{
+    display: flex;
+    align-items: center;
+
+    .footer-social-github{
+      color: hsla(0, 0%, 100%, 0.2);
+      transition: all 0.5s ease;
+    }
+
+    .footer-social-github:hover{
+      color: #fcec62;
+      transition: all 0.5s ease;
+    }
+
+    .footer-social-linkedin{
+      color: hsla(0, 0%, 100%, 0.2);
+      transition: all 0.5s ease;
+    }
+
+    .footer-social-linkedin:hover{
+      color: #fcec62;
+      transition: all 0.5s ease;
+    }
+
+    .footer-social-spacer{
+      color: hsla(0, 0%, 100%, 0.2);
+      margin: 0 8px 0 8px;
+    }
+  }
+
   .footer-cr {
     color: hsla(0, 0%, 100%, 0.2);
     padding: 1rem 2rem 1rem 2rem;
@@ -52,7 +75,7 @@ export const StyledFooter = styled.div`
 
   p {
     /* margin-right: 5px; */
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
   }
 
