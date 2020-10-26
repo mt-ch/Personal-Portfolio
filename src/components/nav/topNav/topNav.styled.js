@@ -1,22 +1,26 @@
 import styled from "styled-components";
 
-export const StyledTopNav = styled.nav`
+export const StyledTopNav = styled.div`
+  position: sticky; 
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 10;
   width: 100vw;
-  height: 2rem;
+  height: 3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background: ${({ theme }) => theme.background};
   border-bottom: 1px solid black;
-  padding: 1.5em 1em 1.5em 1em;
+  padding: 1.5rem 2rem 1.5rem 2rem;
 
   p {
     color: black;
     padding: 0;
     margin: 0;
     line-height: 0;
-    font-size: 1.35rem;
+    font-size: ${({ theme }) => theme.secondaryFontSize};
     transition: all 1s;
   }
 
@@ -27,6 +31,7 @@ export const StyledTopNav = styled.nav`
       color: green;
       font-weight: bolder;
       font-size: 2.5rem;
+      margin-bottom: 8px;
     }
   }
 
@@ -38,26 +43,32 @@ export const StyledTopNav = styled.nav`
   }
 
   .nav-desktop {
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: end;
+    
+    li {
+      margin-left: 20px;
+      transition: all .3s ease;
+    }
 
-    li{
-      margin-left: 15px;
+    li:hover{
+      transform: translateY(-3px);
+      transition: transform .3s ease;
     }
   }
 
-  .nav-title:hover{
-    font-size: 1.4rem;
+  .nav-title:hover {
+    /* font-size: 1.4rem; */
     transition: font-size 1s ease-out;
   }
 
-  @media (min-width: ${({ theme }) => theme.mobile}) {
+  /* @media (min-width: ${({ theme }) => theme.mobile}) {
     .nav-title {
       display: none !important;
     }
     .nav-desktop {
       display: flex !important;
     }
-  }
+  } */
 `;
