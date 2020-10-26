@@ -1,7 +1,25 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.div`
+  height: 100%;
+  width: 100vw;
   background-color: #212121;
+
+  .backToTop{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 2rem;
+
+    .backToTop-text{
+      color: hsla(0, 0%, 100%, 0.2);
+      margin-right: 5px;
+    }
+
+    .arrow-rotate{
+      transform: rotate(270deg)
+    }
+  }
 
   .footer-text{
     padding: 3.5rem 2rem 0rem 2rem;
@@ -74,7 +92,6 @@ export const StyledFooter = styled.div`
   }
 
   p {
-    /* margin-right: 5px; */
     font-size: 1.25rem;
     color: white;
   }

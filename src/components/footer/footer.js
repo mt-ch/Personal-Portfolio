@@ -1,9 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import Arrow from "../../assets/icons/arrow";
 import { StyledFooter } from "./footer.styled";
 
-const Footer = () => {
+const Footer = forwardRef(({ onBackClick }) => {
   return (
     <StyledFooter>
       {/* <ul>
@@ -20,6 +20,11 @@ const Footer = () => {
           </Link>
         </li>
       </ul> */}
+      <a className='backToTop' onClick={onBackClick}>
+        <p className='backToTop-text'>Back to the top</p>
+        <Arrow className='arrow-rotate' height={"20"} width={"20"} fill={"hsla(0,0%,100%,.2)"} />
+      </a>
+
       <p className="footer-text">Let's get in touch!</p>
 
       <a>
@@ -41,10 +46,10 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
+      
       <p className="footer-cr">© 2020 Matthew Chan</p>
     </StyledFooter>
   );
-};
+});
 
 export default Footer;
