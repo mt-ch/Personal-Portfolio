@@ -2,13 +2,13 @@ import React, { Children } from "react";
 import styled from "styled-components";
 
 export const StyledShapes = styled.div`
-  height: 60vh;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: solid black 1px;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     143deg,
     #ff4242,
     #faa018,
@@ -32,19 +32,21 @@ export const StyledShapes = styled.div`
     100% {
       background-position: 7% 0%;
     }
-  }
+  } */
 
   .page-title {
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 5rem;
   }
 `;
 
-const Shapes = props => {
+const Shapes = (props) => {
   return (
     <StyledShapes>
-      <p className="page-title">{props.title}</p>
+      <a href="#footer">
+        <p className="page-title">{props.title}</p>
+      </a>
     </StyledShapes>
   );
 };
