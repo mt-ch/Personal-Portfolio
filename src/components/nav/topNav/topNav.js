@@ -1,31 +1,72 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import { StyledTopNav } from "./topNav.styled";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import Logo from '../../../assets/icons/logo'
+//https://github.com/glweems/react-peekaboo-navbar code from here
+export default class TopNav extends PureComponent {
+  static propTypes = {};
 
-// Top navigation
-const TopNav = () => {
-  return (
-    <StyledTopNav>
-      <Link className="title-link" to="/">
-        <p className="title-text">mc</p>
-      </Link>
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+      scrollPos: 0,
+    };
+    this.handleScroll = this.handleScroll.bind(this);
+  }
 
-      <ul className="nav-desktop">
-        <li>
-          <Link to="/projects">
-            <p>Projects</p>
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    const { scrollPos } = this.state;
+    this.setState({
+      scrollPos: document.body.getBoundingClientRect().top,
+      show: document.body.getBoundingClientRect().top > scrollPos,
+    });
+  }
+
+  render() {
+    return (
+      <Transition>
+        <StyledTopNav className={this.state.show ? "active" : "hidden"}>
+          <Link className="title-link" to="/">
+            <p className="title-text">mc</p>
           </Link>
-        </li>
-        <li>
-          <Link to="/info">
-            <p>Info</p>
-          </Link>
-        </li>
-      </ul>
-    </StyledTopNav>
-  );
-};
 
-export default TopNav;
+          <ul className="nav-desktop">
+            <li>
+              <Link to="/projects">
+                <p>Projects</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/info">
+                <p>Info</p>
+              </Link>
+            </li>
+          </ul>
+        </StyledTopNav>
+      </Transition>
+    );
+  }
+}
+
+const Transition = styled.div`
+  .active {
+    visibility: visible;
+    transition: all 200ms ease-in;
+  }
+  .hidden {
+    visibility: hidden;
+    transition: all 200ms ease-out;
+    transform: translate(0, -100%);
+  }
+`;
