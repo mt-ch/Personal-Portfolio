@@ -1,21 +1,21 @@
 async function GetInfo(setInfo) {
-  const parseJSON = resp => (resp.json ? resp.json() : resp);
-  const checkStatus = resp => {
+  const parseJSON = (resp) => (resp.json ? resp.json() : resp);
+  const checkStatus = (resp) => {
     if (resp.status >= 200 && resp.status < 300) {
       return resp;
     }
-    return parseJSON(resp).then(resp => {
+    return parseJSON(resp).then((resp) => {
       throw resp;
     });
   };
   const headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
 
   try {
     const infos = await fetch("http://localhost:1337/info", {
       method: "GET",
-      headers: headers
+      headers: headers,
     })
       .then(checkStatus)
       .then(parseJSON);
@@ -25,4 +25,4 @@ async function GetInfo(setInfo) {
   }
 }
 
-export default GetInfo
+export default GetInfo;

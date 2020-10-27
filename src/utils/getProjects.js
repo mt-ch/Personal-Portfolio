@@ -1,4 +1,5 @@
 function CreateProjectData(
+  id,
   name,
   roles,
   technologies,
@@ -9,6 +10,7 @@ function CreateProjectData(
   website
 ) {
   return {
+    id,
     name,
     roles,
     technologies,
@@ -27,6 +29,7 @@ async function GetProjects() {
   const data = await response.json();
 
   for (const {
+    id: projectId,
     projectName: name,
     Roles: roles,
     Technologies: technologies,
@@ -42,6 +45,7 @@ async function GetProjects() {
   } of data) {
     projectData.push(
       CreateProjectData(
+        projectId,
         name,
         roles,
         technologies,
@@ -53,7 +57,6 @@ async function GetProjects() {
       )
     );
   }
-  // console.log(projectData)
   return projectData;
 }
 
