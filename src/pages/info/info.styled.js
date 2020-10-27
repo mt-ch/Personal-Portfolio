@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const StyledInfo = styled.div`
-  /* position: absolute; */
+  position: absolute;
+  top: 49px;
   width: 100vw;
   height: auto;
-
   background-color: white;
-  z-index: 99;
+  z-index: 5;
 
   .shapes {
     height: 30vh;
@@ -24,14 +24,13 @@ export const StyledInfo = styled.div`
   }
 
   .info-list {
-    padding: 0em 1em 1em 1em;
+    padding: 2rem;
     border-bottom: solid black 1px;
   }
 
   p {
-    font-size: 2.25rem;
-    padding: 0;
-    margin: 0;
+    font-size: ${({ theme }) => theme.primaryFontSize};
+    line-height: 1.5;
   }
 
   li {

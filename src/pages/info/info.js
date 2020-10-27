@@ -7,6 +7,8 @@ import Shapes from '../../components/shapes';
 import Github from "../../assets/icons/github";
 import Linkedin from "../../assets/icons/linkedin";
 
+import Footer from '../../components/footer/footer'
+
 const Info = () => {
   const [info, setInfo] = useState([]);
   useEffect(() => {
@@ -37,6 +39,7 @@ const Info = () => {
           </a>
         </li>
       </ul>
+      <Footer/>
     </StyledInfo>
   );
 };

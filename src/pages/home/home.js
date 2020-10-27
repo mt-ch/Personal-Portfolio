@@ -1,21 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import { StyledHome } from "./home.styled";
 
 //Components
 import Landing from "../../components/landing/landing";
 import FeaturedWork from "../../components/featuredWork/featuredWork";
-
-const StyledHome = styled.div`
-  p {
-    font-size: ${({ theme }) => theme.primaryFontSize};
-    margin: 0;
-  }
-
-  .featured-title {
-    padding: 0.5em;
-    text-align: end;
-  }
-`;
+import Footer from "../../components/footer/footer";
 
 const Home = () => {
   return (
@@ -25,6 +14,7 @@ const Home = () => {
         <strong>Featured Work</strong>
       </p>
       <FeaturedWork />
+      <Footer />
     </StyledHome>
   );
 };
