@@ -5,9 +5,13 @@ export const StyledFeatured = styled.div`
     font-size: ${({ theme }) => theme.primaryFontSize};
     margin: 0;
   }
+`;
 
-  @media (min-width: ${({ theme }) => theme.mobile}) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 3fr));
+export const StyledFeaturedDesktop = styled.div`
+  p {
+    font-size: ${({ theme }) => theme.primaryFontSize};
+    margin: 0;
   }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
