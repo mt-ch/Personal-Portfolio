@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { StyledLanding } from "./landing.styled";
 import Arrow from "../../assets/icons/arrow";
-import GetLanding from '../../utils/getLanding';
+import GetLanding from "../../utils/getLanding";
+import Shapes from "../shapes";
 
 const Landing = () => {
   const [landing, setLanding] = useState([]);
@@ -10,7 +11,7 @@ const Landing = () => {
   }, []);
   return (
     <StyledLanding>
-      <div className="shapes" />
+      <Shapes title={"Welcome"} />
       <div className="sub-text">
         <p>{landing.subText}</p>
         <a className="explore" href="">

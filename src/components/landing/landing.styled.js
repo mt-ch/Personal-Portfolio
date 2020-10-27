@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
 export const StyledLanding = styled.div`
-  .shapes {
-    height: 60vh;
-    background-color: green;
-  }
   .sub-text {
     border-bottom: 1px solid black;
-    padding: 1em;
+    padding: 2rem;
 
     p {
-      font-size: 2.25rem;
+      font-size: ${({ theme }) => theme.primaryFontSize};
       margin: 0;
       line-height: 1.3;
     }

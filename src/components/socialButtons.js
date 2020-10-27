@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import GetSocials from '../utils/getSocials';
+import GetSocials from "../utils/getSocials";
 
 import Github from "../assets/icons/github";
 import Linkedin from "../assets/icons/linkedin";
@@ -26,16 +26,15 @@ const StyledSocials = styled.div`
   }
 `;
 
-
 const socialButtons = () => {
   GetSocials();
   return (
     <StyledSocials>
       <a href="">
-        <Github className={'social-icon'} width={"40"} height={"40"} />
+        <Github className={"social-icon"} width={"40"} height={"40"} />
       </a>
       <a href="">
-        <Linkedin className={'social-icon'} width={"40"} height={"40"} />
+        <Linkedin className={"social-icon"} width={"40"} height={"40"} />
       </a>
     </StyledSocials>
   );
