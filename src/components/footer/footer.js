@@ -3,26 +3,21 @@ import { Link } from "react-router-dom";
 import Arrow from "../../assets/icons/arrow";
 import { StyledFooter } from "./footer.styled";
 
-const Footer = forwardRef(({ onBackClick }) => {
+function ScrollToTopFunc() {
+  return window.scrollTo(0, 0);
+}
+
+const Footer = () => {
   return (
     <StyledFooter>
-      {/* <ul>
-        <li>
-          <Link to="/projects">
-            <p>Projects</p>
-            <Arrow height={"20"} width={"20"} fill={"black"} />
-          </Link>
-        </li>
-        <li>
-          <Link to="/info">
-            <p>Info</p>
-            <Arrow height={"20"} width={"20"} fill={"black"} />
-          </Link>
-        </li>
-      </ul> */}
-      <a className='backToTop' onClick={onBackClick}>
-        <p className='backToTop-text'>Back to the top</p>
-        <Arrow className='arrow-rotate' height={"20"} width={"20"} fill={"hsla(0,0%,100%,.2)"} />
+      <a className="backToTop" onClick={ScrollToTopFunc}>
+        <p className="backToTop-text">Back to the top</p>
+        <Arrow
+          className="arrow-rotate"
+          height={"20"}
+          width={"20"}
+          fill={"hsla(0,0%,100%,.2)"}
+        />
       </a>
 
       <p className="footer-text">Let's get in touch!</p>
@@ -46,10 +41,10 @@ const Footer = forwardRef(({ onBackClick }) => {
           </a>
         </div>
       </div>
-      
+
       <p className="footer-cr">© 2020 Matthew Chan</p>
     </StyledFooter>
   );
-});
+};
 
 export default Footer;

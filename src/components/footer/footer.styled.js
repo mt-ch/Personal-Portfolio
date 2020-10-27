@@ -23,14 +23,14 @@ export const StyledFooter = styled.div`
 
   .footer-text{
     padding: 3.5rem 2rem 0rem 2rem;
-    font-size: 4rem;
+    font-size: ${({ theme }) => theme.primaryFontSize};
     font-weight: bold;
     color: #fcec62;
   }
 
   .footer-email{
     padding: 4rem 2rem 4rem 2rem;
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.primaryFontSize};
     transition: all 0.5s ease;
   }
 
@@ -92,7 +92,7 @@ export const StyledFooter = styled.div`
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => theme.primaryFontSize};
     color: white;
   }
 
