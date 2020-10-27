@@ -4,7 +4,7 @@ import Arrow from "../../assets/icons/arrow";
 import Website from "../../assets/icons/website";
 import Github from "../../assets/icons/github";
 
-const Accordion = props => {
+const Accordion = (props) => {
   const [setActive, setActiveState] = useState("");
   const [setHeight, setHeightState] = useState("0px");
   const [setRotate, setRotateState] = useState("accordion-icon");
@@ -53,7 +53,7 @@ const Accordion = props => {
         >
           <div style={{ padding: "1em" }}>
             <p>{props.description}</p>
-            {props.photoAlbum.map(photo => (
+            {props.photoAlbum.map((photo) => (
               <img src={"http://localhost:1337" + photo.url} />
             ))}
             <div className="project-links">
