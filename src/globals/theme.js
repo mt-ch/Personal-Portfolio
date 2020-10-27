@@ -7,4 +7,5 @@ export const theme = {
     darkText: '#000',
     mobile: '576px',
     primaryFontSize: '2.25rem',
+    secondaryFontSize: '1.5rem'
   }

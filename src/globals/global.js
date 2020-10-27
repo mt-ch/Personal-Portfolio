@@ -2,12 +2,15 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-html, body {
+  *{
     margin: 0;
     padding: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
   }
+
+  html, body {
+    scroll-behavior: smooth;
+  }
+
   *, *::after, *::before {
     box-sizing: border-box;
   }
@@ -26,13 +29,6 @@ html, body {
   }
   
   ul {
-    padding: 0;
-    margin: 0;
     list-style-type: none;
-  }
-
-  p{
-    margin: 0;
-    padding: 0;
   }
 `;

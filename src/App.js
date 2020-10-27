@@ -1,56 +1,108 @@
 import React, { useState, PureComponent } from "react";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
+// Styling
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globals/global";
 import { FontStyles } from "./globals/fonts";
 import { theme } from "./globals/theme";
+import styled from "styled-components";
 
 // Components
-import MainNav from "./components/nav/mainNav";
-import Footer from "./components/footer/footer";
-import Landing from "./components/landing/landing";
-import PreLoader from "./components/preloader";
-import Fade from "./components/fade";
+import TopNav from "./components/nav/topNav/topNav";
+import ScrollToTop from "./components/scrollToTop";
 
 // Pages
 import Info from "./pages/info/info";
 import Projects from "./pages/projects/projects";
 import Home from "./pages/home/home";
+import ProjectDetail from "./pages/projectDetail/projectDetail";
+
+const StyledApp = styled.div`
+  overflow: visible;
+  .fade-appear,
+  .fade-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+  .fade-appear-active,
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 600ms ease 300ms;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .page-enter {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  .page-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+  }
+`;
 
 function demoAsyncCall() {
-  return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  return new Promise((resolve) => setTimeout(() => resolve(), 2500));
 }
 
 const App = () => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   demoAsyncCall().then(() => setLoading(false));
-  // if (loading) {
-  //   // if your component doesn't have to wait for an async action, remove this block
-  //   return (
-  //     <ThemeProvider theme={theme}>
-  //       <GlobalStyles />
-  //       <FontStyles />
-  //       <Fade loading={loading}>
-  //         <PreLoader />
-  //       </Fade>
-  //     </ThemeProvider>
-  //   ); // render null when app is not ready
-  // }
+
   return (
     <Router>
-    <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <FontStyles />
-          <MainNav/>
-            <Switch>
-              <Route path='/' exact component={Home}/> 
-              <Route path='/projects'  component={Projects}/> 
-              <Route path='/info'  component={Info}/> 
-            </Switch>
-          <Footer />
-      </ThemeProvider>
-      </Router>
-  )
-}
+      <ScrollToTop>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <FontStyles />
+          <StyledApp>
+            <TopNav />
+            <Route
+              render={({ location }) => (
+                <TransitionGroup>
+                  <CSSTransition
+                    key={location.key}
+                    timeout={900}
+                    classNames="fade"
+                  >
+                    <Switch location={location}>
+                      <Route path="/" exact component={Home} />
+                      <Route path="/projects" exact component={Projects} />
+                      <Route path="/projects/:id" component={ProjectDetail} />
+                      <Route path="/info" component={Info} />
+                    </Switch>
+                  </CSSTransition>
+                </TransitionGroup>
+              )}
+            />
+          </StyledApp>
+        </ThemeProvider>
+      </ScrollToTop>
+    </Router>
+  );
+};
 
-export default App
+export default App;
