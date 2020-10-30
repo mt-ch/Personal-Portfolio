@@ -1,103 +1,220 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.div`
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   background-color: #212121;
+  padding: 4em;
 
-  .backToTop{
+  a {
+    cursor: pointer;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-size: 8rem;
+    line-height: 1.2;
+    color: #f5f5f5;
+  }
+
+  .text-projects {
+    margin-left: 1.25em;
+  }
+
+  .text-projects:hover {
+    color: green;
+  }
+
+  .text-info {
+    margin-left: 0em;
+  }
+
+  .text-info:hover {
+    color: green;
+  }
+
+  .text-email {
+    margin-left: 1.5em;
+  }
+
+  .text-email:hover {
+    color: green;
+  }
+
+  .backToTop {
     display: flex;
     align-items: center;
     justify-content: end;
-    padding: 2rem;
+    overflow: hidden;
+    margin-bottom: 1em;
+    transition: all 0.5s ease;
 
-    .backToTop-text{
-      color: hsla(0, 0%, 100%, 0.2);
-      margin-right: 5px;
-    }
-
-    .arrow-rotate{
-      transform: rotate(270deg)
+    .arrow-rotate {
+      transform: rotate(270deg);
     }
   }
 
-  .footer-text{
-    padding: 3.5rem 2rem 0rem 2rem;
-    font-size: ${({ theme }) => theme.primaryFontSize};
-    font-weight: bold;
-    color: #fcec62;
-  }
-
-  .footer-email{
-    padding: 4rem 2rem 4rem 2rem;
-    font-size: ${({ theme }) => theme.primaryFontSize};
-    transition: all 0.5s ease;
-  }
-
-  .footer-email:hover{
-    color: hsla(0, 0%, 100%, 0.7);
-    transition: all 0.5s ease;
+  .backToTop:hover {
+    transform: translateY(-20px);
+    transition: transform 0.5s ease;
   }
 
   .footer-social {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: solid hsla(0, 0%, 100%, 0.2) 1px;
-    padding: 1rem 2rem 1rem 2rem;
+    justify-content: end;
+    margin-top: 3em;
+  }
 
-    .footer-social-div {
+  .footer-social-github {
+    cursor: pointer;
+    padding: 1em;
+    margin-right: 2em;
+    background-color: #ffffff00;
+    transition: all 0.5s ease;
+
+    .social-border {
       display: flex;
+      width: 200px;
+      height: auto;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px #f5f5f5 solid;
+      padding: 1em 0 0em 0;
+
+      p {
+        color: #f5f5f5;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .footer-social-github:hover {
+    background-color: green;
+  }
+
+  .footer-social-linkedin {
+    cursor: pointer;
+    padding: 1em;
+    transition: all 0.5s ease;
+
+    .social-border {
+      display: flex;
+      width: 200px;
+      height: auto;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px #f5f5f5 solid;
+      padding: 1em 0 0em 0;
+
+      p {
+        color: #f5f5f5;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .footer-social-linkedin:hover {
+    background-color: green;
+  }
+
+  .footer-bottom {
+    color: hsla(0, 0%, 100%, 0.2);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 3em;
+    padding-right: 4em;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    padding: 2em;
+
+    h1 {
+      font-size: 5rem;
+    }
+
+    .footer-social-github {
+      margin-right: 0;
+      margin-bottom: 1em;
+      .social-border {
+        width: 130px;
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .footer-social-linkedin {
+      .social-border {
+        width: 130px;
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .arrow-rotate {
+      height: 25px;
+      width: 25px;
+    }
+
+    .backToTop:hover {
+      transform: translateY(-10px);
+    }
+
+    .footer-bottom {
+      padding-right: 2em;
+      padding-bottom: 2em;
+    }
+
+    .footer-social {
+      margin-top: 6em;
+      display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
-    .footer-social-text {
-      color: hsla(0, 0%, 100%, 0.2);
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .text-projects {
+      margin-left: 0.6em;
+      margin-top: 1em;
+    }
+
+    .text-info {
+      margin-right: 2.25em;
+    }
+
+    .text-email {
+      margin-left: 1em;
     }
   }
 
-  .footer-social-links{
-    display: flex;
-    align-items: center;
-
-    .footer-social-github{
-      color: hsla(0, 0%, 100%, 0.2);
-      transition: all 0.5s ease;
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 3.5rem;
     }
 
-    .footer-social-github:hover{
-      color: #fcec62;
-      transition: all 0.5s ease;
+    .text-projects {
+      margin-left: 0.5em;
+      text-align: center;
     }
-
-    .footer-social-linkedin{
-      color: hsla(0, 0%, 100%, 0.2);
-      transition: all 0.5s ease;
+    .text-email {
+      margin-left: 0.5em;
+      text-align: center;
     }
-
-    .footer-social-linkedin:hover{
-      color: #fcec62;
-      transition: all 0.5s ease;
+    .text-info {
+      margin-right: 2.5em;
+      text-align: center;
     }
-
-    .footer-social-spacer{
-      color: hsla(0, 0%, 100%, 0.2);
-      margin: 0 8px 0 8px;
-    }
-  }
-
-  .footer-cr {
-    color: hsla(0, 0%, 100%, 0.2);
-    padding: 1rem 2rem 1rem 2rem;
-  }
-
-  p {
-    font-size: ${({ theme }) => theme.primaryFontSize};
-    color: white;
-  }
-
-  svg {
-    flex-shrink: 0;
-    margin-left: 5px;
   }
 `;

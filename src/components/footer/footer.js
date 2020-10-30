@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import Arrow from "../../assets/icons/arrow";
+import Github from "../../assets/icons/github";
+import LinkedIn from "../../assets/icons/linkedin";
 import { StyledFooter } from "./footer.styled";
 
 function ScrollToTopFunc() {
@@ -11,38 +13,41 @@ const Footer = () => {
   return (
     <StyledFooter>
       <a className="backToTop" onClick={ScrollToTopFunc}>
-        <p className="backToTop-text">Back to the top</p>
         <Arrow
           className="arrow-rotate"
-          height={"20"}
-          width={"20"}
-          fill={"hsla(0,0%,100%,.2)"}
+          height={"60"}
+          width={"60"}
+          fill={"#f5f5f5"}
         />
       </a>
+      <div className="nav">
+        <Link to="/projects">
+          <h1 className="text-projects">Projects</h1>
+        </Link>
 
-      <p className="footer-text">Let's get in touch!</p>
+        <Link to="/info">
+          <h1 className="text-info">Info</h1>
+        </Link>
 
-      <a>
-        <p className="footer-email">me@matt.chan</p>
-      </a>
+        <h1 className="text-email">Email</h1>
+      </div>
 
       <div className="footer-social">
-        <div className="footer-social-div">
-          <p className="footer-social-text">Socials</p>
-          <Arrow height={"20"} width={"20"} fill={"hsla(0,0%,100%,.2)"} />
+        <div className="footer-social-github">
+          <div className="social-border">
+            <p>Github</p>
+            <Github height={"30"} width={"30"} fill={"#f5f5f5"} />
+          </div>
         </div>
-        <div className="footer-social-links">
-          <a>
-            <p className="footer-social-github">Github</p>
-          </a>
-          <p className="footer-social-spacer"> · </p>
-          <a>
-            <p className="footer-social-linkedin">LinkedIn</p>
-          </a>
+        <div className="footer-social-linkedin">
+          <div className="social-border">
+            <p>LinkedIn</p>
+            <LinkedIn height={"30"} width={"30"} fill={"#f5f5f5"} />
+          </div>
         </div>
       </div>
 
-      <p className="footer-cr">© 2020 Matthew Chan</p>
+      <p className="footer-bottom">© 2020 Matthew Chan</p>
     </StyledFooter>
   );
 };
