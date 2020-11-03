@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.div`
-  height: 100vh;
+  height: 1005;
   width: 100vw;
   background-color: #212121;
-  padding: 4em;
+  padding: 2rem ${({ theme }) => theme.padding} 2rem ${({ theme }) => theme.padding};
 
   a {
     cursor: pointer;
@@ -15,13 +15,12 @@ export const StyledFooter = styled.div`
   }
 
   h1 {
-    font-size: 8rem;
     line-height: 1.2;
     color: #f5f5f5;
   }
 
   .text-projects {
-    margin-left: 1.25em;
+    margin-left: 0;
   }
 
   .text-projects:hover {
@@ -37,7 +36,7 @@ export const StyledFooter = styled.div`
   }
 
   .text-email {
-    margin-left: 1.5em;
+    margin-left: 0em;
   }
 
   .text-email:hover {
@@ -87,7 +86,6 @@ export const StyledFooter = styled.div`
 
       p {
         color: #f5f5f5;
-        font-size: 1.6rem;
       }
     }
   }
@@ -112,7 +110,6 @@ export const StyledFooter = styled.div`
 
       p {
         color: #f5f5f5;
-        font-size: 1.6rem;
       }
     }
   }
@@ -121,7 +118,7 @@ export const StyledFooter = styled.div`
     background-color: green;
   }
 
-  .footer-bottom {
+  /* .footer-bottom {
     color: hsla(0, 0%, 100%, 0.2);
     position: absolute;
     bottom: 0;
@@ -129,13 +126,10 @@ export const StyledFooter = styled.div`
     padding-bottom: 3em;
     padding-right: 4em;
     font-size: 1rem;
-  }
+  } */
 
   @media (max-width: 800px) {
-    padding: 2em;
-
     h1 {
-      font-size: 5rem;
     }
 
     .footer-social-github {
@@ -144,7 +138,6 @@ export const StyledFooter = styled.div`
       .social-border {
         width: 130px;
         p {
-          font-size: 1.5rem;
         }
       }
     }
@@ -153,7 +146,6 @@ export const StyledFooter = styled.div`
       .social-border {
         width: 130px;
         p {
-          font-size: 1.5rem;
         }
       }
     }
@@ -167,54 +159,47 @@ export const StyledFooter = styled.div`
       transform: translateY(-10px);
     }
 
-    .footer-bottom {
-      padding-right: 2em;
-      padding-bottom: 2em;
-    }
-
     .footer-social {
-      margin-top: 6em;
+      /* margin-top: 6em; */
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     .nav {
-      display: flex;
+      /* display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center; */
     }
 
     .text-projects {
-      margin-left: 0.6em;
-      margin-top: 1em;
+      /* margin-left: 0.6em;
+      margin-top: 1em; */
     }
 
     .text-info {
-      margin-right: 2.25em;
+      margin-right: 0em;
     }
 
     .text-email {
-      margin-left: 1em;
+      margin-left: 0em;
     }
   }
 
   @media (max-width: 400px) {
-    h1 {
-      font-size: 3.5rem;
-    }
+
 
     .text-projects {
-      margin-left: 0.5em;
-      text-align: center;
+      /* margin-left: 0.5em; */
+      /* text-align: center; */
     }
     .text-email {
-      margin-left: 0.5em;
-      text-align: center;
+      /* margin-left: 0.5em; */
+      /* text-align: center; */
     }
     .text-info {
-      margin-right: 2.5em;
-      text-align: center;
+      /* margin-right: 2.5em; */
+      /* text-align: center; */
     }
   }
 `;

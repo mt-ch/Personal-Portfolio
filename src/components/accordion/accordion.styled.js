@@ -1,37 +1,19 @@
 import styled from "styled-components";
 
 export const StyledAccordion = styled.div`
-  p {
-    font-size: ${({ theme }) => theme.primaryFontSize};
-  }
+  background-color: #ffffff00;
 
   svg {
     flex-shrink: 0;
   }
 
-  .accordion-section {
-    display: flex;
-    flex-direction: column;
-    img {
-      height: 200px;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  /* Main project button */
   .accordion {
-    height: 100%;
-    width: 100%;
-    min-height: 210px;
-    min-width: 200px;
-    background-color: white;
     cursor: pointer;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    transition: background-color 0.4s ease;
+    border-top: solid black 2px;
+    /* transition: background-color 0.4s ease; */
   }
 
   /* Hover change color */
@@ -44,6 +26,7 @@ export const StyledAccordion = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2em 0 2em;
   }
 
   .accordion-icon {
@@ -60,7 +43,6 @@ export const StyledAccordion = styled.div`
   .accordion-content {
     background-color: white;
     overflow: hidden;
-    /* border-bottom: 1px solid black; */
     transition: max-height 0.4s ease;
 
     .project-links {

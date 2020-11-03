@@ -1,43 +1,30 @@
 import styled from "styled-components";
 
 export const StyledInfo = styled.div`
-  position: absolute;
-  top: 49px;
-  width: 100vw;
-  height: auto;
   background-color: white;
   z-index: 5;
+  padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
 
-  .shapes {
-    height: 30vh;
-    background-color: green;
+  .info-header {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 4rem 0 4rem 0;
+  }
+  .info-social {
+    padding: 4rem 0 4rem 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-bottom: solid black 1px;
+    justify-content: start;
 
-    .info-title {
-      color: white;
-      font-weight: bold;
-      font-size: 5rem;
+    a {
+      display: flex;
+      align-items: center;
+      margin-right: 2rem;
     }
   }
-
-  .info-list {
-    padding: 2rem;
-    border-bottom: solid black 1px;
-  }
-
-  p {
-    font-size: ${({ theme }) => theme.primaryFontSize};
-    line-height: 1.5;
-  }
-
-  li {
-    line-height: 1.5;
-
-    svg {
-      margin: 10px 10px 0 0;
-    }
+  
+  svg {
+    flex-shrink: 0;
+    margin-left: 1rem;
   }
 `;

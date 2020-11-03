@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
 export const StyledLanding = styled.div`
-  .sub-text {
-    border-bottom: 1px solid black;
-    padding: 2rem;
+  border-top: solid 2px black;
+  padding-top: 4rem;
+  .landing-text {
+    margin-bottom: 4rem;
+  }
 
-    p {
-      font-size: ${({ theme }) => theme.primaryFontSize};
-      margin: 0;
-      line-height: 1.3;
-    }
+  .sub-text {
+    /* border-bottom: 1px solid black; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: end; */
+    margin-bottom: 4rem;
 
     .explore {
       display: flex;
       justify-content: start;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 4rem;
 
       p {
         color: green;
