@@ -1,13 +1,10 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import { StyledTopNav } from "./topNav.styled";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 //https://github.com/glweems/react-peekaboo-navbar code from here
 export default class TopNav extends PureComponent {
-  static propTypes = {};
-
   constructor(props) {
     super(props);
     this.state = {
@@ -32,24 +29,24 @@ export default class TopNav extends PureComponent {
       show: document.body.getBoundingClientRect().top > scrollPos,
     });
   }
-
+  // className={this.state.show ? "active" : "hidden"}
   render() {
     return (
       <Transition>
-        <StyledTopNav className={this.state.show ? "active" : "hidden"}>
+        <StyledTopNav>
           <Link className="title-link" to="/">
-            <p className="title-text">mc</p>
+            <h4 className="title-text">mc</h4>
           </Link>
 
           <ul className="nav-desktop">
             <li>
               <Link to="/projects">
-                <p>Projects</p>
+                <h5>Projects</h5>
               </Link>
             </li>
             <li>
               <Link to="/info">
-                <p>Info</p>
+                <h5>Info</h5>
               </Link>
             </li>
           </ul>

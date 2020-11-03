@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { StyledInfo } from "./info.styled";
-
 import GetInfo from "../../utils/getInfo";
-
-import Shapes from '../../components/shapes';
+import Layout from "../../components/layout";
 import Github from "../../assets/icons/github";
 import Linkedin from "../../assets/icons/linkedin";
-
-import Footer from '../../components/footer/footer'
 
 const Info = () => {
   const [info, setInfo] = useState([]);
@@ -15,32 +11,24 @@ const Info = () => {
     GetInfo(setInfo);
   }, []);
   return (
-    <StyledInfo>
-      <Shapes title={'Info'}/>
-      <ul className="info-list" key={info.id}>
-        <li>
-          <p>{info.name}</p>
-        </li>
-        <li>
-          <p>{info.jobTitle}</p>
-        </li>
-        <li>
-          <p>{info.email}</p>
-        </li>
-        <li>
-          <p>{info.phoneNumber}</p>
-        </li>
-        <li>
+    <Layout>
+      <StyledInfo>
+        <div className="info-header">
+          <h1>Get in touch</h1>
+          {/* <h1>{info.email}</h1> */}
+        </div>
+        <div className="info-social">
           <a href="">
+            <p>Github</p>
             <Github className={"social-icon"} width={"40"} height={"40"} />
           </a>
           <a href="">
+            <p>LinkedIn</p>
             <Linkedin className={"social-icon"} width={"40"} height={"40"} />
           </a>
-        </li>
-      </ul>
-      <Footer/>
-    </StyledInfo>
+        </div>
+      </StyledInfo>
+    </Layout>
   );
 };
 
