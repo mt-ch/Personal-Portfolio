@@ -2,42 +2,29 @@ import { createGlobalStyle } from "styled-components";
 
 export const FontStyles = createGlobalStyle`
 
-/* Import fonts */
-@import url("https://fonts.googleapis.com/css?family=Kanit:bold,regular");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:bold,regular");
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-    color: ${({ theme }) => theme.darkText};
-    /* font-family: "Open Sans";
-    font-family: "SuisseIntl",helvetica,arial,sans-serif; */
-}
-
-p {
-    /* font-size: clamp(1.25rem, 3vw, 1.75rem); */
-    font-size: 1.35rem;
-}
-
-h1 {
-  font-family: "Kanit";
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: clamp(2rem, 6vw, 6rem);
-  line-height: 1;
-  letter-spacing: 0.15rem;
-  color: #9570c500;
-  -webkit-text-stroke: 2px whitesmoke;
+ h1 {
+  font-size: clamp(3rem, 9vw, 6rem);
 }
 
 h2 {
-  font-family: "Kanit";
-  /* // font-size: clamp(2rem, 6vw, 6rem); */
-  line-height: 0;
-  /* // letter-spacing: 0.15rem; */
+  font-size: clamp(2rem, 6vw, 6rem);
+} 
+
+h4{
+  font-size: clamp(2.25rem, 9vw, 3.5rem);
+}
+
+h5{
+  font-size: clamp(1.25rem, 6vw, 2rem);
+  color: ${({ theme }) => theme.darkText};
+  font-weight: 500;
+}
+
+p {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  color: ${({ theme }) => theme.darkText};
 }
 
 `;

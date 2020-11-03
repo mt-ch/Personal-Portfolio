@@ -7,5 +7,6 @@ export const theme = {
     darkText: '#000',
     mobile: '576px',
     primaryFontSize: '2.25rem',
-    secondaryFontSize: '1.5rem'
+    secondaryFontSize: '1.5rem',
+    padding: 'clamp(1rem, 4vw, 4rem)',
   }
