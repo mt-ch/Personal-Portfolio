@@ -25,7 +25,6 @@ export class FeaturedWork extends PureComponent {
     const { projects } = this.state;
     return (
       <div>
-        {!this.state.matches && (
           <StyledFeatured>
             {projects.map((project) => (
               <Accordion
@@ -40,26 +39,6 @@ export class FeaturedWork extends PureComponent {
               />
             ))}
           </StyledFeatured>
-        )}
-
-        {this.state.matches && (
-          <StyledFeaturedDesktop>
-            {projects.map((project) => (
-              <ProjectGrid
-                key={project.id}
-                title={project.name}
-                roles={project.roles}
-                technologies={project.technologies}
-                description={project.description}
-                github={project.git}
-                website={project.website}
-                coverPhoto={project.coverPhoto}
-                photoAlbum={project.photos}
-                link={project.id}
-              />
-            ))}
-          </StyledFeaturedDesktop>
-        )}
       </div>
     );
   }

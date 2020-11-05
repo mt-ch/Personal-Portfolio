@@ -11,7 +11,14 @@ const Landing = () => {
   }, []);
   return (
     <StyledLanding>
-      <Shapes title={"Welcome"} />
+      {/* <Shapes title={"Welcome"} /> */}
+      <div className="landing-text">
+        <h1>
+          Web Dev
+          <br />
+          Design
+        </h1>
+      </div>
       <div className="sub-text">
         <p>{landing.subText}</p>
         <a className="explore" href="">

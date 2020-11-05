@@ -11,7 +11,6 @@ import Footer from "./footer/footer";
 
 const StyledLayout = styled.div`
   position: absolute;
-  top: 49px;
   width: 100vw;
   height: auto;
 `;

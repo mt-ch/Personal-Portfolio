@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="footer-bottom">© 2020 Matthew Chan</p>
+      {/* <p className="footer-bottom">© 2020 Matthew Chan</p> */}
     </StyledFooter>
   );
 };

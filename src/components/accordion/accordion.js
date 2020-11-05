@@ -28,13 +28,14 @@ const Accordion = (props) => {
 
   return (
     <StyledAccordion className="project-id">
-      <div className="accordion-section">
-        <img src={"http://localhost:1337" + props.coverPhoto} />
+      <div>
+        {/* <img src={"http://localhost:1337" + props.coverPhoto} /> */}
         <a className={`accordion ${setActive}`} onClick={toggleAccordion}>
           <div className="accordion-header">
-            <p>
-              <strong>{props.title}</strong>
-            </p>
+            <div>
+              <p>{props.technologies}</p>
+              <p className='project-title'>{props.title}</p>
+            </div>
             <Arrow
               className={`${setRotate}`}
               width={"37"}
@@ -42,8 +43,8 @@ const Accordion = (props) => {
               fill={"black"}
             />
           </div>
-          <p>{props.roles}</p>
-          <p>{props.technologies}</p>
+          {/* <p>{props.roles}</p>
+          <p>{props.technologies}</p> */}
         </a>
 
         <div

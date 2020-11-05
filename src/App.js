@@ -3,15 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // Styling
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./globals/global";
-import { FontStyles } from "./globals/fonts";
-import { theme } from "./globals/theme";
 import styled from "styled-components";
 
 // Components
-import TopNav from "./components/nav/topNav/topNav";
 import ScrollToTop from "./components/scrollToTop";
+import Intro from './components/intro'
 
 // Pages
 import Info from "./pages/info/info";
@@ -75,11 +71,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <FontStyles />
           <StyledApp>
-            <TopNav />
             <Route
               render={({ location }) => (
                 <TransitionGroup>
@@ -98,8 +90,8 @@ const App = () => {
                 </TransitionGroup>
               )}
             />
+            {/* <Intro/> */}
           </StyledApp>
-        </ThemeProvider>
       </ScrollToTop>
     </Router>
   );
