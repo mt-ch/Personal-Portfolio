@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import GetProjectDetail from "../functions/getProjectDetail";
-import { StyledProject } from "./projectDetail/projectDetail.styled";
+// import { StyledProject } from "./projectDetail/projectDetail.styled";
 import Layout from "../components/layout";
 import Github from "../assets/icons/github";
 import Website from "../assets/icons/website";
@@ -14,7 +14,7 @@ const ProjectDetail = ({ match }) => {
 
   return (
     <Layout isHome={false} color={'white'} text={'black'}>
-      <StyledProject>
+      {/* <StyledProject> */}
         {project.map((project) => (
           <div key={project.id}>
             <div className="project-detail">
@@ -45,7 +45,7 @@ const ProjectDetail = ({ match }) => {
           </div>
           </div>
         ))}
-      </StyledProject>
+      {/* </StyledProject> */}
     </Layout>
   );
 };
