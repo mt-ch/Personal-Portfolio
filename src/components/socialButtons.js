@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import GetSocials from "../utils/getSocials";
+import GetSocials from "../functions/getSocials";
 
 import Github from "../assets/icons/github";
 import Linkedin from "../assets/icons/linkedin";

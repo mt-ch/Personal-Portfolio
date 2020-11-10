@@ -1,6 +1,6 @@
 import React from "react";
 
-function Github(props) {
+function Linkedin(props) {
   return (
     <svg
       className={props.className}
@@ -18,4 +18,4 @@ function Github(props) {
   );
 }
 
-export default Github;
+export default Linkedin;

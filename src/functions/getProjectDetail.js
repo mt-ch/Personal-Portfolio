@@ -6,18 +6,18 @@ async function GetProjectDetail(id) {
   const data = await response.json();
   const {
     id: projectId,
-    projectName: name,
-    Roles: roles,
-    Technologies: technologies,
+    name: name,
+    role: roles,
+    technologies: technologies,
     description: desc,
     github: git,
-    website: web,
+    liveUrl: web,
     coverPhoto: {
       formats: {
         medium: { url: coverPhoto },
       },
     },
-    projectPhotos: photos,
+    photos: photos,
   } = data;
   projectData.push(
     CreateProjectData(

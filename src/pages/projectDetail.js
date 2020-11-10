@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import GetProjectDetail from "../../utils/getProjectDetail";
-import { StyledProject } from "./projectDetail.styled";
-import Layout from "../../components/layout";
-import Github from "../../assets/icons/github";
-import Website from "../../assets/icons/website";
+
+import GetProjectDetail from "../functions/getProjectDetail";
+// import { StyledProject } from "./projectDetail/projectDetail.styled";
+import Layout from "../components/layout";
+import Github from "../assets/icons/github";
+import Website from "../assets/icons/website";
 
 const ProjectDetail = ({ match }) => {
   const [project, setProject] = useState([]);
@@ -12,12 +13,11 @@ const ProjectDetail = ({ match }) => {
   }, []);
 
   return (
-    <Layout>
-      <StyledProject>
+    <Layout isHome={false} color={'white'} text={'black'}>
+      {/* <StyledProject> */}
         {project.map((project) => (
           <div key={project.id}>
             <div className="project-detail">
-              <h1>{project.name}</h1>
               <p>
                 <strong>{project.roles}</strong>
               </p>
@@ -35,17 +35,17 @@ const ProjectDetail = ({ match }) => {
               </a>
             </div>
             <div className="project-photos">
-              {project.photos.map((photo) => (
-                <img
-                  className="gallery"
-                  key={photo.id}
-                  src={"http://localhost:1337" + photo.url}
-                />
-              ))}
-            </div>
+            {project.photos.map((photo) => (
+              <img
+                className="gallery"
+                key={photo.id}
+                src={"http://localhost:1337" + photo.url}
+              />
+            ))}
+          </div>
           </div>
         ))}
-      </StyledProject>
+      {/* </StyledProject> */}
     </Layout>
   );
 };

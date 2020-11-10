@@ -10,10 +10,10 @@ import ScrollToTop from "./components/scrollToTop";
 import Intro from './components/intro'
 
 // Pages
-import Info from "./pages/info/info";
-import Projects from "./pages/projects/projects";
-import Home from "./pages/home/home";
-import ProjectDetail from "./pages/projectDetail/projectDetail";
+import Info from "./pages/info";
+import Projects from "./pages/projects";
+import Home from "./pages/home";
+import ProjectDetail from "./pages/projectDetail";
 
 const StyledApp = styled.div`
   overflow: visible;

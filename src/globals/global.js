@@ -1,34 +1,39 @@
-// Global styles exposed to whole app
-import { createGlobalStyle } from "styled-components";
+import {
+  createGlobalStyle
+} from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
-  *{
-    margin: 0;
-    padding: 0;
-  }
+export const GlobalStyles = createGlobalStyle `
+*{
+  margin: 0;
+  padding: 0;
+}
 
-  html, body {
-    scroll-behavior: smooth;
-  }
+html, body {
+  scroll-behavior: smooth;
+}
 
-  *, *::after, *::before {
-    box-sizing: border-box;
-  }
+*, *::after, *::before {
+  box-sizing: border-box;
+}
 
-  body {
-    background: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.primaryDark};
-    font-family: Helvetica, sans-serif;
-    height: 100%;
-    text-rendering: optimizeLegibility;
-  }
+body {
+  background: '#ffffff00';
+  color: ${({ theme }) => theme.primaryDark};
+  font-family: Helvetica, sans-serif;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+}
 
-  a{
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  ul {
-    list-style-type: none;
-  }
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+svg {
+  flex-shrink: 0;
+}
 `;

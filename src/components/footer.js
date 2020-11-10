@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
-import Arrow from "../../assets/icons/arrow";
-import Github from "../../assets/icons/github";
-import LinkedIn from "../../assets/icons/linkedin";
-import { StyledFooter } from "./footer.styled";
+import { StyledFooter } from "../styled/footer.styled";
+import Arrow from "../assets/icons/arrow";
+import Github from "../assets/icons/github";
+import LinkedIn from "../assets/icons/linkedin";
 
 function ScrollToTopFunc() {
   return window.scrollTo(0, 0);

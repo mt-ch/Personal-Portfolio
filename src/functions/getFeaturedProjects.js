@@ -18,31 +18,32 @@ function CreateProjectData(
     coverPhoto,
     photos,
     git,
-    website
+    website,
   };
 }
 
-async function GetProjects() {
+async function GetFeaturedProjects(setFeatured) {
   let projectData = [];
-  const url = "http://localhost:1337/projects";
+  const url = "http://localhost:1337/featured-projects";
   const response = await fetch(url);
   const data = await response.json();
+  const { projects } = data;
 
   for (const {
     id: projectId,
-    projectName: name,
-    Roles: roles,
-    Technologies: technologies,
+    name: name,
+    roles: roles,
+    technologies: technologies,
     description: desc,
     github: git,
-    website: web,
+    liveUrl: web,
     coverPhoto: {
       formats: {
-        medium: { url: coverPhoto }
-      }
+        medium: { url: coverPhoto },
+      },
     },
-    projectPhotos: photos
-  } of data) {
+    photos: photos,
+  } of projects) {
     projectData.push(
       CreateProjectData(
         projectId,
@@ -57,7 +58,7 @@ async function GetProjects() {
       )
     );
   }
-  return projectData;
+  return setFeatured(projectData);
 }
 
-export default GetProjects;
+export default GetFeaturedProjects;
