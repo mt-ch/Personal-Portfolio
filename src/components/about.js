@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import styled from "styled-components";
 
 const StyledAbout = styled.div`
+  margin: 4rem 0 4rem 0;
   .para {
     margin-top: 13vw;
     transition: 0.3s ease-out;
@@ -31,7 +32,7 @@ const About = () => {
   }, []);
 
   return (
-    <StyledAbout>
+    <StyledAbout id='about'>
       <div
         class="para"
         data-aos="fade-up"

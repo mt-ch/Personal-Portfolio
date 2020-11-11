@@ -23,6 +23,7 @@ h4{
 h5{
   font-size: clamp(1.25rem, 6vw, 2rem);
   font-weight: 500;
+  color: #fff;
 }
 p {
   font-size: clamp(1.5rem, 6vw, 3rem);

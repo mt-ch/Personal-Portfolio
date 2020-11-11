@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 // Components
 import ScrollToTop from "./components/scrollToTop";
-import Intro from './components/intro'
+// import Intro from './components/intro'
 
 // Pages
 import Info from "./pages/info";

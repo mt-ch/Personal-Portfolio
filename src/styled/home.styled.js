@@ -7,4 +7,5 @@ export const StyledHome = styled.div`
     border-top: 2px solid black;
     padding: 1.2em 0 1em 0;
   }
+  
 `;

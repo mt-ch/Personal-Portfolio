@@ -1,11 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import { StyledLanding } from "../styled/landing.styled";
-import Arrow from "../assets/icons/arrow";
-import Spinner from '../assets/img/Spinner.png'
-import GetLanding from "../functions/getLanding";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,10 +34,6 @@ const MoveText = ({ children, from, to }) => {
 };
 
 const Landing = () => {
-  const [landing, setLanding] = useState([]);
-  useEffect(() => {
-    GetLanding(setLanding);
-  }, []);
   return (
     <StyledLanding>
       <div className="movingText">
@@ -60,14 +53,6 @@ const Landing = () => {
           </h1>
         </MoveText>
       </div>
-      {/* <div className="sub-text">
-        <p>{landing.landingText}</p>
-        <a className="explore" href="">
-          <p>Explore</p>
-          <Arrow width={"37"} height={"37"} />
-        </a>
-      </div> */}
-      <img class='spinner' src={Spinner}/>
     </StyledLanding>
   );
 };

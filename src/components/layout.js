@@ -10,7 +10,7 @@ import { FontStyles } from "../globals/fonts";
 import { theme } from "../globals/theme";
 
 // Components
-import Nav from "./nav";
+import Overlay from "./overlay";
 import Footer from "./footer";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -110,25 +110,25 @@ const ChangeColor = ({ children, isHomePage }) => {
         }
       );
 
-      gsap.fromTo(
-        ".spinner",
-        {
-          filter: 'invert(0)',
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        {
-          filter: 'invert(1)',
-          duration: 0.5,
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: ".layout",
-            scrub: true,
-            start: "100px",
-            end: "800px",
-          },
-        }
-      );
+      // gsap.fromTo(
+      //   ".spinner",
+      //   {
+      //     filter: 'invert(0)',
+      //     duration: 0.5,
+      //     ease: "power2.inOut",
+      //   },
+      //   {
+      //     filter: 'invert(1)',
+      //     duration: 0.5,
+      //     ease: "power2.inOut",
+      //     scrollTrigger: {
+      //       trigger: ".layout",
+      //       scrub: true,
+      //       start: "100px",
+      //       end: "800px",
+      //     },
+      //   }
+      // );
 
     } else return;
   }, []);
@@ -141,6 +141,7 @@ const StyledLayout = styled.div`
   width: 100vw;
   height: auto;
   background-color: ${({ color }) => color};
+  /* mix-blend-mode: difference; */
 `;
 
 const Layout = ({ children, isHome, color, text }) => {
@@ -150,7 +151,7 @@ const Layout = ({ children, isHome, color, text }) => {
       <FontStyles text={text} />
       <StyledLayout className="layout" color={color}>
         <ChangeColor isHomePage={isHome}>
-        <Nav />
+        <Overlay/>
         {children}
         <Footer />
         </ChangeColor>

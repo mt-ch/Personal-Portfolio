@@ -32,7 +32,7 @@ const FeaturedWork = () => {
     AOS.init();
   }, []);
   return (
-    <StyledFeatured>
+    <StyledFeatured id='work'>
       <div
         class="para"
         data-aos="fade-up"

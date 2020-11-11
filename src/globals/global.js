@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
 
 html, body {
   scroll-behavior: smooth;
+  background: #fff;
 }
 
 *, *::after, *::before {
