@@ -8,5 +8,5 @@ export const theme = {
   mobile: "576px",
   primaryFontSize: "2.25rem",
   secondaryFontSize: "1.5rem",
-  padding: "clamp(2rem, 6vw, 6rem)",
+  padding: "clamp(2vw, 10vw, 10vw)",
 }

@@ -109,6 +109,27 @@ const ChangeColor = ({ children, isHomePage }) => {
           },
         }
       );
+
+      gsap.fromTo(
+        ".spinner",
+        {
+          filter: 'invert(0)',
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        {
+          filter: 'invert(1)',
+          duration: 0.5,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: ".layout",
+            scrub: true,
+            start: "100px",
+            end: "800px",
+          },
+        }
+      );
+
     } else return;
   }, []);
 
@@ -129,9 +150,9 @@ const Layout = ({ children, isHome, color, text }) => {
       <FontStyles text={text} />
       <StyledLayout className="layout" color={color}>
         <ChangeColor isHomePage={isHome}>
-          <Nav />
-          {children}
-          <Footer />
+        <Nav />
+        {children}
+        <Footer />
         </ChangeColor>
       </StyledLayout>
     </ThemeProvider>

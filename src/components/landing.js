@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { StyledLanding } from "../styled/landing.styled";
 import Arrow from "../assets/icons/arrow";
+import Spinner from '../assets/img/Spinner.png'
 import GetLanding from "../functions/getLanding";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -59,13 +60,14 @@ const Landing = () => {
           </h1>
         </MoveText>
       </div>
-      <div className="sub-text">
+      {/* <div className="sub-text">
         <p>{landing.landingText}</p>
         <a className="explore" href="">
           <p>Explore</p>
           <Arrow width={"37"} height={"37"} />
         </a>
-      </div>
+      </div> */}
+      <img class='spinner' src={Spinner}/>
     </StyledLanding>
   );
 };
