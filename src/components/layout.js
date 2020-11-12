@@ -12,6 +12,7 @@ import { theme } from "../globals/theme";
 // Components
 import Overlay from "./overlay";
 import Footer from "./footer";
+import Loading from './loading'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,6 +150,7 @@ const Layout = ({ children, isHome, color, text }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <FontStyles text={text} />
+      <Loading/>
       <StyledLayout className="layout" color={color}>
         <ChangeColor isHomePage={isHome}>
         <Overlay/>

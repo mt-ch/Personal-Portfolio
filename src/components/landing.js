@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { StyledLanding } from "../styled/landing.styled";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const MoveText = ({ children, from, to }) => {

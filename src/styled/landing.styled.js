@@ -4,7 +4,7 @@ export const StyledLanding = styled.div`
   /* border-top: solid 2px black; */
   padding-top: 7rem;
 
-  height: 100vh;
+  /* height: 100vh; */
 
 
   .movingText {
