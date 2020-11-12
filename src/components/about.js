@@ -4,24 +4,20 @@ import "aos/dist/aos.css";
 import styled from "styled-components";
 
 const StyledAbout = styled.div`
-  margin: 4rem 0 4rem 0;
-  .para {
-    margin-top: 13vw;
+  .text {
     transition: 0.3s ease-out;
     will-change: transform;
+    padding: 15vh 0 15vh 0;
 
-    h1{
-        font-size: 10vw;
+    .about-title{
+      small{
+        font-size: clamp(1rem, 3vw, 3rem);
+        margin-right: 5vw; 
+      }
     }
 
-    h2{
-        font-size: 9vw;
-        color: white;
-    }
-
-    p{
-        font-size: 6vw;
-        line-height: 1.3;
+    p, h3{
+      line-height: 1.6;
     }
   }
 `;
@@ -34,34 +30,35 @@ const About = () => {
   return (
     <StyledAbout id='about'>
       <div
-        class="para"
+        class="text"
         data-aos="fade-up"
         data-aos-offset="250"
         data-aos-delay="100"
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <h1 className="section-title">
-          {" "}
+        <h2 className="about-title">
           <small> (001) </small> ABOUT ME
-        </h1>
+        </h2>
       </div>
+
       <div
-        class="para"
+        class="text"
         data-aos="fade-up"
         data-aos-offset="250"
         data-aos-delay="100"
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <h2> Hi ,I'm Matt. </h2>
+        <h3> Hi ,I'm Matt. </h3>
         <p>
           I'm a Junior Frontend Developer and a recent graduate of the Computer
           Science programme at Derby University.
         </p>
       </div>
+
       <div
-        class="para"
+        class="text"
         data-aos="fade-up"
         data-aos-offset="250"
         data-aos-delay="100"
@@ -73,8 +70,9 @@ const About = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
+
       <div
-        class="para"
+        class="text"
         data-aos="fade-up"
         data-aos-offset="250"
         data-aos-delay="100"

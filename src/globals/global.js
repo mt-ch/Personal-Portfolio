@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -15,12 +17,14 @@ html, body {
   box-sizing: border-box;
 }
 
+
+
 body {
   background: '#ffffff00';
   color: ${({ theme }) => theme.primaryDark};
-  font-family: Helvetica, sans-serif;
   height: 100%;
   text-rendering: optimizeLegibility;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 a{

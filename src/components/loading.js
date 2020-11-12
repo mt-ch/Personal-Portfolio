@@ -70,7 +70,7 @@ const Loading = () => {
   const { countUp } = useCountUp({
     end: 100,
     start: 0,
-    duration: 7,
+    duration: 5,
     suffix: "%",
   });
   useEffect(() => {

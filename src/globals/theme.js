@@ -10,4 +10,5 @@ export const theme = {
   secondaryFontSize: "1.5rem",
   padding: "clamp(2vw, 10vw, 10vw)",
   navPadding: "clamp(1vw, 10vw, 3vw)",
+  loadingPadding: 'clamp(1rem, 3vw, 3rem)'
 }

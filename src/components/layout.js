@@ -12,15 +12,14 @@ import { theme } from "../globals/theme";
 // Components
 import Overlay from "./overlay";
 import Footer from "./footer";
-import Loading from './loading'
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ChangeColor = ({ children, isHomePage }) => {
+const ChangeColor = ({ children }) => {
   const revealRef = useRef(null);
 
   useEffect(() => {
-    if (isHomePage == true) {
+    
       gsap.fromTo(
         revealRef.current,
         {
@@ -130,33 +129,27 @@ const ChangeColor = ({ children, isHomePage }) => {
       //     },
       //   }
       // );
-
-    } else return;
   }, []);
 
   return <div ref={revealRef}>{children}</div>;
 };
 
 const StyledLayout = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 100vw;
   height: auto;
-  background-color: ${({ color }) => color};
-  /* mix-blend-mode: difference; */
 `;
 
-const Layout = ({ children, isHome, color, text }) => {
+const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <FontStyles text={text} />
-      <Loading/>
-      <StyledLayout className="layout" color={color}>
-        <ChangeColor isHomePage={isHome}>
-        <Overlay/>
+      <FontStyles />
+      <StyledLayout className="layout" >
+        {/* <ChangeColor> */}
+        {/* <Overlay/> */}
         {children}
-        <Footer />
-        </ChangeColor>
+        {/* </ChangeColor> */}
       </StyledLayout>
     </ThemeProvider>
   );

@@ -9,12 +9,12 @@ import Contact from "../components/contact";
 
 const Home = () => {
   return (
-    <Layout isHome={true} color={"black"} text={"black"}>
+    <Layout>
       <StyledHome>
-        <Landing/>
+        {/* <Landing/> */}
         <About />
-        <FeaturedWork />
-        <Contact />
+        {/* <FeaturedWork /> */}
+        {/* <Contact /> */}
       </StyledHome>
     </Layout>
   );

@@ -8,7 +8,7 @@ export const StyledOverlay = styled.div`
   ${({ theme }) => theme.navPadding};
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: -10;
   mix-blend-mode: difference;
 
   .nav {
