@@ -15,51 +15,6 @@ import Projects from "./pages/projects";
 import Home from "./pages/home";
 import ProjectDetail from "./pages/projectDetail";
 
-const StyledApp = styled.div`
-  overflow: visible;
-  .fade-appear,
-  .fade-enter {
-    opacity: 0;
-    z-index: 1;
-  }
-  .fade-appear-active,
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 600ms ease 300ms;
-  }
-
-  .fade-exit {
-    opacity: 1;
-  }
-
-  .fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-  }
-
-  .page-enter {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-
-  .page-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 300ms, transform 300ms;
-  }
-
-  .page-exit {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .page-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 300ms, transform 300ms;
-  }
-`;
-
 function demoAsyncCall() {
   return new Promise((resolve) => setTimeout(() => resolve(), 2500));
 }
@@ -71,7 +26,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop>
-          <StyledApp>
+          <div>
             <Route
               render={({ location }) => (
                 <TransitionGroup>
@@ -91,7 +46,7 @@ const App = () => {
               )}
             />
             {/* <Intro/> */}
-          </StyledApp>
+          </div>
       </ScrollToTop>
     </Router>
   );
