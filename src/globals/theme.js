@@ -1,14 +1,10 @@
 export const theme = {
-  primaryDark: "#0D0C1D",
-  primaryLight: "#EFFFFA",
-  primaryHover: "#343078",
-  background: " #212121",
-  lightText: "#fff",
-  darkText: "#000",
+  white: '#FDFDFD',
+  black: '#010101',
+  primary: '#C7B6F6',
+  dark: '#202020',
   mobile: "576px",
-  primaryFontSize: "2.25rem",
-  secondaryFontSize: "1.5rem",
   padding: "clamp(2vw, 10vw, 10vw)",
-  navPadding: "clamp(1vw, 10vw, 3vw)",
+  navPadding: "clamp(2vw, 10vw, 4vw)",
   loadingPadding: 'clamp(1rem, 3vw, 3rem)'
 }

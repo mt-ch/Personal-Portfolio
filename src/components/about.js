@@ -5,13 +5,12 @@ import styled from "styled-components";
 
 const StyledAbout = styled.div`
   .text {
-    transition: 0.3s ease-out;
+    /* transition: 0.3s ease-out; */
     will-change: transform;
     padding: 15vh 0 15vh 0;
 
     .about-title{
       small{
-        font-size: clamp(1rem, 3vw, 3rem);
         margin-right: 5vw; 
       }
     }
@@ -50,7 +49,7 @@ const About = () => {
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <h3> Hi ,I'm Matt. </h3>
+        <h4> Hi ,I'm Matt. </h4>
         <p>
           I'm a Junior Frontend Developer and a recent graduate of the Computer
           Science programme at Derby University.

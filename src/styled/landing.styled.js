@@ -1,21 +1,17 @@
 import styled from "styled-components";
 
 export const StyledLanding = styled.div`
-  /* border-top: solid 2px black; */
-  padding-top: 7rem;
-
-  /* height: 100vh; */
-
-
   .movingText {
-    height: 100%;
+    height: 100vh;
     position: relative;
     overflow: hidden;
-    padding: 0 0 4em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     h1 {
       font-size: 15rem;
-      line-height: 1;
+      line-height: .6;
       text-transform: uppercase;
     }
   }

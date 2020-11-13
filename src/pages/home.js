@@ -1,20 +1,25 @@
 import React, { useRef } from "react";
-import { StyledHome } from "../styled/home.styled";
 import Layout from "../components/layout";
 //Components
 import Landing from "../components/landing";
 import FeaturedWork from "../components/featuredWork";
 import About from "../components/about";
 import Contact from "../components/contact";
+import Shape from "../components/shape";
+import styled from "styled-components";
 
+const StyledHome = styled.div`
+  padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
+`;
 const Home = () => {
   return (
     <Layout>
       <StyledHome>
-        {/* <Landing/> */}
+        <Landing />
         <About />
+        {/* <Shape/> */}
         {/* <FeaturedWork /> */}
-        {/* <Contact /> */}
+        <Contact />
       </StyledHome>
     </Layout>
   );

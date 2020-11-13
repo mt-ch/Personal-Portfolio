@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
 export const StyledContact = styled.div`
-  height: 100%;
+  height: 100vh;
 
   .contact-header {
-    margin-top: 13vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
     .arrow {
       transform: rotate(270deg);
@@ -22,8 +18,8 @@ export const StyledContact = styled.div`
       transition: transform 0.5s ease;
     }
 
-    h1 {
-      font-size: 8vw;
+    h2 {
+      font-size: 6vw;
     }
   }
 

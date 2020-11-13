@@ -3,15 +3,15 @@ import { Link } from "react-scroll";
 
 const Nav = () => {
   return (
-    <ul className="nav">
+    <ul className="nav" style={{lineHeight: 1}}>
       <li>
         <Link to="about" spy={true} smooth={true} duration={300} offset={-100}>
-          <h5>- ABOUT</h5>
+        <p>• ABOUT</p>
         </Link>
       </li>
       <li>
         <Link to="work" spy={true} smooth={true} duration={300} offset={-100}>
-          <h5>- WORK</h5>
+          <p>• WORK</p>
         </Link>
       </li>
       <li>
@@ -22,7 +22,7 @@ const Nav = () => {
           duration={300}
           offset={-100}
         >
-          <h5>- DMS</h5>
+          <p>• DMS</p>
         </Link>
       </li>
     </ul>
