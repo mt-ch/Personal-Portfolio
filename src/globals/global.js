@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 *{
   margin: 0;
   padding: 0;
-  user-select: none;
+  user-select: all;
   outline: none;
 }
 
@@ -13,12 +13,12 @@ html, body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   scroll-behavior: smooth;
-  background: ${({ theme }) => theme.dark};
-  &::-webkit-scrollbar {
+  background: ${({ theme }) => theme.primary};
+  /* &::-webkit-scrollbar {
     display: none;
-  }
+  } */
 }
 
 *, *::after, *::before {

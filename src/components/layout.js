@@ -101,7 +101,7 @@ const Layout = ({ children }) => {
       />      
       <StyledLayout className="layout">
       <ChangeColor>
-        <Overlay/>
+        {/* <Overlay/> */}
         {children}
       </ChangeColor>
       </StyledLayout>

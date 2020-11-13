@@ -6,12 +6,11 @@ import "aos/dist/aos.css";
 // Styling
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
-import { FontStyles } from "../globals/fonts";
 import { theme } from "../globals/theme";
 
 const StyledLoading = styled.div`
   /* height: 100vh; */
-  background-color: #59d1ae;
+  background-color: ${({ theme }) => theme.primary};
   /* mix-blend-mode: difference; */
 
   .loader-info {
@@ -25,17 +24,17 @@ const StyledLoading = styled.div`
       font-size: clamp(5rem, 25vw, 20rem);
       z-index: 10;
       line-height: 1;
-      color: white;
+      color:  ${({ theme }) => theme.white};
     }
     .greeting {
       z-index: 10;
       font-size: clamp(1.25rem, 8vw, 2.5rem);
-      color: white;
+      color: ${({ theme }) => theme.white};
     }
   }
   .loader {
     position: absolute;
-    background-color: #212121;
+    background-color:${({ theme }) => theme.dark};
     top: 0;
     z-index: 0;
     height: 100vh;
@@ -79,7 +78,6 @@ const Loading = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <FontStyles />
       <StyledLoading countUp={countUp}>
         <div
           className="loader-info"

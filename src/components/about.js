@@ -7,7 +7,7 @@ const StyledAbout = styled.div`
   .text {
     /* transition: 0.3s ease-out; */
     will-change: transform;
-    padding: 15vh 0 15vh 0;
+    /* padding: 15vh 0 15vh 0; */
 
     .about-title{
       small{

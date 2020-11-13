@@ -7,6 +7,7 @@ import About from "../components/about";
 import Contact from "../components/contact";
 import Shape from "../components/shape";
 import styled from "styled-components";
+import Projects from './projects'
 
 const StyledHome = styled.div`
   padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
@@ -18,7 +19,7 @@ const Home = () => {
         <Landing />
         <About />
         {/* <Shape/> */}
-        {/* <FeaturedWork /> */}
+        <Projects />
         <Contact />
       </StyledHome>
     </Layout>

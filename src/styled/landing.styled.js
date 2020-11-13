@@ -11,7 +11,7 @@ export const StyledLanding = styled.div`
 
     h1 {
       font-size: 15rem;
-      line-height: .6;
+      line-height: 1;
       text-transform: uppercase;
     }
   }

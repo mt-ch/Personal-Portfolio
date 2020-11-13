@@ -3,8 +3,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import GetInfo from "../functions/getInfo";
 import { StyledContact } from "../styled/contact.styled";
-import Github from "../assets/icons/github";
-import LinkedIn from "../assets/icons/linkedin";
 
 const Contact = () => {
   const [info, setInfo] = useState([]);
@@ -28,30 +26,30 @@ const Contact = () => {
 
       <div
         data-aos="fade-up"
-        data-aos-offset="250"
+        data-aos-offset="00"
         data-aos-delay="100"
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <div class="email">
-          <p className="email-header">Say Hi</p>
+        <div className="email">
+          <p className="email-header">SAY HI -</p>
           <p>{info.Email}</p>
         </div>
 
-        <div className="social">
-          {/* <p className="socials-header">Check it out</p> */}
-          <div class="socials">
-            <a class="socials-link" href={info.Github}>
-              <p>Github</p>
-              <Github height={"40"} width={"40"} fill={"#f5f5f5"} />
+        <a>
+          <p className='email-button'>SHOOT A MSG</p>
+        </a>
+
+          <div className="socials">
+            <a  href='/'>
+              <p className="socials-link">Github</p>
             </a>
-            <a class="socials-link" href={info.LinkedIn}>
-              <p>LinkedIn</p>
-              <LinkedIn height={"40"} width={"40"} fill={"#f5f5f5"} />
+            <a href={info.LinkedIn}>
+              <p className="socials-link">LinkedIn</p>
             </a>
           </div>
         </div>
-      </div>
+
     </StyledContact>
   );
 };
