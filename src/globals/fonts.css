@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Technique Sans';
+    src: url('../assets/TechniqueSans.otf') format('opentype');
+    /* font-weight: 300; */
+    /* font-style: normal; */
+    font-display: auto;
+  }
+
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../assets/HelveticaNeueLTPro.otf') format('opentype');
+    /* font-weight: 300; */
+    /* font-style: normal; */
+    font-display: auto;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/Inter.ttf') format('truetype');
+    font-display: auto;
+  }
+body{
+    font-family: 'Inter';
+}
