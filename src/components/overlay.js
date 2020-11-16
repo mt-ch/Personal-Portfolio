@@ -17,16 +17,16 @@ export const StyledOverlay = styled.div`
   grid-template-areas: "nav arrow" "spinner spinner";
 
   .nav {
-    width: 150px;
-    height: 150px;
+    width: 12em;
+    height: 12em;
     filter: invert(1);
     grid-area: nav;
   }
 
   .spinner {
     filter: invert(1);
-    width: 8em;
-    height: 8em;
+    width: 6em;
+    height: 6em;
     animation: rotation 8s infinite linear;
     grid-area: spinner;
     justify-self: end;

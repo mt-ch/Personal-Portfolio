@@ -1,19 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import GetProjects from "../functions/getProjects";
-import Accordion from "../components/accordion";
-import Layout from "../components/layout";
 import { StyledProjects } from "../styled/projects.styled";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+const MovePhoto = ({ children }) => {
+  const revealRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      revealRef.current,
+      {
+        x: getRandomArbitrary(0, 60, "vw"),
+        y: getRandomArbitrary(-50, -10, "vh"),
+        duration: 5,
+        ease: "power2.inOut",
+      },
+      {
+        x: getRandomArbitrary(0, 60, "vw"),
+        y: getRandomArbitrary(-50, -10, "vh"),
+        duration: 5,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          // trigger: ".project",
+          scrub: true,
+          // start: "300px",
+          // end: "1000px",
+        },
+      }
+    );
+  }, []);
+
+  return <div ref={revealRef}>{children}</div>;
+};
+
+function getRandomArbitrary(min, max, unit) {
+  return Math.random() * (max - min) + min + unit;
+}
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const testProject = [
+    {
+      name: "F1 Scraper",
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      roles: "Frontend + Design",
+      tech: "React / Material UI",
+      photo: "https://picsum.photos/900/1200",
+    },
+  ];
+
   useEffect(() => {
     AOS.init();
     GetProjects(setProjects);
   }, []);
   return (
-    <StyledProjects>
+    <StyledProjects id='work'>
       <div
         class="text"
         data-aos="fade-up"
@@ -22,24 +68,99 @@ const Projects = () => {
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <h2 className="about-title">
+        <h2 className="project-title">
           <small> (002) </small> MY WORK
         </h2>
       </div>
-      {/* {projects.map((project) => (
-        <Accordion
-          title={project.name}
-          roles={project.roles}
-          technologies={project.technologies}
-          description={project.description}
-          github={project.git}
-          website={project.website}
-          coverPhoto={project.coverPhoto}
-          photoAlbum={project.photos}
-          text={"black"}
-          link={project.id}
-        />
-      ))} */}
+      {testProject.map((project) => (
+        <div className="project">
+          <div class="photos">
+            <MovePhoto>
+              <img
+                data-aos="fade-up"
+                data-aos-offset="250"
+                data-aos-delay={getRandomArbitrary(100, 500, "")}
+                data-aos-duration="800"
+                data-aos-easing="ease"
+                className="photo"
+                style={{
+                  width: getRandomArbitrary(20, 40, "vw"),
+                  height: getRandomArbitrary(20, 40, "vh"),
+                }}
+                src="https://picsum.photos/200/300"
+              />
+            </MovePhoto>
+            <MovePhoto>
+              <img
+                data-aos="fade-up"
+                data-aos-offset="250"
+                data-aos-delay={getRandomArbitrary(100, 500, "")}
+                data-aos-duration={getRandomArbitrary(300, 3000, "")}
+                data-aos-easing="ease"
+                className="photo"
+                style={{
+                  width: getRandomArbitrary(10, 25, "vw"),
+                  height: getRandomArbitrary(30, 60, "vh"),
+                }}
+                src="https://picsum.photos/200/300"
+              />
+            </MovePhoto>
+            <MovePhoto>
+              <img
+                data-aos="fade-up"
+                data-aos-offset="250"
+                data-aos-delay={getRandomArbitrary(100, 500, "")}
+                data-aos-duration="800"
+                data-aos-easing="ease"
+                className="photo"
+                style={{
+                  width: getRandomArbitrary(10, 25, "vw"),
+                  height: getRandomArbitrary(30, 60, "vh"),
+                }}
+                src="https://picsum.photos/200/300"
+              />
+            </MovePhoto>
+          </div>
+          <div
+            className="project-info"
+            data-aos="fade-up"
+            data-aos-offset="250"
+            data-aos-delay="100"
+            data-aos-duration="800"
+            data-aos-easing="ease"
+          >
+            <div className="project-subtext">
+              <h3>{project.name}</h3>
+              <p>{project.roles}</p>
+              <p>{project.tech}</p>
+            </div>
+
+            <div>
+              <p className="project-desc">{project.desc}</p>
+
+              <div className="project-links">
+                <a>
+                  <p className="project-link">Github</p>
+                </a>
+                <a>
+                  <p className="project-link">Website</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        //   <Accordion
+        //   title={project.name}
+        //   roles={project.roles}
+        //   technologies={project.tech}
+        //   description={project.desc}
+        //   github={''}
+        //   website={''}
+        //   // coverPhoto={project.photo}
+        //   // photos={project.photos}
+        //   link={'/'}
+        // />
+      ))}
     </StyledProjects>
   );
 };

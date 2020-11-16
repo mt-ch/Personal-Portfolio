@@ -8,14 +8,17 @@ import Contact from "../components/contact";
 import Shape from "../components/shape";
 import styled from "styled-components";
 import Projects from './projects'
+import { gsap } from "gsap";
+import { useEffect } from "react";
 
 const StyledHome = styled.div`
   padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
 `;
 const Home = () => {
+
   return (
     <Layout>
-      <StyledHome>
+      <StyledHome  className='home'>
         <Landing />
         <About />
         {/* <Shape/> */}

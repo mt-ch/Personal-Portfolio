@@ -7,6 +7,8 @@ import "aos/dist/aos.css";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
 import { theme } from "../globals/theme";
+import { useRef } from "react";
+import gsap from "gsap";
 
 const StyledLoading = styled.div`
   /* height: 100vh; */
@@ -24,7 +26,7 @@ const StyledLoading = styled.div`
       font-size: clamp(5rem, 25vw, 20rem);
       z-index: 10;
       line-height: 1;
-      color:  ${({ theme }) => theme.white};
+      color: ${({ theme }) => theme.white};
     }
     .greeting {
       z-index: 10;
@@ -34,7 +36,7 @@ const StyledLoading = styled.div`
   }
   .loader {
     position: absolute;
-    background-color:${({ theme }) => theme.dark};
+    background-color: ${({ theme }) => theme.dark};
     top: 0;
     z-index: 0;
     height: 100vh;
@@ -69,16 +71,35 @@ const Loading = () => {
   const { countUp } = useCountUp({
     end: 100,
     start: 0,
-    duration: 5,
+    duration: 3,
     suffix: "%",
   });
+  let loading = useRef(null);
   useEffect(() => {
     AOS.init();
-  }, []);
+    // setTimeout('', 5000)
+    return function cleanup() {
+      gsap.to('.loading', {
+        duration: 1,
+        ease: "power4.Out",
+        delay: 3,
+        // y: 150,
+        y: '-130vh',
+        // y: '150vh',
+        opacity: 0,
+        stagger: {
+          amount: 0.5
+        }
+      });
+    };
+  });
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <StyledLoading countUp={countUp}>
+      <StyledLoading
+      className="loading"
+        countUp={countUp}
+      >
         <div
           className="loader-info"
           data-aos="fade-up"

@@ -1,11 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import {createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
 *{
   margin: 0;
   padding: 0;
-  user-select: all;
+  user-select: none;
   outline: none;
 }
 
@@ -15,7 +15,7 @@ html, body {
   position: relative;
   /* background-attachment: fixed; */
   scroll-behavior: smooth;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.dark};
   /* &::-webkit-scrollbar {
     display: none;
   } */
@@ -25,8 +25,6 @@ html, body {
   box-sizing: border-box;
 }
 
-
-
 body {
   /* background: '#ffffff00'; */
   color: black;
@@ -34,9 +32,18 @@ body {
   text-rendering: optimizeLegibility;
   /* font-size: calc(12px + 0.35vw); 
   line-height: calc(12px + 1.05vw); */
+  overflow-x: hidden;
   font-size: 100%;
-  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* font-family: 'Technique Sans', 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
+
+/* h1{ font-size:  clamp(5rem, 15vw, 15rem)} */
+h2{ font-size:  clamp(3rem, 9vw, 9rem);}
+h3{ font-size:  clamp(2.3rem, 8vw, 8rem); font-weight: 600}
+h4{ font-size:  clamp(2.3rem, 6vw, 6rem); font-weight: 400}
+h5{ font-size:  clamp(2rem, 5vw, 5rem); font-weight: 500}
+p{ font-size:  clamp(1rem, 3vw, 3rem)};
+
 /* 
 h1 {
   font-size: 12em;

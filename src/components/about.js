@@ -4,18 +4,23 @@ import "aos/dist/aos.css";
 import styled from "styled-components";
 
 const StyledAbout = styled.div`
+  .about-title {
+    margin: 10em 0 0em 0;
+    h2 {
+      font-weight: light;
+      small {
+        margin-right: 5vw;
+        font-size:  clamp(1rem, 3vw, 3rem);
+      }
+    }
+  }
   .text {
     /* transition: 0.3s ease-out; */
     will-change: transform;
-    /* padding: 15vh 0 15vh 0; */
+    padding: 10vh 0 10vh 0;
 
-    .about-title{
-      small{
-        margin-right: 5vw; 
-      }
-    }
-
-    p, h3{
+    p,
+    h3 {
       line-height: 1.6;
     }
   }
@@ -27,17 +32,17 @@ const About = () => {
   }, []);
 
   return (
-    <StyledAbout id='about'>
+    <StyledAbout id="about">
       <div
-        class="text"
+        className="about-title"
         data-aos="fade-up"
         data-aos-offset="250"
         data-aos-delay="100"
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <h2 className="about-title">
-          <small> (001) </small> ABOUT ME
+        <h2>
+          <small>(001)</small>ABOUT ME
         </h2>
       </div>
 
@@ -49,11 +54,13 @@ const About = () => {
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <h4> Hi ,I'm Matt. </h4>
-        <p>
+        <h4>
+          <strong>Hi ,I'm Matt.</strong>
+        </h4>
+        <h5>
           I'm a Junior Frontend Developer and a recent graduate of the Computer
           Science programme at Derby University.
-        </p>
+        </h5>
       </div>
 
       <div
@@ -64,10 +71,10 @@ const About = () => {
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <p>
+        <h5>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        </h5>
       </div>
 
       <div
@@ -78,10 +85,10 @@ const About = () => {
         data-aos-duration="800"
         data-aos-easing="ease"
       >
-        <p>
+        <h5>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        </h5>
       </div>
     </StyledAbout>
   );
