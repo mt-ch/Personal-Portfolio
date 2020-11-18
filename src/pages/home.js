@@ -1,18 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 import Layout from "../components/layout";
 //Components
 import Landing from "../components/landing";
-import FeaturedWork from "../components/featuredWork";
 import About from "../components/about";
 import Contact from "../components/contact";
-import Shape from "../components/shape";
 import styled from "styled-components";
 import Projects from './projects'
-import { gsap } from "gsap";
-import { useEffect } from "react";
 
 const StyledHome = styled.div`
-  padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
+  /* padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding}; */
 `;
 const Home = () => {
 
@@ -21,7 +17,6 @@ const Home = () => {
       <StyledHome  className='home'>
         <Landing />
         <About />
-        {/* <Shape/> */}
         <Projects />
         <Contact />
       </StyledHome>

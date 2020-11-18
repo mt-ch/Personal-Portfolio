@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import GetProjects from "../functions/getProjects";
 import { StyledProjects } from "../styled/projects.styled";
+import ProjectHeader from "../components/projectHeader";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import gsap from "gsap";
@@ -59,18 +60,9 @@ const Projects = () => {
     GetProjects(setProjects);
   }, []);
   return (
-    <StyledProjects id='work'>
-      <div
-        class="text"
-        data-aos="fade-up"
-        data-aos-offset="250"
-        data-aos-delay="100"
-        data-aos-duration="800"
-        data-aos-easing="ease"
-      >
-        <h2 className="project-title">
-          <small> (002) </small> MY WORK
-        </h2>
+    <StyledProjects id="projects" className='section-title projects'>
+      <div>
+        <ProjectHeader title={"WORK"} />
       </div>
       {testProject.map((project) => (
         <div className="project">

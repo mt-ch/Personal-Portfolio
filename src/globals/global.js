@@ -28,7 +28,8 @@ html, body {
 body {
   /* background: '#ffffff00'; */
   color: black;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   text-rendering: optimizeLegibility;
   /* font-size: calc(12px + 0.35vw); 
   line-height: calc(12px + 1.05vw); */
@@ -38,7 +39,7 @@ body {
 }
 
 /* h1{ font-size:  clamp(5rem, 15vw, 15rem)} */
-h2{ font-size:  clamp(3rem, 9vw, 9rem);}
+h2{ font-size:  clamp(5rem, 12vw, 12rem); color: black}
 h3{ font-size:  clamp(2.3rem, 8vw, 8rem); font-weight: 600}
 h4{ font-size:  clamp(2.3rem, 6vw, 6rem); font-weight: 400}
 h5{ font-size:  clamp(2rem, 5vw, 5rem); font-weight: 500}

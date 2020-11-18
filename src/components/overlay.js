@@ -1,32 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "../components/nav";
 import Spinner from "../assets/img/Spinner.png";
 import styled from "styled-components";
-import * as Scroll from "react-scroll";
 import Arrow from "../assets/icons/arrow";
+import gsap from "gsap";
 
 export const StyledOverlay = styled.div`
   padding: 3rem ${({ theme }) => theme.navPadding} 3rem;
   ${({ theme }) => theme.navPadding};
   position: fixed;
+  /* bottom: 0; */
   height: 100vh;
   width: 100vw;
   z-index: 999;
   mix-blend-mode: difference;
   display: grid;
   grid-template-areas: "nav arrow" "spinner spinner";
+  /* top: 80px;
+  left: 10px; */
+  transform: translate3d(0,0,0);
 
   .nav {
-    width: 12em;
-    height: 12em;
-    filter: invert(1);
     grid-area: nav;
   }
 
   .spinner {
     filter: invert(1);
-    width: 6em;
-    height: 6em;
+    width: clamp(6em, 9vw, 9em);
+    height: clamp(6em, 9vw, 9em);
     animation: rotation 8s infinite linear;
     grid-area: spinner;
     justify-self: end;
@@ -43,6 +44,7 @@ export const StyledOverlay = styled.div`
   }
 
   .arrow {
+    width: clamp(2.5em, 4.5vw, 4.5em);
     transform: rotate(270deg);
   }
 
@@ -66,11 +68,30 @@ function ScrollToTopFunc() {
 }
 
 const Overlay = () => {
+  useEffect(() => {
+    gsap.from('.overlay', {
+      duration: .7,
+      ease: "power4.Out",
+      delay: 1,
+      // opacity: 0,
+      transform: 'scale(1.8)'
+    }
+    );     
+    // gsap.from('.spinner', {
+    //   duration: .6,
+    //   ease: "power4.Out",
+    //   delay: 1,
+    //   // opacity: 0,
+    //   x: '-15vw',
+    //   y: '-15vh'
+    // }
+    // );    
+  }, []);
   return (
-    <StyledOverlay>
+    <StyledOverlay className='overlay'>
       <Nav class="nav" />
       <a className="to-top" onClick={ScrollToTopFunc}>
-        <Arrow className="arrow" height={"3em"} width={"3em"} fill={"#f5f5f5"} />
+        <Arrow className="arrow" fill={"#f5f5f5"} />
       </a>
       <img class="spinner" src={Spinner} />
     </StyledOverlay>

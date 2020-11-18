@@ -9,9 +9,11 @@ export const StyledProjects = styled.div`
     }
   }
   .project {
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
+    padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
+    margin: 10vh 0 10vh 0;
 
     .photos {
       position: relative;
@@ -41,20 +43,22 @@ export const StyledProjects = styled.div`
       .project-links {
         display: flex;
         margin-top: 5vh;
-        .project-link {
-          width: 6em;
-          text-align: center;
-          text-transform: uppercase;
-          border: 2px ${({ theme }) => theme.white} solid;
-          padding: 0.5em;
-          border-radius: 2em;
-          color: ${({ theme }) => theme.white};
-          margin-right: 1em;
-        }
+        a {
+          .project-link {
+            /* width: 6em; */
+            text-align: center;
+            text-transform: uppercase;
+            border: 2px ${({ theme }) => theme.white} solid;
+            padding: .25em 0.5em .25em 0.5em;
+            border-radius: 2em;
+            color: ${({ theme }) => theme.white};
+            /* margin-right: 1em; */
+          }
 
-        .project-link:hover {
-          background-color: ${({ theme }) => theme.white};
-          color: ${({ theme }) => theme.black};
+          .project-link:hover {
+            background-color: ${({ theme }) => theme.white};
+            color: ${({ theme }) => theme.black};
+          }
         }
       }
     }
