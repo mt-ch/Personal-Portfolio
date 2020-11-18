@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Loading from "./components/loading";
-import Home from './pages/home';
-import { CSSTransition } from "react-transition-group";
-import { gsap } from "gsap";
+
+import About from "./components/about";
+import Contact from "./components/contact";
+import Projects from "./pages/projects";
+import Landing from './components/landing';
+import Layout from "./components/layout";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3500);
-  }, []);
+  const [display, setDisplay] = useState(false);
+
+  function showContent() {
+    setDisplay(true);
+  }
   return (
-    <>
-      {loading === false ? (
-        <Router>
-          <Switch>
-            <Route path="/" exact component={Home} />
-          </Switch>
-        </Router>
-      ) : (
-        <Loading />
-      )}
-    </>
+    <div>
+      <Landing showContent={() => showContent()} />
+      {display ? (
+        <>
+          <Layout>
+            <About />
+            <Projects />
+            <Contact />
+          </Layout>
+        </>
+      ) : null}
+    </div>
   );
 };
 

@@ -74,25 +74,11 @@ const Loading = () => {
     duration: 3,
     suffix: "%",
   });
-  let loading = useRef(null);
+  
   useEffect(() => {
     AOS.init();
-    // setTimeout('', 5000)
-    return function cleanup() {
-      gsap.to('.loading', {
-        duration: 1,
-        ease: "power4.Out",
-        delay: 3,
-        // y: 150,
-        y: '-130vh',
-        // y: '150vh',
-        opacity: 0,
-        stagger: {
-          amount: 0.5
-        }
-      });
-    };
   });
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
