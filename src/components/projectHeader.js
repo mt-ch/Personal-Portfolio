@@ -31,8 +31,11 @@ const MoveText = ({ children }) => {
 };
 
 const StyledHeader = styled.div`
-  padding: 1em 0 1em 0;
+  padding: 5vh 0 0vh 0;
   h2 {
+    mix-blend-mode: difference;
+    color: #000;
+    font-weight: 900;
     line-height: 1;
     text-transform: uppercase;
     white-space: nowrap;
@@ -44,8 +47,7 @@ const ProjectHeader = ({ title }) => {
     <StyledHeader className="section-header">
       <MoveText>
         <h2>
-          {title} • {title} • {title} • {title} • {title} • {title} • {title} •
-          {title} • {title} • {title} • {title} • {title} • {title} • {title} •
+        • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} • {title} •
         </h2>
       </MoveText>
     </StyledHeader>

@@ -12,8 +12,9 @@ export const StyledProjects = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
-    margin: 10vh 0 10vh 0;
+    margin: 30vh 0 30vh 0;
 
     .photos {
       position: relative;
@@ -36,7 +37,7 @@ export const StyledProjects = styled.div`
 
       .project-desc {
         z-index: 5;
-        max-width: 400px;
+        /* max-width: 700px; */
         margin-top: 5vh;
       }
 
@@ -52,7 +53,7 @@ export const StyledProjects = styled.div`
             padding: .25em 0.5em .25em 0.5em;
             border-radius: 2em;
             color: ${({ theme }) => theme.white};
-            /* margin-right: 1em; */
+            margin-right: 3vw;
           }
 
           .project-link:hover {
@@ -64,10 +65,14 @@ export const StyledProjects = styled.div`
     }
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 1050px) {
     .project-info {
       display: flex;
       justify-content: space-between;
+      .project-subtext{
+        /* max-width: 300px; */
+      }
+
       .project-desc {
         margin: 0 0 0 5vw !important;
       }

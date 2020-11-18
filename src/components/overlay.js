@@ -9,15 +9,12 @@ export const StyledOverlay = styled.div`
   padding: 3rem ${({ theme }) => theme.navPadding} 3rem;
   ${({ theme }) => theme.navPadding};
   position: fixed;
-  /* bottom: 0; */
-  height: 100vh;
-  width: 100vw;
-  z-index: 999;
+  /* height: 100%; */
+  width: 100%; 
+  z-index: 1;
   mix-blend-mode: difference;
   display: grid;
   grid-template-areas: "nav arrow" "spinner spinner";
-  /* top: 80px;
-  left: 10px; */
   transform: translate3d(0,0,0);
 
   .nav {
@@ -72,28 +69,19 @@ const Overlay = () => {
     gsap.from('.overlay', {
       duration: .7,
       ease: "power4.Out",
-      delay: 1,
+      delay: 2,
       // opacity: 0,
       transform: 'scale(1.8)'
     }
     );     
-    // gsap.from('.spinner', {
-    //   duration: .6,
-    //   ease: "power4.Out",
-    //   delay: 1,
-    //   // opacity: 0,
-    //   x: '-15vw',
-    //   y: '-15vh'
-    // }
-    // );    
   }, []);
   return (
     <StyledOverlay className='overlay'>
       <Nav class="nav" />
-      <a className="to-top" onClick={ScrollToTopFunc}>
+      {/* <a className="to-top" onClick={ScrollToTopFunc}>
         <Arrow className="arrow" fill={"#f5f5f5"} />
       </a>
-      <img class="spinner" src={Spinner} />
+      <img class="spinner" src={Spinner} /> */}
     </StyledOverlay>
   );
 };

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import About from "./components/about";
 import Contact from "./components/contact";
-import Projects from "./pages/projects";
+import Projects from "./components/projects";
 import Landing from './components/landing';
 import Layout from "./components/layout";
+import Overlay from "./components/overlay";
 
 const App = () => {
   const [display, setDisplay] = useState(false);
@@ -14,6 +15,7 @@ const App = () => {
   }
   return (
     <div>
+      <Overlay />
       <Landing showContent={() => showContent()} />
       {display ? (
         <>

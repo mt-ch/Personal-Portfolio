@@ -5,24 +5,13 @@ import styled from "styled-components";
 import ProjectHeader from "./projectHeader";
 
 const StyledAbout = styled.div`
-  .about-title {
-    h2 {
-      font-weight: light;
-      small {
-        margin-right: 5vw;
-        font-size: clamp(1rem, 3vw, 3rem);
-      }
-    }
-  }
   .text {
     padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
-    /* transition: 0.3s ease-out; */
     will-change: transform;
-    /* padding: 10vh 0 10vh 0; */
     margin: 10vh 0 10vh 0;
 
     h5 {
-      line-height: 1.5;
+      line-height: 1.4;
     }
   }
 `;
@@ -36,11 +25,6 @@ const About = () => {
     <StyledAbout id="about" className=" about">
       <div
         className="about-title section-title"
-        // data-aos="fade-up"
-        // data-aos-offset="250"
-        // data-aos-delay="100"
-        // data-aos-duration="800"
-        // data-aos-easing="ease"
       >
         <ProjectHeader title={"ABOUT ME"} />
       </div>
@@ -54,7 +38,7 @@ const About = () => {
         data-aos-easing="ease"
       >
         <h4>
-          <strong>Hi ,I'm Matt.</strong>
+          <strong>Hi, I'm Matt.</strong>
         </h4>
         <h5>
           I'm a Junior Frontend Developer and a recent graduate of the Computer

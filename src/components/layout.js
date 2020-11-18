@@ -29,9 +29,8 @@ const ChangeColor = ({ children }) => {
         ease: "power0.inOut",
         scrollTrigger: {
           scrub: true,
-          // markers: true,
-          start: "0px",
-          end: "500px",
+          start: "1000px",
+          end: "1500px",
         },
       }
     );
@@ -39,21 +38,21 @@ const ChangeColor = ({ children }) => {
       "h2, .section-header",
       {
         color: theme.black,
-        borderTop: "solid #010101 2px",
-        borderBottom: "solid #010101 2px",
+        // borderTop: "solid #010101 2px",
+        // borderBottom: "solid #010101 2px",
         duration: 0.5,
         ease: "power0.inOut",
       },
       {
         color: theme.primary,
-        borderTop: "solid #C7B6F6 2px",
-        borderBottom: "solid #C7B6F6 2px",
+        // borderTop: "solid #C7B6F6 2px",
+        // borderBottom: "solid #C7B6F6 2px",
         duration: 0.5,
         ease: "power0.inOut",
         scrollTrigger: {
           scrub: true,
-          start: "00px",
-          end: "500px",
+          start: "1000px",
+          end: "1500px",
         },
       }
     );
@@ -69,23 +68,23 @@ const StyledLayout = styled.div`
 `;
 
 const Layout = ({ children }) => {
-  let layout = useRef(null);
-  useEffect(() => {
-    gsap.from([layout], {
-      duration: 1,
-      delay: 0,
-      ease: "power4.Out",
-      y: "130vh",
-      stagger: {
-        amount: 0.4,
-      },
-    });
-  }, [layout]);
+  // let layout = useRef(null);
+  // useEffect(() => {
+  //   gsap.from([layout], {
+  //     duration: 1,
+  //     delay: 0,
+  //     ease: "power4.Out",
+  //     y: "130vh",
+  //     stagger: {
+  //       amount: 0.4,
+  //     },
+  //   });
+  // }, [layout]);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <>
-        <StyledLayout ref={(el) => (layout = el)} className="layout">
+        <StyledLayout className="layout">
           <ChangeColor>{children}</ChangeColor>
         </StyledLayout>
       </>

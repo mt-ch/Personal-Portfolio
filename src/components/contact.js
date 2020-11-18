@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <StyledContact id="contact" className='section-title'>
       <div class="contact-header">
-        <ProjectHeader title={"SLIDE IN MY DMS"} />
+        <ProjectHeader title={"DM ME"} />
       </div>
       
       <div
@@ -26,21 +26,8 @@ const Contact = () => {
         data-aos-easing="ease"
       >
         <div className="email">
-          <h3 className="">SAY HI -</h3>
-          {/* <p>{info.Email}</p> */}
-          <h3 className="email-header">me@mattc.com</h3>
-          {/* <a>
-          <p className='email-button' style={{bottom: '-10vh', left: '-18vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-16vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-14vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-12vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-10vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-8vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-6vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-4vw',}}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '-2vw', }}></p>
-          <p className='email-button' style={{bottom: '-10vh', left: '0vw', }}></p>
-        </a> */}
+          <h3 className="email-txt">SAY HI -</h3>
+          <h3 className="email-header email-txt">{info.Email}</h3>
         </div>
 
         <div className="socials">

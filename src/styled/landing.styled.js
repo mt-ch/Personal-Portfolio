@@ -5,19 +5,24 @@ export const StyledLanding = styled.div`
   width: 100vw;
 
   .content {
-    position: relative;
-    z-index: 10;
-    /* height: 0; */
+    position: absolute;
+    z-index: 0;
+    /* bottom: -100%; */
+    top: 0;
+    height: 0;
     /* opacity: 0; */
-    width: 100vw;
+    width: 100%;
+    height: 100%;
     background-color: ${({ theme }) => theme.primary};
     display: flex;
     align-items: center;
     .txt {
-      
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: start;
+      justify-content: center;
       padding: 3rem ${({ theme }) => theme.padding} 3rem;
       mix-blend-mode: difference;
 

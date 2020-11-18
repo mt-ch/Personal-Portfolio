@@ -14,12 +14,14 @@ export const StyledContact = styled.div`
   }
 
   .email {
-    /* margin-top: 2em; */
-    position: relative;
+    /* position: relative; */
     text-transform: uppercase;
-    z-index: 2;
-    /* margin: 5vw 0 5vw 0; */
+    z-index: 1;
     margin: 0vh 0 5vh 0;
+
+    .email-txt {
+      font-size: clamp(1.3rem, 6vw, 7rem);
+    }
 
     .email-header {
       /* margin-bottom: 1vh; */
@@ -27,10 +29,10 @@ export const StyledContact = styled.div`
       font-weight: bold;
     }
     .email-button {
-      position: absolute;
+      /* position: absolute; */
       bottom: -5vh;
       left: 50vw;
-      z-index: 0;
+      z-index: 1;
       height: 10em;
       width: 10em;
       text-align: center;
@@ -46,15 +48,14 @@ export const StyledContact = styled.div`
   }
 
   .socials {
-    position: relative;
+    /* position: relative; */
     display: flex;
-    z-index: 2;
 
     .socials-link {
       text-align: center;
       text-transform: uppercase;
       border: 2px ${({ theme }) => theme.white} solid;
-      padding: .25em 0.5em .25em 0.5em;
+      padding: 0.25em 0.5em 0.25em 0.5em;
       border-radius: 2em;
       color: ${({ theme }) => theme.white};
       margin-right: 1em;
