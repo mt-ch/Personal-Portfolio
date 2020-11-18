@@ -2,26 +2,27 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styled from "styled-components";
+import ProjectHeader from "./projectHeader";
 
 const StyledAbout = styled.div`
   .about-title {
-    margin: 10em 0 0em 0;
     h2 {
       font-weight: light;
       small {
         margin-right: 5vw;
-        font-size:  clamp(1rem, 3vw, 3rem);
+        font-size: clamp(1rem, 3vw, 3rem);
       }
     }
   }
   .text {
+    padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
     /* transition: 0.3s ease-out; */
     will-change: transform;
-    padding: 10vh 0 10vh 0;
+    /* padding: 10vh 0 10vh 0; */
+    margin: 10vh 0 10vh 0;
 
-    p,
-    h3 {
-      line-height: 1.6;
+    h5 {
+      line-height: 1.5;
     }
   }
 `;
@@ -32,18 +33,16 @@ const About = () => {
   }, []);
 
   return (
-    <StyledAbout id="about">
+    <StyledAbout id="about" className=" about">
       <div
-        className="about-title"
-        data-aos="fade-up"
-        data-aos-offset="250"
-        data-aos-delay="100"
-        data-aos-duration="800"
-        data-aos-easing="ease"
+        className="about-title section-title"
+        // data-aos="fade-up"
+        // data-aos-offset="250"
+        // data-aos-delay="100"
+        // data-aos-duration="800"
+        // data-aos-easing="ease"
       >
-        <h2>
-          <small>(001)</small>ABOUT ME
-        </h2>
+        <ProjectHeader title={"ABOUT ME"} />
       </div>
 
       <div
@@ -72,8 +71,9 @@ const About = () => {
         data-aos-easing="ease"
       >
         <h5>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          My current frontend focus is learning React and other libraries, such
+          as GSAP and ThreeJs to make creative web experiences, whilst
+          developing my design principles.
         </h5>
       </div>
 
@@ -86,8 +86,21 @@ const About = () => {
         data-aos-easing="ease"
       >
         <h5>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          I aim to take my coding to the next level where i can always provide
+          value to a team and personally grow my own skills.
+        </h5>
+      </div>
+
+      <div
+        class="text"
+        data-aos="fade-up"
+        data-aos-offset="250"
+        data-aos-delay="100"
+        data-aos-duration="800"
+        data-aos-easing="ease"
+      >
+        <h5>
+          Away from the code, you can find me...
         </h5>
       </div>
     </StyledAbout>
