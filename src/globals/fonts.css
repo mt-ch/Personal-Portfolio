@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
 @font-face {
     font-family: 'Technique Sans';
     src: url('../assets/TechniqueSans.otf') format('opentype');
@@ -19,6 +21,25 @@
     src: url('../assets/Inter.ttf') format('truetype');
     font-display: auto;
   }
+
+  @font-face {
+    font-family: 'Monument Extended';
+    src: url('../assets/MonumentExtended-Regular.otf') format('opentype');
+    /* font-weight: 300; */
+    /* font-style: normal; */
+    font-display: auto;
+  }
+
 body{
-    font-family: 'Inter';
+  font-family: 'Space Grotesk';
+
+}
+
+h2, h3{
+  font-family: 'Monument Extended';
+
+}
+
+h4, h5, p{
+  font-family: 'Space Grotesk';
 }
