@@ -8,14 +8,14 @@ import Layout from "./components/layout";
 import Overlay from "./components/overlay";
 
 const App = () => {
-  const [display, setDisplay] = useState(false);
+  const [display, setDisplay] = useState(true);
 
   function showContent() {
     setDisplay(true);
   }
   return (
     <div>
-      <Overlay />
+      {/* <Overlay /> */}
       <Landing showContent={() => showContent()} />
       {display ? (
         <>

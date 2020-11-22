@@ -10,6 +10,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
 import { theme } from "../globals/theme";
 import LandingScreen from './landingScreen'
+import Spinner from "../assets/img/Spinner.png";
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -107,8 +108,14 @@ const Landing = ({ showContent }) => {
         </StyledLoading>
 
         <div className="content">
-          <div className="txt">
+          {/* <div className="txt">
             <LandingScreen/>
+          </div> */}
+          <h1>CODER<br/>+DIGITAL<br/>DESIGNER<br/>↓</h1>
+
+          <div className='sub-text'>
+            <p>Selected Work</p>
+            <img class="spinner" src={Spinner} />
           </div>
         </div>
       </StyledLanding>

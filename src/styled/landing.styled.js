@@ -5,29 +5,41 @@ export const StyledLanding = styled.div`
   width: 100vw;
 
   .content {
-    position: absolute;
+    /* position: absolute; */
     z-index: 0;
-    /* bottom: -100%; */
     top: 0;
     height: 0;
-    /* opacity: 0; */
     width: 100%;
     height: 100%;
     background-color: ${({ theme }) => theme.primary};
-    display: flex;
-    align-items: center;
-    .txt {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      justify-content: center;
-      padding: 3rem ${({ theme }) => theme.padding} 3rem;
-      mix-blend-mode: difference;
+    padding: 0rem ${({ theme }) => theme.padding} 0rem;
+    ${({ theme }) => theme.padding};
 
-      canvas {
-      display: block;
+    h1 {
+      border-top: solid black 1px;
+      line-height: 0.8;
+      padding: 5vh 0 0vh 0;
+    }
+
+    .sub-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      border-bottom: solid black 1px;
+      padding: 15vh 0 3vh 0;
+      .spinner {
+        width: clamp(4em, 7vw, 9em);
+        height: clamp(4em, 7vw, 9em);
+        animation: rotation 8s infinite linear;
+      }
+
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
       }
     }
   }

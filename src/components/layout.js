@@ -85,7 +85,7 @@ const Layout = ({ children }) => {
       <GlobalStyles />
       <>
         <StyledLayout className="layout">
-          <ChangeColor>{children}</ChangeColor>
+    {children}
         </StyledLayout>
       </>
     </ThemeProvider>

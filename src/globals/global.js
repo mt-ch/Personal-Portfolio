@@ -15,7 +15,8 @@ html, body {
   position: relative;
   background-attachment: fixed;
   scroll-behavior: smooth;
-  background: ${({ theme }) => theme.dark};
+  background: ${({ theme }) => theme.white};
+  color: white;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -34,7 +35,7 @@ body {
   font-size: 100%;
 }
 
-/* h1{ font-size:  clamp(5rem, 15vw, 15rem)} */
+h1{ font-size:  clamp(1rem, 13vw, 14rem)}
 h2{ font-size:  clamp(4rem, 12vw, 12rem);}
 h3{ font-size:  clamp(2.3rem, 8vw, 8rem); font-weight: 600}
 h4{ font-size:  clamp(2.3rem, 6vw, 6rem); font-weight: 400}
