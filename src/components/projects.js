@@ -6,6 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Arrow from "../assets/icons/arrow";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const MovePhoto = ({ children, x, y }) => {
@@ -17,13 +19,13 @@ const MovePhoto = ({ children, x, y }) => {
       {
         x: x,
         y: y,
-        duration: .5,
+        duration: 0.5,
         ease: "power2.inOut",
       },
       {
         x: getRandomArbitrary(0, 45, "vw"),
         y: getRandomArbitrary(-45, -10, "vh"),
-        duration: .5,
+        duration: 0.5,
         ease: "power2.inOut",
         scrollTrigger: {
           scrub: true,
@@ -53,7 +55,7 @@ const Projects = () => {
       </div> */}
       {projects.map((project) => (
         <div className="project">
-          <div class="photos">
+          {/* <div class="photos">
             {project.photos.map((photo) => (
               <MovePhoto x={getRandomArbitrary(20, 45, "vw")} y={getRandomArbitrary(-30, 0, "vh")}>
                 <img
@@ -72,7 +74,11 @@ const Projects = () => {
                 />
               </MovePhoto>
             ))}
-          </div>
+          </div> */}
+          <img
+            className="photo"
+            src={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
+          />
           <div
             className="project-info"
             data-aos="fade-up"
@@ -82,8 +88,11 @@ const Projects = () => {
             data-aos-easing="ease"
           >
             <div className="project-subtext">
-              <h3>{project.name}</h3>
-              <p>{project.roles}</p>
+              <div className="project-header">
+                <h3>{project.name}</h3>
+                <Arrow className="arrow" />
+              </div>
+              {/* <p>{project.roles}</p> */}
               <p>{project.technologies}</p>
             </div>
 

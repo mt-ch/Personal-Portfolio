@@ -1,58 +1,48 @@
 import styled from "styled-components";
 
 export const StyledProjects = styled.div`
-  .project-title {
-    color: ${({ theme }) => theme.primary};
-    small {
-      margin-right: 5vw;
-      font-size: clamp(1rem, 3vw, 3rem);
-    }
-  }
   .project {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
-    margin: 30vh 0 30vh 0;
+    width: 100%;
+    padding: 10vh ${({ theme }) => theme.padding} 0vh
+      ${({ theme }) => theme.padding};
+    border-top: 1px black solid;
 
-    .photos {
-      position: relative;
-      .photo {
-        /* height: calc(rand()); */
-        /* width: 15em; */
-        object-fit: cover;
-        z-index: 0;
-        position: absolute;
+    .photo {
+      height: 30vh;
+      width: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .arrow {
+        height: 2em;
       }
     }
 
     .project-info {
       position: relative;
-      /* display: flex;
-      align-items: center;
-      justify-content: space-between; */
       z-index: 5;
-      mix-blend-mode: difference;
 
       .project-desc {
-        z-index: 5;
-        /* max-width: 700px; */
-        margin-top: 5vh;
+        display: none;
       }
 
       .project-links {
-        display: flex;
+        display: none;
         margin-top: 5vh;
         a {
           .project-link {
-            /* width: 6em; */
             text-align: center;
             text-transform: uppercase;
-            border: 2px ${({ theme }) => theme.white} solid;
-            padding: .25em 0.5em .25em 0.5em;
+            border: 2px ${({ theme }) => theme.black} solid;
+            padding: 0.25em 0.5em 0.25em 0.5em;
             border-radius: 2em;
-            color: ${({ theme }) => theme.white};
+            color: ${({ theme }) => theme.black};
             margin-right: 3vw;
           }
 
@@ -65,23 +55,7 @@ export const StyledProjects = styled.div`
     }
   }
 
-  @media (min-width: 1050px) {
-    .project-info {
-      display: flex;
-      justify-content: space-between;
-      .project-subtext{
-        /* max-width: 300px; */
-      }
-
-      .project-desc {
-        margin: 0 0 0 5vw !important;
-      }
-      .project-links {
-        justify-content: end;
-        .project-link {
-          margin: 0 0 0 1em !important;
-        }
-      }
-    }
-  }
+  /* @media (min-width: 1050px) {
+    
+  } */
 `;

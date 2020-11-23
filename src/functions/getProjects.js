@@ -24,24 +24,24 @@ function CreateProjectData(
 
 async function GetProjects(setProjects) {
   let projectData = [];
-  const url = "http://localhost:1337/projects";
+  const url = "https://strapi-z1gs.onrender.com/projects";
   const response = await fetch(url);
   const data = await response.json();
 
   for (const {
     id: projectId,
-    name: name,
-    roles: roles,
-    technologies: technologies,
-    description: desc,
-    github: git,
-    liveUrl: web,
-    coverPhoto: {
+    Title: name,
+    Roles: roles,
+    Technologies: technologies,
+    Description: desc,
+    Github: git,
+    Site: web,
+    CoverPhoto: {
       formats: {
         medium: { url: coverPhoto }
       }
     },
-    photos: photos
+    Photos: photos
   } of data) {
     projectData.push(
       CreateProjectData(
