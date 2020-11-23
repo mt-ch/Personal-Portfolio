@@ -3,20 +3,11 @@ import { DistortionText } from "react-text-fun";
 import styled from "styled-components";
 
 const StyledNav = styled.div`
-  ul {
-    canvas {
-      display: block;
-      transition: all 0.5s ease;
-      &:hover {
-        cursor: pointer;
-        transform: translateX(1em);
-        transition: transform 0.5s ease;
-      }
-    }
-    li {
-      list-style: none;
-    }
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2vh 0 2vh 0;
 `;
 
 const scroll = (e) => {
@@ -59,9 +50,9 @@ export class nav extends PureComponent {
     const { nav } = this.state;
     return (
       <StyledNav>
-        <ul className="nav" >
-          
-          {this.state.matches && (
+          <p>mc</p>
+          <p>menu</p>
+          {/* {this.state.matches && (
             <>
             {nav.map((option) => (
               <li onClick={(e) => scroll(e)}>
@@ -90,8 +81,7 @@ export class nav extends PureComponent {
               </li>
             ))}
             </>
-          )}
-        </ul>
+          )} */}
       </StyledNav>
     );
   }

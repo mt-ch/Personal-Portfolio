@@ -15,7 +15,7 @@ html, body {
   position: relative;
   background-attachment: fixed;
   scroll-behavior: smooth;
-  background: ${({ theme }) => theme.white};
+  background:  #f2f2f2;
   color: white;
   &::-webkit-scrollbar {
     display: none;

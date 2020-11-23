@@ -11,7 +11,7 @@ import { GlobalStyles } from "../globals/global";
 import { theme } from "../globals/theme";
 import LandingScreen from './landingScreen'
 import Spinner from "../assets/img/Spinner.png";
-
+import Nav from './nav';
 gsap.registerPlugin(CSSPlugin);
 
 const StyledLoading = styled.div`
@@ -108,6 +108,7 @@ const Landing = ({ showContent }) => {
         </StyledLoading>
 
         <div className="content">
+          <Nav/>
           {/* <div className="txt">
             <LandingScreen/>
           </div> */}

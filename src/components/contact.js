@@ -13,10 +13,10 @@ const Contact = () => {
   }, []);
   return (
     <StyledContact id="contact" className='section-title'>
-      <div class="contact-header">
+      {/* <div class="contact-header">
         <ProjectHeader title={"DM ME"} />
       </div>
-      
+       */}
       <div
         class='contact'
         data-aos="fade-up"

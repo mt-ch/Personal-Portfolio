@@ -48,9 +48,9 @@ const Projects = () => {
   }, []);
   return (
     <StyledProjects id="projects" className="section-title projects">
-      <div>
+      {/* <div>
         <ProjectHeader title={"WORK"} />
-      </div>
+      </div> */}
       {projects.map((project) => (
         <div className="project">
           <div class="photos">

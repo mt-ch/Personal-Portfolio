@@ -11,7 +11,7 @@ export const StyledLanding = styled.div`
     height: 0;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.primary};
+    background-color: #f2f2f2;
     padding: 0rem ${({ theme }) => theme.padding} 0rem;
     ${({ theme }) => theme.padding};
 
