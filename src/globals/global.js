@@ -10,13 +10,12 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 html, body {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   background-attachment: fixed;
   scroll-behavior: smooth;
   background:  #f2f2f2;
-  color: white;
   &::-webkit-scrollbar {
     display: none;
   }

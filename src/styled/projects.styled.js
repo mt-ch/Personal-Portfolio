@@ -4,21 +4,23 @@ export const StyledProjects = styled.div`
   .project {
     height: 100%;
     width: 100%;
-    padding: 10vh ${({ theme }) => theme.padding} 0vh
+    padding: 0vh ${({ theme }) => theme.padding} 0vh
       ${({ theme }) => theme.padding};
-    border-top: 1px black solid;
 
     .photo {
       height: 30vh;
       width: 100%;
+      border-top: 1px black solid;
       object-fit: cover;
       z-index: 0;
+      padding-top: 10vh;
     }
 
     .project-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 5vh;
       .arrow {
         height: 2em;
       }
@@ -27,6 +29,7 @@ export const StyledProjects = styled.div`
     .project-info {
       position: relative;
       z-index: 5;
+      padding: 2vh 0 2vh 0;
 
       .project-desc {
         display: none;
@@ -55,7 +58,7 @@ export const StyledProjects = styled.div`
     }
   }
 
-  /* @media (min-width: 1050px) {
+  @media (min-width: 550px) {
     
-  } */
+  }
 `;

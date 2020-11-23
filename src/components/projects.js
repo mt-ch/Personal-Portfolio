@@ -88,12 +88,12 @@ const Projects = () => {
             data-aos-easing="ease"
           >
             <div className="project-subtext">
+              <h3>{project.name}</h3>
               <div className="project-header">
-                <h3>{project.name}</h3>
                 <Arrow className="arrow" />
+                <p>{project.technologies}</p>
               </div>
               {/* <p>{project.roles}</p> */}
-              <p>{project.technologies}</p>
             </div>
 
             <div className="project-sidetext">
