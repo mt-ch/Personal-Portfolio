@@ -4,18 +4,25 @@ import styled from "styled-components";
 import GetProjectDetail from "../functions/getProjectDetail";
 
 const StyledProject = styled.div`
-  height: 100vh;
-  /* padding: 20vh ${({ theme }) => theme.padding} 3vh
-    ${({ theme }) => theme.padding};
+  height: 100%;
 
-    .project{
-      img {
-        height: 50vh;
-        width: 100%;
-        object-fit: cover;
-        padding: 6vh 0 0 0;
-      }
+  .project {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding-top: 10vh;
+/* 
+    .info{
+      display: flex;
     } */
+    img {
+      /* position: relative; */
+      height: 40vh;
+      width: 100%;
+      object-fit: cover;
+      padding: 6vh 0 0 0;
+    }
+  }
 `;
 
 const ProjectDetail = ({ match }) => {
@@ -29,13 +36,27 @@ const ProjectDetail = ({ match }) => {
         <StyledProject>
           {project.map((project) => (
             <div className="project">
-              {/* <img src={'http://localhost:1337' + project.coverPhoto}/> */}
               <h2>{project.name}</h2>
-              <p>{project.roles}</p>
-              <p>{project.description}</p>
+              <div className='info'>
+                <div className='roles'>
+                  <p>{project.roles}</p>
+                  <p>{project.technologies}</p>
+                </div>
+                <p>{project.description}</p>
+              </div>
+
               {project.photos.map((photo) => (
-                <img src={'https://strapi-z1gs.onrender.com' + photo.url}/>
+                <img src={"https://strapi-z1gs.onrender.com" + photo.url} />
               ))}
+
+              {/* <div className="project-links">
+                <a>
+                  <p className="project-link">Github</p>
+                </a>
+                <a>
+                  <p className="project-link">Website</p>
+                </a>
+              </div> */}
             </div>
           ))}
         </StyledProject>

@@ -1,19 +1,13 @@
 import styled from "styled-components";
 
 export const StyledLanding = styled.div`
-  height: 100vh;
-  width: 100vw;
+  /* height: 100%; */
+  width: 100%;
 
   .content {
-    /* position: absolute; */
-    z-index: 0;
-    top: 0;
-    height: 0;
     width: 100%;
-    height: 100vh;
-    background-color: #f2f2f2;
-    padding: 0rem ${({ theme }) => theme.padding} 0rem;
-    ${({ theme }) => theme.padding};
+    height: 100%;
+    padding-top: 10vh;
 
     h1 {
       border-top: solid black 1px;

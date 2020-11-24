@@ -9,9 +9,7 @@ import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
 import { theme } from "../globals/theme";
-import LandingScreen from './landingScreen'
 import Spinner from "../assets/img/Spinner.png";
-import Nav from './nav';
 gsap.registerPlugin(CSSPlugin);
 
 const StyledLoading = styled.div`
@@ -108,9 +106,6 @@ const Landing = ({ showContent }) => {
         </StyledLoading> */}
 
         <div className="content">
-          {/* <div className="txt">
-            <LandingScreen/>
-          </div> */}
           <h1>CODER<br/>+DIGITAL<br/>DESIGNER<br/>↓</h1>
 
           <div className='sub-text'>

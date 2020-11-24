@@ -1,21 +1,30 @@
 import React, { PureComponent } from "react";
-import { DistortionText } from "react-text-fun";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledNav = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
-  padding: 2vh 0 2vh 0;
+  padding: 0vh ${({ theme }) => theme.padding} 0rem;
+  ${({ theme }) => theme.padding};
 
-  .nav-options {
-    width: 100%;
+  .nav {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
-    p{
-      margin-left: 3vw;
+    padding: 2vh 0 2vh 0;
+
+    .nav-options {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      p {
+        margin-left: 3vw;
+      }
     }
   }
 `;
@@ -40,7 +49,6 @@ export class nav extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      //listening for media query
       matches: window.matchMedia("(min-width: 576px)").matches,
     };
   }
@@ -53,63 +61,24 @@ export class nav extends PureComponent {
   render() {
     return (
       <StyledNav>
-        <p>mc</p>
-        {!this.state.matches && (
-          <>
-            <p>menu</p>
-          </>
-        )}
-        {this.state.matches && (
-          <>
-            <div className="nav-options">
-              <p onClick={(e) => scroll(e)}>work</p>
-              <p>contact</p>
-            </div>
-          </>
-        )}
+        <div className="nav">
+          <Link to="/">
+            <p>mc</p>
+          </Link>
+
+          {!this.state.matches && <p>menu</p>}
+          {this.state.matches && (
+            <>
+              <div className="nav-options">
+                <p onClick={(e) => scroll(e)}>work</p>
+                <p>contact</p>
+              </div>
+            </>
+          )}
+        </div>
       </StyledNav>
     );
   }
 }
 
 export default nav;
-
-// const Nav = () => {
-//   const scroll = (e) => {
-//     const section = document.querySelectorAll(".section-title");
-//     switch (e.target.innerHTML) {
-//       case "ABOUT":
-//         section[0].scrollIntoView({
-//           block: "start",
-//         });
-//         break;
-//       case "WORK":
-//         section[1].scrollIntoView({
-//           block: "start",
-//         });
-//         break;
-//       case "DMS":
-//         section[2].scrollIntoView({
-//           block: "start",
-//         });
-//         break;
-//     }
-//   };
-//   return (
-// <StyledNav>
-//   <ul className="nav" style={{}}>
-//     <li onClick={(e) => scroll(e)}>
-//       <DistortionText fontSize={"25"} speed={0.3} fill={'#f5f5f5'} text="ABOUT" />
-//     </li>
-//     <li onClick={(e) => scroll(e)}>
-//       <DistortionText fontSize={"25"} speed={0.3} fill={'#f5f5f5'} text="WORK" />
-//     </li>
-//     <li onClick={(e) => scroll(e)}>
-//       <DistortionText fontSize={"25"} speed={0.3} fill={'#f5f5f5'} text="DMS" />
-//     </li>
-//   </ul>
-// </StyledNav>
-//   );
-// };
-
-// export default Nav;

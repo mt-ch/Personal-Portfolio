@@ -64,9 +64,11 @@ const ChangeColor = ({ children }) => {
 };
 
 const StyledLayout = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  padding: 0rem ${({ theme }) => theme.padding} 0rem;  
+  ${({ theme }) => theme.padding};
 `;
 
 const Layout = ({ children }) => {

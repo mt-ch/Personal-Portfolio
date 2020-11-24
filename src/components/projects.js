@@ -29,13 +29,14 @@ export class Projects extends PureComponent {
         {!this.state.matches && (
           <StyledProjects id="projects" className="section-title projects">
             {projects.map((project) => (
-              <div className="project">
+              <div key={project.id} className="project">
+                <h3>0{project.id}/</h3>
                 <img
                   className="photo"
                   src={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
                 />
 
-                <Link to={'/projects/'+project.id}>
+                <Link to={"/projects/" + project.id}>
                   <div className="project-info">
                     <h3 className="project-title">{project.name}</h3>
 
@@ -55,36 +56,31 @@ export class Projects extends PureComponent {
             className="section-title projects"
           >
             {projects.map((project) => (
-              <div className="project">
-                <div className="project-photo">
-                  <img
-                    className="photo"
-                    src={
-                      "https://strapi-z1gs.onrender.com" + project.coverPhoto
-                    }
-                  />
-                  <h3 className="project-title">{project.name}</h3>
-                </div>
+              <Link to={"/projects/" + project.id}>
+                <div key={project.id} className="project">
+                  <div className="project-photo">
+                    <img
+                      className="photo"
+                      src={
+                        "https://strapi-z1gs.onrender.com" + project.coverPhoto
+                      }
+                    />
+                    <h3 className="project-title">{project.name}</h3>
+                  </div>
 
-                <div className="project-info">
-                  <p>
-                    <strong>{project.roles}</strong>
-                  </p>
-                  <p>
-                    <strong>{project.technologies}</strong>
-                  </p>
-                  <p className="project-desc">{project.description}</p>
-
-                  <div className="project-links">
-                    <a>
-                      <p className="project-link">Github</p>
-                    </a>
-                    <a>
-                      <p className="project-link">Website</p>
-                    </a>
+                  <div className="project-info">
+                    <div className="top-info">
+                      <p>
+                        <strong>{project.roles}</strong>
+                      </p>
+                      <p>
+                        <strong>{project.technologies}</strong>
+                      </p>
+                    </div>
+                    <CurvedArrow className="arrow" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </StyledProjectsDesktop>
         )}
@@ -94,18 +90,3 @@ export class Projects extends PureComponent {
 }
 
 export default Projects;
-
-// const Projects = () => {
-//   const [projects, setProjects] = useState([]);
-
-//   useEffect(() => {
-//     GetProjects(setProjects);
-//   }, []);
-//   return (
-//     <StyledProjects id="projects" className="section-title projects">
-
-//     </StyledProjects>
-//   );
-// };
-
-// export default Projects;

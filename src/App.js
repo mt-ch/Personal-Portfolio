@@ -21,10 +21,10 @@ const App = () => {
     rounded: 0,
   };
 
-  // Run scrollrender once page is loaded.
-  useEffect(() => {
-    requestAnimationFrame(() => skewScrolling());
-  }, []);
+  // // Run scrollrender once page is loaded.
+  // useEffect(() => {
+  //   requestAnimationFrame(() => skewScrolling());
+  // }, []);
 
   //set the height of the body.
   useEffect(() => {

@@ -4,16 +4,18 @@ export const StyledProjects = styled.div`
   .project {
     height: 100%;
     width: 100%;
-    padding: 0vh ${({ theme }) => theme.padding} 0vh
-      ${({ theme }) => theme.padding};
+    /* padding: 0vh ${({ theme }) => theme.padding} 0vh
+      ${({ theme }) => theme.padding}; */
+    border-top: 1px black solid;
+    padding-top: 3vh;
 
     .photo {
       height: 30vh;
       width: 100%;
-      border-top: 1px black solid;
+
       object-fit: cover;
       z-index: 0;
-      padding-top: 10vh;
+      padding-top: 1vh;
     }
 
     .project-header {
@@ -36,14 +38,14 @@ export const StyledProjects = styled.div`
 `;
 
 export const StyledProjectsDesktop = styled.div`
-  padding: 0vh ${({ theme }) => theme.padding} 0vh
-      ${({ theme }) => theme.padding};
+  /* padding: 0vh ${({ theme }) => theme.padding} 0vh
+      ${({ theme }) => theme.padding}; */
   .project {
     display: grid;
     grid-template-areas: "info photo";
-    grid-template-columns: 40vw 1fr;
+    grid-template-columns: 30vw 1fr;
     border-top: 1px black solid;
-    padding: 10vh 0 5vh 0;
+    padding: 10vh 0 2vh 0;
     grid-gap: 2vw;
 
     .project-photo {
@@ -58,13 +60,24 @@ export const StyledProjectsDesktop = styled.div`
 
     .project-info {
       grid-area: info;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+
+      .top-info {
+      }
+      .arrow {
+        transform: scaleY(-1);
+        height: 3em;
+      }
     }
 
-    .project-desc{
+    /* .project-desc{
       margin-top: 5vh;
-    }
+    } */
 
-    .project-links {
+    /* .project-links {
       margin-top: 5vh;
       display: flex;
       a {
@@ -83,6 +96,6 @@ export const StyledProjectsDesktop = styled.div`
           color: ${({ theme }) => theme.white};
         }
       }
-    }
+    } */
   }
 `;

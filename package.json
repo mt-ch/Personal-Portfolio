@@ -16,7 +16,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-scroll": "^1.8.1",
-    "react-text-fun": "^1.0.0",
     "react-three-fiber": "^4.2.21",
     "react-transition-group": "^4.4.1",
     "styled-components": "^5.2.0",
@@ -24,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-   "build": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
