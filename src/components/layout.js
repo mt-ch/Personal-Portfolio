@@ -8,6 +8,8 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
 import { theme } from "../globals/theme";
 
+import Nav from "./nav";
+import Contact from "./contact";
 gsap.registerPlugin(ScrollTrigger);
 
 const ChangeColor = ({ children }) => {
@@ -64,7 +66,7 @@ const ChangeColor = ({ children }) => {
 const StyledLayout = styled.div`
   position: relative;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
 `;
 
 const Layout = ({ children }) => {
@@ -85,7 +87,9 @@ const Layout = ({ children }) => {
       <GlobalStyles />
       <>
         <StyledLayout className="layout">
-    {children}
+          <Nav />
+          {children}
+          <Contact />
         </StyledLayout>
       </>
     </ThemeProvider>

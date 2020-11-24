@@ -15,7 +15,7 @@ import Nav from './nav';
 gsap.registerPlugin(CSSPlugin);
 
 const StyledLoading = styled.div`
-  background-color: ${({ theme }) => theme.primary};
+  background-color: #f2f2f2;
   height: 100%;
   width: 100%;
   position: relative;
@@ -102,13 +102,12 @@ const Landing = ({ showContent }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <StyledLanding>
-        <StyledLoading className="loading">
+        {/* <StyledLoading className="loading">
           <h2 className="counter">{countUp}</h2>
           <div className="progress" style={{ width: countUp }}></div>
-        </StyledLoading>
+        </StyledLoading> */}
 
         <div className="content">
-          <Nav/>
           {/* <div className="txt">
             <LandingScreen/>
           </div> */}

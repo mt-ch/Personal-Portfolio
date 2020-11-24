@@ -18,17 +18,16 @@ function CreateProjectData(
     coverPhoto,
     photos,
     git,
-    website
+    website,
   };
 }
 
-async function GetProjects() {
+async function GetProjectDetail(id) {
   let projectData = [];
-  const url = "https://strapi-z1gs.onrender.com/projects";
+  const url = "https://strapi-z1gs.onrender.com/projects/" + id;
   const response = await fetch(url);
   const data = await response.json();
-
-  for (const {
+  const {
     id: projectId,
     Title: name,
     Roles: roles,
@@ -38,26 +37,26 @@ async function GetProjects() {
     Site: web,
     CoverPhoto: {
       formats: {
-        medium: { url: coverPhoto }
-      }
+        medium: { url: coverPhoto },
+      },
     },
-    Photos: photos
-  } of data) {
-    projectData.push(
-      CreateProjectData(
-        projectId,
-        name,
-        roles,
-        technologies,
-        desc,
-        coverPhoto,
-        photos,
-        git,
-        web
-      )
-    );
-  }
+    Photos: photos,
+  } = data;
+  projectData.push(
+    CreateProjectData(
+      projectId,
+      name,
+      roles,
+      technologies,
+      desc,
+      coverPhoto,
+      photos,
+      git,
+      web
+    )
+  );
+
   return projectData;
 }
 
-export default GetProjects;
+export default GetProjectDetail;

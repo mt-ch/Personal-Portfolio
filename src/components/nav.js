@@ -8,23 +8,28 @@ const StyledNav = styled.div`
   align-items: center;
   width: 100%;
   padding: 2vh 0 2vh 0;
+
+  .nav-options {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    p{
+      margin-left: 3vw;
+    }
+  }
 `;
 
 const scroll = (e) => {
   const section = document.querySelectorAll(".section-title");
   switch (e.target.innerHTML) {
-    case "ABOUT":
+    case "work":
       section[0].scrollIntoView({
         block: "start",
       });
       break;
-    case "WORK":
+    case "contact":
       section[1].scrollIntoView({
-        block: "start",
-      });
-      break;
-    case "DMS":
-      section[2].scrollIntoView({
         block: "start",
       });
       break;
@@ -37,7 +42,6 @@ export class nav extends PureComponent {
     this.state = {
       //listening for media query
       matches: window.matchMedia("(min-width: 576px)").matches,
-      nav: [{ txt: "ABOUT" }, { txt: "WORK" }, { txt: "DMS" }],
     };
   }
 
@@ -47,41 +51,22 @@ export class nav extends PureComponent {
   }
 
   render() {
-    const { nav } = this.state;
     return (
       <StyledNav>
-          <p>mc</p>
-          <p>menu</p>
-          {/* {this.state.matches && (
-            <>
-            {nav.map((option) => (
-              <li onClick={(e) => scroll(e)}>
-                <DistortionText
-                  fontSize={"40"}
-                  speed={0.3}
-                  fill={"#f5f5f5"}
-                  text={option.txt}
-                fontFamily={'Space Grotesk'}
-                />
-              </li>
-            ))}
-            </>
-          )}
-          {!this.state.matches && (
-            <>
-            {nav.map((option) => (
-              <li onClick={(e) => scroll(e)}>
-                <DistortionText
-                  fontSize={"25"}
-                  speed={0.3}
-                  fill={"#f5f5f5"}
-                  text={option.txt}
-                  fontFamily={'Space Grotesk'}
-                />
-              </li>
-            ))}
-            </>
-          )} */}
+        <p>mc</p>
+        {!this.state.matches && (
+          <>
+            <p>menu</p>
+          </>
+        )}
+        {this.state.matches && (
+          <>
+            <div className="nav-options">
+              <p onClick={(e) => scroll(e)}>work</p>
+              <p>contact</p>
+            </div>
+          </>
+        )}
       </StyledNav>
     );
   }

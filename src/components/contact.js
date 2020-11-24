@@ -13,10 +13,6 @@ const Contact = () => {
   }, []);
   return (
     <StyledContact id="contact" className='section-title'>
-      {/* <div class="contact-header">
-        <ProjectHeader title={"DM ME"} />
-      </div>
-       */}
       <div
         class='contact'
         data-aos="fade-up"
@@ -26,12 +22,12 @@ const Contact = () => {
         data-aos-easing="ease"
       >
         <div className="email">
-          <h3 className="email-txt">SAY HI -</h3>
-          <h3 className="email-header email-txt">{info.Email}</h3>
+          <h3>SAY HI -</h3>
+          <h3 className="email-txt">{info.Email}</h3>
         </div>
 
         <div className="socials">
-          <a href="/">
+          <a href={info.Github}>
             <p className="socials-link">Github</p>
           </a>
           <a href={info.LinkedIn}>

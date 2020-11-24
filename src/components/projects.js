@@ -1,118 +1,111 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { PureComponent } from "react";
 import GetProjects from "../functions/getProjects";
-import { StyledProjects } from "../styled/projects.styled";
-import ProjectHeader from "./projectHeader";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Arrow from "../assets/icons/arrow";
+import { Link } from "react-router-dom";
+import {
+  StyledProjects,
+  StyledProjectsDesktop,
+} from "../styled/projects.styled";
+import CurvedArrow from "../assets/icons/curvedArrow";
 
-gsap.registerPlugin(ScrollTrigger);
+export class Projects extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      matches: window.matchMedia("(min-width: 700px)").matches,
+      projects: [],
+    };
+  }
 
-const MovePhoto = ({ children, x, y }) => {
-  const revealRef = useRef(null);
+  componentDidMount() {
+    const handler = (e) => this.setState({ matches: e.matches });
+    window.matchMedia("(min-width: 700px)").addListener(handler);
+    GetProjects().then((data) => this.setState({ projects: data }));
+  }
 
-  useEffect(() => {
-    gsap.fromTo(
-      revealRef.current,
-      {
-        x: x,
-        y: y,
-        duration: 0.5,
-        ease: "power2.inOut",
-      },
-      {
-        x: getRandomArbitrary(0, 45, "vw"),
-        y: getRandomArbitrary(-45, -10, "vh"),
-        duration: 0.5,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          scrub: true,
-        },
-      }
+  render() {
+    const { projects } = this.state;
+    return (
+      <>
+        {!this.state.matches && (
+          <StyledProjects id="projects" className="section-title projects">
+            {projects.map((project) => (
+              <div className="project">
+                <img
+                  className="photo"
+                  src={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
+                />
+
+                <Link to={'/projects/'+project.id}>
+                  <div className="project-info">
+                    <h3 className="project-title">{project.name}</h3>
+
+                    <div className="project-header">
+                      <CurvedArrow className="arrow" />
+                      <p className="project-tech">{project.technologies}</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </StyledProjects>
+        )}
+        {this.state.matches && (
+          <StyledProjectsDesktop
+            id="projects"
+            className="section-title projects"
+          >
+            {projects.map((project) => (
+              <div className="project">
+                <div className="project-photo">
+                  <img
+                    className="photo"
+                    src={
+                      "https://strapi-z1gs.onrender.com" + project.coverPhoto
+                    }
+                  />
+                  <h3 className="project-title">{project.name}</h3>
+                </div>
+
+                <div className="project-info">
+                  <p>
+                    <strong>{project.roles}</strong>
+                  </p>
+                  <p>
+                    <strong>{project.technologies}</strong>
+                  </p>
+                  <p className="project-desc">{project.description}</p>
+
+                  <div className="project-links">
+                    <a>
+                      <p className="project-link">Github</p>
+                    </a>
+                    <a>
+                      <p className="project-link">Website</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </StyledProjectsDesktop>
+        )}
+      </>
     );
-  }, []);
-
-  return <div ref={revealRef}>{children}</div>;
-};
-
-function getRandomArbitrary(min, max, unit) {
-  return Math.random() * (max - min) + min + unit;
+  }
 }
 
-const Projects = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    AOS.init();
-    GetProjects(setProjects);
-  }, []);
-  return (
-    <StyledProjects id="projects" className="section-title projects">
-      {/* <div>
-        <ProjectHeader title={"WORK"} />
-      </div> */}
-      {projects.map((project) => (
-        <div className="project">
-          {/* <div class="photos">
-            {project.photos.map((photo) => (
-              <MovePhoto x={getRandomArbitrary(20, 45, "vw")} y={getRandomArbitrary(-30, 0, "vh")}>
-                <img
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-delay={getRandomArbitrary(100, 500, "")}
-                  data-aos-duration="800"
-                  data-aos-easing="ease"
-                  className="photo"
-                  style={{
-                    width: getRandomArbitrary(15, 30, "vw"),
-                    height: getRandomArbitrary(15, 30, "vh"),
-                  }}
-                  key={photo.id}
-                  src={"http://localhost:1337" + photo.url}
-                />
-              </MovePhoto>
-            ))}
-          </div> */}
-          <img
-            className="photo"
-            src={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
-          />
-          <div
-            className="project-info"
-            data-aos="fade-up"
-            data-aos-offset="250"
-            data-aos-delay="100"
-            data-aos-duration="800"
-            data-aos-easing="ease"
-          >
-            <div className="project-subtext">
-              <h3>{project.name}</h3>
-              <div className="project-header">
-                <Arrow className="arrow" />
-                <p>{project.technologies}</p>
-              </div>
-              {/* <p>{project.roles}</p> */}
-            </div>
-
-            <div className="project-sidetext">
-              <p className="project-desc">{project.description}</p>
-
-              <div className="project-links">
-                <a>
-                  <p className="project-link">Github</p>
-                </a>
-                <a>
-                  <p className="project-link">Website</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </StyledProjects>
-  );
-};
-
 export default Projects;
+
+// const Projects = () => {
+//   const [projects, setProjects] = useState([]);
+
+//   useEffect(() => {
+//     GetProjects(setProjects);
+//   }, []);
+//   return (
+//     <StyledProjects id="projects" className="section-title projects">
+
+//     </StyledProjects>
+//   );
+// };
+
+// export default Projects;

@@ -13,7 +13,7 @@ async function GetInfo(setInfo) {
   };
 
   try {
-    const infos = await fetch("http://localhost:1337/info", {
+    const infos = await fetch("https://strapi-z1gs.onrender.com/info", {
       method: "GET",
       headers: headers,
     })
