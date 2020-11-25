@@ -9,7 +9,6 @@ const Contact = () => {
   }, []);
   return (
     <StyledContact id="contact" className="section-title">
-      <div class="contact">
         <div className="email">
           <h3>SAY HI -</h3>
           <h3 className="email-txt">{info.Email}</h3>
@@ -22,7 +21,6 @@ const Contact = () => {
             <p className="socials-link">LinkedIn</p>
           </a>
         </div>
-      </div>
     </StyledContact>
   );
 };
