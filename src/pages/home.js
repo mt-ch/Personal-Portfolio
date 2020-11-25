@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import About from "../components/about";
 import Projects from "../components/projects";
 import Layout from "../components/layout";
 import Landing from "../components/landing";
 
 const Home = () => {
-  const [display, setDisplay] = useState(false);
+  const [display, setDisplay] = useState(true);
 
   function showContent() {
     setDisplay(true);
@@ -14,16 +13,17 @@ const Home = () => {
     <div
       style={{
         position: "relative",
+        width: '100%',
       }}
     >
       <Layout>
         <Landing showContent={() => showContent()} />
-        {display ? (
-          <>
-            <About />
+        {/* {display ? (
+          <> */}
+            {/* <About /> */}
             <Projects />
-          </>
-        ) : null}
+          {/* </>
+        ) : null} */}
       </Layout>
     </div>
   );

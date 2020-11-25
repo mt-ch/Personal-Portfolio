@@ -1,22 +1,33 @@
 import React, { PureComponent } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledNav = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 20%;
   width: 100%;
+  z-index: 99;
   padding: 0vh ${({ theme }) => theme.padding} 0rem;
   ${({ theme }) => theme.padding};
-
+  mix-blend-mode: difference;
+  p {
+    color: #fff;
+  }
   .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vh 0 2vh 0;
+    /* mix-blend-mode: difference; */
+    padding: 3vh 0 2vh 0;
 
+    .nav-title {
+      text-overflow: clip;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
     .nav-options {
       width: 100%;
       display: flex;
@@ -24,26 +35,11 @@ const StyledNav = styled.div`
       align-items: center;
       p {
         margin-left: 3vw;
+        cursor: pointer;
       }
     }
   }
 `;
-
-const scroll = (e) => {
-  const section = document.querySelectorAll(".section-title");
-  switch (e.target.innerHTML) {
-    case "work":
-      section[0].scrollIntoView({
-        block: "start",
-      });
-      break;
-    case "contact":
-      section[1].scrollIntoView({
-        block: "start",
-      });
-      break;
-  }
-};
 
 export class nav extends PureComponent {
   constructor(props) {
@@ -60,18 +56,39 @@ export class nav extends PureComponent {
 
   render() {
     return (
-      <StyledNav>
+      <StyledNav open={this.props.open}>
         <div className="nav">
-          <Link to="/">
-            <p>mc</p>
-          </Link>
+          <NavLink
+            to="/"
+            exact
+            activeStyle={{
+              fontWeight: "bold",
+            }}
+          >
+            <p className="nav-title">matt chan</p>
+          </NavLink>
 
-          {!this.state.matches && <p>menu</p>}
+          {!this.state.matches && <p onClick={() => this.props.setOpen(!this.props.open)}>menu</p>}
           {this.state.matches && (
             <>
               <div className="nav-options">
-                <p onClick={(e) => scroll(e)}>work</p>
-                <p>contact</p>
+                <NavLink
+                  to={"/work"}
+                  activeStyle={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  <p>work</p>
+                </NavLink>
+                <NavLink
+                  to="/about"
+                  exact
+                  activeStyle={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  <p>about</p>
+                </NavLink>
               </div>
             </>
           )}

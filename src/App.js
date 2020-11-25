@@ -1,10 +1,52 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import useWindowSize from "./useWindowSize";
 import Home from "./pages/home";
+import Work from "./pages/work";
 import ProjectDetail from "./pages/projectDetail";
+import About from "./pages/about";
+import { CSSTransition } from "react-transition-group";
+import { gsap } from "gsap";
+import "./App.css";
+
+const routes = [
+  { path: "/", name: "Home", Component: Home },
+  // { path: "/projects/:id", name: "ProjectDetail", Component: ProjectDetail },
+  { path: "/about", name: "About", Component: About },
+  { path: "/work", name: "Work", Component: Work },
+];
 
 const App = () => {
+  const onEnter = node => {
+    gsap.from(
+      [node.children[0].firstElementChild, node.children[0].lastElementChild],
+      0.6,
+      {
+        y: 30,
+        delay: 0.6,
+        ease: "power3.InOut",
+        opacity: 0,
+        stagger: {
+          amount: 0.6
+        }
+      }
+    );
+  };
+
+  const onExit = node => {
+    gsap.to(
+      [node.children[0].firstElementChild, node.children[0].lastElementChild],
+      0.6,
+      {
+        y: -30,
+        ease: "power3.InOut",
+        stagger: {
+          amount: 0.2
+        }
+      }
+    );
+  };
+
   //Skew scroll from - wrongakram
   //Hook to grab window size
   const size = useWindowSize();
@@ -63,12 +105,42 @@ const App = () => {
   return (
     <div ref={app} className="app">
       <div ref={scrollContainer} className="scroll">
-        <Router>
+        {/* <Router>
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/projects/:id" component={ProjectDetail} />
+            <Route path="/" exact>
+              {({match}) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={1200}
+                  classNames='page'
+                  unmountOnExit>
+                    <div className='page'>
+                      <Home/>
+                    </div>
+                  </CSSTransition>
+              )}
+            </Route>
+            <Route path="/projects/:id" component={ProjectDetail}/>
           </Switch>
-        </Router>
+        </Router> */}
+        {routes.map(({ path, Component }) => (
+          <Route key={path} exact path={path}>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={1200}
+                classNames="page"
+                // onExit={onExit}
+                // onEntering={onEnter}
+                unmountOnExit
+              >
+                <div className="page">
+                  <Component />
+                </div>
+              </CSSTransition>
+            )}
+          </Route>
+        ))}
       </div>
     </div>
   );

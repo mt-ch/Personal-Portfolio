@@ -25,7 +25,7 @@ p {
 }
 
 h1 {
-  font-size: clamp(1rem, 13vw, 14rem)
+  font-size: clamp(1rem, 12vw, 8rem)
 }
 
 h2 {

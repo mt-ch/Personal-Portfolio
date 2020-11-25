@@ -13,7 +13,7 @@ html, body {
   position: relative;
   background-attachment: fixed;
   scroll-behavior: smooth;
-  background:  #f2f2f2;
+  background:  #d7d7d7;
   color: ${({ theme }) => theme.dark};
   &::-webkit-scrollbar {
     display: none;
@@ -29,6 +29,16 @@ body {
   width: 100%;
   text-rendering: optimizeLegibility;
   font-size: 100%;
+}
+
+.app{
+  position: relative;
+  width: 100%;
+
+  .page{
+    position: absolute;
+    width: 100%;
+  }
 }
 
 a{

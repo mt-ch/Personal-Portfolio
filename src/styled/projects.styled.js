@@ -4,13 +4,14 @@ export const StyledProjects = styled.div`
   .project {
     height: 100%;
     width: 100%;
-    border-top: 1px black solid;
+    border-bottom: 1px black solid;
     padding-top: 3vh;
+    display: flex;
+    flex-direction: column;
 
     .photo {
       height: 30vh;
       width: 100%;
-
       object-fit: cover;
       z-index: 0;
       padding-top: 1vh;
@@ -40,9 +41,10 @@ export const StyledProjectsDesktop = styled.div`
     display: grid;
     grid-template-areas: "info photo";
     grid-template-columns: 30vw 1fr;
-    border-top: 1px black solid;
+    border-bottom: 1px black solid;
     padding: 10vh 0 2vh 0;
     grid-gap: 2vw;
+    pointer-events: all;
 
     .project-photo {
       grid-area: photo;

@@ -86,11 +86,10 @@ const StyledProject = styled.div`
 
     .photos {
       display: grid;
-      /* align-items: center; */
       grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
       grid-gap: 1rem;
       grid-auto-flow: row;
-      img:last-child{
+      img:last-child {
         grid-column: span 2;
       }
     }

@@ -34,6 +34,7 @@ export class Projects extends PureComponent {
                 <img
                   className="photo"
                   src={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
+                  alt={"Project" + project.id}
                 />
 
                 <Link to={"/projects/" + project.id}>
@@ -56,14 +57,15 @@ export class Projects extends PureComponent {
             className="section-title projects"
           >
             {projects.map((project) => (
-              <Link to={"/projects/" + project.id}>
-                <div key={project.id} className="project">
+              <Link key={project.id} to={"/projects/" + project.id}>
+                <div className="project">
                   <div className="project-photo">
                     <img
                       className="photo"
                       src={
                         "https://strapi-z1gs.onrender.com" + project.coverPhoto
                       }
+                      alt={"Project" + project.id}
                     />
                     <h3 className="project-title">{project.name}</h3>
                   </div>

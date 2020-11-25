@@ -6,9 +6,8 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  border-top: solid 1px black;
   padding: 10vh 0 5vh;
+  
   .email {
     text-transform: uppercase;
     .email-txt {
