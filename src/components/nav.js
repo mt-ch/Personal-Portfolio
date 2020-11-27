@@ -1,45 +1,26 @@
 import React, { PureComponent } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import { StyledNav } from "../styled/components.styled";
 
-const StyledNav = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 20%;
-  width: 100%;
-  z-index: 99;
-  padding: 0vh ${({ theme }) => theme.padding} 0rem;
-  ${({ theme }) => theme.padding};
-  mix-blend-mode: difference;
-  p {
-    color: #fff;
+const scroll = (e) => {
+  const section = document.querySelectorAll(".section-title");
+  switch (e.target.innerHTML) {
+    case "work":
+      section[0].scrollIntoView({
+        block: "start",
+      });
+      break;
+    case "contact":
+      section[1].scrollIntoView({
+        block: "start",
+      });
+      break;
+    case "about":
+      section[2].scrollIntoView({
+        block: "start",
+      });
+      break;
   }
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* mix-blend-mode: difference; */
-    padding: 3vh 0 2vh 0;
-
-    .nav-title {
-      text-overflow: clip;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    
-    .nav-options {
-      width: 100%;
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      p {
-        margin-left: 3vw;
-        cursor: pointer;
-      }
-    }
-  }
-`;
+};
 
 export class nav extends PureComponent {
   constructor(props) {
@@ -58,37 +39,25 @@ export class nav extends PureComponent {
     return (
       <StyledNav open={this.props.open}>
         <div className="nav">
-          <NavLink
-            to="/"
-            exact
-            activeStyle={{
-              fontWeight: "bold",
-            }}
-          >
+          <a>
             <p className="nav-title">matt chan</p>
-          </NavLink>
+          </a>
 
-          {!this.state.matches && <p onClick={() => this.props.setOpen(!this.props.open)}>menu</p>}
+          {!this.state.matches && (
+            <p onClick={() => this.props.setOpen(!this.props.open)}>menu</p>
+          )}
           {this.state.matches && (
             <>
               <div className="nav-options">
-                <NavLink
-                  to={"/work"}
-                  activeStyle={{
-                    fontWeight: "bold",
-                  }}
-                >
+                <a onClick={(e) => scroll(e)}>
                   <p>work</p>
-                </NavLink>
-                <NavLink
-                  to="/about"
-                  exact
-                  activeStyle={{
-                    fontWeight: "bold",
-                  }}
-                >
+                </a>
+                <a onClick={(e) => scroll(e)}>
                   <p>about</p>
-                </NavLink>
+                </a>
+                <a onClick={(e) => scroll(e)}>
+                  <p>contact</p>
+                </a>
               </div>
             </>
           )}

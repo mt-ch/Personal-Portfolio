@@ -1,26 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { bool, func } from "prop-types";
-import styled from "styled-components";
-
-const StyledMenu = styled.div`
-  position: fixed;
-  background-color: grey;
-  color: #fff;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  padding: 0vh ${({ theme }) => theme.padding} 0vh;
-  ${({ theme }) => theme.padding};
-  transform: ${({ open }) => (open ? "translateY(0px)" : "translateY(-100%)")};
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import { useEffect } from "react";
+import { StyledMenu } from "../styled/components.styled";
 
 const Menu = ({ open }) => {
+  useEffect(() => {
+    // No scroll when open
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    }
+    // Restore scroll on close
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [open]);
   return (
     <StyledMenu open={open}>
       <div className="menu-links">

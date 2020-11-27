@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Route } from "react-router-dom";
-import useWindowSize from "./useWindowSize";
+import useWindowSize from "./functions/useWindowSize";
 import Home from "./pages/home";
-import Work from "./pages/work";
 import ProjectDetail from "./pages/projectDetail";
-import About from "./pages/about";
 import { CSSTransition } from "react-transition-group";
 import { gsap } from "gsap";
-import "./App.css";
+import "./styled/animations.css";
 
 const routes = [
   { path: "/", name: "Home", Component: Home },
-  // { path: "/projects/:id", name: "ProjectDetail", Component: ProjectDetail },
-  { path: "/about", name: "About", Component: About },
-  { path: "/work", name: "Work", Component: Work },
+  { path: "/projects/:id", name: "ProjectDetail", Component: ProjectDetail },
 ];
 
 const App = () => {
-  const onEnter = node => {
+  const onEnter = (node) => {
     gsap.from(
       [node.children[0].firstElementChild, node.children[0].lastElementChild],
       0.6,
@@ -27,13 +23,13 @@ const App = () => {
         ease: "power3.InOut",
         opacity: 0,
         stagger: {
-          amount: 0.6
-        }
+          amount: 0.6,
+        },
       }
     );
   };
 
-  const onExit = node => {
+  const onExit = (node) => {
     gsap.to(
       [node.children[0].firstElementChild, node.children[0].lastElementChild],
       0.6,
@@ -41,8 +37,8 @@ const App = () => {
         y: -30,
         ease: "power3.InOut",
         stagger: {
-          amount: 0.2
-        }
+          amount: 0.2,
+        },
       }
     );
   };
@@ -69,9 +65,9 @@ const App = () => {
   // }, []);
 
   //set the height of the body.
-  useEffect(() => {
-    setBodyHeight();
-  }, [size.height]);
+  // useEffect(() => {
+  //   setBodyHeight();
+  // }, [size.height]);
 
   //Set the height of the body to the height of the scrolling div
   const setBodyHeight = () => {
@@ -103,46 +99,30 @@ const App = () => {
   };
 
   return (
-    <div ref={app} className="app">
-      <div ref={scrollContainer} className="scroll">
-        {/* <Router>
-          <Switch>
-            <Route path="/" exact>
-              {({match}) => (
+    <>
+      <div ref={app} className="app">
+        <div ref={scrollContainer} className="scroll">
+          {routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path}>
+              {({ match }) => (
                 <CSSTransition
                   in={match != null}
                   timeout={1200}
-                  classNames='page'
-                  unmountOnExit>
-                    <div className='page'>
-                      <Home/>
-                    </div>
-                  </CSSTransition>
+                  classNames="page"
+                  // onExit={onExit}
+                  // onEntering={onEnter}
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Component />
+                  </div>
+                </CSSTransition>
               )}
             </Route>
-            <Route path="/projects/:id" component={ProjectDetail}/>
-          </Switch>
-        </Router> */}
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            {({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={1200}
-                classNames="page"
-                // onExit={onExit}
-                // onEntering={onEnter}
-                unmountOnExit
-              >
-                <div className="page">
-                  <Component />
-                </div>
-              </CSSTransition>
-            )}
-          </Route>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

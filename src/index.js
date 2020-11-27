@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";
-import ScrollToTop from './scrollToTop';
+import ScrollToTop from './functions/scrollToTop';
+import 'pace-js'
+import 'pace-js/themes/yellow/pace-theme-minimal.css'
 
 ReactDOM.render(
   <Router>

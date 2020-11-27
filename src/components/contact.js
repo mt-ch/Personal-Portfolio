@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GetInfo from "../functions/getInfo";
-import { StyledContact } from "../styled/contact.styled";
+import { StyledContact } from "../styled/components.styled";
 
 const Contact = () => {
   const [info, setInfo] = useState([]);
@@ -8,7 +8,7 @@ const Contact = () => {
     GetInfo(setInfo);
   }, []);
   return (
-    <StyledContact id="contact" className="section-title">
+    <StyledContact className="section-title">
         <div className="email">
           <h3>SAY HI -</h3>
           <h3 className="email-txt">{info.Email}</h3>

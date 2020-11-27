@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {
   StyledProjects,
   StyledProjectsDesktop,
-} from "../styled/projects.styled";
+} from "../styled/components.styled";
 import CurvedArrow from "../assets/icons/curvedArrow";
 
 export class Projects extends PureComponent {
