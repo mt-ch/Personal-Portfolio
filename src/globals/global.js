@@ -7,14 +7,16 @@ export const GlobalStyles = createGlobalStyle`
   padding: 0;
   user-select: none;
   outline: none;
+  /* cursor: none; */
 }
 
 html, body {
   position: relative;
   background-attachment: fixed;
   scroll-behavior: smooth;
-  background:  #d7d7d7;
-  color: ${({ theme }) => theme.dark};
+  /* cursor: none; */
+  background:  #fffefa;
+  color: ${({ theme }) => theme.black};
   &::-webkit-scrollbar {
     display: none;
   }
@@ -26,9 +28,9 @@ html, body {
 
 body {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   text-rendering: optimizeLegibility;
-  font-size: 100%;
+  font-size: calc(1em + 1vw)
 }
 
 .app{
@@ -43,7 +45,6 @@ body {
 
 a{
   text-decoration: none;
-  cursor: pointer;
 }
 
 ul {

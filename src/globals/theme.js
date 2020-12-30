@@ -1,8 +1,10 @@
 export const theme = {
-  white: '#FDFDFD',
-  black: '#010101',
-  primary: '#C7B6F6',
-  dark: '#202020',
+  white: '#FAFAFA',
+  black: '#101010',
+  primary: '#72BA68',
+  dark: '#434343',
+  grey: '#EAEAEA',
   mobile: "576px",
-  padding: "clamp(.5rem, 8vw, 10rem)",
+  padding: "clamp(.5rem, 3vw, 3rem)",
+  navPadding: "clamp(.5rem, 3vw, 3rem)",
 }

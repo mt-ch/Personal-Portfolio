@@ -1,54 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 @font-face {
-  font-family: 'Monument Extended';
-  src: url('../assets/fonts/MonumentExtended-Regular.otf') format('opentype');
+  font-family: "Monument Extended Regular";
+  src: url("../assets/fonts/MonumentExtended-Regular.otf") format("opentype");
   font-display: auto;
 }
 
-body {
-  font-family: 'Space Grotesk', 'Monument Extended', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@font-face {
+  font-family: "Monument Extended Black";
+  src: url("../assets/fonts/MonumentExtended-Black.otf") format("opentype");
+  font-display: auto;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Monument Extended';
+@font-face {
+  font-family: "Half";
+  src: url("../assets/fonts/Half-Regular.otf") format("opentype");
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Ramona";
+  src: url("../assets/fonts/Ramona-Light.ttf") format("truetype");
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Pulchella";
+  src: url("../assets/fonts/Pulchella.otf") format("opentype");
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Technique Sans";
+  src: url("../assets/fonts/TechniqueSans.otf") format("opentype");
+  font-display: auto;
+}
+
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-family: 'Monument Extended Black';
   color: black;
 }
 
+h2,
+h3,
 h4,
 h5,
 p {
-  font-family: 'Space Grotesk';
   color: black;
 }
 
 h1 {
-  font-size: clamp(1rem, 12vw, 8rem)
+  letter-spacing: -0.1rem;
+  line-height: 1;
+  font-size: clamp(1em, 9.8vw, 5em);
+}
+
+@media(min-width: 500px){
+  h1{
+    font-size: 1.75em;
+  }
 }
 
 h2 {
-  font-size: clamp(4rem, 12vw, 12rem);
+  font-family: 'Monument Extended Regular';
+  font-size: 1.5em;
 }
 
 h3 {
-  font-size: clamp(1rem, 7vw, 7rem);
-  font-weight: 600
+  font-weight: 600;
+  font-size: 1.25em;
 }
 
 h4 {
-  font-size: clamp(1rem, 6vw, 6rem);
-  font-weight: 400
+  font-weight: 400;
+  font-size: 1.1em;
 }
 
 h5 {
-  font-size: clamp(1.5rem, 3.5vw, 3.5rem);
-  font-weight: 500
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.015rem;
 }
 
 p {
-  font-size: clamp(1rem, 1.5vw, 1.5rem)
+  font-size: .75em;
+  letter-spacing: 0.015rem;
+  line-height: 1.3;
 }
-
-;

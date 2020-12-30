@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/layout";
-import {StyledProject} from "../styled/components.styled";
+import { StyledProject } from "../styled/components.styled";
 import GetProjectDetail from "../functions/getProjectDetail";
 import { useParams, useHistory } from "react-router-dom";
 import Title from "../components/title";
@@ -18,16 +18,16 @@ const ProjectDetail = () => {
     <>
       <Layout>
         <StyledProject>
+          <a
+            href={null}
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            <CurvedArrow className="arrow" />
+          </a>
           {project.map((project) => (
             <div className="project">
-              <a
-                onClick={() => {
-                  history.goBack();
-                }}
-              >
-                <CurvedArrow className="arrow" />
-              </a>
-
               <Title title={project.name} />
 
               <div className="info-wrapper">

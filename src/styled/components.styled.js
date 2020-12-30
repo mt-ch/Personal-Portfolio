@@ -1,11 +1,126 @@
 import styled from "styled-components";
 
+export const StyledPhotoReveal = styled.div`
+  .container {
+    width: 20em;
+    visibility: hidden;
+  }
+
+  .img-container {
+    width: 20em;
+    height: 10em;
+    position: relative;
+    overflow: hidden;
+    &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      top: 0;
+      right: 0;
+    }
+    .photo {
+      width: 20em;
+      margin: 0 auto;
+    }
+  }
+`;
+
+export const StyledViewPort = styled.div`
+  margin: 0 0 0 0;
+  /* width: 100%; */
+  overflow-x: hidden;
+  position: fixed;
+  padding-right: ${({ theme }) => theme.padding};
+`;
+
 export const StyledLayout = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
-  padding: 0rem ${({ theme }) => theme.padding} 0rem;
+  height: 100vh;
+  padding: 2vh ${({ theme }) => theme.padding} 2vh;
   ${({ theme }) => theme.padding};
+
+  .cursor {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 150ms ease;
+    transition-property: background-color, opacity, transform, mix-blend-mode;
+    z-index: 9999;
+    mix-blend-mode: difference;
+  }
+
+  .cursor--hidden {
+    opacity: 0;
+  }
+
+  .cursor--link-hovered {
+    transform: translate(-50%, -50%) scale(1.25);
+    background-color: #fefefe;
+  }
+
+  .cursor--clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: #fefefe;
+  }
+
+  .bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent
+      url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation 0.2s infinite;
+    opacity: 0.9;
+    visibility: visible;
+  }
+
+  @keyframes bg-animation {
+    0% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-5%, -5%);
+    }
+    20% {
+      transform: translate(-10%, 5%);
+    }
+    30% {
+      transform: translate(5%, -10%);
+    }
+    40% {
+      transform: translate(-5%, 15%);
+    }
+    50% {
+      transform: translate(-10%, 5%);
+    }
+    60% {
+      transform: translate(15%, 0);
+    }
+    70% {
+      transform: translate(0, 10%);
+    }
+    80% {
+      transform: translate(-15%, 0);
+    }
+    90% {
+      transform: translate(10%, 5%);
+    }
+    100% {
+      transform: translate(5%, 0);
+    }
+  }
 `;
 
 export const StyledProject = styled.div`
@@ -13,23 +128,24 @@ export const StyledProject = styled.div`
   width: 100%;
   position: relative;
   padding-bottom: 1vh;
+  z-index: 50;
+  padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
+
+  .arrow {
+    transform: scaleX(-1);
+    height: 2.5em;
+    position: fixed;
+    top: 3vh;
+    right: 0;
+    z-index: 99;
+    padding-left: ${({ theme }) => theme.padding};
+  }
 
   .project {
     position: relative;
     width: 100%;
     height: 100%;
     padding-top: 10vh;
-
-    .arrow {
-      transform: scaleX(-1);
-      height: 2.5em;
-      position: fixed;
-      top: 3vh;
-      right: 0;
-      z-index: 99;
-      cursor: pointer;
-      padding-left: ${({ theme }) => theme.padding};
-    }
 
     .info {
       padding-bottom: 1vh;
@@ -45,16 +161,16 @@ export const StyledProject = styled.div`
           .project-link {
             text-align: center;
             text-transform: uppercase;
-            border: 2px ${({ theme }) => theme.black} solid;
-            padding: 0.25em 0.5em 0.25em 0.5em;
-            border-radius: 2em;
-            color: ${({ theme }) => theme.black};
+            /* border: 2px ${({ theme }) => theme.black} solid;
+            padding: 0.25em 0.5em 0.25em 0.5em; */
+            /* border-radius: 2em; */
+            /* color: ${({ theme }) => theme.black}; */
             margin-right: 3vw;
           }
 
           .project-link:hover {
-            background-color: ${({ theme }) => theme.black};
-            color: ${({ theme }) => theme.white};
+            /* background-color: ${({ theme }) => theme.black};
+            color: ${({ theme }) => theme.white}; */
           }
         }
       }
@@ -66,15 +182,13 @@ export const StyledProject = styled.div`
       border-bottom: 1px solid black;
     }
     .photos {
-      border-bottom: 1px solid black;
       padding-bottom: 1vh;
     }
     img {
       position: relative;
-      z-index: 0;
-      height: 40vh;
+      height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
       padding: 1vh 0;
     }
   }
@@ -106,12 +220,12 @@ export const StyledProject = styled.div`
 
     .photos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(400px, 100%));
       grid-gap: 1rem;
       grid-auto-flow: row;
-      img:last-child {
+      /* img:last-child {
         grid-column: span 2;
-      }
+      } */
     }
   }
 `;
@@ -134,7 +248,6 @@ export const StyledMenu = styled.div`
   color: #fff;
   width: 100%;
   height: 100%;
-  z-index: 2;
   transform: ${({ open }) => (open ? "translateY(0px)" : "translateY(-100%)")};
   transition: transform 0.3s ease-in-out;
   display: flex;
@@ -143,25 +256,20 @@ export const StyledMenu = styled.div`
   align-items: center;
 `;
 
-export const StyledNav = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 20%;
+export const StyledNavMobile = styled.div`
+  position: relative;
   width: 100%;
-  z-index: 99;
-  padding: 0vh ${({ theme }) => theme.padding} 0rem;
-  ${({ theme }) => theme.padding};
-  mix-blend-mode: difference;
-  p {
-    color: #fff;
+
+  .line-wrap{
+    overflow: hidden;
   }
+
   .nav {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    /* mix-blend-mode: difference; */
-    padding: 3vh 0 2vh 0;
+    align-items: start;
+
 
     .nav-title {
       text-overflow: clip;
@@ -170,13 +278,38 @@ export const StyledNav = styled.div`
     }
 
     .nav-options {
-      width: 100%;
-      display: flex;
-      justify-content: end;
-      align-items: center;
       p {
-        margin-left: 3vw;
-        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+`;
+
+export const StyledNav = styled.div`
+  position: fixed;
+  z-index: 99;
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    width: 5em;
+    justify-content: space-between;
+    align-items: start;
+
+    .nav-title {
+      text-overflow: clip;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .nav-options {
+      position: fixed;
+      bottom: 0;
+
+      p {
+        text-decoration: underline;
+        line-height: 1.3;
       }
     }
   }
@@ -217,35 +350,42 @@ export const StyledLoading = styled.div`
 `;
 
 export const StyledAbout = styled.div`
-  border-bottom: black 1px solid;
-  padding-bottom: 0vh;
-  .text {
-    will-change: transform;
-    margin: 0vh 0 10vh 0;
+  position: relative;
+  margin-bottom: 5em;
 
-    h5 {
-      line-height: 1.5;
-    }
+  .about-text{
+    margin-bottom: 1em;
   }
 `;
 
 export const StyledProjects = styled.div`
   position: relative;
-  z-index: 1;
+  padding-top: 3vh;
+
   .project {
+    position: relative;
     height: 100%;
     width: 100%;
-    border-bottom: 1px black solid;
     padding-top: 3vh;
     display: flex;
     flex-direction: column;
 
-    .photo {
-      height: 30vh;
+    .border {
+      height: 2px;
       width: 100%;
-      object-fit: cover;
-      z-index: 0;
+      background-color: ${({ theme }) => theme.black};
+      margin-bottom: 3vh;
+    }
+
+    /* .photo {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
       padding-top: 1vh;
+    } */
+
+    .project-name {
+      text-transform: uppercase;
     }
 
     .project-header {
@@ -261,71 +401,80 @@ export const StyledProjects = styled.div`
 
     .project-info {
       position: relative;
-      z-index: 5;
       padding: 2vh 0 2vh 0;
     }
   }
 `;
 
 export const StyledProjectsDesktop = styled.div`
+  height: 100%auto;
+  .border {
+    height: 2px;
+    width: 100%;
+    background-color: ${({ theme }) => theme.black};
+  }
+
+  .projects-section-title {
+    padding: 3vh 0 3vh 0;
+
+    .line-wrap{
+      overflow: hidden;
+    }
+  }
+
   .project {
     display: grid;
+    /* flex: 3em 6fr; */
     grid-template-areas: "info photo";
-    grid-template-columns: 30vw 1fr;
-    border-bottom: 1px black solid;
-    padding: 10vh 0 2vh 0;
-    grid-gap: 2vw;
+    grid-template-columns: 1fr 5fr;
+    padding: 5vh 0 3vh 0;
     pointer-events: all;
 
+    .project-title {
+      padding-top: 1vh;
+    }
+
     .project-photo {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
       grid-area: photo;
+      h2 {
+        text-align: end;
+      }
 
       .photo {
-        height: 50vh;
         width: 100%;
-        object-fit: cover;
+        max-width: 10em;
+        object-fit: contain;
       }
     }
 
     .project-info {
       grid-area: info;
+      position: relative;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: start;
 
-      .top-info {
-      }
       .arrow {
         transform: scaleY(-1);
-        height: 3em;
+        height: 2em;
       }
     }
   }
 `;
 
 export const StyledLanding = styled.div`
-  width: 100%;
-
   .content {
     width: 100%;
-    height: 100%;
-    padding: 10vh ${({ theme }) => theme.padding} 10vh;
-    ${({ theme }) => theme.padding};
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
+    height: 90vh;
 
-    .border-top,
-    .border-bottom {
-      border-top: solid black 1px;
-      width: 100%;
-    }
-
-    h1 {
-      letter-spacing: -0.1rem;
-      line-height: 0.9;
-      padding: 5vh 0 0vh 0;
+    .header-wrapper {
+      padding: 7em 0 3em 0;
     }
 
     .line-wrap {
@@ -333,15 +482,20 @@ export const StyledLanding = styled.div`
       height: 100%;
     }
 
-    .sub-text {
+    .subtext-wrapper {
       display: flex;
       justify-content: space-between;
-      align-items: end;
-      padding: 10vh 0 3vh 0;
+      align-items: start;
+
       .spinner {
-        width: clamp(4em, 11vw, 8em);
-        height: clamp(4em, 11vw, 8em);
+        width: 4em;
+        height: 4em;
         animation: rotation 8s infinite linear;
+      }
+
+      .sub-text {
+        display: flex;
+        flex-direction: column;
       }
 
       @keyframes rotation {
@@ -354,53 +508,84 @@ export const StyledLanding = styled.div`
       }
     }
   }
+`;
 
-  @media (min-width: 900px) {
+export const StyledContact = styled.div`
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10vh 0 0vh;
+
+  .line-wrap {
+    overflow: hidden;
     height: 100%;
-    .content {
-      justify-content: space-between;
-      padding: 10vh ${({ theme }) => theme.padding} 10vh;
-      ${({ theme }) => theme.padding};
+  }
 
-      .sub-text {
-        padding: 0vh 0 3vh 0;
+  .outro {
+    /* padding: 0rem ${({ theme }) => theme.padding} 0rem;
+    ${({ theme }) => theme.padding}; */
+    h1 {
+      font-weight: bold;
+      /* font-size: clamp(2.75rem, 9vw, 7rem); */
+      letter-spacing: -0.1rem;
+      line-height: 0.9;
+    }
+
+    .email {
+      text-transform: uppercase;
+      text-decoration: underline;
+      padding-top: 3vh;
+    }
+  }
+
+  .contact-bottom {
+    /* padding: 0rem ${({ theme }) => theme.padding} 0rem;
+    ${({ theme }) => theme.padding}; */
+    p {
+      letter-spacing: 0.9;
+      a {
+        color: ${({ theme }) => theme.black};
+        font-size: 0.7em;
+        font-family: "Monument Extended Regular";
+      }
+    }
+    .credits {
+    }
+    .socials {
+      display: flex;
+      flex-direction: column;
+      padding-top: 3vh;
+    }
+    .footer {
+      padding-top: 3vh;
+      font-weight: bold;
+      text-align: end;
+      letter-spacing: -0.1rem;
+      line-height: 0.9;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .contact-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      .socials {
+        padding: 0 10vw 0 10vw;
+      }
+
+      .footer {
+        padding: 0;
       }
     }
   }
 `;
 
-export const StyledContact = styled.div`
-  height: 100%;
-  width: 100%;
+export const HomeDesktop = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10vh 0 5vh;
-
-  .email {
-    text-transform: uppercase;
-    .email-txt {
-      text-decoration: underline;
-    }
-  }
-
-  .socials {
-    display: flex;
-    padding-top: 5vh;
-
-    .socials-link {
-      text-align: center;
-      text-transform: uppercase;
-      border: 2px ${({ theme }) => theme.black} solid;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-      border-radius: 2em;
-      color: ${({ theme }) => theme.black};
-      margin-right: 1em;
-    }
-
-    .socials-link:hover {
-      background-color: ${({ theme }) => theme.black};
-      color: ${({ theme }) => theme.white};
-    }
-  }
+  padding-left: 6em;
 `;

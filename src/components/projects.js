@@ -1,94 +1,48 @@
-import React, { PureComponent } from "react";
+import React, { useEffect, useState } from "react";
 import GetProjects from "../functions/getProjects";
-import { Link } from "react-router-dom";
-import {
-  StyledProjects,
-  StyledProjectsDesktop,
-} from "../styled/components.styled";
-import CurvedArrow from "../assets/icons/curvedArrow";
+import { TimelineLite, gsap, CSSPlugin, Power2, Expo, Power3 } from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./image.css";
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import ProjectsDesktop from "./projectsDesktop";
 
-export class Projects extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      matches: window.matchMedia("(min-width: 700px)").matches,
-      projects: [],
-    };
-  }
+gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
 
-  componentDidMount() {
-    const handler = (e) => this.setState({ matches: e.matches });
-    window.matchMedia("(min-width: 700px)").addListener(handler);
-    GetProjects().then((data) => this.setState({ projects: data }));
-  }
+const Projects = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    GetProjects().then((data) => setProjects(data)).then(setLoading(false));
 
-  render() {
-    const { projects } = this.state;
+    gsap.from(".project-title-text", {
+      duration: 1.5,
+      y: "18vh",
+      stagger: {
+        amount: 0.5,
+      },
+      scrollTrigger: {
+        trigger: ".project-title-text",
+        start: "top 90%",
+      },
+      ease: Power3.easeInOut,
+    });
+  }, []);
+
+  if (loading){
     return (
-      <>
-        {!this.state.matches && (
-          <StyledProjects id="projects" className="section-title projects">
-            {projects.map((project) => (
-              <div key={project.id} className="project">
-                <h3>0{project.id}/</h3>
-                <img
-                  className="photo"
-                  src={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
-                  alt={"Project" + project.id}
-                />
-
-                <Link to={"/projects/" + project.id}>
-                  <div className="project-info">
-                    <h3 className="project-title">{project.name}</h3>
-
-                    <div className="project-header">
-                      <CurvedArrow className="arrow" />
-                      <p className="project-tech">{project.technologies}</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </StyledProjects>
-        )}
-        {this.state.matches && (
-          <StyledProjectsDesktop
-            id="projects"
-            className="section-title projects"
-          >
-            {projects.map((project) => (
-              <Link key={project.id} to={"/projects/" + project.id}>
-                <div className="project">
-                  <div className="project-photo">
-                    <img
-                      className="photo"
-                      src={
-                        "https://strapi-z1gs.onrender.com" + project.coverPhoto
-                      }
-                      alt={"Project" + project.id}
-                    />
-                    <h3 className="project-title">{project.name}</h3>
-                  </div>
-
-                  <div className="project-info">
-                    <div className="top-info">
-                      <p>
-                        <strong>{project.roles}</strong>
-                      </p>
-                      <p>
-                        <strong>{project.technologies}</strong>
-                      </p>
-                    </div>
-                    <CurvedArrow className="arrow" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </StyledProjectsDesktop>
-        )}
-      </>
-    );
+      <div>
+        <h1>Loading</h1>
+      </div>
+    )
   }
-}
+  else if(!loading)
+  return (
+    <>
+      <ProjectsDesktop projects={projects}/>
+    </>
+  );
+};
 
 export default Projects;

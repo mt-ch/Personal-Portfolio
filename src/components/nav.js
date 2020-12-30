@@ -1,20 +1,23 @@
-import React, { PureComponent } from "react";
+import React, { useEffect } from "react";
 import { StyledNav } from "../styled/components.styled";
+import { gsap, CSSPlugin, Power3 } from "gsap";
+
+gsap.registerPlugin(CSSPlugin);
 
 const scroll = (e) => {
-  const section = document.querySelectorAll(".section-title");
+  const section = document.querySelectorAll(".section-area");
   switch (e.target.innerHTML) {
-    case "work":
+    case "About":
       section[0].scrollIntoView({
         block: "start",
       });
       break;
-    case "contact":
+    case "Work":
       section[1].scrollIntoView({
         block: "start",
       });
       break;
-    case "about":
+    case "Contact":
       section[2].scrollIntoView({
         block: "start",
       });
@@ -22,49 +25,65 @@ const scroll = (e) => {
   }
 };
 
-export class nav extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      matches: window.matchMedia("(min-width: 576px)").matches,
-    };
-  }
-
-  componentDidMount() {
-    const handler = (e) => this.setState({ matches: e.matches });
-    window.matchMedia("(min-width: 576px)").addListener(handler);
-  }
-
-  render() {
-    return (
-      <StyledNav open={this.props.open}>
-        <div className="nav">
-          <a>
-            <p className="nav-title">matt chan</p>
-          </a>
-
-          {!this.state.matches && (
-            <p onClick={() => this.props.setOpen(!this.props.open)}>menu</p>
-          )}
-          {this.state.matches && (
-            <>
-              <div className="nav-options">
-                <a onClick={(e) => scroll(e)}>
-                  <p>work</p>
-                </a>
-                <a onClick={(e) => scroll(e)}>
-                  <p>about</p>
-                </a>
-                <a onClick={(e) => scroll(e)}>
-                  <p>contact</p>
-                </a>
-              </div>
-            </>
-          )}
-        </div>
-      </StyledNav>
+const Nav = () => {
+  useEffect(() => {
+    gsap.from(".nav", {
+      delay: 0.4,
+      duration: 0.8,
+      opacity: 0,
+      y: -50,
+      ease: Power3.easeInOut,
+    });
+    gsap.fromTo(
+      ".nav-options",
+      {
+        bottom: 0,
+      },
+      {
+        duration: 10,
+        top: 0,
+        ease: "Linear.easeNone",
+        scrollTrigger: {
+          start: "top top",
+          end: "150%",
+          scrub: true,
+        },
+      }
     );
-  }
-}
+    gsap.to(".nav-title", {
+      duration: 7,
+      y: -500,
+      scrollTrigger: {
+        start: "top top",
+        end: '150%',
+        scrub: true,
+      },
+    });
+  }, []);
+  return (
+    <StyledNav className="nav">
+      <div className="nav">
+        <a className="nav-title">
+          <p>
+            <strong>Matt Chan</strong>
+          </p>
+          <p>2016-2020</p>
+        </a>
 
-export default nav;
+        <div className="nav-options">
+          <a onClick={(e) => scroll(e)}>
+            <p>About</p>
+          </a>
+          <a onClick={(e) => scroll(e)}>
+            <p>Work</p>
+          </a>
+          <a onClick={(e) => scroll(e)}>
+            <p>Contact</p>
+          </a>
+        </div>
+      </div>
+    </StyledNav>
+  );
+};
+
+export default Nav;
