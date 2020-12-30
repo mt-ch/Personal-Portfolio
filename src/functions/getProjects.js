@@ -1,3 +1,7 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 function CreateProjectData(
   id,
   name,
@@ -57,6 +61,7 @@ async function GetProjects() {
       )
     );
   }
+  ScrollTrigger.refresh(true);
   return projectData;
 }
 

@@ -1,3 +1,7 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 async function GetInfo(setInfo) {
   const parseJSON = (resp) => (resp.json ? resp.json() : resp);
   const checkStatus = (resp) => {
@@ -19,6 +23,7 @@ async function GetInfo(setInfo) {
     })
       .then(checkStatus)
       .then(parseJSON);
+      ScrollTrigger.refresh(true);
     return setInfo(infos);
   } catch (error) {
     return console.error(error);

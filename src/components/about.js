@@ -9,37 +9,6 @@ import $ from "jquery";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const RevealText = ({ text }) => {
-  const revealRef = useRef(null);
-  let textTarget = useRef(null);
-
-  useEffect(() => {
-    const results = Splitting({ target: textTarget, by: "lines" });
-    // $("span").wrap(
-    //   "<div class='line-wrap' style=overflow:hidden;></div>"
-    // );
-    results[0].lines.forEach((line, index) => {
-      // line.forEach((word) => {
-      gsap.from(line, {
-        y: "100%",
-        delay: index / 4,
-        scrollTrigger: {
-          trigger: revealRef.current,
-          markers: true,
-          start: "top 80%",
-        },
-      });
-      // });
-    });
-  }, []);
-
-  return (
-    <div ref={revealRef}>
-      <h5 ref={(el) => (textTarget = el)}>{text}</h5>
-    </div>
-  );
-};
-
 const About = () => {
   const revealRef = useRef(null);
   let textTarget = useRef(null);
@@ -52,7 +21,6 @@ const About = () => {
         delay: index / 4,
         scrollTrigger: {
           trigger: revealRef.current,
-          // markers: true,
           start: "top 80%",
         },
       });

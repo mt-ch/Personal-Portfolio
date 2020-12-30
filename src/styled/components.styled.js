@@ -517,7 +517,7 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10vh 0 0vh;
+  padding-top: 5em;
 
   .line-wrap {
     overflow: hidden;
@@ -555,8 +555,6 @@ export const StyledContact = styled.div`
     .credits {
     }
     .socials {
-      display: flex;
-      flex-direction: column;
       padding-top: 3vh;
     }
     .footer {

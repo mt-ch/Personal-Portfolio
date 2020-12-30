@@ -25,8 +25,8 @@ const useViewport = () => {
 
 const Home = () => {
   const [display, setDisplay] = useState(true);
-  // const { width } = useViewport();
-  // const breakpoint = 550;
+  const { width } = useViewport();
+  const breakpoint = 550;
 
   function showContent() {
     setDisplay(true);
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <>
       <Layout>
-        {/* {width < breakpoint ? ( */}
+        {width < breakpoint ? (
         <>
           <SmoothScroll>
             <NavMobile />
@@ -45,7 +45,7 @@ const Home = () => {
             <Contact />
           </SmoothScroll>
         </>
-        {/* ) : (
+        ) : (
           <>
             <Nav />
             <SmoothScroll>
@@ -59,7 +59,7 @@ const Home = () => {
               </HomeDesktop>
             </SmoothScroll>
           </>
-        )} */}
+        )}
       </Layout>
     </>
   );
