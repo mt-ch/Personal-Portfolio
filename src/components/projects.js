@@ -15,19 +15,6 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     GetProjects().then((data) => setProjects(data)).then(setLoading(false));
-
-    gsap.from(".project-title-text", {
-      duration: 1.5,
-      y: "18vh",
-      stagger: {
-        amount: 0.5,
-      },
-      scrollTrigger: {
-        trigger: ".project-title-text",
-        start: "top 90%",
-      },
-      ease: Power3.easeInOut,
-    });
   }, []);
 
   if (loading){

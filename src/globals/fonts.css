@@ -1,18 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 @font-face {
-  font-family: "Monument Extended Regular";
-  src: url("../assets/fonts/MonumentExtended-Regular.otf") format("opentype");
-  font-display: auto;
-}
-
-@font-face {
-  font-family: "Monument Extended Black";
-  src: url("../assets/fonts/MonumentExtended-Black.otf") format("opentype");
-  font-display: auto;
-}
-
-@font-face {
   font-family: "Half";
   src: url("../assets/fonts/Half-Regular.otf") format("opentype");
   font-display: auto;
@@ -38,11 +26,10 @@
 
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Be Vietnam', Helvetica, Arial, sans-serif;
 }
 
 h1 {
-  font-family: 'Monument Extended Black';
   color: black;
 }
 
@@ -55,19 +42,13 @@ p {
 }
 
 h1 {
-  letter-spacing: -0.1rem;
-  line-height: 1;
-  font-size: clamp(1em, 9.8vw, 5em);
-}
-
-@media(min-width: 500px){
-  h1{
-    font-size: 1.75em;
-  }
+  letter-spacing: -0.05rem;
+  line-height: .95;
+  font-weight: 900;
+  font-size: clamp(1em, 12vw, 10em);
 }
 
 h2 {
-  font-family: 'Monument Extended Regular';
   font-size: 1.5em;
 }
 

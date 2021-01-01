@@ -42,13 +42,13 @@ const Landing = () => {
                 <div className="line">CODER</div>
               </div>
               <div className="line-wrap">
-                <div className="line">FROM</div>
+                <div className="line" style={{marginLeft:'1em'}}>FROM</div>
               </div>
               <div className="line-wrap">
-                <div className="line">BIRMINGHAM,</div>
+                <div className="line" style={{marginLeft:'.5em'}}>ENGLAND</div>
               </div>
               <div className="line-wrap">
-                <div className="line">UK</div>
+                <div className="line" style={{marginLeft:'1.2em'}}>UK</div>
               </div>
             </h1>
           </div>
@@ -66,7 +66,7 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-            <img class="spinner" src={Spinner} />
+            {/* <img class="spinner" src={Spinner} /> */}
           </div>
         </div>
       </StyledLanding>

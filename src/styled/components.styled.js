@@ -128,14 +128,13 @@ export const StyledProject = styled.div`
   width: 100%;
   position: relative;
   padding-bottom: 1vh;
-  z-index: 50;
   padding: 0 ${({ theme }) => theme.padding} 0 ${({ theme }) => theme.padding};
 
   .arrow {
     transform: scaleX(-1);
-    height: 2.5em;
+    height: 1.5em;
     position: fixed;
-    top: 3vh;
+    top: 1em;
     right: 0;
     z-index: 99;
     padding-left: ${({ theme }) => theme.padding};
@@ -176,11 +175,18 @@ export const StyledProject = styled.div`
       }
     }
     .info-end {
-      padding: 5vh 0 1vh 0;
-      margin-bottom: 1vh;
+      /* padding: 5vh 0 1vh 0;
+      margin-bottom: 1vh; */
       text-align: end;
-      border-bottom: 1px solid black;
     }
+
+    .border{
+      height: 2px;
+      width: 100%;
+      margin: .2em 0;
+      background-color: black;
+    }
+
     .photos {
       padding-bottom: 1vh;
     }
@@ -219,10 +225,10 @@ export const StyledProject = styled.div`
     }
 
     .photos {
-      display: grid;
+      /* display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 100%));
       grid-gap: 1rem;
-      grid-auto-flow: row;
+      grid-auto-flow: row; */
       /* img:last-child {
         grid-column: span 2;
       } */
@@ -257,8 +263,9 @@ export const StyledMenu = styled.div`
 `;
 
 export const StyledNavMobile = styled.div`
-  position: relative;
+  position: absolute;
   width: 100%;
+  padding-right: ${({ theme }) => theme.padding};
 
   .line-wrap{
     overflow: hidden;
@@ -352,10 +359,6 @@ export const StyledLoading = styled.div`
 export const StyledAbout = styled.div`
   position: relative;
   margin-bottom: 5em;
-
-  .about-text{
-    margin-bottom: 1em;
-  }
 `;
 
 export const StyledProjects = styled.div`
@@ -415,7 +418,7 @@ export const StyledProjectsDesktop = styled.div`
   }
 
   .projects-section-title {
-    padding: 3vh 0 3vh 0;
+    padding: 0em 0 .5em 0;
 
     .line-wrap{
       overflow: hidden;
@@ -424,14 +427,13 @@ export const StyledProjectsDesktop = styled.div`
 
   .project {
     display: grid;
-    /* flex: 3em 6fr; */
     grid-template-areas: "info photo";
     grid-template-columns: 1fr 5fr;
-    padding: 5vh 0 3vh 0;
+    padding: 1em 0 1em 0;
     pointer-events: all;
 
     .project-title {
-      padding-top: 1vh;
+      padding-top: .5em;
     }
 
     .project-photo {
@@ -471,15 +473,17 @@ export const StyledProjectsDesktop = styled.div`
 export const StyledLanding = styled.div`
   .content {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .header-wrapper {
-      padding: 7em 0 3em 0;
+      padding-bottom: 2em;
     }
 
     .line-wrap {
       overflow: hidden;
-      height: 100%;
     }
 
     .subtext-wrapper {
@@ -517,7 +521,7 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 5em;
+  padding: 5em 0 .5em 0;
 
   .line-wrap {
     overflow: hidden;
@@ -549,7 +553,7 @@ export const StyledContact = styled.div`
       a {
         color: ${({ theme }) => theme.black};
         font-size: 0.7em;
-        font-family: "Monument Extended Regular";
+        /* font-family: "Monument Extended Regular"; */
       }
     }
     .credits {

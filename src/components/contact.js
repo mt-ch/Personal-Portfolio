@@ -23,8 +23,7 @@ const RevealTitle = ({ text }) => {
         delay: index / 4,
         scrollTrigger: {
           trigger: revealRef.current,
-          start: "top 85%",
-          // markers: true,
+          start: "top 95%",
         },
       });
       line.forEach((word) => {
@@ -57,7 +56,7 @@ const Contact = () => {
         scrollTrigger: {
           trigger: revealCreditsRef.current,
           markers: true,
-          start: "top 80%",
+          start: "top 70%",
         },
       });
 
@@ -67,7 +66,7 @@ const Contact = () => {
     });
   }, []);
   return (
-    <div className="contact">
+    <div className="contact section-contact">
       <StyledContact className="section-contact section-area">
         <div class="outro">
           <RevealTitle text={"FEEL FREE TO GET IN TOUCH"} />

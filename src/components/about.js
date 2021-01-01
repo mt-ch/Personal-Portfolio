@@ -26,7 +26,7 @@ const About = () => {
       });
 
       line.forEach((word) => {
-        word.style.marginRight = ".25em";
+        word.style.marginRight = ".2em";
       });
     });
     gsap.from(".about-text", {
@@ -45,10 +45,14 @@ const About = () => {
     <StyledAbout className="section-area">
       <div ref={revealRef}>
         <h5 ref={(el) => (textTarget = el)}>
-          Hi! I'm Matt. I have a passion for programming, design and creating
-          polished user experiences on the web. I'm a recent Computer Science
-          graduate from the University of Derby, currently looking for Frontend
-          Development positions, based in the UK.
+          Hi! I'm Matt. 🙋‍♂️
+          <br /> I'm a recent Computer Science 💻 graduate from the University
+          of Derby. <br /> I have a passion for programming, design and creating
+          polished user experiences on the web.👌 <br />
+          Im currently searching 🔎 for Frontend Development positions, based in
+          the UK.
+          {/* I have a passion for programming, design and creating 🥃 
+          polished user experiences on the web.👌 🌴 */}
         </h5>
       </div>
     </StyledAbout>
