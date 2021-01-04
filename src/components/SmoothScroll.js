@@ -10,7 +10,6 @@ export class SmoothScroll extends PureComponent {
       ro = new ResizeObserver(elements => {
         for (let elem of elements) {
           const crx = elem.contentRect;
-          console.log(crx);
           this.setState({
             height: crx.height
           });

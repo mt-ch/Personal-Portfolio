@@ -17,18 +17,13 @@ const Landing = () => {
     const t1 = new TimelineLite();
     t1
       .from(".line", {
-        duration: 1.5,
+        duration: 2,
         y: "18vh",
         stagger: {
-          amount: 1.5,
+          amount: 2,
         },
         ease: Power3.easeInOut,
       })
-      .from(".spinner", {
-        duration: 0.3,
-        opacity: 0,
-        ease: Power3.easeInOut,
-      });
   };
 
   return (
@@ -42,13 +37,13 @@ const Landing = () => {
                 <div className="line">CODER</div>
               </div>
               <div className="line-wrap">
-                <div className="line" style={{marginLeft:'1em'}}>FROM</div>
+                <div className="line" style={{marginLeft:'0em'}}>+DIGITAL</div>
               </div>
               <div className="line-wrap">
-                <div className="line" style={{marginLeft:'.5em'}}>ENGLAND</div>
+                <div className="line" style={{marginLeft:'0em'}}>DESIGNER</div>
               </div>
               <div className="line-wrap">
-                <div className="line" style={{marginLeft:'1.2em'}}>UK</div>
+                <div className="line" style={{marginLeft:'0em'}}>↓</div>
               </div>
             </h1>
           </div>

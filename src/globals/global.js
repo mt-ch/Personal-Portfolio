@@ -14,6 +14,7 @@ html, body {
   position: relative;
   background-attachment: fixed;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   /* cursor: none; */
   background:  #fffefa;
   color: ${({ theme }) => theme.black};

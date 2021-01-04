@@ -17,27 +17,17 @@ const About = () => {
     results[0].lines.forEach((line, index) => {
       $(line).wrapAll("<div style=overflow:hidden;></div>");
       gsap.from(line, {
-        y: "100%",
+        y: "9vh",
         delay: index / 4,
         scrollTrigger: {
           trigger: revealRef.current,
-          start: "top 80%",
+          start: "top 70%",
         },
       });
 
       line.forEach((word) => {
         word.style.marginRight = ".2em";
       });
-    });
-    gsap.from(".about-text", {
-      duration: 0.7,
-      opacity: 0,
-      stagger: 0.5,
-      ease: Power3.easeInOut,
-      scrollTrigger: {
-        trigger: ".about-text",
-        start: "top 80%",
-      },
     });
   }, []);
 

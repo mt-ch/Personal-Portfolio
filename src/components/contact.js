@@ -55,7 +55,7 @@ const Contact = () => {
         delay: index / 4,
         scrollTrigger: {
           trigger: revealCreditsRef.current,
-          markers: true,
+          // markers: true,
           start: "top 70%",
         },
       });
@@ -66,7 +66,7 @@ const Contact = () => {
     });
   }, []);
   return (
-    <div className="contact section-contact">
+    <div className="contact section-contact" id='contact'>
       <StyledContact className="section-contact section-area">
         <div class="outro">
           <RevealTitle text={"FEEL FREE TO GET IN TOUCH"} />

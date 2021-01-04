@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyledNavMobile } from "../styled/components.styled";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-const scroll = (e) => {
-  const section = document.querySelectorAll(".section-contact");
-  switch (e.target.innerHTML) {
-    case "Contact":
-      section[0].scrollIntoView({
-        block: "start",
-      });
-      break;
-  }
-};
+gsap.registerPlugin(ScrollToPlugin);
 
 const NavMobile = () => {
+
+  function handleScroll() {
+    gsap.to(window, {duration: 2, scrollTo: "#contact"})
+  };
   return (
     <StyledNavMobile className="nav">
       <div className="nav">
@@ -32,7 +29,7 @@ const NavMobile = () => {
         </a>
 
         <div className="nav-options">
-          <a onClick={(e) => scroll(e)}>
+          <a onClick={handleScroll}>
             <p>
               {" "}
               <div className="line-wrap">

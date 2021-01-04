@@ -37,18 +37,18 @@ const Home = () => {
       <Layout>
         {width < breakpoint ? (
         <>
-          <SmoothScroll>
+          {/* <SmoothScroll> */}
             <NavMobile />
             <Landing />
             <About />
             <Projects />
             <Contact />
-          </SmoothScroll>
+          {/* </SmoothScroll> */}
         </>
         ) : (
           <>
             <Nav />
-            <SmoothScroll>
+            {/* <SmoothScroll> */}
               <HomeDesktop>
                 <div class="side-content">
                   <Landing />
@@ -57,7 +57,7 @@ const Home = () => {
                   <Contact />
                 </div>
               </HomeDesktop>
-            </SmoothScroll>
+            {/* </SmoothScroll> */}
           </>
         )}
       </Layout>

@@ -5,9 +5,11 @@
 .img-container {
       position: relative;
       overflow: hidden;
+      height: 300px;
+      width: 400px;
   }
 
-  .img-container:after {
+  .img-container-after {
     position: absolute;
     content: "";
     width: 100%;

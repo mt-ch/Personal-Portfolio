@@ -16,9 +16,10 @@ const RevealBorder = ({ children, id }) => {
   const revealRef = useRef(null);
 
   useEffect(() => {
+    ScrollTrigger.refresh();
     gsap.from(revealRef.current, {
       width: 0,
-      duration: 0.8,
+      duration: 2.5,
       ease: Power3.easeInOut,
       scrollTrigger: {
         trigger: ".project" + id,
@@ -33,13 +34,14 @@ const RevealPhoto = ({ photo, id }) => {
   const revealRef = useRef(null);
   let container = useRef(null);
   let image = useRef(null);
-  let imageReveal = CSSRulePlugin.getRule(".img-container:after");
+  let imageReveal = useRef(null);
 
   useEffect(() => {
     const tl = new TimelineLite({
       scrollTrigger: {
         trigger: ".project" + id,
         start: "top 70%",
+        markers: true,
       },
     });
     tl.to(container, { duration: 0, visibility: "visible" })
@@ -56,7 +58,9 @@ const RevealPhoto = ({ photo, id }) => {
     <div className="container" ref={(el) => (container = el)}>
       <>
         <div className="img-container" ref={revealRef}>
-          <img className="photo" ref={(el) => (image = el)} src={photo} />
+          <div class="img-container-after" ref={(el) => (imageReveal = el)}>
+            <img className="photo" ref={(el) => (image = el)} src={photo} />
+          </div>
         </div>
       </>
     </div>
@@ -72,6 +76,7 @@ const RevealText = ({ text, id }) => {
     results[0].lines.forEach((line, index) => {
       $(line).wrapAll("<div style=overflow:hidden;></div>");
       gsap.from(line, {
+        duration: 0.8,
         y: "10vh",
         delay: index / 4,
         scrollTrigger: {
@@ -89,7 +94,10 @@ const RevealText = ({ text, id }) => {
     <div ref={revealRef}>
       <p
         ref={(el) => (textTarget = el)}
-        style={{ fontWeight: "400", lineHeight: ".95", letterSpacing: "-.2" }}
+        style={{
+          textTransform: "uppercase",
+          lineHeight: ".95",
+        }}
       >
         {text}
       </p>
@@ -106,7 +114,8 @@ const RevealTextTitle = ({ text, id }) => {
     results[0].lines.forEach((line, index) => {
       $(line).wrapAll("<div style=overflow:hidden;height:100%;></div>");
       gsap.from(line, {
-        y: "10vh",
+        duration: 2,
+        y: "15vh",
         delay: index / 4,
         scrollTrigger: {
           trigger: ".project" + id,
@@ -126,8 +135,6 @@ const RevealTextTitle = ({ text, id }) => {
         ref={(el) => (textTarget = el)}
         style={{
           textTransform: "uppercase",
-          fontWeight: "700",
-          lineHeight: ".95",
         }}
       >
         {text}
@@ -138,15 +145,16 @@ const RevealTextTitle = ({ text, id }) => {
 
 const ProjectsDesktop = ({ projects }) => {
   useEffect(() => {
+    ScrollTrigger.refresh(true);
     gsap.from(".project-title-text", {
-      duration: 1.5,
-      y: "18vh",
+      duration: 2,
+      y: "12vh",
       stagger: {
-        amount: 0.5,
+        amount: 0.3,
       },
       scrollTrigger: {
         trigger: ".project-title-text",
-        start: "top 95%",
+        start: "top 80%",
       },
       ease: Power3.easeInOut,
     });
