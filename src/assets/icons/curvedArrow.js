@@ -9,6 +9,7 @@ function CurvedArrow(props) {
       x="0px"
       y="0px"
       viewBox="0 0 66.571 66.571"
+      stroke="black" stroke-width="1"
     >
       <path
         d="M41.705,0.342c-0.454-0.455-1.195-0.455-1.651,0c-0.454,0.453-0.454,1.197,0,1.652L55.82,17.756H18.867

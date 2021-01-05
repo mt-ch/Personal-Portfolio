@@ -21,6 +21,7 @@
   .photo {
     height: 100%;
     width: 100%;
+    max-width: 90vw;
     object-fit: contain;
-    padding-top: 1vh;
+    /* padding-top: 1vh; */
   }

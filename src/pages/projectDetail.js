@@ -8,72 +8,10 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-import { TimelineLite, gsap, Power2, Power3 } from "gsap";
+import { gsap, Power2, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
-gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
-
-const RevealPhoto = ({ photo }) => {
-  const revealRef = useRef(null);
-  let container = useRef(null);
-  let image = useRef(null);
-  const mounted = useRef();
-  ScrollTrigger.refresh(true);
-  useEffect(() => {
-    // if (!mounted.current) {
-    //   ScrollTrigger.refresh(true);
-    //   mounted.current = true;
-    // } else {
-    // const imageReveal = CSSRulePlugin.getRule(".img-container:after");
-    ScrollTrigger.refresh(true);
-    // const tl = new TimelineLite({
-    //   scrollTrigger: {
-    //     trigger: revealRef.current,
-    //     markers: true,
-    //     start: "top 80%",
-    //   },
-    // });
-    // tl
-    // .to(container, { duration: 0, visibility: "visible" })
-      //   .to(imageReveal, { duration: 1.4, width: "0%", ease: Power2.easeInOut })
-      //   .from(image, {
-      //     duration: 1.4,
-      //     scale: 1.6,
-      //     ease: Power2.easeInOut,
-      //     delay: -1.4,
-      //   });
-      // .from(image, {
-      //   duration: 1.4,
-      //   height: 0,
-      //   ease: Power2.easeInOut,
-      // });
-
-      gsap.from(revealRef.current, {
-        // height: '0%',
-        duration: .8,
-        delay: 1,
-        ease: Power3.easeInOut,
-        scrollTrigger: {
-          trigger: revealRef.current,
-          start: "top 70%",
-          markers: true,
-        },
-      });
-      ScrollTrigger.refresh(true);
-    // }
-  });
-
-  return (
-    // <div ref={(el) => (container = el)}>
-      <>
-        <div>
-          <img ref={revealRef} src={photo} data-srcset={photo}/>
-        </div>
-      </>
-    // </div>
-  );
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetail = () => {
   const [project, setProject] = useState([]);
@@ -92,69 +30,91 @@ const ProjectDetail = () => {
       GetProjectDetail(id).then((data) => setProject(data));
       mounted.current = true;
     } else {
-      const title = Splitting({ target: textTitleTarget, by: "lines" });
+      ScrollTrigger.refresh(true);
+      var tlDesc = gsap.timeline({ delay: 0.2 });
       const desc = Splitting({ target: textDescTarget, by: "lines" });
       const roles = Splitting({ target: textRolesTarget, by: "lines" });
-      ScrollTrigger.refresh(true);
-      title[0].lines.forEach((line, index) => {
-        $(line).wrapAll("<div style=overflow:hidden;></div>");
-        gsap.from(line, {
-          y: "100%",
-          delay: index / 4,
-          scrollTrigger: {
-            trigger: revealDescRef.current,
-            start: "top 80%",
-          },
-        });
+      const title = Splitting({ target: textTitleTarget, by: "lines" });
 
+      title[0].lines.forEach((line, index) => {
+        $(line).wrapAll("<div style=overflow:hidden;><div class='heading'</div>");
+        line.forEach((word) => {
+          word.style.marginRight = ".25em";
+        });
+      });
+
+      gsap.from('.heading', {
+        duration: 2.5,
+        yPercent: 150,
+        delay: .2,
+        stagger: .3,
+        ease: Power3.easeInOut,
+      });
+
+      roles[0].lines.forEach((line, index) => {
+        $(line).wrapAll("<div style=overflow:hidden;><div class='line'></div></div>");
         line.forEach((word) => {
           word.style.marginRight = ".25em";
         });
       });
 
       desc[0].lines.forEach((line, index) => {
-        $(line).wrapAll("<div style=overflow:hidden;></div>");
-        gsap.from(line, {
-          y: "150%",
-          delay: index / 4,
-          scrollTrigger: {
-            trigger: revealTitleRef.current,
-            start: "top 80%",
-          },
-        });
-
+        $(line).wrapAll(
+          "<div style=overflow:hidden;><div class='test'></div></div>"
+        );
         line.forEach((word) => {
           word.style.marginRight = ".25em";
         });
       });
 
-      roles[0].lines.forEach((line, index) => {
-        $(line).wrapAll("<div style=overflow:hidden;></div>");
-        gsap.from(line, {
-          y: "150%",
-          delay: index / 4,
-          scrollTrigger: {
-            trigger: revealRolesRef.current,
-            start: "top 80%",
-          },
-        });
-
-        line.forEach((word) => {
-          word.style.marginRight = ".25em";
-        });
+      gsap.from(".test", {
+        duration: 2,
+        yPercent: 150,
+        delay: 0.3,
+        stagger: 0.2,
+        ease: Power3.easeInOut,
       });
 
       gsap.from(".line", {
-        y: "150%",
-        delay: 0.2,
+        duration: 2,
+        yPercent: 150,
         stagger: 0.3,
+        delay: 0.3,
+        ease: Power3.easeInOut,
+      });
+      gsap.from(".border", {
+        duration: 2,
+        delay: 0.7,
+        width: "0%",
+        ease: Power3.easeInOut,
       });
 
-      gsap.from(".border", {
+      let revealContainers = document.querySelectorAll(".reveal");
+      let firstImg = document.querySelector(".reveal");
+
+      gsap.from(firstImg, {
         duration: 1,
-        width: "0%",
-        delay: 0.8,
+        delay: 1,
+        y: 10,
+        opacity: 0,
         ease: Power3.easeInOut,
+      });
+      revealContainers.forEach((img) => {
+        let image = img.querySelector("img");
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: img,
+            toggleActions: "play none none none",
+            start: "top 80%",
+          },
+        });
+
+        tl.from(image, {
+          duration: 1,
+          opacity: 0,
+          y: 10,
+          ease: Power3.easeInOut,
+        });
       });
     }
   });
@@ -163,25 +123,29 @@ const ProjectDetail = () => {
     <>
       <Layout>
         <StyledProject>
-          <a
-            href={null}
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            <CurvedArrow className="arrow" />
-          </a>
           {project.map((project) => (
             <div className="project">
-              <div ref={revealTitleRef}>
-                <h1 ref={(el) => (textTitleTarget = el)}>{project.name}</h1>
+              <div class="project-header">
+                <div ref={revealTitleRef}>
+                  <h1 ref={(el) => (textTitleTarget = el)}>{project.name}</h1>
+                </div>
+                <a
+                  href={null}
+                  onClick={() => {
+                    history.goBack();
+                  }}
+                >
+                  <div style={{ overflow: 'hidden'}}>
+                    <p className="back heading">
+                      Back
+                    </p>
+                  </div>
+                </a>
               </div>
               <div className="info-wrapper">
                 <div className="info">
                   <div className="roles" ref={revealRolesRef}>
                     <p ref={(el) => (textRolesTarget = el)}>
-                      {project.roles}
-                      <br />
                       {project.technologies}
                     </p>
                   </div>
@@ -210,11 +174,12 @@ const ProjectDetail = () => {
 
               <div className="photos">
                 {project.photos.map((photo) => (
-                  // <img
-                  //   className="photo"
-                  //   src={"https://strapi-z1gs.onrender.com" + photo.url}
-                  // />
-                  <RevealPhoto photo={"https://strapi-z1gs.onrender.com" + photo.url}/>
+                  <div class="reveal" style={{ minHeight: "5em" }}>
+                    <img
+                      className="photo"
+                      src={"https://strapi-z1gs.onrender.com" + photo.url}
+                    />
+                  </div>
                 ))}
               </div>
             </div>

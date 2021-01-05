@@ -133,7 +133,6 @@ export const StyledProject = styled.div`
   .arrow {
     transform: scaleX(-1);
     height: 1.5em;
-    position: fixed;
     top: 1em;
     right: 0;
     z-index: 99;
@@ -144,51 +143,78 @@ export const StyledProject = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: 10vh;
+    padding-top: 2em;
+
+    .project-header{
+      display: flex;
+      justify-content: space-between;
+
+      .back{
+        /* position: absolute; */
+        /* transform: rotate(90deg); */
+        text-decoration: underline;
+      }
+    }
 
     .info {
-      padding-bottom: 1vh;
-      margin-bottom: 2vh;
       .roles {
-        padding: 1vh 0 5vh;
+        padding: 1em 0 1em;
       }
 
       .project-links {
-        margin-top: 5vh;
+        margin: 1em 0 1em 0;
         display: flex;
         a {
           .project-link {
             text-align: center;
-            text-transform: uppercase;
-            /* border: 2px ${({ theme }) => theme.black} solid;
-            padding: 0.25em 0.5em 0.25em 0.5em; */
-            /* border-radius: 2em; */
-            /* color: ${({ theme }) => theme.black}; */
-            margin-right: 3vw;
-          }
-
-          .project-link:hover {
-            /* background-color: ${({ theme }) => theme.black};
-            color: ${({ theme }) => theme.white}; */
+            text-transform: capitalize;
+            margin-right: 1em;
           }
         }
       }
     }
+
     .info-end {
-      /* padding: 5vh 0 1vh 0;
-      margin-bottom: 1vh; */
       text-align: end;
     }
 
-    .border{
+    .border {
       height: 2px;
       width: 100%;
-      margin: .2em 0;
+      margin: 0.5em 0;
       background-color: black;
     }
 
     .photos {
       padding-bottom: 1vh;
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+
+        .reveal {
+        visibility: hidden;
+        position: relative;
+        width: 80%;
+        height: 80%;
+        max-width: 500px;
+        overflow: hidden;
+
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transform-origin: left;
+
+        }
+      }
+      }
     }
     img {
       position: relative;
@@ -267,7 +293,7 @@ export const StyledNavMobile = styled.div`
   width: 100%;
   padding-right: ${({ theme }) => theme.padding};
 
-  .line-wrap{
+  .line-wrap {
     overflow: hidden;
   }
 
@@ -276,7 +302,6 @@ export const StyledNavMobile = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
-
 
     .nav-title {
       text-overflow: clip;
@@ -418,9 +443,9 @@ export const StyledProjectsDesktop = styled.div`
   }
 
   .projects-section-title {
-    padding: 0em 0 .5em 0;
+    padding: 0em 0 0.5em 0;
 
-    .line-wrap{
+    .line-wrap {
       overflow: hidden;
     }
   }
@@ -433,7 +458,7 @@ export const StyledProjectsDesktop = styled.div`
     pointer-events: all;
 
     .project-title {
-      padding-top: .5em;
+      padding-top: 0.5em;
     }
 
     .project-photo {
@@ -521,7 +546,7 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 5em 0 .5em 0;
+  padding: 5em 0 0.5em 0;
 
   .line-wrap {
     overflow: hidden;
