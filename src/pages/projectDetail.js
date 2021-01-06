@@ -3,12 +3,11 @@ import Layout from "../components/layout";
 import { StyledProject } from "../styled/components.styled";
 import GetProjectDetail from "../functions/getProjectDetail";
 import { useParams, useHistory } from "react-router-dom";
-import CurvedArrow from "../assets/icons/curvedArrow";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-import { gsap, Power2, Power3 } from "gsap";
+import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -31,28 +30,31 @@ const ProjectDetail = () => {
       mounted.current = true;
     } else {
       ScrollTrigger.refresh(true);
-      var tlDesc = gsap.timeline({ delay: 0.2 });
       const desc = Splitting({ target: textDescTarget, by: "lines" });
       const roles = Splitting({ target: textRolesTarget, by: "lines" });
       const title = Splitting({ target: textTitleTarget, by: "lines" });
 
       title[0].lines.forEach((line, index) => {
-        $(line).wrapAll("<div style=overflow:hidden;><div class='heading'</div>");
+        $(line).wrapAll(
+          "<div style=overflow:hidden;><div class='heading'</div>"
+        );
         line.forEach((word) => {
           word.style.marginRight = ".25em";
         });
       });
 
-      gsap.from('.heading', {
+      gsap.from(".heading", {
         duration: 2.5,
         yPercent: 150,
-        delay: .2,
-        stagger: .3,
+        delay: 0.2,
+        stagger: 0.3,
         ease: Power3.easeInOut,
       });
 
       roles[0].lines.forEach((line, index) => {
-        $(line).wrapAll("<div style=overflow:hidden;><div class='line'></div></div>");
+        $(line).wrapAll(
+          "<div style=overflow:hidden;><div class='line'></div></div>"
+        );
         line.forEach((word) => {
           word.style.marginRight = ".25em";
         });
@@ -60,14 +62,14 @@ const ProjectDetail = () => {
 
       desc[0].lines.forEach((line, index) => {
         $(line).wrapAll(
-          "<div style=overflow:hidden;><div class='test'></div></div>"
+          "<div style=overflow:hidden;><div class='desc'></div></div>"
         );
         line.forEach((word) => {
           word.style.marginRight = ".25em";
         });
       });
 
-      gsap.from(".test", {
+      gsap.from(".desc", {
         duration: 2,
         yPercent: 150,
         delay: 0.3,
@@ -79,33 +81,42 @@ const ProjectDetail = () => {
         duration: 2,
         yPercent: 150,
         stagger: 0.3,
-        delay: 0.3,
+        delay: 1,
         ease: Power3.easeInOut,
       });
       gsap.from(".border", {
         duration: 2,
-        delay: 0.7,
+        delay: 1.3,
         width: "0%",
         ease: Power3.easeInOut,
       });
 
       let revealContainers = document.querySelectorAll(".reveal");
       let firstImg = document.querySelector(".reveal");
-
+      let secondImg = document.querySelectorAll(".reveal")[1];
       gsap.from(firstImg, {
         duration: 1,
-        delay: 1,
+        delay: 1.3,
         y: 10,
         opacity: 0,
         ease: Power3.easeInOut,
       });
+
+      gsap.from(secondImg, {
+        duration: 1,
+        delay: 1.8,
+        y: 10,
+        opacity: 0,
+        ease: Power3.easeInOut,
+      });
+
       revealContainers.forEach((img) => {
         let image = img.querySelector("img");
         let tl = gsap.timeline({
           scrollTrigger: {
             trigger: img,
             toggleActions: "play none none none",
-            start: "top 80%",
+            start: "top 78%",
           },
         });
 
@@ -135,10 +146,8 @@ const ProjectDetail = () => {
                     history.goBack();
                   }}
                 >
-                  <div style={{ overflow: 'hidden'}}>
-                    <p className="back heading">
-                      Back
-                    </p>
+                  <div style={{ overflow: "hidden" }}>
+                    <p className="back heading">Back</p>
                   </div>
                 </a>
               </div>

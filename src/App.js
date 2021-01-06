@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import ProjectDetail from "./pages/projectDetail";
 import { CSSTransition } from "react-transition-group";
 import "./styled/animations.css";
+import ScrollToTop from './functions/scrollToTop';
 
 const routes = [
   { path: "/", name: "Home", Component: Home },
@@ -17,18 +18,18 @@ const App = () => {
         <div className="scroll">
           {routes.map(({ path, Component }) => (
             <Route key={path} exact path={path}>
-              {({ match }) => (
+              {/* {({ match }) => (
                 <CSSTransition
                   in={match != null}
                   timeout={1200}
                   classNames="page"
                   unmountOnExit
-                >
+                > */}
                   <div className="page">
                     <Component />
                   </div>
-                </CSSTransition>
-              )}
+                {/* </CSSTransition>
+              )} */}
             </Route>
           ))}
         </div>

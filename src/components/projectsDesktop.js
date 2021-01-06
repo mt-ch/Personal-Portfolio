@@ -41,7 +41,7 @@ const RevealPhoto = ({ photo, id }) => {
       scrollTrigger: {
         trigger: ".project" + id,
         start: "top 70%",
-        markers: true,
+        // markers: true,
       },
     });
     tl.to(container, { duration: 0, visibility: "visible" })

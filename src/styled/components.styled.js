@@ -230,10 +230,10 @@ export const StyledProject = styled.div`
       display: grid;
       grid-template-areas: "roles desc" "links desc";
       grid-template-columns: 1fr 2fr;
-      grid-template-rows: 0fr 1fr;
+      grid-template-rows: 0fr 0fr;
       grid-gap: 2vh;
       padding: 0;
-      padding-top: 2vh;
+      padding-top: 1em;
 
       .project-desc {
         grid-area: desc;
@@ -246,7 +246,7 @@ export const StyledProject = styled.div`
 
       .roles {
         grid-area: roles;
-        padding: 0;
+        padding: 0!important;
       }
     }
 
