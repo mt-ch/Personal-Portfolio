@@ -15,19 +15,20 @@ const About = () => {
   useEffect(() => {
     const results = Splitting({ target: textTarget, by: "lines" });
     results[0].lines.forEach((line, index) => {
-      $(line).wrapAll("<div style=overflow:hidden;></div>");
-      gsap.from(line, {
-        y: "9vh",
-        delay: index / 4,
-        scrollTrigger: {
-          trigger: revealRef.current,
-          start: "top 70%",
-        },
-      });
-
+      $(line).wrapAll("<div style=overflow:hidden;><div class='about'></div></div>");
       line.forEach((word) => {
         word.style.marginRight = ".2em";
       });
+    });
+    gsap.from(".about", {
+      duration: 2,
+      yPercent: 150,
+      stagger: 0.2,
+      ease: Power3.easeInOut,
+      scrollTrigger: {
+        trigger: revealRef.current,
+        start: "top 80%",
+      },
     });
   }, []);
 
@@ -35,14 +36,10 @@ const About = () => {
     <StyledAbout className="section-area">
       <div ref={revealRef}>
         <h5 ref={(el) => (textTarget = el)}>
-          Hi! I'm Matt. 🙋‍♂️
-          <br /> I'm a recent Computer Science 💻 graduate from the University
-          of Derby. <br /> I have a passion for programming, design and creating
-          polished user experiences on the web.👌 <br />
-          Im currently searching 🔎 for Frontend Development positions, based in
-          the UK.
-          {/* I have a passion for programming, design and creating 🥃 
-          polished user experiences on the web.👌 🌴 */}
+          Hi! I'm Matt. I'm a recent Computer Science graduate from the
+          University of Derby. I have a passion for programming, design and
+          creating polished user experiences on the web. Im currently searching
+          for Frontend Development positions, based in the UK.
         </h5>
       </div>
     </StyledAbout>

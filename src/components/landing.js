@@ -42,9 +42,6 @@ const Landing = () => {
               <div className="line-wrap">
                 <div className="line" style={{marginLeft:'0em'}}>DESIGNER</div>
               </div>
-              <div className="line-wrap">
-                <div className="line" style={{marginLeft:'0em'}}>↓</div>
-              </div>
             </h1>
           </div>
 

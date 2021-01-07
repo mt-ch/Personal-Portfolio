@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
 import classNames from "classnames";
 import { theme } from "../globals/theme";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,66 +87,80 @@ const Cursor = () => {
   );
 };
 
-// const ChangeColor = ({ children }) => {
-//   const revealRef = useRef(null);
+const ChangeColor = ({ children }) => {
+  const revealRef = useRef(null);
 
-//   useEffect(() => {
-//     gsap.fromTo(
-//       revealRef.current,
-//       {
-//         backgroundColor: theme.primary,
-//         color: theme.black,
-//         duration: 0.5,
-//         ease: "power0.inOut",
-//       },
-//       {
-//         backgroundColor: theme.dark,
-//         color: theme.white,
-//         duration: 0.5,
-//         ease: "power0.inOut",
-//         scrollTrigger: {
-//           scrub: true,
-//           start: "1000px",
-//           end: "1500px",
-//         },
-//       }
-//     );
-//     gsap.fromTo(
-//       "h2, .section-header",
-//       {
-//         color: theme.black,
-//         // borderTop: "solid #010101 2px",
-//         // borderBottom: "solid #010101 2px",
-//         duration: 0.5,
-//         ease: "power0.inOut",
-//       },
-//       {
-//         color: theme.primary,
-//         // borderTop: "solid #C7B6F6 2px",
-//         // borderBottom: "solid #C7B6F6 2px",
-//         duration: 0.5,
-//         ease: "power0.inOut",
-//         scrollTrigger: {
-//           scrub: true,
-//           start: "1000px",
-//           end: "1500px",
-//         },
-//       }
-//     );
-//   }, []);
+  useEffect(() => {
+    ScrollTrigger.refresh();
+    gsap.to(
+      'body',
+      {
+        backgroundColor: 'black',
+        ease: "power0.inOut",
+        scrollTrigger: {
+          scrub: true,
+          start: "top bottom",
+          end: "400px bottom",
+          markers: true,
+          trigger: '.contact'
+          
+        },
+      }
+    );
+    gsap.to(
+      'h1, h2, h3, h4, h5, p',
+      {
+        color: 'white',
+        ease: "power0.inOut",
+        scrollTrigger: {
+          scrub: true,
+          start: "top bottom",
+          end: "400px bottom",
+          markers: true,
+          trigger: '.contact'
+          
+        },
+      }
+    );
+    // gsap.fromTo(
+    //   "h2, .section-header",
+    //   {
+    //     color: theme.black,
+    //     // borderTop: "solid #010101 2px",
+    //     // borderBottom: "solid #010101 2px",
+    //     duration: 0.5,
+    //     ease: "power0.inOut",
+    //   },
+    //   {
+    //     color: theme.primary,
+    //     // borderTop: "solid #C7B6F6 2px",
+    //     // borderBottom: "solid #C7B6F6 2px",
+    //     duration: 0.5,
+    //     ease: "power0.inOut",
+    //     scrollTrigger: {
+    //       scrub: true,
+    //       start: "1000px",
+    //       end: "1500px",
+    //     },
+    //   }
+    // );
+  }, []);
 
-//   return <div ref={revealRef}>{children}</div>;
-// };
+  return <div ref={revealRef}>{children}</div>;
+};
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+    
       <StyledLayout className="layout">
-        {/* <div class="bg"></div> */}
+      <ChangeColor>
         {children}
+        </ChangeColor>
         <Cursor />
       </StyledLayout>
+      
     </ThemeProvider>
   );
 };

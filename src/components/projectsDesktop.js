@@ -9,6 +9,7 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
+// import './image.css'
 
 gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
 
@@ -19,11 +20,11 @@ const RevealBorder = ({ children, id }) => {
     ScrollTrigger.refresh();
     gsap.from(revealRef.current, {
       width: 0,
-      duration: 2.5,
+      duration: 3,
       ease: Power3.easeInOut,
       scrollTrigger: {
         trigger: ".project" + id,
-        start: "top 70%",
+        start: "top 90%",
       },
     });
   }, []);
@@ -44,14 +45,14 @@ const RevealPhoto = ({ photo, id }) => {
         // markers: true,
       },
     });
-    tl.to(container, { duration: 0, visibility: "visible" })
-      .to(imageReveal, { duration: 1.4, width: "0%", ease: Power2.easeInOut })
-      .from(image, {
-        duration: 1.4,
-        scale: 1.6,
-        ease: Power2.easeInOut,
-        delay: -1.4,
-      });
+    // tl.to(container, { duration: 0, visibility: "visible" })
+    //   .to(imageReveal, { duration: 1.4, width: "0%", ease: Power2.easeInOut })
+    //   .from(image, {
+    //     duration: 1.4,
+    //     scale: 1.6,
+    //     ease: Power2.easeInOut,
+    //     delay: -1.4,
+    //   });
   });
 
   return (
@@ -74,19 +75,19 @@ const RevealText = ({ text, id }) => {
   useEffect(() => {
     const results = Splitting({ target: textTarget, by: "lines" });
     results[0].lines.forEach((line, index) => {
-      $(line).wrapAll("<div style=overflow:hidden;></div>");
-      gsap.from(line, {
-        duration: 0.8,
-        y: "10vh",
-        delay: index / 4,
-        scrollTrigger: {
-          trigger: ".project" + id,
-          start: "top 70%",
-        },
-      });
+      $(line).wrapAll("<div style=overflow:hidden;><div class='tech'></div></div>");
       line.forEach((word) => {
         word.style.marginRight = ".25em";
       });
+    });
+    gsap.from('.tech', {
+      duration: 1,
+      yPercent: 100,
+      stagger: .3,
+      scrollTrigger: {
+        trigger: ".project" + id,
+        start: "top 90%",
+      },
     });
   }, []);
 
@@ -96,7 +97,7 @@ const RevealText = ({ text, id }) => {
         ref={(el) => (textTarget = el)}
         style={{
           textTransform: "uppercase",
-          lineHeight: ".95",
+          // lineHeight: ".95",
         }}
       >
         {text}
@@ -144,24 +145,29 @@ const RevealTextTitle = ({ text, id }) => {
 };
 
 const ProjectsDesktop = ({ projects }) => {
+  const revealTechRef = useRef(null);
+  let textTechTarget = useRef(null);
+  
   useEffect(() => {
+    // const tech = Splitting({ target: textTechTarget, by: "lines" });
+    // let tech = document.querySelectorAll(".reveal");
     ScrollTrigger.refresh(true);
+    
     gsap.from(".project-title-text", {
-      duration: 2,
-      y: "12vh",
-      stagger: {
-        amount: 0.3,
-      },
+      duration: 2.5,
+      yPercent: 150,
+      stagger: 0.3,
       scrollTrigger: {
         trigger: ".project-title-text",
-        start: "top 80%",
+        start: "top 90%",
       },
       ease: Power3.easeInOut,
     });
+    
   }, []);
 
   return (
-    <StyledProjectsDesktop className="section-area Projects">
+    <StyledProjectsDesktop>
       <h1 className="projects-section-title">
         <div className="line-wrap">
           <div className="project-title-text">SELECTED</div>
@@ -182,16 +188,22 @@ const ProjectsDesktop = ({ projects }) => {
           <div className="project">
             <div className="project-info">
               <div className="top-info">
-                <RevealText id={project.id} text={project.technologies} />
+                {/* <RevealText id={project.id} text={project.technologies} /> */}
+                <div className="tech" ref={revealTechRef}>
+                    <p ref={(el) => (textTechTarget = el)}>
+                      {project.technologies}
+                    </p>
+                  </div>
               </div>
               <CurvedArrow className="arrow" />
             </div>
 
             <div className="project-photo">
-              <RevealPhoto
+              {/* <RevealPhoto
                 photo={"https://strapi-z1gs.onrender.com" + project.coverPhoto}
                 id={project.id}
-              />
+              /> */}
+               <img className="photo" src={"https://strapi-z1gs.onrender.com" + project.coverPhoto} />
               <RevealTextTitle id={project.id} text={project.name} />
             </div>
           </div>

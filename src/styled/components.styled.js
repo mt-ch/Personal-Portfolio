@@ -145,11 +145,11 @@ export const StyledProject = styled.div`
     height: 100%;
     padding-top: 2em;
 
-    .project-header{
+    .project-header {
       display: flex;
       justify-content: space-between;
 
-      .back{
+      .back {
         /* position: absolute; */
         /* transform: rotate(90deg); */
         text-decoration: underline;
@@ -198,22 +198,20 @@ export const StyledProject = styled.div`
         position: relative;
 
         .reveal {
-        visibility: hidden;
-        position: relative;
-        width: 80%;
-        height: 80%;
-        max-width: 500px;
-        overflow: hidden;
+          visibility: hidden;
+          position: relative;
+          width: 80%;
+          height: 80%;
+          max-width: 500px;
+          overflow: hidden;
 
-
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          transform-origin: left;
-
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transform-origin: left;
+          }
         }
-      }
       }
     }
     img {
@@ -246,7 +244,7 @@ export const StyledProject = styled.div`
 
       .roles {
         grid-area: roles;
-        padding: 0!important;
+        padding: 0 !important;
       }
     }
 
@@ -289,9 +287,7 @@ export const StyledMenu = styled.div`
 `;
 
 export const StyledNavMobile = styled.div`
-  position: absolute;
-  width: 100%;
-  padding-right: ${({ theme }) => theme.padding};
+  position: relative;
 
   .line-wrap {
     overflow: hidden;
@@ -502,6 +498,7 @@ export const StyledLanding = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 15vh;
 
     .header-wrapper {
       padding-bottom: 2em;
@@ -546,7 +543,7 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 5em 0 0.5em 0;
+  padding-top: 3em;
 
   .line-wrap {
     overflow: hidden;
@@ -554,44 +551,42 @@ export const StyledContact = styled.div`
   }
 
   .outro {
-    /* padding: 0rem ${({ theme }) => theme.padding} 0rem;
-    ${({ theme }) => theme.padding}; */
     h1 {
       font-weight: bold;
-      /* font-size: clamp(2.75rem, 9vw, 7rem); */
-      letter-spacing: -0.1rem;
-      line-height: 0.9;
     }
 
     .email {
       text-transform: uppercase;
-      text-decoration: underline;
-      padding-top: 3vh;
+      padding-top: 3em;
     }
   }
 
   .contact-bottom {
-    /* padding: 0rem ${({ theme }) => theme.padding} 0rem;
-    ${({ theme }) => theme.padding}; */
     p {
-      letter-spacing: 0.9;
       a {
-        color: ${({ theme }) => theme.black};
-        font-size: 0.7em;
-        /* font-family: "Monument Extended Regular"; */
+        color: ${({ theme }) => theme.white};
       }
     }
-    .credits {
-    }
+
     .socials {
-      padding-top: 3vh;
+      padding-top: 1em;
+      .socials-header {
+        padding-bottom: 0.5em;
+      }
     }
     .footer {
-      padding-top: 3vh;
-      font-weight: bold;
-      text-align: end;
-      letter-spacing: -0.1rem;
-      line-height: 0.9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2em;
+      .arrow {
+        width: 2em;
+        transform: rotate(-90deg);
+        fill: white;
+      }
+      h1 {
+        font-weight: bold;
+      }
     }
   }
 

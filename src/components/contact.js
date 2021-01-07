@@ -7,6 +7,7 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
+import Arrow from '../assets/icons/arrow';
 
 gsap.registerPlugin(CSSPlugin, ScrollTrigger);
 
@@ -66,12 +67,14 @@ const Contact = () => {
     });
   }, []);
   return (
-    <div className="contact section-contact" id='contact'>
-      <StyledContact className="section-contact section-area">
+    <>
+      <StyledContact className='contact'>
         <div class="outro">
-          <RevealTitle text={"FEEL FREE TO GET IN TOUCH"} />
+            <div>
+              <h1>CONTACT</h1>
+            </div>
           <div className="email">
-            <h5>{info.Email}</h5>
+            <h3>SAY HELLO<br/>{info.Email}</h3>
           </div>
         </div>
 
@@ -90,7 +93,7 @@ const Contact = () => {
             </p>
           </div>
           <div className="socials">
-            <p>Follow me elsewhere</p>
+            <p className="socials-header">Follow me elsewhere</p>
             <p>
               <a href={info.LinkedIn}>Instagram</a>
             </p>
@@ -102,11 +105,16 @@ const Contact = () => {
             </p>
           </div>
           <div className="footer">
-            <RevealTitle text={"©2020"} />
+            <a onClick={null}>
+              <Arrow className='arrow'/>
+            </a>
+            <div>
+              <h1>©2020</h1>
+            </div>
           </div>
         </div>
       </StyledContact>
-    </div>
+    </>
   );
 };
 
