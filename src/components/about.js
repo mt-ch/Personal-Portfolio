@@ -5,10 +5,11 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-import Me from '../assets/me.webp'
+import Me from "../assets/me.webp";
 import { TimelineLite, gsap, Power2, Expo, Power3 } from "gsap";
 import { CSSRulePlugin } from "gsap/CSSRulePlugin";
-import './image.css'
+import "./image.css";
+import CurvedArrow from "../assets/icons/curvedArrow";
 
 gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
 
@@ -17,32 +18,35 @@ const About = () => {
   let textTarget = useRef(null);
   let containerRef = useRef(null);
   let imageRef = useRef(null);
-
-
-  const tl = new TimelineLite({scrollTrigger: {
-    trigger: '.container',
-    markers: true
-  }});
   useEffect(() => {
+    const tl = new TimelineLite({
+      scrollTrigger: {
+        trigger: ".about-header",
+        start: "top 80%",
+      },
+    });
     let imageReveal = CSSRulePlugin.getRule(".img-container:after");
+    ScrollTrigger.refresh();
     tl.set(containerRef, {
-      visibility: "visible"
+      visibility: "visible",
     })
       .to(imageReveal, {
-        duration: 2455,
+        duration: 2,
         height: "0%",
-        ease: Expo.easeInOut
+        ease: Expo.easeInOut,
       })
       .from(imageRef, {
-        duration: 1.4,
+        duration: 1.5,
         scale: 1.5,
         ease: Power2.easeInOut,
-        delay: -1.5
+        delay: -1.5,
       });
 
     const results = Splitting({ target: textTarget, by: "lines" });
     results[0].lines.forEach((line, index) => {
-      $(line).wrapAll("<div style=overflow:hidden;><div class='about'></div></div>");
+      $(line).wrapAll(
+        "<div style=overflow:hidden;><div class='about'></div></div>"
+      );
       line.forEach((word) => {
         word.style.marginRight = ".2em";
       });
@@ -57,17 +61,17 @@ const About = () => {
         start: "top 80%",
       },
     });
+   
   }, []);
 
   return (
     <StyledAbout className="section-area">
-       <div className="container" ref={el => (containerRef = el)}>
+      <div class="about-header">
+      </div>
+      <div className="container-wrapper" ref={(el) => (containerRef = el)}>
         <>
           <div className="img-container">
-            <img
-              ref={el => (imageRef = el)}
-              src={Me}
-            />
+            <img ref={(el) => (imageRef = el)} src={Me} />
           </div>
         </>
       </div>

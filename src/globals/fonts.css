@@ -26,7 +26,7 @@
 
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Be Vietnam', Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -45,7 +45,7 @@ h1 {
   letter-spacing: -0.05rem;
   line-height: .95;
   font-weight: 500;
-  font-size: clamp(1em, 17.5vw, 10em);
+  font-size: clamp(1em, 20vw, 10em);
 }
 
 @media(min-width: 550px){

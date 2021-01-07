@@ -380,10 +380,20 @@ export const StyledLoading = styled.div`
 export const StyledAbout = styled.div`
   position: relative;
   margin-bottom: 5em;
-  /* img{
-    width: 100%;
-    object-fit: contain;
-    margin-bottom: 1em;
+  /* .about-header{
+    display: flex;
+    align-items: center;
+    .curved-arrow{
+      width: 1em;
+      transform: rotate(90deg);
+      margin-left: .5em;
+    }
+  } */
+  /* .border{
+    height: 2px;
+    width: 100%auto;
+    background-color: black;
+    margin: .5em 0 1em;
   } */
 `;
 
@@ -504,7 +514,9 @@ export const StyledLanding = styled.div`
     flex-direction: column;
     justify-content: center;
     padding-bottom: 15vh;
-
+    h1{
+      font-weight: 900;
+    }
     .header-wrapper {
       padding-bottom: 2em;
     }
@@ -557,40 +569,62 @@ export const StyledContact = styled.div`
 
   .outro {
     h1 {
+      position: relative;
       font-weight: bold;
-    }
+      z-index: 2;
 
-    .email {
-      text-transform: uppercase;
-      padding-top: 3em;
+      .arrow{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: .8em;
+      transform: rotate(90deg);
+      z-index: 1;
+      transition: all .7s ease;
+
+      &:hover{
+        transform: rotate(270deg);
+        transition: all .7s ease;
+      }
+    }
     }
   }
+
+  .contact-info{
+    padding: 2em 0 1em;
+    .border{
+      height: 2px;
+      width: 100%auto;
+      background-color: black;
+      margin: 1em 0;
+    }
+
+    .mail{
+      .email{
+        text-transform: uppercase; 
+      }
+    }
+  }
+
+
 
   .contact-bottom {
     p {
       a {
-        color: ${({ theme }) => theme.white};
+        color: ${({ theme }) => theme.black};
       }
     }
 
-    .socials {
-      padding-top: 1em;
-      .socials-header {
-        padding-bottom: 0.5em;
-      }
-    }
+
     .footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding-top: 2em;
-      .arrow {
-        width: 2em;
-        transform: rotate(-90deg);
-        fill: white;
-      }
+      align-items: end;
+      padding-top: 1em;
+     
       h1 {
         font-weight: bold;
+        font-size: 2em;
       }
     }
   }
