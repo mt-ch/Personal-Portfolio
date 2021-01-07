@@ -1,27 +1,32 @@
 .container {
-    visibility: hidden;
-  }
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+}
 
 .img-container {
-      position: relative;
-      overflow: hidden;
-      height: 300px;
-      width: 400px;
-  }
+  width: 100%;
+  height: 960px;
+  position: relative;
+  overflow: hidden;
+}
 
-  .img-container-after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    top: 0;
-    right: 0;
-  }
-  .photo {
-    height: 100%;
-    width: 100%;
-    /* max-width: 90vw; */
+.img-container:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  right: 0;
+}
+
+img {
+  /* width: 1440px;
+  margin: 0 auto; */
+  width: 100%;
     object-fit: contain;
-    /* padding-top: 1vh; */
-  }
+}

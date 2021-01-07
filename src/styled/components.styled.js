@@ -380,6 +380,11 @@ export const StyledLoading = styled.div`
 export const StyledAbout = styled.div`
   position: relative;
   margin-bottom: 5em;
+  /* img{
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1em;
+  } */
 `;
 
 export const StyledProjects = styled.div`

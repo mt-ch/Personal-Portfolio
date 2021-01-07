@@ -122,28 +122,6 @@ const ChangeColor = ({ children }) => {
         },
       }
     );
-    // gsap.fromTo(
-    //   "h2, .section-header",
-    //   {
-    //     color: theme.black,
-    //     // borderTop: "solid #010101 2px",
-    //     // borderBottom: "solid #010101 2px",
-    //     duration: 0.5,
-    //     ease: "power0.inOut",
-    //   },
-    //   {
-    //     color: theme.primary,
-    //     // borderTop: "solid #C7B6F6 2px",
-    //     // borderBottom: "solid #C7B6F6 2px",
-    //     duration: 0.5,
-    //     ease: "power0.inOut",
-    //     scrollTrigger: {
-    //       scrub: true,
-    //       start: "1000px",
-    //       end: "1500px",
-    //     },
-    //   }
-    // );
   }, []);
 
   return <div ref={revealRef}>{children}</div>;
@@ -155,9 +133,7 @@ const Layout = ({ children }) => {
       <GlobalStyles />
     
       <StyledLayout className="layout">
-      <ChangeColor>
         {children}
-        </ChangeColor>
         <Cursor />
       </StyledLayout>
       
