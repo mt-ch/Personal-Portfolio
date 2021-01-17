@@ -91,7 +91,6 @@ const ChangeColor = ({ children }) => {
   const revealRef = useRef(null);
 
   useEffect(() => {
-    ScrollTrigger.refresh();
     gsap.to(
       'body',
       {
@@ -134,7 +133,7 @@ const Layout = ({ children }) => {
     
       <StyledLayout className="layout">
         {children}
-        <Cursor />
+        {/* <Cursor /> */}
       </StyledLayout>
       
     </ThemeProvider>

@@ -39,7 +39,7 @@ export const StyledLayout = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  padding: 2vh ${({ theme }) => theme.padding} 2vh;
+  padding: 1em ${({ theme }) => theme.padding} 1em;
   ${({ theme }) => theme.padding};
 
   .cursor {
@@ -288,56 +288,96 @@ export const StyledMenu = styled.div`
 
 export const StyledNavMobile = styled.div`
   position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
 
   .line-wrap {
     overflow: hidden;
   }
 
-  .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
+  .nav-title {
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-    .nav-title {
-      text-overflow: clip;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .nav-options {
-      p {
-        text-decoration: underline;
-      }
+  .contact-button-text {
+    width: 100%;
+    .underline {
+      height: 1px;
+      width: 100%;
+      background-color: black;
+      margin-top: 2px;
     }
   }
 `;
 
 export const StyledNav = styled.div`
   position: fixed;
-  z-index: 99;
+
+  .line-wrap {
+    position: relative;
+    overflow: hidden;
+  }
 
   .nav {
-    display: flex;
-    flex-direction: column;
-    height: 95vh;
-    width: 5em;
-    justify-content: space-between;
-    align-items: start;
+    height: 50vh;
 
     .nav-title {
+      position: absolute;
+      top: 0;
+      text-overflow: clip;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .nav-date {
+      position: absolute;
+      top: 50%;
       text-overflow: clip;
       white-space: nowrap;
       overflow: hidden;
     }
 
     .nav-options {
-      position: fixed;
-      bottom: 0;
+      position: absolute;
+      top: 100%;
 
-      p {
-        text-decoration: underline;
-        line-height: 1.3;
+      ul {
+        list-style: none;
+
+        li {
+          position: relative;
+          overflow: hidden;
+
+          .nav-link {
+            display: table;
+            position: relative;
+            cursor: pointer;
+            pointer-events: all;
+
+            .nav-underline{
+              display: block;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              left: 0;
+              overflow: hidden;
+            }
+
+            .underline {
+              display: block;
+              width: 100%;
+              transform: translateX(-120%);
+              content: "";
+              border-bottom: 1px black solid;
+              transition: transform 1.3s ease;
+            }
+          }
+        }
       }
     }
   }
@@ -380,6 +420,8 @@ export const StyledLoading = styled.div`
 export const StyledAbout = styled.div`
   position: relative;
   margin-bottom: 5em;
+  width: 100%;
+  height: 100%;
   /* .about-header{
     display: flex;
     align-items: center;
@@ -446,7 +488,8 @@ export const StyledProjects = styled.div`
 `;
 
 export const StyledProjectsDesktop = styled.div`
-  height: 100%auto;
+  position: relative;
+
   .border {
     height: 2px;
     width: 100%;
@@ -454,7 +497,7 @@ export const StyledProjectsDesktop = styled.div`
   }
 
   .projects-section-title {
-    padding: 0em 0 0.5em 0;
+    padding-bottom: 0.25em;
 
     .line-wrap {
       overflow: hidden;
@@ -462,45 +505,33 @@ export const StyledProjectsDesktop = styled.div`
   }
 
   .project {
-    display: grid;
-    grid-template-areas: "info photo";
-    grid-template-columns: 1fr 5fr;
-    padding: 1em 0 1em 0;
-    pointer-events: all;
+    display: flex;
+    width: 100%;
+    height: 7em;
+    justify-content: space-between;
+    padding: 0.5em 0 0.5em;
 
-    .project-title {
-      padding-top: 0.5em;
-    }
-
-    .project-photo {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: end;
-      grid-area: photo;
-      h2 {
-        text-align: end;
-      }
-
-      .photo {
-        width: 100%;
-        max-width: 10em;
-        object-fit: contain;
-      }
+    .photo {
+      width: 20vw;
+      min-width: 6em;
+      min-height: 3.5em;
+      object-fit: contain;
     }
 
     .project-info {
-      grid-area: info;
-      position: relative;
-      height: 100%;
+      width: 100%auto;
+      height: 100%auto;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-items: start;
+      max-width: 8em;
 
-      .arrow {
-        transform: scaleY(-1);
-        height: 2em;
+      .project-title {
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .project-tech {
       }
     }
   }
@@ -514,7 +545,7 @@ export const StyledLanding = styled.div`
     flex-direction: column;
     justify-content: center;
     padding-bottom: 15vh;
-    h1{
+    h1 {
       font-weight: 900;
     }
     .header-wrapper {
@@ -560,24 +591,21 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 3em;
-
-  .line-wrap {
-    overflow: hidden;
-    height: 100%;
-  }
+  margin: 5em 0 0.5em;
+  padding-top: 5em;
 
   .outro {
     h1 {
       position: relative;
       font-weight: bold;
       z-index: 2;
+    }
 
-      .arrow{
-      position: absolute;
+    /* .arrow{
+      position: relative;
       bottom: 0;
       right: 0;
-      width: .8em;
+      width: .6em;
       transform: rotate(90deg);
       z-index: 1;
       transition: all .7s ease;
@@ -586,27 +614,27 @@ export const StyledContact = styled.div`
         transform: rotate(270deg);
         transition: all .7s ease;
       }
-    }
-    }
+    } */
   }
 
-  .contact-info{
-    padding: 2em 0 1em;
-    .border{
+  .contact-info {
+    .contact-border {
       height: 2px;
       width: 100%auto;
       background-color: black;
       margin: 1em 0;
     }
 
-    .mail{
-      .email{
-        text-transform: uppercase; 
+    h3 {
+      font-weight: 500;
+    }
+
+    .mail {
+      .email {
+        text-transform: uppercase;
       }
     }
   }
-
-
 
   .contact-bottom {
     p {
@@ -615,22 +643,23 @@ export const StyledContact = styled.div`
       }
     }
 
-
     .footer {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      padding-top: 1em;
-     
+      width: 100%auto;
+
       h1 {
         font-weight: bold;
-        font-size: 2em;
+        font-size: 2.5em;
       }
     }
   }
 
   @media (min-width: 750px) {
-    .contact-bottom {
+    padding-top: 2em;
+
+    /* .contact-bottom {
       display: flex;
       justify-content: space-between;
       align-items: end;
@@ -642,11 +671,12 @@ export const StyledContact = styled.div`
       .footer {
         padding: 0;
       }
-    }
+    } */
   }
 `;
 
 export const HomeDesktop = styled.div`
-  display: flex;
-  padding-left: 6em;
+  position: absolute;
+  left: 25vw;
+  padding-right: ${({ theme }) => theme.padding};
 `;

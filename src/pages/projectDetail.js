@@ -29,7 +29,6 @@ const ProjectDetail = () => {
       GetProjectDetail(id).then((data) => setProject(data));
       mounted.current = true;
     } else {
-      ScrollTrigger.refresh(true);
       const desc = Splitting({ target: textDescTarget, by: "lines" });
       const roles = Splitting({ target: textRolesTarget, by: "lines" });
       const title = Splitting({ target: textTitleTarget, by: "lines" });

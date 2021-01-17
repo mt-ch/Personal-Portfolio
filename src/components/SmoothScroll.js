@@ -1,49 +1,36 @@
-import React, { PureComponent } from "react";
-import { TweenLite, Power4 } from "gsap";
-import {StyledViewPort} from '../styled/components.styled';
+import gsap from "gsap/gsap-core";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect } from "react";
+import Scrollbar from "smooth-scrollbar";
 
-export class SmoothScroll extends PureComponent {
-    state = {
-        height: window.innerHeight
-      };
-    
-      ro = new ResizeObserver(elements => {
-        for (let elem of elements) {
-          const crx = elem.contentRect;
-          this.setState({
-            height: crx.height
-          });
+gsap.registerPlugin(ScrollTrigger);
+
+const SmoothScroll = ({children}) => {
+  useEffect(() => {
+    // Setup
+    const scroller = document.querySelector(".scroller");
+
+    const bodyScrollBar = Scrollbar.init(scroller, {
+      damping: 0.1,
+      delegateTo: document,
+      alwaysShowTracks: true,
+    });
+
+    ScrollTrigger.scrollerProxy(".scroller", {
+      scrollTop(value) {
+        if (arguments.length) {
+          bodyScrollBar.scrollTop = value;
         }
-      });
-    
-      componentDidMount() {
-        window.addEventListener("scroll", this.onScroll);
-        this.ro.observe(this.viewport);
-      }
-    
-      onScroll = () => {
-        TweenLite.to(this.viewport, 1, {
-          y: -window.pageYOffset,
-          ease: Power4.easeOut
-        });
-      };
-    
-      render() {
-        return (
-          <>
-            <StyledViewPort className="viewport" ref={ref => (this.viewport = ref)}>
-              {this.props.children}
-            </StyledViewPort>
-            <div
-              ref={ref => (this.fake = ref)}
-              style={{
-                height: this.state.height
-              }}
-            />
-          </>
-        );
-      }
-}
+        return bodyScrollBar.scrollTop;
+      },
+    });
 
-export default SmoothScroll
+    bodyScrollBar.addListener(ScrollTrigger.update);
 
+    ScrollTrigger.defaults({ scroller: scroller });
+
+  }, []);
+  return <div className='scroller'>{children}</div>;
+};
+
+export default SmoothScroll;

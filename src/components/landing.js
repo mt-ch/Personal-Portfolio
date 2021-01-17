@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
-import { TimelineLite, gsap, CSSPlugin, Power3 } from "gsap";
+import React, { useEffect, useRef } from "react";
+import { TimelineLite, gsap, Power3 } from "gsap";
 import { StyledLanding } from "../styled/components.styled";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "../globals/global";
-import { theme } from "../globals/theme";
-import Spinner from "../assets/img/Spinner.png";
-
-gsap.registerPlugin(CSSPlugin);
 
 const Landing = () => {
+  let textTitleTargetLine1 = useRef(null);
+  let textTitleTargetLine2 = useRef(null);
+  let textTitleTargetLine3 = useRef(null);
   useEffect(() => {
     reveal();
   }, []);
@@ -27,42 +24,30 @@ const Landing = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
       <StyledLanding>
         <div className="content">
           <div className="header-wrapper">
-            <h1>
-              <div className="line-wrap">
-                <div className="line">CODER</div>
-              </div>
-              <div className="line-wrap">
-                <div className="line" style={{marginLeft:'0em'}}>+DIGITAL</div>
-              </div>
-              <div className="line-wrap">
-                <div className="line" style={{marginLeft:'0em'}}>DESIGNER</div>
-              </div>
-            </h1>
+            <h1 ref={(el) => (textTitleTargetLine1 = el)}>CODER</h1>
+            <h1 ref={(el) => (textTitleTargetLine2 = el)}>+ DIGITAL</h1>
+            <h1 ref={(el) => (textTitleTargetLine3 = el)}>DESIGNER</h1>
           </div>
 
           <div className="subtext-wrapper">
             <div className="sub-text">
               <div className="line-wrap">
                 <div className="line">
-                  <p>Available for freelance work:</p>
+                  <h5>Available for freelance work:</h5>
                 </div>
               </div>
               <div className="line-wrap">
                 <div className="line">
-                  <p>Jan, 21</p>
+                  <h5>Jan, 21</h5>
                 </div>
               </div>
             </div>
-            {/* <img class="spinner" src={Spinner} /> */}
           </div>
         </div>
       </StyledLanding>
-    </ThemeProvider>
   );
 };
 

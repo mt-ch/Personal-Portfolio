@@ -25,3 +25,14 @@
     opacity: 1;
   }
 }
+
+
+.active{
+  transform: translateX(0)!important;
+  transition: transform 1.3s ease;
+}
+
+.hover{
+  transform: translateX(0)!important;
+  transition: transform 1.3s ease;
+}

@@ -1,49 +1,72 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { StyledNavMobile } from "../styled/components.styled";
-import { gsap } from "gsap";
+import { gsap, TimelineLite } from "gsap/all";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { TimelineMax } from "gsap/all";
 
 gsap.registerPlugin(ScrollToPlugin);
 
 const NavMobile = () => {
+  useEffect(() => {
+    reveal();
+  }, []);
 
   const handleClick = (e) => {
     e.stopPropagation();
     gsap.to(window, {
-      duration: 2,
+      duration: 1,
+      ease: "Power3.ease",
       scrollTo: {
-        scrollTo: ".section-contact",
-        offsetY: 70,
+        y: "#section-contact",
+        offsetY: -20,
       },
     });
   };
 
-  return (
-    <StyledNavMobile className="nav">
-      <div className="nav">
-        <a className="nav-title">
-          <p>
-            <div className="line-wrap">
-              <div className="line">
-                <strong>Matt Chan</strong>
-              </div>
-            </div>
-          </p>
-          <p>
-            <div className="line-wrap">
-              <div className="line">2016-2020</div>
-            </div>
-          </p>
-        </a>
+  const reveal = () => {
+    const t1 = new TimelineLite();
+    t1.from(".menu-text", {
+      duration: 2,
+      yPercent: 100,
+      stagger: {
+        amount: 0.4,
+      },
+      ease: "Power3.easeInOut",
+    })
+    .from(".underline", {
+      duration: 1,
+      yScale: 0,
+      ease: "Power3.easeInOut",
+    });
+  };
 
-        <div className="nav-options">
-          <a>
-            <div className="line-wrap">
-              <p className="line">Contact</p>
+  return (
+    <StyledNavMobile>
+      <a className="nav-title">
+        <h5>
+          <div className="line-wrap">
+            <div className="menu-text">
+              <strong>Matt Chan</strong>
             </div>
-          </a>
-        </div>
-      </div>
+          </div>
+        </h5>
+        <h5>
+          <div className="line-wrap">
+            <div className="menu-text">2016-2020</div>
+          </div>
+        </h5>
+      </a>
+
+      <a className="contact-button" onClick={handleClick}>
+        <h5 className="contact-button-text">
+          <div className="line-wrap">
+            <div className="menu-text">
+              Contact
+            </div>
+            <div className="underline"></div>
+          </div>
+        </h5>
+      </a>
     </StyledNavMobile>
   );
 };

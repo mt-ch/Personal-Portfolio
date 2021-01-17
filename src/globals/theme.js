@@ -5,6 +5,5 @@ export const theme = {
   dark: '#434343',
   grey: '#EAEAEA',
   mobile: "576px",
-  padding: "clamp(.5rem, 3vw, 3rem)",
-  navPadding: "clamp(.5rem, 3vw, 3rem)",
+  padding: "clamp(.5rem, 5vw, 5em)",
 }

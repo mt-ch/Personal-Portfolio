@@ -61,7 +61,6 @@ async function GetProjects() {
       )
     );
   }
-  ScrollTrigger.refresh(true);
   return projectData;
 }
 

@@ -1,85 +1,244 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { StyledNav } from "../styled/components.styled";
-import { gsap, CSSPlugin, Power3 } from "gsap";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TimelineLite } from "gsap/all";
 
-gsap.registerPlugin(CSSPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
-const scroll = (e) => {
-  const section = document.querySelectorAll(".section-area");
-  switch (e.target.innerHTML) {
-    case "About":
-      section[0].scrollIntoView({
-        block: "start",
-      });
-      break;
-    case "Work":
-      section[1].scrollIntoView({
-        block: "start",
-      });
-      break;
-    case "Contact":
-      section[2].scrollIntoView({
-        block: "start",
-      });
-      break;
-  }
-};
 
 const Nav = () => {
-  useEffect(() => {
-    gsap.from(".nav", {
-      delay: 0.4,
-      duration: 0.8,
-      opacity: 0,
-      y: -50,
-      ease: Power3.easeInOut,
-    });
-    gsap.fromTo(
-      ".nav-options",
-      {
-        bottom: 0,
+  const handleToTop = (e) => {
+    e.stopPropagation();
+    gsap.to(window, {
+      duration: 1,
+      ease: "Power3.ease",
+      scrollTo: {
+        y: 0,
+        offsetY: 0,
       },
-      {
-        duration: 10,
-        top: 0,
-        ease: "Linear.easeNone",
-        scrollTrigger: {
-          start: "top top",
-          end: "150%",
-          scrub: true,
-        },
-      }
-    );
+    });
+  };
+
+  const handleClickAbout = (e) => {
+    e.stopPropagation();
+    gsap.to(window, {
+      duration: 0.5,
+      ease: "Power3.ease",
+      scrollTo: {
+        y: "#section-about",
+        offsetY: 100,
+      },
+    });
+  };
+
+  const mouseOverAbout = (e) => {
+    e.stopPropagation();
+    var about = document.querySelector(".u-about");
+    about.classList.add("hover");
+  };
+
+  const mouseLeaveAbout = (e) => {
+    e.stopPropagation();
+    var about = document.querySelector(".u-about");
+    about.classList.remove("hover");
+  };
+
+  const mouseOverWork = (e) => {
+    e.stopPropagation();
+    var work = document.querySelector(".u-work");
+    work.classList.add("hover");
+  };
+
+  const mouseLeaveWork = (e) => {
+    e.stopPropagation();
+    var work = document.querySelector(".u-work");
+    work.classList.remove("hover");
+  };
+
+  const mouseOverContact = (e) => {
+    e.stopPropagation();
+    var contact = document.querySelector(".u-contact");
+    contact.classList.add("hover");
+  };
+
+  const mouseLeaveContact = (e) => {
+    e.stopPropagation();
+    var contact = document.querySelector(".u-contact");
+    contact.classList.remove("hover");
+  };
+
+  const handleClickWork = (e) => {
+    e.stopPropagation();
+    gsap.to(window, {
+      duration: 0.8,
+      ease: "Power3.ease",
+      scrollTo: {
+        y: "#section-work",
+        offsetY: 10,
+      },
+    });
+  };
+
+  const handleClickContact = (e) => {
+    e.stopPropagation();
+    gsap.to(window, {
+      duration: 1,
+      ease: "Power3.ease",
+      scrollTo: {
+        y: "#section-contact",
+        offsetY: -20,
+      },
+    });
+  };
+
+  useEffect(() => {
+    reveal();
     gsap.to(".nav-title", {
-      duration: 7,
-      y: -500,
+      top: "-100%",
       scrollTrigger: {
-        start: "top top",
-        end: '150%',
+        end: "1500px",
         scrub: true,
       },
     });
-  }, []);
+    gsap.to(".nav-date", {
+      top: "-50%",
+      scrollTrigger: {
+        end: "1500px",
+        scrub: true,
+      },
+    });
+    gsap.to(".nav-options", {
+      top: 0,
+      scrollTrigger: {
+        end: "1500px",
+        scrub: true,
+      },
+    });
+
+    var about = document.querySelector(".u-about");
+    var work = document.querySelector(".u-work");
+    var contact = document.querySelector(".u-contact");
+
+    gsap.to(".u-about", {
+      scrollTrigger: {
+        trigger: "#section-about",
+        start: "-1500px center",
+        end: "top center",
+        endTrigger: "#section-work",
+        scrub: true,
+        onEnter: () => about.classList.toggle("active"),
+        onLeaveBack: () => about.classList.remove("active"),
+        onLeave: () => about.classList.remove("active"),
+        onEnterBack: () => about.classList.toggle("active"),
+      },
+    });
+    gsap.to(".u-work", {
+      scrollTrigger: {
+        trigger: "#section-about",
+        start: "bottom+=100 center",
+        end: "top center",
+        endTrigger: "#section-contact",
+        markers: true,
+        scrub: true,
+        onEnter: () => work.classList.toggle("active"),
+        onLeaveBack: () => work.classList.remove("active"),
+        onLeave: () => work.classList.remove("active"),
+        onEnterBack: () => work.classList.toggle("active"),
+      },
+    });
+    gsap.to(".u-contact", {
+      scrollTrigger: {
+        trigger: "#section-contact",
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+        onEnter: () => contact.classList.toggle("active"),
+        onLeaveBack: () => contact.classList.remove("active"),
+        onLeave: () => contact.classList.remove("active"),
+        onEnterBack: () => contact.classList.toggle("active"),
+      },
+    });
+    ScrollTrigger.refresh(true);
+  }, [ScrollTrigger]);
+
+  const reveal = () => {
+    const t1 = new TimelineLite();
+    t1.from(".nav-text", {
+      duration: 2.5,
+      yPercent: 100,
+      stagger: {
+        amount: 1,
+      },
+      ease: "Power3.easeInOut",
+    }).from(".underline", {
+      duration: 1,
+      width: 0,
+      ease: "Power3.easeInOut",
+    });
+  };
+
   return (
-    <StyledNav className="nav">
+    <StyledNav>
       <div className="nav">
-        <a className="nav-title">
-          <p>
-            <strong>Matt Chan</strong>
-          </p>
-          <p>2016-2020</p>
+        <a className="nav-title" onClick={handleToTop}>
+          <h5>
+            <div class="line-wrap">
+              <div class="nav-text">Matt Chan</div>
+            </div>
+          </h5>
         </a>
 
+        <div class="nav-date">
+          <h5>
+            <div class="line-wrap">
+              <div class="nav-text">2016-2020</div>
+            </div>
+          </h5>
+        </div>
+
         <div className="nav-options">
-          <a onClick={(e) => scroll(e)}>
-            <p>About</p>
-          </a>
-          <a onClick={(e) => scroll(e)}>
-            <p>Work</p>
-          </a>
-          <a onClick={(e) => scroll(e)}>
-            <p>Contact</p>
-          </a>
+          <ul>
+            <li>
+              <a
+                className="nav-link"
+                onClick={handleClickAbout}
+                onMouseOver={mouseOverAbout}
+                onMouseLeave={mouseLeaveAbout}
+              >
+                <h5 class="nav-text">About</h5>
+                <span class="nav-underline">
+                  <span class="underline u-about"></span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                className="nav-link"
+                onClick={handleClickWork}
+                onMouseOver={mouseOverWork}
+                onMouseLeave={mouseLeaveWork}
+              >
+                <h5 class="nav-text">Work</h5>
+                <span class="nav-underline">
+                  <span class="underline u-work"></span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                className="nav-link"
+                onClick={handleClickContact}
+                onMouseOver={mouseOverContact}
+                onMouseLeave={mouseLeaveContact}
+              >
+                <h5 class="nav-text">Contact</h5>
+                <span class="nav-underline">
+                  <span class="underline u-contact"></span>
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </StyledNav>

@@ -23,7 +23,6 @@ async function GetInfo(setInfo) {
     })
       .then(checkStatus)
       .then(parseJSON);
-      ScrollTrigger.refresh(true);
     return setInfo(infos);
   } catch (error) {
     return console.error(error);

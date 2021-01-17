@@ -10,8 +10,10 @@
     "aos": "^2.3.4",
     "classnames": "^2.2.6",
     "gsap": "^3.5.1",
+    "imagesloaded": "^4.1.4",
     "jquery": "^3.5.1",
     "lerp": "^1.0.3",
+    "locomotive-scroll": "^4.0.6",
     "pace": "0.0.4",
     "pace-js": "^1.0.2",
     "react": "^16.13.1",
@@ -19,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
+    "smooth-scrollbar": "^8.5.3",
     "splitting": "^1.0.6",
     "styled-components": "^5.2.1"
   },

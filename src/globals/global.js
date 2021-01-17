@@ -7,15 +7,10 @@ export const GlobalStyles = createGlobalStyle`
   padding: 0;
   user-select: none;
   outline: none;
-  /* cursor: none; */
 }
 
 html, body {
-  position: relative;
-  background-attachment: fixed;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  /* cursor: none; */
   background:  #fffefa;
   color: ${({ theme }) => theme.black};
   &::-webkit-scrollbar {
@@ -28,8 +23,8 @@ html, body {
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   text-rendering: optimizeLegibility;
   font-size: calc(1em + 1vw)
 }
@@ -42,6 +37,12 @@ body {
     position: absolute;
     width: 100%;
   }
+}
+
+.scrollable {
+  height: 100vh;
+  overflow-y: hidden;
+  
 }
 
 a{

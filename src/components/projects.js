@@ -19,15 +19,13 @@ const Projects = () => {
 
   if (loading){
     return (
-      <div>
-        <h1>Loading</h1>
-      </div>
+     null
     )
   }
   else if(!loading)
   return (
     <>
-      <ProjectsDesktop projects={projects}/>
+      <ProjectsDesktop projects={projects} id='section-work'/>
     </>
   );
 };
