@@ -6,7 +6,6 @@ import { TimelineLite } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 const Nav = () => {
   const handleToTop = (e) => {
     e.stopPropagation();
@@ -139,7 +138,6 @@ const Nav = () => {
         start: "bottom+=100 center",
         end: "top center",
         endTrigger: "#section-contact",
-        markers: true,
         scrub: true,
         onEnter: () => work.classList.toggle("active"),
         onLeaveBack: () => work.classList.remove("active"),
@@ -153,6 +151,7 @@ const Nav = () => {
         start: "top center",
         end: "bottom center",
         scrub: true,
+        markers: true,
         onEnter: () => contact.classList.toggle("active"),
         onLeaveBack: () => contact.classList.remove("active"),
         onLeave: () => contact.classList.remove("active"),
@@ -182,19 +181,19 @@ const Nav = () => {
     <StyledNav>
       <div className="nav">
         <a className="nav-title" onClick={handleToTop}>
-          <h5>
+          <p>
             <div class="line-wrap">
               <div class="nav-text">Matt Chan</div>
             </div>
-          </h5>
+          </p>
         </a>
 
         <div class="nav-date">
-          <h5>
+          <p>
             <div class="line-wrap">
               <div class="nav-text">2016-2020</div>
             </div>
-          </h5>
+          </p>
         </div>
 
         <div className="nav-options">
@@ -206,7 +205,7 @@ const Nav = () => {
                 onMouseOver={mouseOverAbout}
                 onMouseLeave={mouseLeaveAbout}
               >
-                <h5 class="nav-text">About</h5>
+                <p class="nav-text">About</p>
                 <span class="nav-underline">
                   <span class="underline u-about"></span>
                 </span>
@@ -219,7 +218,7 @@ const Nav = () => {
                 onMouseOver={mouseOverWork}
                 onMouseLeave={mouseLeaveWork}
               >
-                <h5 class="nav-text">Work</h5>
+                <p class="nav-text">Work</p>
                 <span class="nav-underline">
                   <span class="underline u-work"></span>
                 </span>
@@ -232,7 +231,7 @@ const Nav = () => {
                 onMouseOver={mouseOverContact}
                 onMouseLeave={mouseLeaveContact}
               >
-                <h5 class="nav-text">Contact</h5>
+                <p class="nav-text">Contact</p>
                 <span class="nav-underline">
                   <span class="underline u-contact"></span>
                 </span>

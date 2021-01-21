@@ -1,51 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
-import GetInfo from "../functions/getInfo";
-import { TimelineLite, gsap, CSSPlugin, Power3 } from "gsap";
+import { gsap, CSSPlugin, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { StyledContact } from "../styled/components.styled";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-import Arrow from "../assets/icons/arrow";
 
 gsap.registerPlugin(CSSPlugin, ScrollTrigger);
 
-const Contact = () => {
-  const [info, setInfo] = useState([]);
+const Contact = ({ data }) => {
   const revealCreditsRef = useRef(null);
   let textCreditsTarget = useRef(null);
-  const revealTitleRef = useRef(null);
-  let textTitleTargetLine1 = useRef(null);
-  let textTitleTargetLine2 = useRef(null);
 
-  useEffect(() => {
-    GetInfo(setInfo);
-    const titleLine1 = Splitting({ target: textTitleTargetLine1, by: "lines" });
-    // const titleLine2 = Splitting({ target: textTitleTargetLine2, by: "lines" });
-    const credits = Splitting({ target: textCreditsTarget, by: "lines" });
-    const tl = new TimelineLite({
-      scrollTrigger: {
-        trigger: revealTitleRef.current,
-        start: "top 70%",
+  const handleClick = (e) => {
+    e.stopPropagation();
+    gsap.to(window, {
+      duration: 3,
+      ease: "Power3.easeInOut",
+      scrollTo: {
+        y: 0,
       },
     });
-    titleLine1[0].lines.forEach((line, index) => {
-      $(line).wrapAll("<span class='text-title'></span>");
-      line.forEach((word) => {
-        word.style.marginRight = ".25em";
-      });
-    });
+  };
 
-    // titleLine2[0].lines.forEach((line, index) => {
-    //   $(line).wrapAll(
-    //     "<span class='text-title'></span>"
-    //   );
-    //   line.forEach((word) => {
-    //     word.style.marginRight = ".25em";
-    //   });
-    // });
-
+  useEffect(() => {
+    const credits = Splitting({ target: textCreditsTarget, by: "lines" });
     $(".text-title").wrap("<span style=overflow:hidden;></span>");
 
     credits[0].lines.forEach((line, index) => {
@@ -57,62 +37,78 @@ const Contact = () => {
       });
     });
 
-    gsap.from(".contact-border", {
-      width: 0,
-      stagger: 0.3,
-      duration: 3,
-      ease: Power3.easeInOut,
+    gsap.from(".contact-header-text", {
+      duration: 2.5,
+      yPercent: 150,
+      stagger: 0.6,
       scrollTrigger: {
         trigger: ".contact-info",
-        start: "top 70%",
+        start: "top 90%",
+      },
+      ease: "Power3.easeInOut",
+    });
+
+    gsap.from(".contact-border", {
+      width: 0,
+      stagger: 0.5,
+      duration: 3,
+      ease: "Power3.easeInOut",
+      scrollTrigger: {
+        trigger: ".contact-info",
+        start: "top 90%",
       },
     });
 
     gsap.from(".text-credits", {
       duration: 1.5,
       yPercent: 100,
-      stagger: 0.2,
+      stagger: 0.4,
+      ease: "Power3.easeInOut",
       scrollTrigger: {
         trigger: revealCreditsRef.current,
         start: "top 95%",
       },
     });
-    // gsap.from(".footer-line", {
-    //   duration: 1,
-    //   yPercent: 150,
-    //   scrollTrigger: {
-    //     trigger: revealCreditsRef.current,
-    //     start: "top 95%",
-    //   },
-    // });
-    tl.from(".text-title", {
-      duration: 1.5,
+
+    gsap.from(".footer-line", {
+      duration: 1.2,
       yPercent: 150,
-      stagger: 0.4,
-    });
-    gsap.from(".contact-line", {
-      duration: 1,
-      yPercent: 150,
-      stagger: 0.4,
+      stagger: .4,
       scrollTrigger: {
-        trigger: ".contact-info",
-        start: "top 70%",
+        trigger: revealCreditsRef.current,
+        start: "top 95%",
       },
     });
-  }, []);
+    gsap.from(".underline-footer", {
+      duration: 1,
+      delay: 3.5,
+      width: 0,
+      ease: "Power3.easeInOut",
+    });
+    gsap.from(".contact-line", {
+      duration: 2,
+      yPercent: 150,
+      stagger: 0.4,
+      ease: "Power3.easeInOut",
+      scrollTrigger: {
+        trigger: ".contact-info",
+        start: "top 90%",
+      },
+    });
+    ScrollTrigger.refresh(true);
+  }, [ScrollTrigger]);
   return (
     <>
       <StyledContact id="section-contact" className="contact">
-        <div class="outro">
-          <div ref={revealTitleRef}>
-            <h1 ref={(el) => (textTitleTargetLine1 = el)}>CONTACT</h1>
-            {/* <h1 ref={(el) => (textTitleTargetLine2 = el)}>SAY HI.</h1> */}
-          </div>
-          {/* <a onClick={null}>
-            <Arrow className="arrow" />
-          </a> */}
-        </div>
         <div class="contact-info">
+          <div class="contact-header">
+            <div class="line-wrap">
+              <h1 class="contact-header-text">CONTACT</h1>
+            </div>
+            <div class="line-wrap">
+              <p class="contact-header-text">/03</p>
+            </div>
+          </div>
           <div class="contact-border"></div>
           <div class="mail">
             <p>
@@ -122,7 +118,7 @@ const Contact = () => {
             </p>
             <h3>
               <div style={{ overflow: "hidden" }}>
-                <div class="contact-line email">{info.Email}</div>
+                <div class="contact-line email">{data.Email}</div>
               </div>
             </h3>
           </div>
@@ -133,11 +129,13 @@ const Contact = () => {
                 <div class="contact-line">Github</div>
               </div>
             </p>
-            <h3>
-              <div style={{ overflow: "hidden" }}>
-                <div class="contact-line">GITHUB</div>
-              </div>
-            </h3>
+            <a href={data.Github}>
+              <h3>
+                <div style={{ overflow: "hidden" }}>
+                  <div class="contact-line">GITHUB</div>
+                </div>
+              </h3>
+            </a>
           </div>
           <div class="contact-border"></div>
           <div class="linkedin">
@@ -146,33 +144,43 @@ const Contact = () => {
                 <div class="contact-line">LinkedIn</div>
               </div>
             </p>
-            <h3>
-              <div style={{ overflow: "hidden" }}>
-                <div class="contact-line">LINKEDIN</div>
-              </div>
-            </h3>
+            <a href={data.LinkedIn}>
+              <h3>
+                <div style={{ overflow: "hidden" }}>
+                  <div class="contact-line">LINKEDIN</div>
+                </div>
+              </h3>
+            </a>
           </div>
           <div class="contact-border"></div>
         </div>
         <div class="contact-bottom">
+          <div class="credits" ref={revealCreditsRef}>
+            <p>ACKNOWLEDGEMENTS</p>
+            <p
+              ref={(el) => (textCreditsTarget = el)}
+              style={{ fontSize: ".5em" }}
+            >
+              Designed, crafted and developed by{" "}
+              <a href={data.Github}>Matt Chan.</a>
+              <br />
+              Using Be Vietnam from{" "}
+              <a href="https://fonts.google.com/specimen/Be+Vietnam?query=be+viet">
+                Google Fonts.
+              </a>
+            </p>
+          </div>
           <div className="footer">
-            <div class="credits" ref={revealCreditsRef}>
-              <p
-                ref={(el) => (textCreditsTarget = el)}
-                style={{ fontSize: ".5em" }}
-              >
-                Designed, crafted and developed by{" "}
-                <a href={info.Github}>Matt Chan.</a>
-                <br />
-                Using Be Vietnam from <a href="">Google Fonts.</a>
-              </p>
-            </div>
+            <a className="footer-button" onClick={handleClick}>
+              <div className="line-wrap">
+                <p className="footer-line">BACK TO TOP</p>
+                <div className="underline-footer"></div>
+              </div>
+            </a>
             <div>
-              <h1>
-                <span style={{ overflow: "hidden" }}>
-                  <span class="footer-line">©2020</span>
-                </span>
-              </h1>
+              <div class="line-wrap">
+                <h1 class="footer-line">©2021</h1>
+              </div>
             </div>
           </div>
         </div>

@@ -1,38 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 @font-face {
   font-family: "Half";
   src: url("../assets/fonts/Half-Regular.otf") format("opentype");
   font-display: auto;
-}
-
-@font-face {
-  font-family: "Ramona";
-  src: url("../assets/fonts/Ramona-Light.ttf") format("truetype");
-  font-display: auto;
-}
-
-@font-face {
-  font-family: "Pulchella";
-  src: url("../assets/fonts/Pulchella.otf") format("opentype");
-  font-display: auto;
-}
-
-@font-face {
-  font-family: "Technique Sans";
-  src: url("../assets/fonts/TechniqueSans.otf") format("opentype");
-  font-display: auto;
-}
-
+} */
 
 body {
   font-family: 'Be Vietnam', Helvetica, Arial, sans-serif;
 }
 
-h1 {
-  color: black;
-}
-
+h1,
 h2,
 h3,
 h4,
@@ -42,15 +20,16 @@ p {
 }
 
 h1 {
-  letter-spacing: -0.05rem;
+  letter-spacing: -0.2rem;
   line-height: .9;
-  font-size: clamp(1em, 18vw, 10em);
+  font-size: clamp(1em, 20vw, 10em);
+  font-weight: 400;
 }
 
 @media(min-width: 550px){
   h1{
-    font-size: clamp(1em, 14vw, 15em);
-    line-height: .8;
+    font-size: clamp(1em, 13vw, 13em);
+    line-height: .7;
     letter-spacing: -0.3rem;
   }
 }
@@ -59,7 +38,7 @@ h2 {
   font-weight: 500;
   letter-spacing: -0.05rem;
   line-height: .95;
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 
 h3 {
@@ -69,7 +48,9 @@ h3 {
 
 h4 {
   font-weight: 400;
-  font-size: 1.1em;
+  font-size: 1.3em;
+  line-height: .9;
+  letter-spacing: -0.01rem;
 }
 
 h5 {

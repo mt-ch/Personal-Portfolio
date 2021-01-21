@@ -26,7 +26,7 @@ function CreateProjectData(
   };
 }
 
-async function GetProjects() {
+async function GetProjects(setProjects) {
   let projectData = [];
   const url = "https://strapi-z1gs.onrender.com/projects";
   const response = await fetch(url);
@@ -61,7 +61,7 @@ async function GetProjects() {
       )
     );
   }
-  return projectData;
+  return setProjects(projectData);
 }
 
 export default GetProjects;

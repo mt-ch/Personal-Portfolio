@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { StyledNavMobile } from "../styled/components.styled";
 import { gsap, TimelineLite } from "gsap/all";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
-import { TimelineMax } from "gsap/all";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -26,16 +25,18 @@ const NavMobile = () => {
   const reveal = () => {
     const t1 = new TimelineLite();
     t1.from(".menu-text", {
+      delay: 2,
       duration: 2,
       yPercent: 100,
       stagger: {
         amount: 0.4,
       },
       ease: "Power3.easeInOut",
-    })
-    .from(".underline", {
+    });
+    gsap.from(".underline-nav-mobile", {
       duration: 1,
-      yScale: 0,
+      delay: 3.5,
+      width: 0,
       ease: "Power3.easeInOut",
     });
   };
@@ -52,7 +53,7 @@ const NavMobile = () => {
         </h5>
         <h5>
           <div className="line-wrap">
-            <div className="menu-text">2016-2020</div>
+            <div className="menu-text">2016-2021</div>
           </div>
         </h5>
       </a>
@@ -63,7 +64,7 @@ const NavMobile = () => {
             <div className="menu-text">
               Contact
             </div>
-            <div className="underline"></div>
+            <div className="underline-nav-mobile"></div>
           </div>
         </h5>
       </a>

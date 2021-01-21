@@ -150,8 +150,6 @@ export const StyledProject = styled.div`
       justify-content: space-between;
 
       .back {
-        /* position: absolute; */
-        /* transform: rotate(90deg); */
         text-decoration: underline;
       }
     }
@@ -178,12 +176,12 @@ export const StyledProject = styled.div`
       text-align: end;
     }
 
-    .border {
+    /* .border {
       height: 2px;
       width: 100%;
       margin: 0.5em 0;
       background-color: black;
-    }
+    } */
 
     .photos {
       padding-bottom: 1vh;
@@ -220,6 +218,10 @@ export const StyledProject = styled.div`
       width: 100%;
       object-fit: contain;
       padding: 1vh 0;
+    }
+
+    .heading{
+      margin-bottom: 1vw;
     }
   }
 
@@ -306,17 +308,18 @@ export const StyledNavMobile = styled.div`
 
   .contact-button-text {
     width: 100%;
-    .underline {
+    .underline-nav-mobile {
       height: 1px;
       width: 100%;
       background-color: black;
-      margin-top: 2px;
     }
   }
 `;
 
 export const StyledNav = styled.div`
-  position: fixed;
+  position: relative;
+  width: 25vw;
+  max-width: 10em;
 
   .line-wrap {
     position: relative;
@@ -324,6 +327,7 @@ export const StyledNav = styled.div`
   }
 
   .nav {
+    position: fixed;
     height: 50vh;
 
     .nav-title {
@@ -359,7 +363,7 @@ export const StyledNav = styled.div`
             cursor: pointer;
             pointer-events: all;
 
-            .nav-underline{
+            .nav-underline {
               display: block;
               position: absolute;
               bottom: 0;
@@ -383,60 +387,47 @@ export const StyledNav = styled.div`
   }
 `;
 
-export const StyledLoading = styled.div`
-  background-color: black;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-
-  p {
-    color: white;
-  }
-  .loading-txt {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    text-align: center;
-    z-index: 5;
-    font-size: clamp(1rem, 4vw, 4rem);
-  }
-
-  .progress-wrapper {
-    padding: 0 ${({ theme }) => theme.padding} 10vh
-      ${({ theme }) => theme.padding};
-    .progress {
-      height: 2px;
-      background-color: ${({ theme }) => theme.white};
-    }
-  }
-`;
-
 export const StyledAbout = styled.div`
   position: relative;
-  margin-bottom: 5em;
+  margin: 4em 0 4em;
   width: 100%;
-  height: 100%;
-  /* .about-header{
-    display: flex;
-    align-items: center;
-    .curved-arrow{
-      width: 1em;
-      transform: rotate(90deg);
-      margin-left: .5em;
-    }
-  } */
-  /* .border{
-    height: 2px;
+
+  .about-header {
     width: 100%auto;
-    background-color: black;
-    margin: .5em 0 1em;
-  } */
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    h1.about-header-text {
+      margin-bottom: 1vw;
+    }
+  }
+
+  .border-about {
+    margin: 1em 0 1em;
+  }
+
+  .line-wrap {
+    overflow: hidden;
+  }
+
+  .about-info {
+    margin-bottom: 2em;
+
+    .about-section-title {
+      margin-bottom: 0.5vh;
+    }
+  }
+
+  @media(min-width: 550px){
+    .about-area{
+      /* max-width: 60%; */
+    }
+
+    h1.about-header-text {
+      margin-bottom: 2vw!important;
+    }
+  }
 `;
 
 export const StyledProjects = styled.div`
@@ -450,13 +441,13 @@ export const StyledProjects = styled.div`
     padding-top: 3vh;
     display: flex;
     flex-direction: column;
-
+/* 
     .border {
       height: 2px;
       width: 100%;
       background-color: ${({ theme }) => theme.black};
       margin-bottom: 3vh;
-    }
+    } */
 
     /* .photo {
       height: 100%;
@@ -490,31 +481,29 @@ export const StyledProjects = styled.div`
 export const StyledProjectsDesktop = styled.div`
   position: relative;
 
-  .border {
-    height: 2px;
-    width: 100%;
-    background-color: ${({ theme }) => theme.black};
+  .project-section-header {
+    display: flex;
+    width: 100%auto;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 1em;
   }
 
-  .projects-section-title {
-    padding-bottom: 0.25em;
-
-    .line-wrap {
-      overflow: hidden;
-    }
+  h1.project-header-text {
+    margin-bottom: 1vw;
   }
 
   .project {
     display: flex;
     width: 100%;
-    height: 7em;
+    height: 10em;
     justify-content: space-between;
-    padding: 0.5em 0 0.5em;
+    padding: 1em 0 1em;
 
     .photo {
-      width: 20vw;
+      width: 28vw;
       min-width: 6em;
-      min-height: 3.5em;
+      min-height: 4em;
       object-fit: contain;
     }
 
@@ -524,7 +513,7 @@ export const StyledProjectsDesktop = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      max-width: 8em;
+      max-width: 60vw;
 
       .project-title {
         text-transform: uppercase;
@@ -532,89 +521,78 @@ export const StyledProjectsDesktop = styled.div`
       }
 
       .project-tech {
+        text-transform: uppercase;
       }
+    }
+  }
+
+  .lower-info{
+    display: flex;
+    align-items: center;
+  }
+
+  .arrow{
+    width: 4vw;
+    transform: rotate(-45deg);
+    margin-left: .25em;
+  }
+
+  @media(min-width: 550px){
+    h1.project-header-text {
+      margin-bottom: 2vw!important;
     }
   }
 `;
 
 export const StyledLanding = styled.div`
-  .content {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1.landing-line {
+    margin-bottom: 1vw;
+  }
+
+  .subtext-wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 15vh;
-    h1 {
-      font-weight: 900;
-    }
-    .header-wrapper {
-      padding-bottom: 2em;
-    }
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 1em;
 
-    .line-wrap {
-      overflow: hidden;
-    }
-
-    .subtext-wrapper {
+    .sub-text {
       display: flex;
-      justify-content: space-between;
-      align-items: start;
+      flex-direction: column;
+    }
+  }
 
-      .spinner {
-        width: 4em;
-        height: 4em;
-        animation: rotation 8s infinite linear;
-      }
-
-      .sub-text {
-        display: flex;
-        flex-direction: column;
-      }
-
-      @keyframes rotation {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(359deg);
-        }
-      }
+  @media (min-width: 550px) {
+    h1.landing-line {
+      margin-bottom: 2vw;
     }
   }
 `;
 
 export const StyledContact = styled.div`
   position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* height: 100%;
+  width: 100%; */
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: s; */
   margin: 5em 0 0.5em;
-  padding-top: 5em;
+  padding-top: 2em;
 
-  .outro {
-    h1 {
-      position: relative;
-      font-weight: bold;
-      z-index: 2;
+  .contact-header {
+    display: flex;
+    width: 100%auto;
+    justify-content: space-between;
+    align-items: end;
+
+    h1.contact-header-text{
+      margin-bottom: 1vw;
     }
-
-    /* .arrow{
-      position: relative;
-      bottom: 0;
-      right: 0;
-      width: .6em;
-      transform: rotate(90deg);
-      z-index: 1;
-      transition: all .7s ease;
-
-      &:hover{
-        transform: rotate(270deg);
-        transition: all .7s ease;
-      }
-    } */
   }
 
   .contact-info {
@@ -622,7 +600,7 @@ export const StyledContact = styled.div`
       height: 2px;
       width: 100%auto;
       background-color: black;
-      margin: 1em 0;
+      margin: 1.5em 0;
     }
 
     h3 {
@@ -637,46 +615,37 @@ export const StyledContact = styled.div`
   }
 
   .contact-bottom {
-    p {
-      a {
-        color: ${({ theme }) => theme.black};
-      }
-    }
-
     .footer {
       display: flex;
       justify-content: space-between;
       align-items: end;
       width: 100%auto;
 
-      h1 {
+      h1.footer-line{
+        margin-bottom: 1vw;
         font-weight: bold;
         font-size: 2.5em;
       }
     }
   }
 
-  @media (min-width: 750px) {
-    padding-top: 2em;
-
-    /* .contact-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-
-      .socials {
-        padding: 0 10vw 0 10vw;
-      }
-
-      .footer {
-        padding: 0;
-      }
-    } */
+  .text-credits{
+    margin-bottom:.3vw;
   }
-`;
 
-export const HomeDesktop = styled.div`
-  position: absolute;
-  left: 25vw;
-  padding-right: ${({ theme }) => theme.padding};
+  .footer-button{
+    margin-top: 2em;
+    .underline-footer{
+      height: 1px;
+      width: 100%;
+      background-color: black;
+    }
+  }
+
+  @media(min-width: 550px){
+    h1.contact-header-text {
+      margin-bottom: 2vw!important;
+    }
+  }
+
 `;

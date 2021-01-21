@@ -1,4 +1,4 @@
-import {createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 
 html, body {
   scroll-behavior: smooth;
-  background:  #fffefa;
+  background:  #faf3e1;
   color: ${({ theme }) => theme.black};
   &::-webkit-scrollbar {
     display: none;
@@ -32,11 +32,12 @@ body {
 .app{
   position: relative;
   width: 100%;
+  height: 100%auto;
+}
 
-  .page{
-    position: absolute;
-    width: 100%;
-  }
+.line-wrap {
+  display: block;
+  overflow: hidden;
 }
 
 .scrollable {
@@ -46,6 +47,7 @@ body {
 }
 
 a{
+  color: black;
   text-decoration: none;
 }
 

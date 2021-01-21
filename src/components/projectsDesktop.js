@@ -1,84 +1,73 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { StyledProjectsDesktop } from "../styled/components.styled";
-import { TimelineLite, gsap, Power3 } from "gsap";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
+import Arrow from "../assets/icons/arrow";
 
-const RevealBorder = ({ id }) => {
-  const borderRef = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
 
+const RevealArrow = ({ id }) => {
+  const arrowRef = useRef(null);
   useEffect(() => {
-    gsap.from(borderRef.current, {
-      width: 0,
-      duration: 3,
-      ease: Power3.easeInOut,
+    gsap.from(arrowRef.current, {
+      delay: 1,
+      opacity: 0,
+      duration: 2,
+      ease: "Power3.easeInOut",
       scrollTrigger: {
         trigger: ".project" + id,
         start: "top 95%",
       },
     });
   }, []);
-  return <div ref={borderRef} class="border"></div>;
+  return (
+    <div ref={arrowRef}>
+      <Arrow className={"arrow"} />
+    </div>
+  );
+};
+
+const RevealBorder = ({ id }) => {
+  const borderRef = useRef(null);
+  useEffect(() => {
+    gsap.from(borderRef.current, {
+      width: 0,
+      duration: 3,
+      ease: "Power3.easeInOut",
+      scrollTrigger: {
+        trigger: ".project" + id,
+        // markers: true,
+        start: "top 95%",
+      },
+    });
+  }, []);
+  return <div ref={borderRef} className="border"></div>;
 };
 
 const RevealPhoto = ({ photo, id }) => {
-  let containerRef = useRef(null);
   let imageRef = useRef(null);
-  let imageReveal = useRef(null);
 
   useEffect(() => {
-    // const tl = new TimelineLite({
-    //   scrollTrigger: {
-    //     trigger: ".project" + id,
-    //     markers: true,
-    //     start: "top 95%",
-    //   },
-    // });
-    // ScrollTrigger.refresh(true);
-    // tl.set(containerRef.current, {
-    //   visibility: "visible",
-    // })
-    //   .to(imageReveal.current, {
-    //     duration: 2,
-    //     height: "0%",
-    //     ease: Power3.easeInOut,
-    //   })
-    //   .from(imageRef.current, {
-    //     duration: 1.5,
-    //     scale: 1.5,
-    //     ease: Power3.easeInOut,
-    //     delay: -1.5,
-    //   });
-
     gsap.from(imageRef.current, {
       duration: 1.6,
       opacity: 0,
+      delay: 0.4,
       y: 10,
-      ease: Power3.easeInOut,
-      scrollTrigger:{
+      ease: "Power3.easeInOut",
+      scrollTrigger: {
         trigger: ".project" + id,
         start: "top 95%",
-      }
+      },
     });
-  });
+  }, []);
 
   return (
-    // <div className="container-wrapper" ref={(el) => (containerRef = el)}>
-    //   <>
-    //     <div className="img-container">
-    //         <div ref={(el) => (imageReveal = el)} class="revealImg"></div>
-    //         <img ref={(el) => (imageRef = el)} src={photo} />
-    //     </div>
-    //   </>
-    // </div>
-    <div ref={imageRef} >
-      <img class='photo' src={photo} />
+    <div ref={imageRef}>
+      <img class="photo" src={photo} />
     </div>
   );
 };
@@ -90,7 +79,7 @@ const RevealSubText = ({ text, id }) => {
   useEffect(() => {
     const subText = Splitting({ target: subTextTarget, by: "lines" });
     subText[0].lines.forEach((line) => {
-      $(line).wrapAll("<div style=overflow:hidden;height:100%;></div>");
+      $(line).wrapAll("<div style=overflow:hidden;></div>");
       gsap.from(line, {
         duration: 1.5,
         yPercent: 150,
@@ -107,7 +96,9 @@ const RevealSubText = ({ text, id }) => {
 
   return (
     <div ref={subTextRef}>
-      <p ref={(el) => (subTextTarget = el)}>{text}</p>
+      <p class="project-tech" ref={(el) => (subTextTarget = el)}>
+        {text}
+      </p>
     </div>
   );
 };
@@ -119,11 +110,11 @@ const RevealTextTitle = ({ text, id }) => {
   useEffect(() => {
     const title = Splitting({ target: titleTarget, by: "lines" });
     title[0].lines.forEach((line) => {
-      $(line).wrapAll("<div style=overflow:hidden;height:100%;></div>");
+      $(line).wrapAll("<div style=overflow:hidden;></div>");
       gsap.from(line, {
         duration: 1.5,
         yPercent: 150,
-        stagger: 0.4,
+        stagger: 0.5,
         scrollTrigger: {
           trigger: ".project" + id,
           start: "top 95%",
@@ -154,41 +145,46 @@ const ProjectsDesktop = ({ projects }) => {
         trigger: ".projects-section-title",
         start: "top 95%",
       },
-      ease: Power3.easeInOut,
+      ease: "Power3.easeInOut",
     });
-    gsap.from(".project-border-end", {
+    gsap.from(".border-project-header", {
+      duration: 2,
+      delay: 1.3,
       width: 0,
-      duration: 3,
-      ease: Power3.easeInOut,
+      ease: "Power3.easeInOut",
       scrollTrigger: {
-        trigger: ".project-border-end",
+        trigger: ".projects-section-title",
         start: "top 95%",
       },
     });
-    ScrollTrigger.update();
   }, []);
 
   return (
-    <StyledProjectsDesktop id='section-work'>
-      <h1 className="projects-section-title">
-        <div className="line-wrap">
-          <div className="project-header-text">SELECTED</div>
+    <StyledProjectsDesktop id="section-work">
+      <div class="project-section-header">
+        <div className="projects-section-title">
+          <div className="line-wrap">
+            <h1 className="project-header-text">WORK</h1>
+          </div>
         </div>
         <div className="line-wrap">
-          <div className="project-header-text">WORK</div>
+          <p className="project-header-text">/02</p>
         </div>
-      </h1>
+      </div>
+      <div className="border-project-header border"></div>
       {projects.map((project) => (
-        <Link
+        <a
+          href={project.website}
           className={"project" + project.id}
           key={project.id}
-          to={"/Projects/" + project.id}
         >
-          <RevealBorder id={project.id} />
           <div className="project">
             <div className="project-info">
               <RevealTextTitle id={project.id} text={project.name} />
-              <RevealSubText id={project.id} text={project.technologies} />
+              <div class="lower-info">
+                <RevealSubText id={project.id} text={project.technologies} />
+                <RevealArrow id={project.id} />
+              </div>
             </div>
 
             <div className="project-photo">
@@ -198,9 +194,9 @@ const ProjectsDesktop = ({ projects }) => {
               />
             </div>
           </div>
-        </Link>
+          <RevealBorder id={project.id} />
+        </a>
       ))}
-      <div class="border project-border-end"></div>
     </StyledProjectsDesktop>
   );
 };

@@ -7,7 +7,6 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../globals/global";
 import classNames from "classnames";
 import { theme } from "../globals/theme";
-import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,45 +84,6 @@ const Cursor = () => {
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
     />
   );
-};
-
-const ChangeColor = ({ children }) => {
-  const revealRef = useRef(null);
-
-  useEffect(() => {
-    gsap.to(
-      'body',
-      {
-        backgroundColor: 'black',
-        ease: "power0.inOut",
-        scrollTrigger: {
-          scrub: true,
-          start: "top bottom",
-          end: "400px bottom",
-          markers: true,
-          trigger: '.contact'
-          
-        },
-      }
-    );
-    gsap.to(
-      'h1, h2, h3, h4, h5, p',
-      {
-        color: 'white',
-        ease: "power0.inOut",
-        scrollTrigger: {
-          scrub: true,
-          start: "top bottom",
-          end: "400px bottom",
-          markers: true,
-          trigger: '.contact'
-          
-        },
-      }
-    );
-  }, []);
-
-  return <div ref={revealRef}>{children}</div>;
 };
 
 const Layout = ({ children }) => {
