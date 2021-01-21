@@ -40,7 +40,6 @@ const RevealBorder = ({ id }) => {
       ease: "Power3.easeInOut",
       scrollTrigger: {
         trigger: ".project" + id,
-        // markers: true,
         start: "top 95%",
       },
     });

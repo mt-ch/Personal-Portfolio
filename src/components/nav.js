@@ -151,7 +151,6 @@ const Nav = () => {
         start: "top center",
         end: "bottom center",
         scrub: true,
-        markers: true,
         onEnter: () => contact.classList.toggle("active"),
         onLeaveBack: () => contact.classList.remove("active"),
         onLeave: () => contact.classList.remove("active"),
