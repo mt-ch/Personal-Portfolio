@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { StyledNav } from "../styled/components.styled";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TimelineLite } from "gsap/all";
+import { mouseOverButton, mouseLeaveButton } from "../functions/interactions";
+import {StyledNav} from "../styled/nav.styled";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,59 +23,23 @@ const Nav = () => {
   const handleClickAbout = (e) => {
     e.stopPropagation();
     gsap.to(window, {
-      duration: 0.5,
+      duration: 1,
       ease: "Power3.ease",
       scrollTo: {
-        y: "#section-about",
-        offsetY: 100,
+        y: 0,
+        offsetY: 0,
       },
     });
-  };
-
-  const mouseOverAbout = (e) => {
-    e.stopPropagation();
-    var about = document.querySelector(".u-about");
-    about.classList.add("hover");
-  };
-
-  const mouseLeaveAbout = (e) => {
-    e.stopPropagation();
-    var about = document.querySelector(".u-about");
-    about.classList.remove("hover");
-  };
-
-  const mouseOverWork = (e) => {
-    e.stopPropagation();
-    var work = document.querySelector(".u-work");
-    work.classList.add("hover");
-  };
-
-  const mouseLeaveWork = (e) => {
-    e.stopPropagation();
-    var work = document.querySelector(".u-work");
-    work.classList.remove("hover");
-  };
-
-  const mouseOverContact = (e) => {
-    e.stopPropagation();
-    var contact = document.querySelector(".u-contact");
-    contact.classList.add("hover");
-  };
-
-  const mouseLeaveContact = (e) => {
-    e.stopPropagation();
-    var contact = document.querySelector(".u-contact");
-    contact.classList.remove("hover");
   };
 
   const handleClickWork = (e) => {
     e.stopPropagation();
     gsap.to(window, {
-      duration: 0.8,
+      duration: 1,
       ease: "Power3.ease",
       scrollTo: {
         y: "#section-work",
-        offsetY: 10,
+        offsetY: 50,
       },
     });
   };
@@ -86,7 +51,7 @@ const Nav = () => {
       ease: "Power3.ease",
       scrollTo: {
         y: "#section-contact",
-        offsetY: -20,
+        offsetY: -150,
       },
     });
   };
@@ -97,21 +62,21 @@ const Nav = () => {
       top: "-100%",
       scrollTrigger: {
         end: "1500px",
-        scrub: true,
+        scrub: .1,
       },
     });
     gsap.to(".nav-date", {
       top: "-50%",
       scrollTrigger: {
         end: "1500px",
-        scrub: true,
+        scrub: .1,
       },
     });
     gsap.to(".nav-options", {
-      top: 0,
+      top: "0%",
       scrollTrigger: {
         end: "1500px",
-        scrub: true,
+        scrub: .1,
       },
     });
 
@@ -125,7 +90,6 @@ const Nav = () => {
         start: "-1500px center",
         end: "top center",
         endTrigger: "#section-work",
-        scrub: true,
         onEnter: () => about.classList.toggle("active"),
         onLeaveBack: () => about.classList.remove("active"),
         onLeave: () => about.classList.remove("active"),
@@ -134,11 +98,10 @@ const Nav = () => {
     });
     gsap.to(".u-work", {
       scrollTrigger: {
-        trigger: "#section-about",
-        start: "bottom+=100 center",
+        trigger: "#section-work",
+        start: "top center",
         end: "top center",
         endTrigger: "#section-contact",
-        scrub: true,
         onEnter: () => work.classList.toggle("active"),
         onLeaveBack: () => work.classList.remove("active"),
         onLeave: () => work.classList.remove("active"),
@@ -150,7 +113,6 @@ const Nav = () => {
         trigger: "#section-contact",
         start: "top center",
         end: "bottom center",
-        scrub: true,
         onEnter: () => contact.classList.toggle("active"),
         onLeaveBack: () => contact.classList.remove("active"),
         onLeave: () => contact.classList.remove("active"),
@@ -163,11 +125,10 @@ const Nav = () => {
   const reveal = () => {
     const t1 = new TimelineLite();
     t1.from(".nav-text", {
+      delay: 2.5,
       duration: 2.5,
-      yPercent: 100,
-      stagger: {
-        amount: 1,
-      },
+      yPercent: 150,
+      stagger: .3,
       ease: "Power3.easeInOut",
     }).from(".underline", {
       duration: 1,
@@ -180,31 +141,25 @@ const Nav = () => {
     <StyledNav>
       <div className="nav">
         <a className="nav-title" onClick={handleToTop}>
-          <p>
-            <div class="line-wrap">
-              <div class="nav-text">Matt Chan</div>
-            </div>
-          </p>
+          <div class="line-wrap">
+            <p class="nav-text"><strong>Matt Chan</strong></p>
+          </div>
         </a>
-
         <div class="nav-date">
-          <p>
-            <div class="line-wrap">
-              <div class="nav-text">2016-2020</div>
-            </div>
-          </p>
+          <div class="line-wrap">
+            <p class="nav-text">2016-2021</p>
+          </div>
         </div>
-
         <div className="nav-options">
           <ul>
             <li>
               <a
                 className="nav-link"
                 onClick={handleClickAbout}
-                onMouseOver={mouseOverAbout}
-                onMouseLeave={mouseLeaveAbout}
+                onMouseOver={() => mouseOverButton(".u-about")}
+                onMouseLeave={() => mouseLeaveButton(".u-about")}
               >
-                <p class="nav-text">About</p>
+                <p class="nav-text nav-option-text">About</p>
                 <span class="nav-underline">
                   <span class="underline u-about"></span>
                 </span>
@@ -214,10 +169,10 @@ const Nav = () => {
               <a
                 className="nav-link"
                 onClick={handleClickWork}
-                onMouseOver={mouseOverWork}
-                onMouseLeave={mouseLeaveWork}
+                onMouseOver={() => mouseOverButton(".u-work")}
+                onMouseLeave={() => mouseLeaveButton(".u-work")}
               >
-                <p class="nav-text">Work</p>
+                <p class="nav-text nav-option-text">Work</p>
                 <span class="nav-underline">
                   <span class="underline u-work"></span>
                 </span>
@@ -227,10 +182,10 @@ const Nav = () => {
               <a
                 className="nav-link"
                 onClick={handleClickContact}
-                onMouseOver={mouseOverContact}
-                onMouseLeave={mouseLeaveContact}
+                onMouseOver={() => mouseOverButton(".u-contact")}
+                onMouseLeave={() => mouseLeaveButton(".u-contact")}
               >
-                <p class="nav-text">Contact</p>
+                <p class="nav-text nav-option-text">Contact</p>
                 <span class="nav-underline">
                   <span class="underline u-contact"></span>
                 </span>

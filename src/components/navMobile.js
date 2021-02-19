@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { StyledNavMobile } from "../styled/components.styled";
 import { gsap, TimelineLite } from "gsap/all";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import {StyledNavMobile} from "../styled/nav.styled";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -13,8 +13,8 @@ const NavMobile = () => {
   const handleClick = (e) => {
     e.stopPropagation();
     gsap.to(window, {
-      duration: 1,
-      ease: "Power3.ease",
+      duration: 2,
+      ease: "Power3.easeInOut",
       scrollTo: {
         y: "#section-contact",
         offsetY: -20,
@@ -44,29 +44,29 @@ const NavMobile = () => {
   return (
     <StyledNavMobile>
       <a className="nav-title">
-        <h5>
+        <p>
           <div className="line-wrap">
             <div className="menu-text">
               <strong>Matt Chan</strong>
             </div>
           </div>
-        </h5>
-        <h5>
+        </p>
+        <p>
           <div className="line-wrap">
             <div className="menu-text">2016-2021</div>
           </div>
-        </h5>
+        </p>
       </a>
 
       <a className="contact-button" onClick={handleClick}>
-        <h5 className="contact-button-text">
+        <p className="contact-button-text">
           <div className="line-wrap">
             <div className="menu-text">
               Contact
             </div>
             <div className="underline-nav-mobile"></div>
           </div>
-        </h5>
+        </p>
       </a>
     </StyledNavMobile>
   );

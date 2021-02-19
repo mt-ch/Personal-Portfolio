@@ -1,22 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
-import { gsap, CSSPlugin, Power3 } from "gsap";
+import React, { useEffect, useRef } from "react";
+import { gsap, CSSPlugin } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { StyledContact } from "../styled/components.styled";
+import { StyledContact } from "../styled/contact.styled";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
+import { mouseOverButton, mouseLeaveButton } from "../functions/interactions";
+import { RevealSectionTitle } from "./animations";
 
 gsap.registerPlugin(CSSPlugin, ScrollTrigger);
 
 const Contact = ({ data }) => {
-  const revealCreditsRef = useRef(null);
+  const revealCredits = useRef(null);
   let textCreditsTarget = useRef(null);
+  let textCreditsTarget2 = useRef(null);
+  const revealFooter = useRef(null);
 
   const handleClick = (e) => {
     e.stopPropagation();
     gsap.to(window, {
-      duration: 3,
+      duration: 2,
       ease: "Power3.easeInOut",
       scrollTo: {
         y: 0,
@@ -26,162 +30,216 @@ const Contact = ({ data }) => {
 
   useEffect(() => {
     const credits = Splitting({ target: textCreditsTarget, by: "lines" });
-    $(".text-title").wrap("<span style=overflow:hidden;></span>");
+    const credits2 = Splitting({ target: textCreditsTarget2, by: "lines" });
 
-    credits[0].lines.forEach((line, index) => {
+    credits[0].lines.forEach((line) => {
       $(line).wrapAll(
-        "<div style=overflow:hidden;><div class='text-credits'></div></div>"
+        "<div style=overflow:hidden;><div class='text-credits contact-sub-text'></div></div>"
       );
       line.forEach((word) => {
-        word.style.marginRight = ".25em";
+        word.style.marginRight = ".2em";
       });
     });
 
-    gsap.from(".contact-header-text", {
-      duration: 2.5,
-      yPercent: 150,
-      stagger: 0.6,
-      scrollTrigger: {
-        trigger: ".contact-info",
-        start: "top 90%",
-      },
-      ease: "Power3.easeInOut",
+    credits2[0].lines.forEach((line) => {
+      $(line).wrapAll(
+        "<div style=overflow:hidden;><div class='text-credits contact-sub-text'></div></div>"
+      );
+      line.forEach((word) => {
+        word.style.marginRight = ".2em";
+      });
     });
 
-    gsap.from(".contact-border", {
-      width: 0,
-      stagger: 0.5,
-      duration: 3,
-      ease: "Power3.easeInOut",
+    gsap.from(".contact-line", {
+      duration: 2,
+      yPercent: 150,
+      stagger: 0.4,
       scrollTrigger: {
         trigger: ".contact-info",
         start: "top 90%",
       },
+      ease: "Power3.easeInOut",
     });
 
     gsap.from(".text-credits", {
       duration: 1.5,
       yPercent: 100,
-      stagger: 0.4,
+      stagger: 0.3,
       ease: "Power3.easeInOut",
       scrollTrigger: {
-        trigger: revealCreditsRef.current,
-        start: "top 95%",
+        trigger: revealCredits.current,
+        start: "top 90%",
+      },
+    });
+
+    gsap.from(".text-socials", {
+      duration: 1.5,
+      yPercent: 100,
+      stagger: 0.3,
+      ease: "Power3.easeInOut",
+      scrollTrigger: {
+        trigger: revealCredits.current,
+        start: "top 90%",
       },
     });
 
     gsap.from(".footer-line", {
       duration: 1.2,
       yPercent: 150,
-      stagger: .4,
+      stagger: 0.4,
       scrollTrigger: {
-        trigger: revealCreditsRef.current,
+        trigger: revealFooter.current,
         start: "top 95%",
       },
     });
+
     gsap.from(".underline-footer", {
       duration: 1,
       delay: 3.5,
       width: 0,
       ease: "Power3.easeInOut",
-    });
-    gsap.from(".contact-line", {
-      duration: 2,
-      yPercent: 150,
-      stagger: 0.4,
-      ease: "Power3.easeInOut",
       scrollTrigger: {
-        trigger: ".contact-info",
-        start: "top 90%",
+        trigger: revealFooter.current,
+        start: "top 95%",
       },
     });
+
     ScrollTrigger.refresh(true);
   }, [ScrollTrigger]);
   return (
     <>
-      <StyledContact id="section-contact" className="contact">
-        <div class="contact-info">
-          <div class="contact-header">
-            <div class="line-wrap">
-              <h1 class="contact-header-text">CONTACT</h1>
+      <StyledContact className="contact" id="section-contact">
+        <div className="contact-info">
+          <RevealSectionTitle text={"CONTACT"} id={".contact-info"} />
+          <div className="mail">
+            <div className="line-wrap">
+              <h3 className="contact-line email">{data.Email}</h3>
             </div>
-            <div class="line-wrap">
-              <p class="contact-header-text">/03</p>
+            <div className="line-wrap">
+              <p className="contact-line contact-sub-text">
+                Available for freelance work:
+              </p>
+            </div>
+            <div className="line-wrap">
+              <p className="contact-line contact-sub-text">February 2021</p>
             </div>
           </div>
-          <div class="contact-border"></div>
-          <div class="mail">
-            <p>
-              <div style={{ overflow: "hidden" }}>
-                <div class="contact-line">Mail</div>
-              </div>
-            </p>
-            <h3>
-              <div style={{ overflow: "hidden" }}>
-                <div class="contact-line email">{data.Email}</div>
-              </div>
-            </h3>
-          </div>
-          <div class="contact-border"></div>
-          <div class="git">
-            <p>
-              <div style={{ overflow: "hidden" }}>
-                <div class="contact-line">Github</div>
-              </div>
-            </p>
-            <a href={data.Github}>
-              <h3>
-                <div style={{ overflow: "hidden" }}>
-                  <div class="contact-line">GITHUB</div>
-                </div>
-              </h3>
-            </a>
-          </div>
-          <div class="contact-border"></div>
-          <div class="linkedin">
-            <p>
-              <div style={{ overflow: "hidden" }}>
-                <div class="contact-line">LinkedIn</div>
-              </div>
-            </p>
-            <a href={data.LinkedIn}>
-              <h3>
-                <div style={{ overflow: "hidden" }}>
-                  <div class="contact-line">LINKEDIN</div>
-                </div>
-              </h3>
-            </a>
-          </div>
-          <div class="contact-border"></div>
         </div>
-        <div class="contact-bottom">
-          <div class="credits" ref={revealCreditsRef}>
-            <p>ACKNOWLEDGEMENTS</p>
-            <p
-              ref={(el) => (textCreditsTarget = el)}
-              style={{ fontSize: ".5em" }}
-            >
-              Designed, crafted and developed by{" "}
-              <a href={data.Github}>Matt Chan.</a>
-              <br />
-              Using Be Vietnam from{" "}
-              <a href="https://fonts.google.com/specimen/Be+Vietnam?query=be+viet">
-                Google Fonts.
-              </a>
-            </p>
-          </div>
-          <div className="footer">
-            <a className="footer-button" onClick={handleClick}>
+        <div className="contact-bottom">
+          <div className="contact-container">
+            <div className="socials">
               <div className="line-wrap">
-                <p className="footer-line">BACK TO TOP</p>
-                <div className="underline-footer"></div>
+                <p className="text-socials">
+                  <strong>Socials</strong>
+                </p>
               </div>
-            </a>
-            <div>
-              <div class="line-wrap">
-                <h1 class="footer-line">©2021</h1>
-              </div>
+              <ul>
+                <li>
+                  <a
+                    className="nav-link"
+                    onMouseOver={() => mouseOverButton(".u-insta")}
+                    onMouseLeave={() => mouseLeaveButton(".u-insta")}
+                  >
+                    <div class="line-wrap">
+                      <p class="text-socials contact-sub-text">Instagram</p>
+                    </div>
+                    <span class="nav-underline">
+                      <span class="underline u-insta"></span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="nav-link"
+                    href={data.Github}
+                    onMouseOver={() => mouseOverButton(".u-git")}
+                    onMouseLeave={() => mouseLeaveButton(".u-git")}
+                  >
+                    <div class="line-wrap">
+                      <p class="text-socials contact-sub-text">Github</p>
+                    </div>
+                    <span class="nav-underline">
+                      <span class="underline u-git"></span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="nav-link"
+                    href={data.LinkedIn}
+                    onMouseOver={() => mouseOverButton(".u-linked")}
+                    onMouseLeave={() => mouseLeaveButton(".u-linked")}
+                  >
+                    <div class="line-wrap">
+                      <p class="text-socials contact-sub-text">Linkedin</p>
+                    </div>
+                    <span class="nav-underline">
+                      <span class="underline u-linked"></span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
             </div>
+            <div class="credits" ref={revealCredits}>
+              <div class="line-wrap">
+                <p class="text-credits">
+                  <strong>Credits</strong>
+                </p>
+              </div>
+              <p ref={(el) => (textCreditsTarget = el)}>
+                Designed, crafted and developed by{" "}
+                <a href={data.Github}>Matt Chan.</a>
+                <br />
+                Using Manrope from{" "}
+                <a
+                  href="https://manropefont.com/"
+                  className="nav-link"
+                  onMouseOver={() => mouseOverButton(".u-font1")}
+                  onMouseLeave={() => mouseLeaveButton(".u-font1")}
+                >
+                  <div class="line-wrap">Manrope Font.</div>
+                  <span class="nav-underline">
+                    <span class="underline u-font1"></span>
+                  </span>
+                </a>
+              </p>
+
+              <p
+                className="contact-credit-text-2"
+                ref={(el) => (textCreditsTarget2 = el)}
+              >
+                Paired with Harmon from{" "}
+                <a
+                  href="https://dirtylinestudio.com/product/harmond-free-display-typeface/"
+                  className="nav-link"
+                  onMouseOver={() => mouseOverButton(".u-font2")}
+                  onMouseLeave={() => mouseLeaveButton(".u-font2")}
+                >
+                  <div class="line-wrap">DirtyLine Studio.</div>
+                  <span class="nav-underline">
+                    <span class="underline u-font2"></span>
+                  </span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="footer" ref={revealFooter}>
+            <div class="line-wrap">
+              <p class="footer-line contact-sub-text">©2021 mt-ch.net</p>
+            </div>
+            <a
+              className="footer-button nav-link"
+              onClick={handleClick}
+              onMouseOver={() => mouseOverButton(".u-to-top")}
+              onMouseLeave={() => mouseLeaveButton(".u-to-top")}
+            >
+              <div className="line-wrap">
+                <p className="footer-line contact-sub-text">Back To Top</p>
+              </div>
+              <span class="nav-underline">
+                <span class="underline u-to-top"></span>
+              </span>
+            </a>
           </div>
         </div>
       </StyledContact>

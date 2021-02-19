@@ -75,3 +75,35 @@
   width: 100%;
   background-color: black;
 }
+
+.nav-link {
+  display: table;
+  position: relative;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.nav-underline {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  
+}
+
+.underline {
+  display: block;
+  width: 100%;
+  transform: translateX(-120%);
+  content: "";
+  border-bottom: 1px black solid;
+  transition: transform .8s ease;
+}
+
+@media(min-width: 550px){
+  .section-title{
+    margin: 1vw 0 1.5vw;
+  }
+}

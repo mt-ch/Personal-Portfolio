@@ -9,7 +9,7 @@ const routes = [
 
 const App = () => {
   return (
-    <div className="app">
+    <div className="app disable-scrollbars">
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
             <Component />

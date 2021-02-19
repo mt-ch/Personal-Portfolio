@@ -11,8 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 
 html, body {
   scroll-behavior: smooth;
-  background:  #faf3e1;
-  color: ${({ theme }) => theme.black};
+  background:  #f7f3f0;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -26,13 +25,8 @@ body {
   height: 100%;
   width: 100%;
   text-rendering: optimizeLegibility;
-  font-size: calc(1em + 1vw)
-}
-
-.app{
-  position: relative;
-  width: 100%;
-  height: 100%auto;
+  font-size: calc(1em + 1vw);
+  /* overflow: hidden; */
 }
 
 .line-wrap {
@@ -40,12 +34,30 @@ body {
   overflow: hidden;
 }
 
-.scrollable {
+.scroller {
   height: 100vh;
-  overflow-y: hidden;
-  
 }
 
+.progress-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    z-index: 99;
+    overflow: hidden;
+
+    .progress {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 99;
+      background: #0d0900;
+    }
+  }
+  
 a{
   color: black;
   text-decoration: none;

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import ProjectsDesktop from "../components/projectsDesktop";
+import Projects from "../components/projects";
 import Layout from "../components/layout";
 import Landing from "../components/landing";
 import About from "../components/about";
@@ -7,7 +7,7 @@ import Nav from "../components/nav";
 import NavMobile from "../components/navMobile";
 import Contact from "../components/contact";
 import { useEffect } from "react";
-import { HomeDesktop } from "../styled/components.styled";
+import { HomeStyled } from "../styled/components.styled";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Scrollbar from "smooth-scrollbar";
@@ -41,82 +41,101 @@ const Home = () => {
   const GetData = () => [GetProjects(setProjects).then(GetInfo(setInfo))];
 
   useEffect(() => {
+    gsap.from(".loader-letter", {
+      duration: 2,
+      yPercent: 100,
+      stagger: 0.2,
+      ease: "Power3.easeInOut",
+    });
+
     Pace.options = {
       ajax: true,
       document: false,
       eventLag: false,
     };
 
-    Pace.track(function(){
+    Pace.track(function () {
       GetData();
     });
 
     Pace.on("done", function () {
       setIsLoading(false);
-      gsap.to(".loader-text", {
-        duration: 2.5,
-        y: -50,
-        opacity: 0,
-        ease: "Power3.easeInOut",
-      });
-      gsap.to("#preloader",{
-        delay: 1,
-        duration: 2,
+      gsap.to(".wrapper", {
+        delay: 2,
+        duration: 1.5,
         top: "-100%",
         ease: "Power3.easeInOut",
       });
     });
   }, []);
-  // useEffect(() => {
-  //   const scroller = document.querySelector(".scrollable");
-  //   const bodyScrollBar = Scrollbar.init(scroller);
 
-  //   // code for gsap and smooth scrollbar work together
-  //   ScrollTrigger.scrollerProxy(".scrollable", {
-  //     scrollTop(value) {
-  //       if (arguments.length) {
-  //         bodyScrollBar.scrollTop = value;
-  //       }
-  //       return bodyScrollBar.scrollTop;
-  //     },
-  //   });
+  useEffect(() => {
+    const scroller = document.querySelector(".scroller");
 
-  //   bodyScrollBar.addListener(ScrollTrigger.update);
+    // const scrollbar = Scrollbar.init(scroller, {
+    //   delegateTo: document,
+    //   alwaysShowTracks: false,
+    // });
 
-  //   ScrollTrigger.defaults({ scroller: scroller });
-  // }, []);
+    // ScrollTrigger.scrollerProxy(".scroller", {
+    //   scrollTop(value) {
+    //     if (arguments.length) {
+    //       scrollbar.scrollTop = value; // setter
+    //     }
+    //     return scrollbar.scrollTop; // getter
+    //   },
+    // });
+
+    // scrollbar.addListener(ScrollTrigger.update);
+    // ScrollTrigger.defaults({ scroller: ".scroller" });
+
+    gsap.from(".progress", {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: { scrub: 0.3 },
+    });
+  }, [ScrollTrigger]);
 
   return (
-    // <div className="scrollable">
     <>
-      <div id="preloader">
-        <div class="loader-container">
-        <p class="loader-text">Matt Chan</p>
+      <Layout className="disable-scrollbars">
+        <div class="wrapper">
+          <span className="line-wrap">
+            <h3 className="loader-letter">m</h3>
+          </span>
+          <span className="line-wrap">
+            <h3 className="loader-letter">c</h3>
+          </span>
         </div>
-      </div>
-      {isLoading ? null : (
-        <Layout>
+        <div className="progress-wrap">
+          <div className="progress"></div>
+        </div>
+        {/* <div className="scroller"> */}
+        <HomeStyled>
           {width < breakpoint ? (
-            <>
-              <NavMobile />
-              <Landing />
-              <About />
-              <ProjectsDesktop projects={projects} id="section-work" />
-              <Contact data={info} />
-            </>
-          ) : (
-            <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-              <Nav />
-              <div>
+            isLoading ? null : (
+              <>
+                <NavMobile />
                 <Landing />
-                <About />
-                <ProjectsDesktop projects={projects} id="section-work" />
+                <Projects projects={projects} id="section-work" />
                 <Contact data={info} />
+              </>
+            )
+          ) : isLoading ? null : (
+            <div className="desktop">
+              <div class="desktop-nav">
+                <Nav />
+              </div>
+              <div className="desktop-side">
+                <Landing />
+                <Projects projects={projects} id="section-work" />
+                <Contact data={info} id="section-contact" />
               </div>
             </div>
           )}
-        </Layout>
-       )} 
+        </HomeStyled>
+        {/* </div> */}
+      </Layout>
     </>
   );
 };
