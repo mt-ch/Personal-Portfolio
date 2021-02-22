@@ -32,6 +32,16 @@ const Contact = ({ data }) => {
     const credits = Splitting({ target: textCreditsTarget, by: "lines" });
     const credits2 = Splitting({ target: textCreditsTarget2, by: "lines" });
 
+    gsap.from(".contact-number", {
+      duration: 2,
+      opacity: 0,
+      ease: "Power3.easeInOut",
+      scrollTrigger: {
+        trigger: ".contact-info",
+        start: "top 100%"
+      }
+    });
+
     credits[0].lines.forEach((line) => {
       $(line).wrapAll(
         "<div style=overflow:hidden;><div class='text-credits contact-sub-text'></div></div>"
@@ -110,7 +120,10 @@ const Contact = ({ data }) => {
     <>
       <StyledContact className="contact" id="section-contact">
         <div className="contact-info">
-          <RevealSectionTitle text={"CONTACT"} id={".contact-info"} />
+          <div class="section-header">
+            <RevealSectionTitle text={"CONTACT"} id={".contact-info"} />
+            <h3 className="section-number contact-number">03</h3>
+          </div>
           <div className="mail">
             <div className="line-wrap">
               <h3 className="contact-line email">{data.Email}</h3>

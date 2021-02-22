@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import Projects from "../components/projects";
 import Layout from "../components/layout";
 import Landing from "../components/landing";
-import About from "../components/about";
 import Nav from "../components/nav";
 import NavMobile from "../components/navMobile";
 import Contact from "../components/contact";
@@ -10,11 +9,12 @@ import { useEffect } from "react";
 import { HomeStyled } from "../styled/components.styled";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Scrollbar from "smooth-scrollbar";
 import GetInfo from "../functions/getInfo";
 import GetProjects from "../functions/getProjects";
 import Pace from "pace-js";
 import "../styled/loader.css";
+import { RevealLoadingTitle } from "../components/animations";
+import { enableBodyScroll, disableBodyScroll } from "body-scroll-lock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,12 +39,13 @@ const Home = () => {
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const GetData = () => [GetProjects(setProjects).then(GetInfo(setInfo))];
+  const body = document.body;
 
   useEffect(() => {
-    gsap.from(".loader-letter", {
+    disableBodyScroll(body);
+    gsap.from(".loading-line", {
       duration: 2,
-      yPercent: 100,
-      stagger: 0.2,
+      scaleY: 0,
       ease: "Power3.easeInOut",
     });
 
@@ -60,17 +61,22 @@ const Home = () => {
 
     Pace.on("done", function () {
       setIsLoading(false);
-      gsap.to(".wrapper", {
+      gsap.from(".loading-in", {
         delay: 2,
         duration: 1.5,
-        top: "-100%",
+        transform: "scale(0)",
         ease: "Power3.easeInOut",
+        onComplete: enableScroll,
       });
     });
   }, []);
 
+  function enableScroll() {
+    return enableBodyScroll(body);
+  }
+
   useEffect(() => {
-    const scroller = document.querySelector(".scroller");
+    // const scroller = document.querySelector(".scroller");
 
     // const scrollbar = Scrollbar.init(scroller, {
     //   delegateTo: document,
@@ -99,42 +105,59 @@ const Home = () => {
   return (
     <>
       <Layout className="disable-scrollbars">
-        <div class="wrapper">
-          <span className="line-wrap">
-            <h3 className="loader-letter">m</h3>
-          </span>
-          <span className="line-wrap">
-            <h3 className="loader-letter">c</h3>
-          </span>
+        <div className="wrapper">
+          <div class="loader-text">
+            <RevealLoadingTitle
+              text={"LOADING"}
+              className={"loader-letters"}
+              delay={0}
+              letterClass={"loader-letter"}
+            />
+            <div className="loading-line"></div>
+            <RevealLoadingTitle
+              text={"mt-ch"}
+              className={"loader-letters-name"}
+              delay={0}
+              letterClass={"loader-letter-name"}
+            />
+          </div>
+          <div className="loading-in"></div>
         </div>
-        <div className="progress-wrap">
-          <div className="progress"></div>
-        </div>
-        {/* <div className="scroller"> */}
-        <HomeStyled>
-          {width < breakpoint ? (
-            isLoading ? null : (
-              <>
-                <NavMobile />
-                <Landing />
-                <Projects projects={projects} id="section-work" />
-                <Contact data={info} />
-              </>
-            )
-          ) : isLoading ? null : (
-            <div className="desktop">
-              <div class="desktop-nav">
-                <Nav />
-              </div>
-              <div className="desktop-side">
-                <Landing />
-                <Projects projects={projects} id="section-work" />
-                <Contact data={info} id="section-contact" />
-              </div>
+
+        {width < breakpoint ? null : isLoading ? null : (
+          <>
+            <div className="progress-wrap">
+              <div className="progress"></div>
             </div>
-          )}
-        </HomeStyled>
-        {/* </div> */}
+            {/* <Nav /> */}
+          </>
+        )}
+
+        <div className="scroller">
+          <HomeStyled>
+            {width < breakpoint ? (
+              isLoading ? null : (
+                <>
+                  <NavMobile />
+                  <Landing />
+                  <Projects projects={projects} id="section-work" />
+                  <Contact data={info} />
+                </>
+              )
+            ) : isLoading ? null : (
+              <div className="desktop">
+                <div class="desktop-nav">
+                  <Nav />
+                </div>
+                <div className="desktop-side">
+                  <Landing />
+                  <Projects projects={projects} id="section-work" />
+                  <Contact data={info} id="section-contact" />
+                </div>
+              </div>
+            )}
+          </HomeStyled>
+        </div>
       </Layout>
     </>
   );

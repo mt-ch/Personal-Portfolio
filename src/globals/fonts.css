@@ -34,7 +34,7 @@ h6 {
 h1,
 h2,
 h3 {
-  letter-spacing: -.05rem;
+  letter-spacing: -.15rem;
   line-height: .8;
 }
 
@@ -54,13 +54,13 @@ h3 {
 }
 
 h5 {
-  font-size: 1em;
+  font-size: .75em;
   font-weight: 500;
   line-height: .9;
 }
 
 p {
-  font-size: .7em;
+  font-size: .6em;
   letter-spacing: -0.01rem;
   line-height: 1.1;
   font-weight: 500;

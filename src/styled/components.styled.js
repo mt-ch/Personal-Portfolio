@@ -40,10 +40,10 @@ export const StyledLayout = styled.div`
   }
 `;
 
-
-
 export const HomeStyled = styled.div`
-  padding: .5em ${({ theme }) => theme.padding} .5em;
+  position: relative;
+  z-index: 3;
+  padding: 0.5em ${({ theme }) => theme.padding} 0.5em;
   ${({ theme }) => theme.padding};
 
   .desktop {
@@ -58,11 +58,11 @@ export const HomeStyled = styled.div`
     }
 
     .desktop-side {
-      width: 80vw;
+      width: 70vw;
     }
   }
 
   @media (min-width: 550px) {
-    padding: .5em ${({ theme }) => theme.padding} .5em 0;
+    padding: 0.5em ${({ theme }) => theme.padding} 0.5em 0;
   }
 `;

@@ -9,23 +9,34 @@ import $ from "jquery";
 gsap.registerPlugin(ScrollTrigger);
 
 export const RevealSectionTitle = ({ text, id }) => {
-  const titleRef = useRef(null);
+  let lineTarget = useRef(null);
 
   useEffect(() => {
-    gsap.from(titleRef.current, {
-      duration: 2,
-      yPercent: 150,
-      scrollTrigger: {
-        trigger: id,
-        start: "top 95%",
-      },
-      ease: "Power3.easeInOut",
+    const landingLine = Splitting({
+      target: lineTarget,
+      type: "chars",
+    });
+    landingLine[0].chars.forEach((char, index) => {
+      $(char).wrapAll("<span style=overflow:hidden;> </span>");
+      char.style.marginRight = "-.2em";
+      gsap.from(char, {
+        delay: index / 10,
+        duration: 3,
+        yPercent: 200,
+        ease: "Power3.easeInOut",
+        scrollTrigger: {
+          trigger: id,
+          start: "top 100%",
+        },
+      });
     });
   }, []);
 
   return (
     <div className="line-wrap">
-      <h1 className='section-title' ref={titleRef}>{text}</h1>
+      <h1 className="section-title" ref={(el) => (lineTarget = el)}>
+        {text}
+      </h1>
     </div>
   );
 };
@@ -122,9 +133,9 @@ export const RevealSubText = ({ text, id }) => {
   }, []);
 
   return (
-    <p class="project-tech" ref={(el) => (subTextTarget = el)}>
+    <h5 class="project-tech" ref={(el) => (subTextTarget = el)}>
       <strong>{text}</strong>
-    </p>
+    </h5>
   );
 };
 
@@ -134,18 +145,16 @@ export const RevealTextNoTrigger = ({ text }) => {
   useEffect(() => {
     const subText = Splitting({ target: subTextTarget, by: "lines" });
     subText[0].lines.forEach((line) => {
-      $(line).wrapAll("<div style=overflow:hidden;><div class='pop-out-text' style=white-space:nowrap;></div></div>");
+      $(line).wrapAll(
+        "<div style=overflow:hidden;><div class='pop-out-text' style=white-space:nowrap;></div></div>"
+      );
       line.forEach((word) => {
         word.style.marginRight = ".2em";
       });
     });
   }, []);
 
-  return (
-    <p ref={(el) => (subTextTarget = el)}>
-      {text}
-    </p>
-  );
+  return <p ref={(el) => (subTextTarget = el)}>{text}</p>;
 };
 
 export const RevealPhotoNoTrigger = ({ photo }) => {
@@ -175,7 +184,9 @@ export const RevealTitleNoTrigger = ({ text }) => {
   useEffect(() => {
     const title = Splitting({ target: titleTarget, by: "words" });
     title[0].words.forEach((word) => {
-      $(word).wrapAll("<div style=overflow:hidden;><div class='pop-out-text'></div></div>");
+      $(word).wrapAll(
+        "<div style=overflow:hidden;><div class='pop-out-text'></div></div>"
+      );
       gsap.from(word, {
         duration: 2,
         yPercent: 200,
@@ -187,8 +198,104 @@ export const RevealTitleNoTrigger = ({ text }) => {
   }, []);
 
   return (
-    <h3 className="project-pop-out-header-text" ref={(el) => (titleTarget = el)}>
+    <h3
+      className="project-pop-out-header-text"
+      ref={(el) => (titleTarget = el)}
+    >
       {text}
     </h3>
+  );
+};
+
+export const RevealLandingTitle = ({ text, className }) => {
+  let lineTarget = useRef(null);
+
+  useEffect(() => {
+    const landingLine = Splitting({
+      target: lineTarget,
+      type: "chars",
+      whitespace: true,
+    });
+    landingLine[0].chars.forEach((char, index) => {
+      $(char).wrapAll("<span style=overflow:hidden;> </span>");
+      char.style.marginLeft = "-.15em";
+      gsap.from(char, {
+        delay: 2 + index / 10,
+        duration: 3,
+        yPercent: 200,
+        ease: "Power3.easeInOut",
+      });
+    });
+
+    const whitespace = document.querySelectorAll(".whitespace");
+    whitespace.forEach((space) => {
+      space.style.marginLeft = 0;
+    });
+  }, []);
+  return (
+    <span className="line-wrap">
+      <h1 className={className} ref={(el) => (lineTarget = el)}>
+        {text}
+      </h1>
+    </span>
+  );
+};
+
+export const RevealLandingTitleOther = ({ text, className }) => {
+  let lineTarget = useRef(null);
+
+  useEffect(() => {
+    const landingLine = Splitting({
+      target: lineTarget,
+      type: "chars",
+    });
+    landingLine[0].chars.forEach((char, index) => {
+      $(char).wrapAll("<span style=overflow:hidden;> </span>");
+      char.style.marginLeft = "-.25em";
+      gsap.from(char, {
+        delay: 2 + index / 10,
+        duration: 3,
+        yPercent: 200,
+        ease: "Power3.easeInOut",
+      });
+    });
+  }, []);
+  return (
+    <span className="line-wrap">
+      <h1 className={className} ref={(el) => (lineTarget = el)}>
+        {text}
+      </h1>
+    </span>
+  );
+};
+
+export const RevealLoadingTitle = ({ text, className, delay, letterClass }) => {
+  let lineTarget = useRef(null);
+
+  useEffect(() => {
+    const landingLine = Splitting({
+      target: lineTarget,
+      type: "chars",
+    });
+    landingLine[0].chars.forEach((char, index) => {
+      char.classList.add(letterClass);
+    });
+
+    const lineClass = "." + letterClass;
+
+    gsap.from(lineClass, {
+      delay: delay,
+      stagger: 0.2,
+      duration: 1,
+      yPercent: 200,
+      ease: "Power3.easeInOut",
+    });
+  }, []);
+  return (
+    <span className="line-wrap">
+      <h1 className={className} ref={(el) => (lineTarget = el)}>
+        {text}
+      </h1>
+    </span>
   );
 };

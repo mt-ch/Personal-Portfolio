@@ -11,14 +11,25 @@ export const StyledLanding = styled.div`
 
   .landing-line-1 {
     font-family: "Harmond";
-    margin: 3vw 0 -2vw 15vw;
-    font-size: clamp(1em, 22vw, 12em);
+    margin: 3vw 0 -2vw 0vw;
+    font-size: clamp(1em, 20.5vw, 12em);
   }
 
   .landing-line-3 {
     font-family: "Harmond";
-    margin: 3vw 0 -2vw 15vw;
+    margin: 3vw 0 -2vw 5vw;
     font-size: clamp(1em, 20.5vw, 12em);
+  }
+
+  .landing-text-split {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .section-number {
+      height: 50%;
+    }
   }
 
   .landing-subtext {
@@ -31,11 +42,14 @@ export const StyledLanding = styled.div`
     justify-content: space-between;
     align-items: end;
   }
+  .landing-letter{
+    letter-spacing: -.3rem;
+  }
 
   @media (min-width: 550px) {
     padding: 0;
-    h1.landing-line {
-      
+    .landing-line {
+      margin-bottom:.1vw
     }
 
     .landing-subtext {
@@ -43,20 +57,19 @@ export const StyledLanding = styled.div`
     }
 
     .landing-line-1 {
-    margin: 3vw 0 0 15vw;
-    font-size: clamp(1em, 15vw, 12em);
-  }
-  .landing-line-2 {
-    margin: .8vw 0 1.5vw;
-  }
-  .landing-line-4 {
-    margin:  .8vw 0 1.5vw;
-  }
+      margin: 3vw 2.25vw 0 2vw;
+      font-size: clamp(1em, 13vw, 12em);
+    }
+    .landing-line-2 {
+      margin: 0.8vw 0 1.5vw 25vw;
+    }
+    .landing-line-4 {
+      margin: 0.8vw 0 1.5vw 15vw;
+    }
 
-  .landing-line-3 {
-    margin: 3vw 0 0 15vw;
-    font-size: clamp(1em, 15vw, 12em);
-  }
-  
+    .landing-line-3 {
+      margin: 3vw 2.25vw 0 2vw;
+      font-size: clamp(1em, 13vw, 12em);
+    }
   }
 `;

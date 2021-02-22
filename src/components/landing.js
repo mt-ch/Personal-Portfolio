@@ -1,16 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { StyledLanding } from "../styled/landing.styled";
 import About from "./about";
+import { RevealLandingTitle, RevealLandingTitleOther } from "./animations";
 
 const Landing = () => {
+  let lineTarget = useRef(null);
+
   useEffect(() => {
     reveal();
   }, []);
 
   const reveal = () => {
     gsap.from(".landing-line", {
-      delay: 2,
+      delay: 2.3,
       duration: 3,
       yPercent: 200,
       stagger: {
@@ -18,32 +21,39 @@ const Landing = () => {
       },
       ease: "Power3.easeInOut",
     });
+    gsap.from(".about-number", {
+      delay: 2.5,
+      duration: 2,
+      opacity: 0,
+      ease: "Power3.easeInOut",
+    });
   };
 
   return (
     <StyledLanding>
       <div>
-        <span className="line-wrap">
-          <h1 className="landing-line landing-line-1">FOLIO / 21 </h1>
-        </span>
-        <span className="line-wrap">
-          <h1 className="landing-line landing-line-2" >CODER</h1>
-        </span>
-        <span className="line-wrap">
-          <h1 className="landing-line landing-line-3">+ DIGITAL</h1>
-        </span>
-        <span className="line-wrap">
-          <h1 className="landing-line landing-line-4">DESIGNER</h1>
-        </span>
+        <div class="landing-text-split">
+          <RevealLandingTitle
+            className={"landing-line-1"}
+            text={"FOLIO / 21"}
+          />
+          <h3 className="section-number about-number">01</h3>
+        </div>
+        <RevealLandingTitleOther className={"landing-line-2"} text={"CODER"} />
+
+        <RevealLandingTitle className={"landing-line-3"} text={"+ DIGITAL"} />
+        <RevealLandingTitleOther
+          className={"landing-line-4"}
+          text={"DESIGNER"}
+        />
       </div>
       <div class="landing-bottom">
         <About />
         <div className="landing-subtext">
           <span className="line-wrap">
-            <p className="landing-line">Available for freelance work:</p>
-          </span>
-          <span className="line-wrap">
-            <p className="landing-line">Feb, 21</p>
+            <p className="landing-line">
+              Available for freelance work: Feb, 21
+            </p>
           </span>
         </div>
       </div>

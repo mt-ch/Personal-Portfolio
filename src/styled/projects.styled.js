@@ -69,6 +69,14 @@ export const StyledProject = styled.div`
     margin-bottom: 0.5vw;
   }
 
+  .mobile-sub-text {
+    display: block;
+  }
+
+  .desk-sub-text {
+    display: none;
+  }
+
   @media (min-width: 550px) {
     .project-pop-out {
       position: fixed;
@@ -84,6 +92,14 @@ export const StyledProject = styled.div`
 
     .pop-out-text {
       margin-bottom: 0.25vw;
+    }
+
+    .mobile-sub-text {
+      display: none;
+    }
+
+    .desk-sub-text {
+      display: block;
     }
 
     .project-pop-out-photo {
@@ -105,13 +121,9 @@ export const StyledProjects = styled.div`
   }
 
   .cover-img {
-    width: 25vw;
-    height: 30vh;
-    /* height: 10em;
-    min-height: 3em;
-    min-width: 3em; */
-    object-fit: cover;
-    /* max-width: 100%; */
+    width: 28vw;
+    height: 100%;
+    object-fit: contain;
   }
 
   .box {
@@ -131,7 +143,7 @@ export const StyledProjects = styled.div`
 
   .project {
     display: flex;
-    height: 10em;
+    min-height: 10em;
     width: 100%;
     justify-content: space-between;
     padding: 1.5em 0 1.5em;
@@ -161,6 +173,21 @@ export const StyledProjects = styled.div`
   @media (min-width: 550px) {
     .project-info {
       max-width: 30vw;
+    }
+    .cover-img {
+      width: 14vw;
+      height: 100%;
+      object-fit: contain;
+    }
+    .project-tech {
+      text-transform: uppercase;
+      max-width: 12vw;
+    }
+
+    .project-info-side {
+      display: flex;
+      justify-content: space-between;
+      width: 30vw;
     }
   }
 `;

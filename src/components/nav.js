@@ -154,10 +154,10 @@ const Nav = () => {
           <ul>
             <li>
               <a
-                className="nav-link"
+                className="nav-link link--kale"
                 onClick={handleClickAbout}
-                onMouseOver={() => mouseOverButton(".u-about")}
-                onMouseLeave={() => mouseLeaveButton(".u-about")}
+                // onMouseOver={() => mouseOverButton(".u-about")}
+                // onMouseLeave={() => mouseLeaveButton(".u-about")}
               >
                 <p class="nav-text nav-option-text">About</p>
                 <span class="nav-underline">

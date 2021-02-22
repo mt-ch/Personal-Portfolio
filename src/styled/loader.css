@@ -49,15 +49,54 @@
   width: 100vw;
   height: 100vh;
   background: rgb(17, 17, 17);
-  z-index: 99;
+  z-index: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  justify-content: start;
 }
 
-.loader-letter{
+.loader-text{
+  display: flex;
+  align-items: end;
+  /* height: 100%; */
+  justify-content: start;
+  overflow: hidden;
+  padding: 0 0 .5em 1em;
+  position: relative;
+  z-index: 5;
+}
+
+.loader-letters{
   color: white;
-  margin-bottom: .25vw;
+  font-size: clamp(1.5em, 6vw, 6em);
+  font-family: "Harmond";
+  margin: 2vw 2vw 0vw 0vw;
 }
 
+.loader-letters-name{
+  color: white;
+  font-size: clamp(.9em, 1.5vw, 1.5em);
+  margin: 2vw 2vw 1vw 2vw;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+}
 
+.loading-in{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background:  #f7f3f0;
+  z-index: 6;
+}
+
+.loading-line{
+  height: 9vh;
+  width: 2px;
+  margin: 0 .2em 0 .65em;
+  background-color: white;
+  transform: rotate(30deg);
+}
+
+.loader-letter-name{
+  
+}

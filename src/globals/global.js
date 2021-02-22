@@ -29,6 +29,26 @@ body {
   /* overflow: hidden; */
 }
 
+.section-number{
+  font-family: "Harmond";
+  /* margin: 3vw 0 -2vw 15vw;
+  font-size: clamp(1em, 20.5vw, 12em); */
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: .5em .5em .25em .25em;
+
+}
+
+.section-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .section-title{
+    margin-right: 2vw;
+  }
 .line-wrap {
   display: block;
   overflow: hidden;
@@ -36,6 +56,8 @@ body {
 
 .scroller {
   height: 100vh;
+  z-index: 11;
+  /* overflow: hidden; */
 }
 
 .progress-wrap {
