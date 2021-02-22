@@ -38,8 +38,8 @@ const Contact = ({ data }) => {
       ease: "Power3.easeInOut",
       scrollTrigger: {
         trigger: ".contact-info",
-        start: "top 100%"
-      }
+        start: "top 100%",
+      },
     });
 
     credits[0].lines.forEach((line) => {
@@ -120,21 +120,23 @@ const Contact = ({ data }) => {
     <>
       <StyledContact className="contact" id="section-contact">
         <div className="contact-info">
-          <div class="section-header">
-            <RevealSectionTitle text={"CONTACT"} id={".contact-info"} />
-            <h3 className="section-number contact-number">03</h3>
-          </div>
-          <div className="mail">
-            <div className="line-wrap">
-              <h3 className="contact-line email">{data.Email}</h3>
+          <RevealSectionTitle text={"CONTACT"} id={".contact-info"} />
+          <div className="contact-mid-section">
+            <div class="section-circle contact-number">
+              <h3 className="section-number">03</h3>
             </div>
-            <div className="line-wrap">
-              <p className="contact-line contact-sub-text">
-                Available for freelance work:
-              </p>
-            </div>
-            <div className="line-wrap">
-              <p className="contact-line contact-sub-text">February 2021</p>
+            <div className="mail">
+              <div className="line-wrap">
+                <h3 className="contact-line email">{data.Email}</h3>
+              </div>
+              <div className="line-wrap">
+                <p className="contact-line contact-sub-text">
+                  Available for freelance work:
+                </p>
+              </div>
+              <div className="line-wrap">
+                <p className="contact-line contact-sub-text">February 2021</p>
+              </div>
             </div>
           </div>
         </div>

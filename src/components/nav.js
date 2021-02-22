@@ -125,7 +125,7 @@ const Nav = () => {
   const reveal = () => {
     const t1 = new TimelineLite();
     t1.from(".nav-text", {
-      delay: 2.5,
+      delay: 3.5,
       duration: 2.5,
       yPercent: 150,
       stagger: .3,

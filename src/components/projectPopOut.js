@@ -76,7 +76,7 @@ const ProjectPopOut = ({ setProjectActive, project }) => {
               <span class="underline u-git"></span>
             </span>
           </a>
-          <a
+          {/* <a
             href={project.website}
             className="nav-link"
             onMouseOver={() => mouseOverButton(".u-web")}
@@ -90,7 +90,7 @@ const ProjectPopOut = ({ setProjectActive, project }) => {
             <span class="nav-underline">
               <span class="underline u-web"></span>
             </span>
-          </a>
+          </a> */}
         </div>
       </div>
 

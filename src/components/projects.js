@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyledProjects } from "../styled/projects.styled";
-import {
-  RevealBorder,
-  RevealSectionTitle,
-} from "./animations";
+import { RevealBorder, RevealSectionTitle } from "./animations";
 import Project from "./project";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
@@ -18,15 +15,17 @@ const Projects = ({ projects }) => {
       ease: "Power3.easeInOut",
       scrollTrigger: {
         trigger: ".projectBorder",
-        start: "top 100%"
-      }
+        start: "top 100%",
+      },
     });
-  }, [])
+  }, []);
   return (
     <StyledProjects id="section-work">
       <div class="section-header">
-      <RevealSectionTitle text={"WORK"} id={".projectBorder"} />
-      <h3 className="section-number work-number">02</h3>
+        <RevealSectionTitle text={"WORK"} id={".projectBorder"} />
+        <div class="section-circle work-number">
+          <h3 className="section-number">02</h3>
+        </div>
       </div>
       <div className="projectBorder">
         <RevealBorder id={"Border"} />

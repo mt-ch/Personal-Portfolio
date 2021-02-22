@@ -39,7 +39,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(1em, 18.5vw, 10em);
+  font-size: clamp(1em, 20vw, 12em);
   font-weight: 1000;
 }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledContact = styled.div`
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   padding-top: 6em;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,11 @@ export const StyledContact = styled.div`
 
   h1.contact-header-text {
     margin-bottom: 1vw;
+  }
+
+  .contact-mid-section {
+    display: flex;
+    margin-top: 1.5em;
   }
 
   .contact-container {
@@ -35,7 +40,7 @@ export const StyledContact = styled.div`
       margin: 1.5em 0;
     }
     .mail {
-      padding: 1.5em 0 0 25vw;
+      padding: 0 0 0 25vw;
       .email {
         text-transform: capitalize;
         padding-bottom: 0.5em;
@@ -49,7 +54,7 @@ export const StyledContact = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: end;
-      width: 100%auto;
+      width: 100%;
       margin-top: 3em;
 
       h3.footer-line {
@@ -80,16 +85,27 @@ export const StyledContact = styled.div`
   }
 
   @media (min-width: 550px) {
+    min-height: 100vh;
+
+    .contact-mid-section {
+      display: flex;
+      margin-top: 3em;
+    }
+
     h1.contact-header-text {
       margin: 1.5vw 0 !important;
     }
 
     .mail {
-      padding: 3em 0 0 25vw !important;
+      padding: 0 0 0 25vw !important;
+    }
+
+    .footer{
+      margin: 0!important;
     }
 
     .contact-container {
-      padding: 3em 0;
+      padding: 3em 0 0;
       .credits {
         max-width: 25vw;
       }

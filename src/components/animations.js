@@ -220,7 +220,7 @@ export const RevealLandingTitle = ({ text, className }) => {
       $(char).wrapAll("<span style=overflow:hidden;> </span>");
       char.style.marginLeft = "-.15em";
       gsap.from(char, {
-        delay: 2 + index / 10,
+        delay: 3 + index / 10,
         duration: 3,
         yPercent: 200,
         ease: "Power3.easeInOut",
@@ -253,7 +253,7 @@ export const RevealLandingTitleOther = ({ text, className }) => {
       $(char).wrapAll("<span style=overflow:hidden;> </span>");
       char.style.marginLeft = "-.25em";
       gsap.from(char, {
-        delay: 2 + index / 10,
+        delay: 3 + index / 10,
         duration: 3,
         yPercent: 200,
         ease: "Power3.easeInOut",
@@ -285,7 +285,7 @@ export const RevealLoadingTitle = ({ text, className, delay, letterClass }) => {
 
     gsap.from(lineClass, {
       delay: delay,
-      stagger: 0.2,
+      stagger: 0.1,
       duration: 1,
       yPercent: 200,
       ease: "Power3.easeInOut",

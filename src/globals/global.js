@@ -29,13 +29,33 @@ body {
   /* overflow: hidden; */
 }
 
+.section-circle{
+  height: 13vw;
+  width: 13vw;
+  border: 1px solid black;
+  border-radius: 100%;
+  padding: .45em .5em .2em .2em ;
+}
+
+@media(min-width: 550px){
+  .section-circle{
+  height: 7vw;
+  width: 7vw;
+}
+}
+
 .section-number{
   font-family: "Harmond";
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+
   /* margin: 3vw 0 -2vw 15vw;
   font-size: clamp(1em, 20.5vw, 12em); */
-  border: 1px solid black;
-  border-radius: 50%;
-  padding: .5em .5em .25em .25em;
+
 
 }
 

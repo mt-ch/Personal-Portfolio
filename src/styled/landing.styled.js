@@ -11,14 +11,19 @@ export const StyledLanding = styled.div`
 
   .landing-line-1 {
     font-family: "Harmond";
-    margin: 3vw 0 -2vw 0vw;
-    font-size: clamp(1em, 20.5vw, 12em);
+    margin: 2vw 3vw -2vw 2vw;
+    font-size: clamp(1em, 24.5vw, 12em);
+  }
+
+  .landing-line-2, .landing-line-4 {
+    margin: 0 0 0 5vw;
+    letter-spacing: 0.005rem;
   }
 
   .landing-line-3 {
     font-family: "Harmond";
-    margin: 3vw 0 -2vw 5vw;
-    font-size: clamp(1em, 20.5vw, 12em);
+    margin: 4vw 3vw -2vw 2vw;
+    font-size: clamp(1em, 24.5vw, 12em);
   }
 
   .landing-text-split {
@@ -27,9 +32,6 @@ export const StyledLanding = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    .section-number {
-      height: 50%;
-    }
   }
 
   .landing-subtext {

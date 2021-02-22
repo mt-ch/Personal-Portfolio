@@ -13,7 +13,7 @@ const Landing = () => {
 
   const reveal = () => {
     gsap.from(".landing-line", {
-      delay: 2.3,
+      delay: 3.3,
       duration: 3,
       yPercent: 200,
       stagger: {
@@ -22,7 +22,7 @@ const Landing = () => {
       ease: "Power3.easeInOut",
     });
     gsap.from(".about-number", {
-      delay: 2.5,
+      delay: 3.5,
       duration: 2,
       opacity: 0,
       ease: "Power3.easeInOut",
@@ -37,7 +37,9 @@ const Landing = () => {
             className={"landing-line-1"}
             text={"FOLIO / 21"}
           />
-          <h3 className="section-number about-number">01</h3>
+          <div className="section-circle about-number">
+          <h3 className="section-number">01</h3>
+          </div>
         </div>
         <RevealLandingTitleOther className={"landing-line-2"} text={"CODER"} />
 

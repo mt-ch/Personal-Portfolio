@@ -44,6 +44,7 @@ const Home = () => {
   useEffect(() => {
     disableBodyScroll(body);
     gsap.from(".loading-line", {
+      delay: .5,
       duration: 2,
       scaleY: 0,
       ease: "Power3.easeInOut",
@@ -62,7 +63,7 @@ const Home = () => {
     Pace.on("done", function () {
       setIsLoading(false);
       gsap.from(".loading-in", {
-        delay: 2,
+        delay: 3.1,
         duration: 1.5,
         transform: "scale(0)",
         ease: "Power3.easeInOut",
@@ -110,14 +111,14 @@ const Home = () => {
             <RevealLoadingTitle
               text={"LOADING"}
               className={"loader-letters"}
-              delay={0}
+              delay={.5}
               letterClass={"loader-letter"}
             />
             <div className="loading-line"></div>
             <RevealLoadingTitle
               text={"mt-ch"}
               className={"loader-letters-name"}
-              delay={0}
+              delay={.5}
               letterClass={"loader-letter-name"}
             />
           </div>
