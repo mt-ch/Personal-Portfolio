@@ -12,7 +12,7 @@ export const StyledLanding = styled.div`
   .landing-line-1 {
     font-family: "Harmond";
     margin: 2vw 3vw -2vw 2vw;
-    font-size: clamp(1em, 24.5vw, 12em);
+    font-size: clamp(1em, 21vw, 12em);
   }
 
   .landing-line-2, .landing-line-4 {
@@ -23,7 +23,7 @@ export const StyledLanding = styled.div`
   .landing-line-3 {
     font-family: "Harmond";
     margin: 4vw 3vw -2vw 2vw;
-    font-size: clamp(1em, 24.5vw, 12em);
+    font-size: clamp(1em, 21vw, 12em);
   }
 
   .landing-text-split {

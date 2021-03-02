@@ -22,7 +22,7 @@ const Landing = () => {
       ease: "Power3.easeInOut",
     });
     gsap.from(".about-number", {
-      delay: 3.5,
+      delay: 4,
       duration: 2,
       opacity: 0,
       ease: "Power3.easeInOut",
