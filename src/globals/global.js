@@ -27,6 +27,9 @@ body {
   text-rendering: optimizeLegibility;
   font-size: calc(1em + 1vw);
   /* overflow: hidden; */
+  --cursor-stroke: #c3654e;
+	--cursor-fill: none;
+	--cursor-stroke-width: 1px;
 }
 
 .section-circle{
@@ -42,6 +45,34 @@ body {
   height: 7vw;
   width: 7vw;
 }
+}
+
+.cursor{
+  display: none;
+}
+
+@media (any-pointer: fine) {
+	.cursor {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: block;
+		pointer-events: none;
+		opacity: 0;
+    z-index: 1000;
+	}
+	.cursor__inner {
+		fill: none;
+		stroke: #60381e;
+		stroke-width: 1px;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
 }
 
 .section-number{
@@ -72,6 +103,7 @@ body {
 .line-wrap {
   display: block;
   overflow: hidden;
+  z-index: 10;
 }
 
 .scroller {
@@ -100,10 +132,10 @@ body {
     }
   }
   
-a{
+/* a{
   color: black;
   text-decoration: none;
-}
+} */
 
 ul {
   list-style-type: none;
@@ -112,4 +144,5 @@ ul {
 svg {
   flex-shrink: 0;
 }
+
 `;

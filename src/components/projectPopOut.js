@@ -44,6 +44,7 @@ const ProjectPopOut = ({ setProjectActive, project }) => {
   }, []);
 
   return (
+    <div className="pop-out-bg">
     <div className="project-pop-out">
       <div>
         <div class="project-pop-out-header">
@@ -107,6 +108,7 @@ const ProjectPopOut = ({ setProjectActive, project }) => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

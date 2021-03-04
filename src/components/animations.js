@@ -5,6 +5,7 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
+import Arrow from "../assets/icons/arrow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -202,7 +203,7 @@ export const RevealTitleNoTrigger = ({ text }) => {
       className="project-pop-out-header-text"
       ref={(el) => (titleTarget = el)}
     >
-      {text}
+      <strong>{text}</strong>
     </h3>
   );
 };

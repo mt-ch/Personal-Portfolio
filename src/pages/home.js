@@ -14,6 +14,7 @@ import GetProjects from "../functions/getProjects";
 import Pace from "pace-js";
 import "../styled/loader.css";
 import { RevealLoadingTitle } from "../components/animations";
+import Cursor from "../components/cursor";
 import { enableBodyScroll, disableBodyScroll } from "body-scroll-lock";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -44,7 +45,7 @@ const Home = () => {
   useEffect(() => {
     disableBodyScroll(body);
     gsap.from(".loading-line", {
-      delay: .5,
+      delay: 0.5,
       duration: 2,
       scaleY: 0,
       ease: "Power3.easeInOut",
@@ -69,6 +70,11 @@ const Home = () => {
         ease: "Power3.easeInOut",
         onComplete: enableScroll,
       });
+      // const cursor = new Cursor(document.querySelector(".cursor"));
+      // [...document.querySelectorAll("a")].forEach((el) => {
+      //   el.addEventListener("mouseenter", () => cursor.emit("enter"));
+      //   el.addEventListener("mouseleave", () => cursor.emit("leave"));
+      // });
     });
   }, []);
 
@@ -111,14 +117,14 @@ const Home = () => {
             <RevealLoadingTitle
               text={"LOADING"}
               className={"loader-letters"}
-              delay={.5}
+              delay={0.5}
               letterClass={"loader-letter"}
             />
             <div className="loading-line"></div>
             <RevealLoadingTitle
               text={"mt-ch"}
               className={"loader-letters-name"}
-              delay={.5}
+              delay={0.5}
               letterClass={"loader-letter-name"}
             />
           </div>

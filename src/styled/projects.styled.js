@@ -1,12 +1,26 @@
 import styled from "styled-components";
 
 export const StyledProject = styled.div`
+.project:hover{
+  h2, h5{
+    color: #00000095!important;
+  }
+}
+.pop-out-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000050;
+}
   .project-pop-out {
     position: fixed;
     top: 0;
     left: 100%;
-    width: 100vw;
-    max-width: 450px;
+    /* width: 100vw; */
+    width: 85vw;
     margin: 1em 0 1em 1em;
     z-index: 99;
     background-color: #f7f3f0;
@@ -17,7 +31,7 @@ export const StyledProject = styled.div`
 
     .project-pop-out-header {
       display: flex;
-      width: 100%;
+      /* width: 100%; */
       justify-content: space-between;
 
       .project-pop-out-header-text {
@@ -56,14 +70,15 @@ export const StyledProject = styled.div`
       justify-content: space-between;
 
       .project-pop-out-photo {
-        /* height: 100%;
+        height: 100%;
+        min-height: 20vh;
         width: 100%;
         max-height: 40vh;
-        object-fit: cover; */
-        max-width: 100%;
+        object-fit: contain;
       }
     }
   }
+
 
   .pop-out-text {
     margin-bottom: 0.5vw;
@@ -82,10 +97,9 @@ export const StyledProject = styled.div`
       position: fixed;
       top: 0;
       left: 100%;
-      width: 70vw;
+      width: 50vw;
       margin: 1em 0 1em 1em;
       z-index: 99;
-      max-width: 800px;
       background-color: #f7f3f0;
       padding: 1em 2em 0.5em 1em;
     }
@@ -102,12 +116,7 @@ export const StyledProject = styled.div`
       display: block;
     }
 
-    .project-pop-out-photo {
-      height: 100%;
-      width: 100%;
-      max-height: 40vh;
-      object-fit: cover;
-    }
+
   }
 `;
 
@@ -176,8 +185,8 @@ export const StyledProjects = styled.div`
     }
     .cover-img {
       width: 14vw;
-      height: 100%;
-      object-fit: contain;
+      height: 10em;
+      object-fit: cover;
     }
     .project-tech {
       text-transform: uppercase;
