@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const NavMobile = () => {
   useEffect(() => {
-    reveal();
+    revealMenu();
   }, []);
 
   const handleClick = (e) => {
@@ -22,20 +22,19 @@ const NavMobile = () => {
     });
   };
 
-  const reveal = () => {
-    const t1 = new TimelineLite();
-    t1.from(".menu-text", {
-      delay: 2,
+  const revealMenu = () => {
+    const textTimeline = new TimelineLite();
+
+    textTimeline.from(".mobileMenu-text", {
+      delay: 4,
       duration: 2,
       yPercent: 100,
-      stagger: {
-        amount: 0.4,
-      },
+      stagger: 0.2,
       ease: "Power3.easeInOut",
     });
     gsap.from(".underline-nav-mobile", {
-      duration: 1,
-      delay: 3.5,
+      duration: 1.5,
+      delay: 5,
       width: 0,
       ease: "Power3.easeInOut",
     });
@@ -44,33 +43,24 @@ const NavMobile = () => {
   return (
     <StyledNavMobile>
       <a className="nav-title">
-        <p>
-          <div className="line-wrap">
-            <div className="menu-text">
-              <strong>Matt Chan</strong>
-            </div>
-          </div>
-        </p>
-        <p>
-          <div className="line-wrap">
-            <div className="menu-text">2016-2021</div>
-          </div>
-        </p>
+        <div className="line-wrap">
+          <p className="mobileMenu-text">
+            <strong>Matt Chan</strong>
+          </p>
+        </div>
+        <div className="line-wrap">
+          <p className="mobileMenu-text">2016-2021</p>
+        </div>
       </a>
 
-      {/* <a className="contact-button" onClick={handleClick}>
-        <p className="contact-button-text">
+      <a className="contact-button" onClick={handleClick}>
+        <div className="contact-button-text">
           <div className="line-wrap">
-            <div className="menu-text">
-              Contact
-            </div>
+            <p className="mobileMenu-text">Contact</p>
             <div className="underline-nav-mobile"></div>
           </div>
-        </p>
-      </a> */}
-        <a href="#" class="link link--metis">
-          <p>About us</p>
-        </a>
+        </div>
+      </a>
     </StyledNavMobile>
   );
 };

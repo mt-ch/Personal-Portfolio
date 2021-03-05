@@ -40,7 +40,7 @@ body {
   padding: .45em .5em .2em .2em ;
 }
 
-@media(min-width: 550px){
+@media(min-width: 700px){
   .section-circle{
   height: 7vw;
   width: 7vw;
@@ -100,6 +100,7 @@ a {
   .section-title{
     margin-right: 2vw;
   }
+  
 .line-wrap {
   display: block;
   overflow: hidden;

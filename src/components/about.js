@@ -5,7 +5,6 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-import { gsap } from "gsap";
 
 const About = ({text}) => {
   let aboutTarget = useRef(null);

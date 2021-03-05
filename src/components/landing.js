@@ -5,8 +5,6 @@ import About from "./about";
 import { RevealLandingTitle, RevealLandingTitleOther } from "./animations";
 
 const Landing = () => {
-  let lineTarget = useRef(null);
-
   useEffect(() => {
     reveal();
   }, []);
@@ -37,7 +35,6 @@ const Landing = () => {
 
   return (
     <StyledLanding>
-      
       <div>
         <div class="landing-text-split">
           <RevealLandingTitle
@@ -57,12 +54,14 @@ const Landing = () => {
         />
       </div>
       <div class="landing-bottom">
-        <About
-          text={
-            "Hi! I'm Matt. I'm a recent Computer Science graduate from the University of Derby. I'm currently searching for Frontend Development positions, based in the UK."
-          }
-        />
-        <div className="landing-subtext">
+        <div class="landing-subtext-left">
+          <About
+            text={
+              "Hi! I'm Matt. I'm a recent Computer Science graduate from the University of Derby. I'm currently searching for Frontend Development positions, based in the UK."
+            }
+          />
+        </div>
+        <div className="landing-subtext-right">
           <About text={"Available for freelance work: March, 21"} />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StyledProject } from "../styled/projects.styled";
 import {
   RevealTextTitle,
@@ -8,21 +8,19 @@ import {
 } from "./animations";
 import ProjectPopOut from "./projectPopOut";
 import { disableBodyScroll } from "body-scroll-lock";
-import { useMediaQuery, useMediaQueries } from "@react-hook/media-query";
+import { useMediaQueries } from "@react-hook/media-query";
 import Arrow from "../assets/icons/arrow";
 
 const Project = ({ project }) => {
   const [projectActive, setProjectActive] = useState(false);
   const [hoverProject, setHoverProject] = useState(false);
-  const body = document.body;
 
-  const { matches, matchesAny, matchesAll } = useMediaQueries({
-    screen: "screen",
-    width: "(min-width: 400px)",
+  const { matches } = useMediaQueries({
+    width: "(min-width: 700px)",
   });
 
   const openProject = () => {
-    disableBodyScroll(body);
+    disableBodyScroll(document.body);
     return setProjectActive(true);
   };
 
@@ -42,7 +40,7 @@ const Project = ({ project }) => {
             {matches.width ? null : (
               <RevealSubText id={project.id} text={project.technologies} />
             )}
-            {hoverProject ? <Arrow className={"arrow"} /> : null}
+            {matches.width ? (hoverProject ? <Arrow className={"arrow"} /> : null) : null}
           </div>
           <div class="project-info-side">
             <RevealPhoto

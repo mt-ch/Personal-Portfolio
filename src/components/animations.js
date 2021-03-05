@@ -5,7 +5,6 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 import $ from "jquery";
-import Arrow from "../assets/icons/arrow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +18,7 @@ export const RevealSectionTitle = ({ text, id }) => {
     });
     landingLine[0].chars.forEach((char, index) => {
       $(char).wrapAll("<span style=overflow:hidden;> </span>");
-      char.style.marginRight = "-.2em";
+      char.style.marginRight = "-.15em";
       gsap.from(char, {
         delay: index / 10,
         duration: 3,
@@ -281,16 +280,6 @@ export const RevealLoadingTitle = ({ text, className, delay, letterClass }) => {
     landingLine[0].chars.forEach((char, index) => {
       char.classList.add(letterClass);
     });
-
-    // const lineClass = "." + letterClass;
-
-    // gsap.from(lineClass, {
-    //   delay: delay,
-    //   stagger: 0.1,
-    //   duration: 1,
-    //   yPercent: 200,
-    //   ease: "Power3.easeInOut",
-    // });
   }, []);
 
   return (

@@ -7,6 +7,7 @@ export const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 0.5em;
 
   h1.contact-header-text {
     margin-bottom: 1vw;
@@ -14,7 +15,7 @@ export const StyledContact = styled.div`
 
   .contact-mid-section {
     display: flex;
-    margin-top: 1.5em;
+    margin-top: 2em;
   }
 
   .contact-container {
@@ -49,15 +50,18 @@ export const StyledContact = styled.div`
     }
   }
 
-  .contact-sub-heading{
-    margin-bottom: .2em;
+  .contact-sub-heading {
+    margin-bottom: 0.2em;
   }
 
   .contact-bottom {
+    margin-top: 2em;
+
     .footer {
       display: flex;
       justify-content: space-between;
       align-items: end;
+      height: 100%;
       width: 100%;
       margin-top: 3em;
 
@@ -88,12 +92,12 @@ export const StyledContact = styled.div`
     margin-bottom: 0.25vw;
   }
 
-  @media (min-width: 550px) {
+  @media (min-width: 700px) {
     min-height: 100vh;
 
     .contact-mid-section {
       display: flex;
-      margin-top: 3em;
+      margin-top: 2em;
     }
 
     h1.contact-header-text {
@@ -104,8 +108,8 @@ export const StyledContact = styled.div`
       padding: 0 0 0 25vw !important;
     }
 
-    .footer{
-      margin: 0!important;
+    .footer {
+      margin: 0 !important;
     }
 
     .contact-container {

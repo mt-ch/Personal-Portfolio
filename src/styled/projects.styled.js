@@ -3,14 +3,12 @@ import styled from "styled-components";
 export const StyledProject = styled.div`
   .project-title-wrapper {
     display: flex;
-
   }
 
   .arrow {
     height: 5vw;
     transform: rotate(-270deg) scaleX(-1);
   }
-
 
   .pop-out-bg {
     position: fixed;
@@ -97,7 +95,7 @@ export const StyledProject = styled.div`
     display: none;
   }
 
-  @media (min-width: 550px) {
+  @media (min-width: 700px) {
     .project-pop-out {
       position: fixed;
       top: 0;
@@ -109,7 +107,7 @@ export const StyledProject = styled.div`
       padding: 1em 2em 0.5em 1em;
     }
 
-    .project-info{
+    .project-info {
       display: flex;
       flex-direction: column;
       align-items: start;
@@ -141,8 +139,8 @@ export const StyledProjects = styled.div`
 
   .cover-img {
     width: 28vw;
-    height: 100%;
-    object-fit: contain;
+    height: 23vh;
+    object-fit: cover;
   }
 
   .box {
@@ -189,24 +187,28 @@ export const StyledProjects = styled.div`
     align-items: center;
   }
 
-  @media (min-width: 550px) {
+  @media (min-width: 700px) {
     .project-info {
       max-width: 30vw;
     }
     .cover-img {
-      width: 14vw;
-      height: 10em;
+      width: 16vw;
+      height: 9em;
       object-fit: cover;
     }
     .project-tech {
       text-transform: uppercase;
-      max-width: 12vw;
+      max-width: 15vw;
+    }
+
+    .project-info {
+      width: 30vw;
     }
 
     .project-info-side {
       display: flex;
       justify-content: space-between;
-      width: 30vw;
+      width: 35vw;
     }
   }
 `;

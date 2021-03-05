@@ -9,8 +9,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "body-scroll-lock": "^3.1.5",
-    "body-scroll-toggle": "^0.2.0",
-    "classnames": "^2.2.6",
     "gsap": "^3.5.1",
     "imagesloaded": "^4.1.4",
     "jquery": "^3.5.1",

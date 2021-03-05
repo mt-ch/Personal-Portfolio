@@ -7,7 +7,7 @@ export const StyledAbout = styled.div`
   .about-line{
     white-space: nowrap;
   }
-  @media (min-width: 550px) {
+  @media (min-width: 700px) {
     max-width: 30vw;
     .about-line{
   }
