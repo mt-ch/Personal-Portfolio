@@ -126,9 +126,19 @@ const Contact = ({ data }) => {
               <h3 className="section-number">03</h3>
             </div>
             <div className="mail">
-              <div className="line-wrap">
-                <h3 className="contact-line email">{data.Email}</h3>
-              </div>
+              <a
+                href="mailto:me@mt-ch.com"
+                className="nav-link"
+                // onMouseOver={() => mouseOverButton(".u-email")}
+                // onMouseLeave={() => mouseLeaveButton(".u-email")}
+              >
+                <div className="line-wrap">
+                  <h3 className="contact-line email">{data.Email}</h3>
+                </div>
+                <span class="nav-underline">
+                  <span class="underline u-email"></span>
+                </span>
+              </a>
               <div className="line-wrap">
                 <p className="contact-line contact-sub-text">
                   Available for freelance work:
@@ -143,26 +153,12 @@ const Contact = ({ data }) => {
         <div className="contact-bottom">
           <div className="contact-container">
             <div className="socials">
-              <div className="line-wrap">
+              <div className="line-wrap contact-sub-heading">
                 <p className="text-socials">
                   <strong>Socials</strong>
                 </p>
               </div>
               <ul>
-                <li>
-                  <a
-                    className="nav-link"
-                    onMouseOver={() => mouseOverButton(".u-insta")}
-                    onMouseLeave={() => mouseLeaveButton(".u-insta")}
-                  >
-                    <div class="line-wrap">
-                      <p class="text-socials contact-sub-text">Instagram</p>
-                    </div>
-                    <span class="nav-underline">
-                      <span class="underline u-insta"></span>
-                    </span>
-                  </a>
-                </li>
                 <li>
                   <a
                     className="nav-link"
@@ -196,8 +192,8 @@ const Contact = ({ data }) => {
               </ul>
             </div>
             <div class="credits" ref={revealCredits}>
-              <div class="line-wrap">
-                <p class="text-credits">
+              <div class="line-wrap contact-sub-heading">
+                <p class="text-credits ">
                   <strong>Credits</strong>
                 </p>
               </div>

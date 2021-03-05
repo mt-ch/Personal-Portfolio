@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TimelineLite } from "gsap/all";
 import { mouseOverButton, mouseLeaveButton } from "../functions/interactions";
-import {StyledNav} from "../styled/nav.styled";
+import { StyledNav } from "../styled/nav.styled";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,21 +62,21 @@ const Nav = () => {
       top: "-100%",
       scrollTrigger: {
         end: "1500px",
-        scrub: .1,
+        scrub: true,
       },
     });
     gsap.to(".nav-date", {
       top: "-50%",
       scrollTrigger: {
         end: "1500px",
-        scrub: .1,
+        scrub: true,
       },
     });
     gsap.to(".nav-options", {
       top: "0%",
       scrollTrigger: {
         end: "1500px",
-        scrub: .1,
+        scrub: true,
       },
     });
 
@@ -128,7 +128,7 @@ const Nav = () => {
       delay: 3.5,
       duration: 2.5,
       yPercent: 150,
-      stagger: .3,
+      stagger: 0.3,
       ease: "Power3.easeInOut",
     }).from(".underline", {
       duration: 1,
@@ -142,7 +142,9 @@ const Nav = () => {
       <div className="nav">
         <a className="nav-title" onClick={handleToTop}>
           <div class="line-wrap">
-            <p class="nav-text"><strong>Matt Chan</strong></p>
+            <p class="nav-text">
+              <strong>Matt Chan</strong>
+            </p>
           </div>
         </a>
         <div class="nav-date">
@@ -154,10 +156,10 @@ const Nav = () => {
           <ul>
             <li>
               <a
-                className="nav-link link--kale"
+                className="nav-link"
                 onClick={handleClickAbout}
-                // onMouseOver={() => mouseOverButton(".u-about")}
-                // onMouseLeave={() => mouseLeaveButton(".u-about")}
+                onMouseOver={() => mouseOverButton(".u-about")}
+                onMouseLeave={() => mouseLeaveButton(".u-about")}
               >
                 <p class="nav-text nav-option-text">About</p>
                 <span class="nav-underline">

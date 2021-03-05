@@ -63,6 +63,6 @@ export const HomeStyled = styled.div`
   }
 
   @media (min-width: 550px) {
-    padding: 0.5em ${({ theme }) => theme.padding} 0.5em 0;
+    padding: 1em ${({ theme }) => theme.padding} 0.5em 0;
   }
 `;

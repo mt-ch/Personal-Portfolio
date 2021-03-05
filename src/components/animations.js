@@ -282,16 +282,17 @@ export const RevealLoadingTitle = ({ text, className, delay, letterClass }) => {
       char.classList.add(letterClass);
     });
 
-    const lineClass = "." + letterClass;
+    // const lineClass = "." + letterClass;
 
-    gsap.from(lineClass, {
-      delay: delay,
-      stagger: 0.1,
-      duration: 1,
-      yPercent: 200,
-      ease: "Power3.easeInOut",
-    });
+    // gsap.from(lineClass, {
+    //   delay: delay,
+    //   stagger: 0.1,
+    //   duration: 1,
+    //   yPercent: 200,
+    //   ease: "Power3.easeInOut",
+    // });
   }, []);
+
   return (
     <span className="line-wrap">
       <h1 className={className} ref={(el) => (lineTarget = el)}>

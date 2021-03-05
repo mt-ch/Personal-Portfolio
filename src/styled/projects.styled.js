@@ -1,20 +1,26 @@
 import styled from "styled-components";
 
 export const StyledProject = styled.div`
-.project:hover{
-  h2, h5{
-    color: #00000095!important;
+  .project-title-wrapper {
+    display: flex;
+
   }
-}
-.pop-out-bg{
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 98;
-  height: 100vh;
-  width: 100vw;
-  background-color: #00000050;
-}
+
+  .arrow {
+    height: 5vw;
+    transform: rotate(-270deg) scaleX(-1);
+  }
+
+
+  .pop-out-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 98;
+    height: 100vh;
+    width: 100vw;
+    background-color: #00000050;
+  }
   .project-pop-out {
     position: fixed;
     top: 0;
@@ -79,7 +85,6 @@ export const StyledProject = styled.div`
     }
   }
 
-
   .pop-out-text {
     margin-bottom: 0.5vw;
   }
@@ -104,6 +109,13 @@ export const StyledProject = styled.div`
       padding: 1em 2em 0.5em 1em;
     }
 
+    .project-info{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+    }
+
     .pop-out-text {
       margin-bottom: 0.25vw;
     }
@@ -115,8 +127,6 @@ export const StyledProject = styled.div`
     .desk-sub-text {
       display: block;
     }
-
-
   }
 `;
 

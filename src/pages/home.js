@@ -7,16 +7,15 @@ import NavMobile from "../components/navMobile";
 import Contact from "../components/contact";
 import { useEffect } from "react";
 import { HomeStyled } from "../styled/components.styled";
-import { gsap } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GetInfo from "../functions/getInfo";
 import GetProjects from "../functions/getProjects";
 import Pace from "pace-js";
 import "../styled/loader.css";
 import { RevealLoadingTitle } from "../components/animations";
-import Cursor from "../components/cursor";
 import { enableBodyScroll, disableBodyScroll } from "body-scroll-lock";
-
+import Scrollbar from 'smooth-scrollbar'
 gsap.registerPlugin(ScrollTrigger);
 
 const useViewport = () => {
@@ -41,13 +40,36 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const GetData = () => [GetProjects(setProjects).then(GetInfo(setInfo))];
   const body = document.body;
+  const loadingTextTl = new TimelineLite({});
+  const loadingLineTl = new TimelineLite({});
 
   useEffect(() => {
     disableBodyScroll(body);
-    gsap.from(".loading-line", {
+    loadingLineTl.from(".loading-line", {
       delay: 0.5,
       duration: 2,
       scaleY: 0,
+      ease: "Power3.easeInOut",
+    });
+    loadingLineTl.to(".loading-line", {
+      delay: 0.5,
+      duration: 2,
+      scaleY: 0,
+      ease: "Power3.easeInOut",
+    });
+
+    loadingTextTl.from(".loader-letter", {
+      delay: 0.5,
+      stagger: 0.1,
+      duration: 1,
+      yPercent: 200,
+      ease: "Power3.easeInOut",
+    });
+    loadingTextTl.to(".loader-letter", {
+      delay: 0.5,
+      stagger: 0.1,
+      duration: 1,
+      yPercent: 200,
       ease: "Power3.easeInOut",
     });
 
@@ -70,11 +92,6 @@ const Home = () => {
         ease: "Power3.easeInOut",
         onComplete: enableScroll,
       });
-      // const cursor = new Cursor(document.querySelector(".cursor"));
-      // [...document.querySelectorAll("a")].forEach((el) => {
-      //   el.addEventListener("mouseenter", () => cursor.emit("enter"));
-      //   el.addEventListener("mouseleave", () => cursor.emit("leave"));
-      // });
     });
   }, []);
 
@@ -84,12 +101,10 @@ const Home = () => {
 
   useEffect(() => {
     // const scroller = document.querySelector(".scroller");
-
     // const scrollbar = Scrollbar.init(scroller, {
     //   delegateTo: document,
     //   alwaysShowTracks: false,
     // });
-
     // ScrollTrigger.scrollerProxy(".scroller", {
     //   scrollTop(value) {
     //     if (arguments.length) {
@@ -98,15 +113,8 @@ const Home = () => {
     //     return scrollbar.scrollTop; // getter
     //   },
     // });
-
     // scrollbar.addListener(ScrollTrigger.update);
     // ScrollTrigger.defaults({ scroller: ".scroller" });
-
-    gsap.from(".progress", {
-      yPercent: -100,
-      ease: "none",
-      scrollTrigger: { scrub: 0.3 },
-    });
   }, [ScrollTrigger]);
 
   return (
@@ -125,7 +133,7 @@ const Home = () => {
               text={"mt-ch"}
               className={"loader-letters-name"}
               delay={0.5}
-              letterClass={"loader-letter-name"}
+              letterClass={"loader-letter"}
             />
           </div>
           <div className="loading-in"></div>
@@ -133,9 +141,6 @@ const Home = () => {
 
         {width < breakpoint ? null : isLoading ? null : (
           <>
-            <div className="progress-wrap">
-              <div className="progress"></div>
-            </div>
             {/* <Nav /> */}
           </>
         )}

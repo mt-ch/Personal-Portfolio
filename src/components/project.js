@@ -9,10 +9,11 @@ import {
 import ProjectPopOut from "./projectPopOut";
 import { disableBodyScroll } from "body-scroll-lock";
 import { useMediaQuery, useMediaQueries } from "@react-hook/media-query";
-
+import Arrow from "../assets/icons/arrow";
 
 const Project = ({ project }) => {
   const [projectActive, setProjectActive] = useState(false);
+  const [hoverProject, setHoverProject] = useState(false);
   const body = document.body;
 
   const { matches, matchesAny, matchesAll } = useMediaQueries({
@@ -31,13 +32,17 @@ const Project = ({ project }) => {
         className={"project" + project.id}
         key={project.id}
         onClick={openProject}
+        onMouseOver={() => setHoverProject(true)}
+        onMouseLeave={() => setHoverProject(false)}
       >
         <div className="project">
           <div className="project-info">
-            <RevealTextTitle id={project.id} text={project.name} />
+              <RevealTextTitle id={project.id} text={project.name} />
+              
             {matches.width ? null : (
               <RevealSubText id={project.id} text={project.technologies} />
             )}
+            {hoverProject ? <Arrow className={"arrow"} /> : null}
           </div>
           <div class="project-info-side">
             <RevealPhoto

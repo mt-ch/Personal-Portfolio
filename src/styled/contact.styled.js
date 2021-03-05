@@ -43,10 +43,14 @@ export const StyledContact = styled.div`
       padding: 0 0 0 25vw;
       .email {
         text-transform: capitalize;
-        padding-bottom: 0.5em;
+        padding-bottom: 1.5vw;
         font-weight: 600;
       }
     }
+  }
+
+  .contact-sub-heading{
+    margin-bottom: .2em;
   }
 
   .contact-bottom {

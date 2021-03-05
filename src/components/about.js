@@ -7,12 +7,10 @@ import Splitting from "splitting";
 import $ from "jquery";
 import { gsap } from "gsap";
 
-const About = () => {
-  const revealAbout = useRef(null);
+const About = ({text}) => {
   let aboutTarget = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
 
     const aboutText = Splitting({ target: aboutTarget, by: "lines" });
 
@@ -30,15 +28,9 @@ const About = () => {
 
   return (
     <StyledAbout id="section-about">
-      <div ref={revealAbout} class="about-area">
-        <div class="about-info">
-          <p ref={(el) => (aboutTarget = el)}>
-            Hi! I'm Matt. I'm a recent Computer Science graduate from the
-            University of Derby. I'm currently searching for Frontend Development
-            positions, based in the UK.
-          </p>
-        </div>
-      </div>
+      <p ref={(el) => (aboutTarget = el)}>
+        {text}
+      </p>
     </StyledAbout>
   );
 };
